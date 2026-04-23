@@ -1,27 +1,38 @@
-// 大门业绩看板 2.0 - 渲染逻辑
+// 大门业绩看板 2.0 - 渲染逻辑（真实数据版）
 (function () {
   const M = window.MOCK;
   const COLORS = {
     kbo:  '#ff5577',
     dbo:  '#58a6ff',
     note: '#d2a8ff',
+    cart: '#fb950b', // 商卡
+    other:'#6e7681',
     primary: '#ff2442',
     text: '#e6edf3',
     dim:  '#8b949e',
     grid: '#2d333b',
   };
+  // 场域 → 颜色 映射
+  const fieldColor = (name) => {
+    if (name.includes('K播')) return COLORS.kbo;
+    if (name.includes('店播')) return COLORS.dbo;
+    if (name.includes('商品笔记') || name.includes('普通笔记') || name.includes('购物笔记') || name.includes('品合笔记') || name.includes('晒单笔记')) return COLORS.note;
+    if (name.includes('商卡')) return COLORS.cart;
+    return COLORS.other;
+  };
 
   // ---- 工具 ----
   const fmtNum = (n) => {
-    if (n == null) return '-';
+    if (n == null || isNaN(n)) return '-';
     const sign = n < 0 ? '-' : '';
     n = Math.abs(n);
     if (n >= 1e8) return sign + (n / 1e8).toFixed(2) + ' 亿';
     if (n >= 1e4) return sign + (n / 1e4).toFixed(1) + ' 万';
-    return sign + n.toLocaleString('en-US');
+    if (n >= 1)   return sign + n.toLocaleString('en-US', {maximumFractionDigits: 0});
+    return sign + n.toFixed(2);
   };
   const fmtPct = (v, withSign = true) => {
-    if (v == null) return '-';
+    if (v == null || isNaN(v)) return '-';
     const sign = withSign && v > 0 ? '+' : '';
     return `${sign}${(v * 100).toFixed(1)}%`;
   };
@@ -62,6 +73,10 @@
   function renderTab1() {
     const t = M.today;
     const y = t.yesterday;
+    // 取主力 3 个场域用于 KPI
+    const kbo  = (y.kbo  && y.kbo.gmv)  || 0;
+    const dbo  = (y.dbo  && y.dbo.gmv)  || 0;
+    const note = (y.note && y.note.gmv) || 0;
     const root = document.getElementById('tab1');
     root.innerHTML = `
       <div class="kpi-grid">
@@ -71,56 +86,137 @@
           <div class="kpi-foot text-dim">截至 ${t.updatedAt}</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label"><span class="dot kbo"></span>K播 DGMV</div>
+          <div class="kpi-label"><span class="dot kbo"></span>今日 K播 DGMV</div>
           <div class="kpi-value">${fmtNum(t.dgmv_kbo)}<span class="unit">元</span></div>
-          <div class="kpi-foot text-dim">占比 ${fmtPct(t.dgmv_kbo / t.dgmv_total, false)}</div>
+          <div class="kpi-foot text-dim">${t.dgmv_kbo === 0 ? '今日暂无 K播 成交' : `占比 ${fmtPct(t.dgmv_kbo / Math.max(t.dgmv_total, 1), false)}`}</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label"><span class="dot dbo"></span>店播 DGMV</div>
+          <div class="kpi-label"><span class="dot dbo"></span>今日 店播 DGMV</div>
           <div class="kpi-value">${fmtNum(t.dgmv_dbo)}<span class="unit">元</span></div>
-          <div class="kpi-foot text-dim">占比 ${fmtPct(t.dgmv_dbo / t.dgmv_total, false)}</div>
+          <div class="kpi-foot text-dim">${t.dgmv_dbo === 0 ? '今日暂无 店播 成交' : `占比 ${fmtPct(t.dgmv_dbo / Math.max(t.dgmv_total, 1), false)}`}</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label"><span class="dot note"></span>商品笔记 DGMV</div>
+          <div class="kpi-label"><span class="dot note"></span>今日 商品笔记 DGMV</div>
           <div class="kpi-value">${fmtNum(t.dgmv_note)}<span class="unit">元</span></div>
-          <div class="kpi-foot text-dim">占比 ${fmtPct(t.dgmv_note / t.dgmv_total, false)}</div>
+          <div class="kpi-foot text-dim">${t.dgmv_note === 0 ? '今日暂无 笔记 成交' : `占比 ${fmtPct(t.dgmv_note / Math.max(t.dgmv_total, 1), false)}`}</div>
         </div>
       </div>
 
       <div class="grid-2">
         <div class="card">
           <div class="card-head">
-            <div class="card-title">📈 今日 DGMV 小时趋势 <span class="card-sub">实时累计</span></div>
+            <div class="card-title">📅 昨日 DGMV 全场域分布 <span class="card-sub">含环比 · 9 个场域</span></div>
           </div>
-          <div id="chart-today-hourly" class="chart"></div>
+          <div class="kpi-grid" style="grid-template-columns: 1fr; margin-bottom: 16px">
+            <div class="kpi-card primary">
+              <div class="kpi-label">昨日总 DGMV</div>
+              <div class="kpi-value">${fmtNum(y.total)}<span class="unit">元</span></div>
+              <div class="kpi-foot">
+                <span class="chip ${chipClass(y.total_chain)}">${chipArrow(y.total_chain)} ${fmtPct(y.total_chain)}</span>
+                <span class="text-dim">环比前一日</span>
+              </div>
+            </div>
+          </div>
+          <div id="chart-yesterday-pie" class="chart short"></div>
         </div>
         <div class="card">
           <div class="card-head">
-            <div class="card-title">📅 昨日 DGMV 分场域 <span class="card-sub">2026-04-22 · 含环比</span></div>
+            <div class="card-title">📊 昨日各场域 DGMV + 环比</div>
           </div>
-          <div class="kpi-grid" style="margin-bottom:16px">
-            <div class="kpi-card">
-              <div class="kpi-label">昨日总 DGMV</div>
-              <div class="kpi-value">${fmtNum(y.total)}<span class="unit">元</span></div>
-              <div class="kpi-foot"><span class="chip ${chipClass(y.total_chain)}">${chipArrow(y.total_chain)} ${fmtPct(y.total_chain)}</span><span class="text-dim">环比前一日</span></div>
-            </div>
-          </div>
-          <div id="chart-yesterday-field" class="chart short"></div>
+          ${renderFieldTable(y.breakdown)}
         </div>
       </div>
     `;
 
-    // 今日小时趋势
-    const c1 = echarts.init(document.getElementById('chart-today-hourly'));
+    // 昨日全场域饼图
+    const c1 = echarts.init(document.getElementById('chart-yesterday-pie'));
+    c1.setOption({
+      backgroundColor: 'transparent',
+      tooltip: {
+        trigger: 'item',
+        backgroundColor: 'rgba(28,35,45,0.96)',
+        borderColor: COLORS.grid,
+        textStyle: { color: COLORS.text },
+        formatter: (p) => `<b>${p.name}</b><br/>DGMV：${fmtNum(p.value)} 元<br/>占比：${p.percent}%`,
+      },
+      series: [{
+        type: 'pie',
+        radius: ['45%', '72%'],
+        center: ['50%', '50%'],
+        label: { show: true, color: COLORS.text, fontSize: 11, formatter: '{b}\n{d}%' },
+        labelLine: { lineStyle: { color: COLORS.dim } },
+        itemStyle: { borderColor: '#1c232d', borderWidth: 2 },
+        data: y.breakdown.map(r => ({
+          name: r.field,
+          value: r.gmv,
+          itemStyle: { color: fieldColor(r.field) },
+        })),
+      }],
+    });
+    window.addEventListener('resize', () => c1.resize());
+  }
+
+  function renderFieldTable(rows) {
+    return `
+      <table class="table">
+        <thead><tr><th>场域</th><th class="num">DGMV</th><th class="num">环比</th><th class="num">占比</th></tr></thead>
+        <tbody>
+          ${(() => {
+            const total = rows.reduce((s, r) => s + r.gmv, 0);
+            return rows.map(r => `
+              <tr>
+                <td><span class="dot" style="background:${fieldColor(r.field)}"></span>${r.field}</td>
+                <td class="num">${fmtNum(r.gmv)}</td>
+                <td class="num"><span class="chip ${chipClass(r.chain)}">${chipArrow(r.chain)} ${fmtPct(Math.abs(r.chain), false)}</span></td>
+                <td class="num text-dim">${fmtPct(r.gmv / total, false)}</td>
+              </tr>
+            `).join('');
+          })()}
+        </tbody>
+      </table>`;
+  }
+
+  // ============ Tab 2: 趋势 & 异动 ============
+  function renderTab2() {
+    const tr = M.trend;
+    const root = document.getElementById('tab2');
+    root.innerHTML = `
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">📈 近 14 天 DGMV 日趋势 <span class="card-sub">${tr.dates14[0]} ~ ${tr.dates14[tr.dates14.length-1]}</span></div>
+        </div>
+        <div id="chart-trend14" class="chart tall"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">🚀 商家突增 Top10 <span class="card-sub">近 7 天 vs 上 7 天 · 环比变化率</span></div>
+          </div>
+          ${renderSellerTable(tr.sellerSurge, true)}
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">📉 商家突降 Top10 <span class="card-sub">近 7 天 vs 上 7 天 · 环比变化率</span></div>
+          </div>
+          ${renderSellerTable(tr.sellerDrop, false)}
+        </div>
+      </div>
+    `;
+
+    // 14 天趋势
+    const c1 = echarts.init(document.getElementById('chart-trend14'));
     const opt1 = baseOpt();
+    const avgGmv = tr.dgmv14.reduce((s, v) => s + v, 0) / tr.dgmv14.length;
     c1.setOption({
       ...opt1,
-      xAxis: { ...opt1.xAxis, data: t.hourly.map(h => h.hour) },
+      tooltip: { ...opt1.tooltip, valueFormatter: (v) => fmtNum(v) + ' 元' },
+      xAxis: { ...opt1.xAxis, data: tr.dates14 },
       series: [{
         type: 'line',
         smooth: true,
         symbol: 'circle',
-        symbolSize: 6,
+        symbolSize: 7,
         itemStyle: { color: COLORS.primary },
         lineStyle: { width: 2.5, color: COLORS.primary },
         areaStyle: {
@@ -132,146 +228,23 @@
             ],
           },
         },
-        data: t.hourly.map(h => h.dgmv),
-      }],
-    });
-
-    // 昨日分场域
-    const c2 = echarts.init(document.getElementById('chart-yesterday-field'));
-    const opt2 = baseOpt();
-    c2.setOption({
-      ...opt2,
-      tooltip: { ...opt2.tooltip, trigger: 'item' },
-      xAxis: { ...opt2.xAxis, data: ['K播', '店播', '商品笔记'] },
-      series: [{
-        type: 'bar',
-        barWidth: '38%',
-        itemStyle: {
-          borderRadius: [6, 6, 0, 0],
-          color: (params) => [COLORS.kbo, COLORS.dbo, COLORS.note][params.dataIndex],
+        markLine: {
+          symbol: 'none',
+          lineStyle: { color: 'rgba(255,255,255,0.4)', type: 'dashed' },
+          label: { color: COLORS.dim, fontSize: 11, formatter: `均值 ${fmtNum(avgGmv)}` },
+          data: [{ yAxis: avgGmv }],
         },
-        label: {
-          show: true, position: 'top', color: COLORS.text, fontSize: 11,
-          formatter: (params) => fmtNum(params.value),
-        },
-        data: [y.kbo, y.dbo, y.note],
+        label: { show: true, position: 'top', color: COLORS.text, fontSize: 10, formatter: (p) => fmtNum(p.value) },
+        data: tr.dgmv14,
       }],
     });
-    [c1, c2].forEach(c => window.addEventListener('resize', () => c.resize()));
-  }
-
-  // ============ Tab 2: 趋势 & 异动 ============
-  function renderTab2() {
-    const tr = M.trend;
-    const root = document.getElementById('tab2');
-    root.innerHTML = `
-      <div class="card">
-        <div class="card-head">
-          <div class="card-title">📈 近 14 天 DGMV 日趋势 <span class="card-sub">按场域堆叠</span></div>
-        </div>
-        <div id="chart-trend14" class="chart tall"></div>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-head">
-            <div class="card-title">📊 近 7 天 vs 上 7 天 <span class="card-sub">三场域对比</span></div>
-          </div>
-          <div id="chart-compare7d" class="chart"></div>
-        </div>
-        <div class="card">
-          <div class="card-head">
-            <div class="card-title">🏷️ 品类突增 / 突降 <span class="card-sub">三级类目 · 近 7 天 vs 上 7 天</span></div>
-          </div>
-          <div id="chart-category" class="chart"></div>
-        </div>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-head">
-            <div class="card-title">🚀 商家突增 Top10 <span class="card-sub">近 7 天 vs 上 7 天</span></div>
-          </div>
-          ${renderSellerTable(tr.sellerSurge, true)}
-        </div>
-        <div class="card">
-          <div class="card-head">
-            <div class="card-title">📉 商家突降 Top10 <span class="card-sub">近 7 天 vs 上 7 天</span></div>
-          </div>
-          ${renderSellerTable(tr.sellerDrop, false)}
-        </div>
-      </div>
-    `;
-
-    // 14 天堆叠
-    const c1 = echarts.init(document.getElementById('chart-trend14'));
-    const opt1 = baseOpt();
-    c1.setOption({
-      ...opt1,
-      legend: { data: ['K播', '店播', '商品笔记'], textStyle: { color: COLORS.dim }, top: 0, right: 8 },
-      tooltip: { ...opt1.tooltip, valueFormatter: (v) => fmtNum(v) + ' 元' },
-      grid: { ...opt1.grid, top: 40 },
-      xAxis: { ...opt1.xAxis, data: tr.dates14 },
-      series: [
-        { name: 'K播',     type: 'bar', stack: 'a', barWidth: '50%', itemStyle: { color: COLORS.kbo }, data: tr.dgmv14.kbo },
-        { name: '店播',    type: 'bar', stack: 'a', itemStyle: { color: COLORS.dbo }, data: tr.dgmv14.dbo },
-        { name: '商品笔记', type: 'bar', stack: 'a', itemStyle: { color: COLORS.note, borderRadius: [4, 4, 0, 0] }, data: tr.dgmv14.note },
-      ],
-    });
-
-    // 7d vs 上7d
-    const c2 = echarts.init(document.getElementById('chart-compare7d'));
-    const opt2 = baseOpt();
-    c2.setOption({
-      ...opt2,
-      legend: { data: ['上 7 天', '近 7 天'], textStyle: { color: COLORS.dim }, top: 0, right: 8 },
-      tooltip: { ...opt2.tooltip, valueFormatter: (v) => fmtNum(v) + ' 元' },
-      grid: { ...opt2.grid, top: 40 },
-      xAxis: { ...opt2.xAxis, data: tr.compare7d.map(d => d.field) },
-      series: [
-        { name: '上 7 天', type: 'bar', barWidth: '28%', itemStyle: { color: '#3a4252', borderRadius: [4,4,0,0] }, data: tr.compare7d.map(d => d.prev7) },
-        { name: '近 7 天', type: 'bar', barWidth: '28%', itemStyle: { color: COLORS.primary, borderRadius: [4,4,0,0] }, data: tr.compare7d.map(d => d.last7),
-          label: { show: true, position: 'top', color: COLORS.text, fontSize: 11,
-            formatter: (p) => `${fmtPct(tr.compare7d[p.dataIndex].chain)}` } },
-      ],
-    });
-
-    // 品类突增突降
-    const c3 = echarts.init(document.getElementById('chart-category'));
-    const opt3 = baseOpt();
-    const cats = [...tr.categorySurge.slice().reverse(), ...tr.categoryDrop];
-    c3.setOption({
-      ...opt3,
-      grid: { ...opt3.grid, left: 120 },
-      tooltip: { ...opt3.tooltip, trigger: 'item', formatter: (p) => `${p.name}<br/>环比 <b>${fmtPct(p.value / 100)}</b>` },
-      yAxis: {
-        type: 'category',
-        data: cats.map(c => c.cat),
-        axisLine: { lineStyle: { color: COLORS.grid } },
-        axisLabel: { color: COLORS.dim, fontSize: 11 },
-        axisTick: { show: false },
-      },
-      xAxis: {
-        type: 'value',
-        axisLine: { show: false },
-        axisLabel: { color: COLORS.dim, fontSize: 11, formatter: (v) => v + '%' },
-        splitLine: { lineStyle: { color: COLORS.grid, type: 'dashed' } },
-      },
-      series: [{
-        type: 'bar',
-        data: cats.map(c => ({
-          value: +(c.chain * 100).toFixed(1),
-          itemStyle: { color: c.chain > 0 ? '#2ea043' : '#f85149', borderRadius: [0, 4, 4, 0] },
-        })),
-        barWidth: '60%',
-        label: { show: true, position: 'right', color: COLORS.text, fontSize: 11, formatter: (p) => `${p.value > 0 ? '+' : ''}${p.value}%` },
-      }],
-    });
-
-    [c1, c2, c3].forEach(c => window.addEventListener('resize', () => c.resize()));
+    window.addEventListener('resize', () => c1.resize());
   }
 
   function renderSellerTable(rows, isUp) {
+    if (!rows || rows.length === 0) {
+      return `<div style="padding:24px;text-align:center;color:var(--text-dim)">暂无数据</div>`;
+    }
     return `
       <table class="table">
         <thead><tr><th width="40">#</th><th>商家</th><th class="num">近 7 天 DGMV</th><th class="num">环比</th></tr></thead>
@@ -280,8 +253,8 @@
             <tr>
               <td>${rankBadge(i + 1)}</td>
               <td>${r.name}</td>
-              <td class="num">${fmtNum(r.last7)}</td>
-              <td class="num"><span class="chip ${isUp ? 'up' : 'down'}">${chipArrow(r.chain)} ${fmtPct(r.chain)}</span></td>
+              <td class="num">${fmtNum(r.gmv)}</td>
+              <td class="num"><span class="chip ${isUp ? 'up' : 'down'}">${chipArrow(r.chain)} ${fmtPct(Math.abs(r.chain), false)}</span></td>
             </tr>
           `).join('')}
         </tbody>
@@ -303,15 +276,12 @@
         <div class="kpi-card">
           <div class="kpi-label">✨ 近 7 天动销商家</div>
           <div class="kpi-value">${sh.activeSellerCount}<span class="unit">家</span></div>
-          <div class="kpi-foot">
-            <span class="chip ${chipClass(sh.activeSellerChain)}">${chipArrow(sh.activeSellerChain)} ${fmtPct(sh.activeSellerChain)}</span>
-            <span class="text-dim">动销率 ${fmtPct(sh.activeSellerCount / M.meta.sellerCount, false)}</span>
-          </div>
+          <div class="kpi-foot text-dim">动销率 ${fmtPct(sh.activeSellerCount / M.meta.sellerCount, false)}</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">🆕 本月新商 GMV</div>
           <div class="kpi-value">${fmtNum(sh.newSellerTotal)}<span class="unit">元</span></div>
-          <div class="kpi-foot text-dim">${sh.newSellerThisMonth.length} 个新商</div>
+          <div class="kpi-foot text-dim">${sh.newSellerCount} 个新商</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">⚠️ 未动销商家</div>
@@ -330,15 +300,15 @@
       <div class="grid-2">
         <div class="card">
           <div class="card-head">
-            <div class="card-title">🆕 本月新商 GMV 明细 <span class="card-sub">按首次动销时间排序</span></div>
+            <div class="card-title">🆕 本月新商 GMV Top15 <span class="card-sub">按本月 GMV 排序</span></div>
           </div>
           <table class="table">
-            <thead><tr><th>商家</th><th>首次动销</th><th class="num">本月 GMV</th></tr></thead>
+            <thead><tr><th width="40">#</th><th>商家</th><th class="num">本月 GMV</th></tr></thead>
             <tbody>
-              ${sh.newSellerThisMonth.map(s => `
+              ${sh.newSellerThisMonth.map((s, i) => `
                 <tr>
+                  <td>${rankBadge(i+1)}</td>
                   <td>${s.name}</td>
-                  <td class="text-dim">${s.firstActive}</td>
                   <td class="num">${fmtNum(s.gmv)}</td>
                 </tr>
               `).join('')}
@@ -360,16 +330,16 @@
     const opt1 = baseOpt();
     c1.setOption({
       ...opt1,
-      grid: { ...opt1.grid, left: 130, right: 80 },
+      grid: { ...opt1.grid, left: 200, right: 100 },
       tooltip: { ...opt1.tooltip, formatter: (p) => {
         const row = sh.top15[sh.top15.length - 1 - p[0].dataIndex];
-        return `<b>${row.name}</b><br/>近7天 DGMV：${fmtNum(row.gmv)} 元<br/>同比：<span style="color:${row.yoyChain>0?'#2ea043':'#f85149'}">${fmtPct(row.yoyChain)}</span> (${row.yoyChange>0?'+':''}${fmtNum(row.yoyChange)})`;
+        return `<b>${row.name}</b><br/>近7天 DGMV：${fmtNum(row.gmv)} 元<br/>同比：<span style="color:${row.chain>0?'#2ea043':'#f85149'}">${fmtPct(row.chain)}</span> (${row.change>0?'+':''}${fmtNum(row.change)})`;
       }},
       yAxis: {
         type: 'category',
         data: data.map(r => r.name),
         axisLine: { lineStyle: { color: COLORS.grid } },
-        axisLabel: { color: COLORS.dim, fontSize: 11 },
+        axisLabel: { color: COLORS.dim, fontSize: 11, width: 180, overflow: 'truncate' },
         axisTick: { show: false },
       },
       xAxis: {
@@ -384,7 +354,7 @@
         itemStyle: {
           borderRadius: [0, 4, 4, 0],
           color: (p) => {
-            const yoyChain = data[p.dataIndex].yoyChain;
+            const yoyChain = data[p.dataIndex].chain;
             return yoyChain >= 0 ? COLORS.primary : '#9d4150';
           },
         },
@@ -395,9 +365,9 @@
           color: COLORS.text,
           fontSize: 11,
           formatter: (p) => {
-            const yoy = data[p.dataIndex].yoyChain;
-            const arrow = yoy > 0 ? '↑' : yoy < 0 ? '↓' : '—';
-            return `${fmtNum(p.value)}  ${arrow}${fmtPct(Math.abs(yoy), false)}`;
+            const row = data[p.dataIndex];
+            const arrow = row.chain > 0 ? '↑' : row.chain < 0 ? '↓' : '—';
+            return `${fmtNum(p.value)}  ${arrow}${fmtPct(Math.abs(row.chain), false)}`;
           },
         },
       }],
@@ -430,22 +400,24 @@
   function renderTab4() {
     const f = M.fieldAnalysis;
     const root = document.getElementById('tab4');
+    const hasBuyer = (f.topBuyerKbo && f.topBuyerKbo.length > 0);
     root.innerHTML = `
       <div class="grid-2">
         <div class="card">
           <div class="card-head">
-            <div class="card-title">🎯 昨日分场域 DGMV <span class="card-sub">含环比 · ${M.meta.updatedAt.split(' ')[0]}</span></div>
+            <div class="card-title">🎯 昨日全场域 DGMV 分布 <span class="card-sub">9 个场域 · 含环比</span></div>
           </div>
-          <div id="chart-yest-field" class="chart"></div>
+          <div id="chart-yest-field" class="chart tall"></div>
         </div>
         <div class="card">
           <div class="card-head">
-            <div class="card-title">📊 近 7 天分场域汇总 <span class="card-sub">含环比</span></div>
+            <div class="card-title">📊 昨日各场域 GMV + 环比柱状对比</div>
           </div>
-          <div id="chart-7d-field" class="chart"></div>
+          <div id="chart-yest-bar" class="chart tall"></div>
         </div>
       </div>
 
+      ${hasBuyer ? `
       <div class="grid-3">
         <div class="card">
           <div class="card-head">
@@ -465,31 +437,41 @@
           </div>
           ${renderBuyerTable(f.topBuyerNote)}
         </div>
-      </div>
+      </div>` : `
+      <div class="card" style="border-color:rgba(210,153,34,.4);background:rgba(210,153,34,.04)">
+        <div class="card-head">
+          <div class="card-title text-warning">⏳ 主力买手 Top5（待补充）</div>
+        </div>
+        <div style="padding:8px 4px;color:var(--text-dim);font-size:13px;line-height:1.7">
+          <b>当前看板的图表 chart_CCoZcLITD7 只有商家维度，无买手账号维度。</b><br/>
+          需要从数据集 1922「人货场成交分析」按"买手账号 / 直播间昵称"维度新建查询取数。<br/>
+          已计划用 NL 取数补充，本期先空缺。
+        </div>
+      </div>`}
 
       <div class="grid-3">
         <div class="card">
           <div class="card-head">
-            <div class="card-title">🔥 K播昨日爆品 Top10</div>
+            <div class="card-title">🔥 K播昨日爆品 Top10 <span class="card-sub">载体大类=直播</span></div>
           </div>
           ${renderHotTable(f.hotSpuKbo)}
         </div>
         <div class="card">
           <div class="card-head">
-            <div class="card-title">🔥 店播昨日爆品 Top10</div>
+            <div class="card-title">🔥 商卡昨日爆品 Top10 <span class="card-sub">载体大类=商卡</span></div>
           </div>
           ${renderHotTable(f.hotSpuDbo)}
         </div>
         <div class="card">
           <div class="card-head">
-            <div class="card-title">🔥 商品笔记昨日爆品 Top10</div>
+            <div class="card-title">🔥 笔记昨日爆品 Top10 <span class="card-sub">载体大类=笔记</span></div>
           </div>
           ${renderHotTable(f.hotSpuNote)}
         </div>
       </div>
     `;
 
-    // 昨日分场域
+    // 昨日全场域饼图
     const c1 = echarts.init(document.getElementById('chart-yest-field'));
     c1.setOption({
       backgroundColor: 'transparent',
@@ -500,46 +482,52 @@
         textStyle: { color: COLORS.text },
         formatter: (p) => {
           const r = f.yesterdayByField[p.dataIndex];
-          return `<b>${r.field}</b><br/>DGMV：${fmtNum(r.gmv)} 元<br/>环比：<span style="color:${r.chain>0?'#2ea043':'#f85149'}">${fmtPct(r.chain)}</span><br/>占比：${fmtPct(r.share, false)}`;
+          return `<b>${r.field}</b><br/>DGMV：${fmtNum(r.gmv)} 元<br/>环比：<span style="color:${r.chain>0?'#2ea043':'#f85149'}">${fmtPct(r.chain)}</span><br/>占比：${p.percent}%`;
         },
       },
-      legend: { bottom: 0, textStyle: { color: COLORS.dim } },
+      legend: { bottom: 0, textStyle: { color: COLORS.dim, fontSize: 11 }, itemWidth: 10, itemHeight: 10 },
       series: [{
         type: 'pie',
-        radius: ['45%', '72%'],
-        center: ['50%', '45%'],
-        label: { show: true, color: COLORS.text, fontSize: 12, formatter: '{b}\n{d}%' },
+        radius: ['40%', '68%'],
+        center: ['50%', '42%'],
+        label: { show: true, color: COLORS.text, fontSize: 11, formatter: '{b}\n{d}%' },
+        labelLine: { lineStyle: { color: COLORS.dim } },
         itemStyle: { borderColor: '#1c232d', borderWidth: 2 },
         data: f.yesterdayByField.map(r => ({
           name: r.field,
           value: r.gmv,
-          itemStyle: { color: { kbo: COLORS.kbo, dbo: COLORS.dbo, note: COLORS.note }[r.field === 'K播' ? 'kbo' : r.field === '店播' ? 'dbo' : 'note'] },
+          itemStyle: { color: fieldColor(r.field) },
         })),
       }],
     });
 
-    // 近7天分场域 - 条形对比
-    const c2 = echarts.init(document.getElementById('chart-7d-field'));
+    // 各场域 + 环比 柱状图
+    const c2 = echarts.init(document.getElementById('chart-yest-bar'));
     const opt2 = baseOpt();
     c2.setOption({
       ...opt2,
+      grid: { ...opt2.grid, left: 8, right: 16, top: 60 },
       tooltip: { ...opt2.tooltip, valueFormatter: (v) => fmtNum(v) + ' 元' },
-      xAxis: { ...opt2.xAxis, data: f.last7ByField.map(r => r.field) },
+      xAxis: {
+        ...opt2.xAxis,
+        data: f.yesterdayByField.map(r => r.field),
+        axisLabel: { ...opt2.xAxis.axisLabel, rotate: 30, fontSize: 11 },
+      },
       series: [{
         type: 'bar',
-        barWidth: '40%',
+        barWidth: '52%',
         itemStyle: {
-          borderRadius: [6, 6, 0, 0],
-          color: (p) => [COLORS.kbo, COLORS.dbo, COLORS.note][p.dataIndex],
+          borderRadius: [4, 4, 0, 0],
+          color: (p) => fieldColor(f.yesterdayByField[p.dataIndex].field),
         },
         label: {
           show: true, position: 'top', color: COLORS.text, fontSize: 11,
           formatter: (p) => {
-            const c = f.last7ByField[p.dataIndex].chain;
+            const c = f.yesterdayByField[p.dataIndex].chain;
             return `${fmtNum(p.value)}\n${fmtPct(c)}`;
           },
         },
-        data: f.last7ByField.map(r => r.gmv),
+        data: f.yesterdayByField.map(r => r.gmv),
       }],
     });
 
@@ -547,6 +535,9 @@
   }
 
   function renderBuyerTable(rows) {
+    if (!rows || rows.length === 0) {
+      return `<div style="padding:16px;text-align:center;color:var(--text-dim)">暂无数据</div>`;
+    }
     return `
       <table class="table">
         <thead><tr><th width="36">#</th><th>买手 / 账号</th><th class="num">DGMV</th><th class="num">商家</th></tr></thead>
@@ -564,19 +555,22 @@
   }
 
   function renderHotTable(rows) {
+    if (!rows || rows.length === 0) {
+      return `<div style="padding:16px;text-align:center;color:var(--text-dim)">暂无数据</div>`;
+    }
     return `
       <table class="table">
         <thead><tr><th width="36">#</th><th>商品 / 商家</th><th class="num">DGMV</th><th class="num">环比</th></tr></thead>
         <tbody>
-          ${rows.map(r => `
+          ${rows.map((r, i) => `
             <tr>
-              <td>${rankBadge(r.rank)}</td>
+              <td>${rankBadge(i+1)}</td>
               <td>
-                <div style="font-size:13px">${r.name}</div>
-                <div class="text-dim" style="font-size:11px">${r.seller}</div>
+                <div style="font-size:13px;line-height:1.4;max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${(r.name||'').replace(/"/g,'&quot;')}">${r.name}</div>
+                <div class="text-dim" style="font-size:11px;max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${(r.seller||'').replace(/"/g,'&quot;')}">${r.seller}</div>
               </td>
               <td class="num">${fmtNum(r.gmv)}</td>
-              <td class="num"><span class="chip ${chipClass(r.chain)}">${chipArrow(r.chain)} ${fmtPct(Math.abs(r.chain), false)}</span></td>
+              <td class="num">${r.chain ? `<span class="chip ${chipClass(r.chain)}">${chipArrow(r.chain)} ${fmtPct(Math.abs(r.chain), false)}</span>` : '<span class="text-dim">—</span>'}</td>
             </tr>
           `).join('')}
         </tbody>
@@ -587,11 +581,31 @@
   function renderTab5() {
     const b = M.bimonthly;
     const root = document.getElementById('tab5');
+
+    if (b.pending || !b.categories || b.categories.length === 0) {
+      root.innerHTML = `
+        <div class="card" style="border-color:rgba(210,153,34,.4);background:rgba(210,153,34,.04)">
+          <div class="card-head">
+            <div class="card-title text-warning">⏳ 双月类目进度（待补充）</div>
+          </div>
+          <div style="padding:8px 4px;color:var(--text-dim);font-size:13px;line-height:1.8">
+            <p>当前周期：<b>${b.period || '2026-03 / 2026-04'}</b></p>
+            <p style="margin-top:12px">本模块需要的数据：</p>
+            <ul style="margin-top:8px;padding-left:24px">
+              <li><b>双月目标 GMV</b>（按三级类目拆分）— 需要从休食组目标管理系统/Excel 导入</li>
+              <li><b>实际累计 GMV</b>（按三级类目拆分）— 从数据集 1922 NL 取数</li>
+            </ul>
+            <p style="margin-top:12px">当前看板的图表中没有"三级类目目标 vs 实际"的数据，<b>需要你提供本双月类目目标</b>，然后我接 NL 取数补全实际值。</p>
+            <p style="margin-top:16px;color:var(--text)">📞 请提供：本双月（3-4 月）休食组各三级类目目标清单（CSV / 表格 / 文档均可）</p>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    // ... 有数据时的渲染（暂保留）
     const overall = b.overall;
-
-    // 按 leadGap 排序：领先 → 落后
     const cats = b.categories.slice().sort((a, b) => b.leadGap - a.leadGap);
-
     root.innerHTML = `
       <div class="kpi-grid">
         <div class="kpi-card primary">
@@ -602,7 +616,6 @@
         <div class="kpi-card">
           <div class="kpi-label">🎯 双月目标 GMV</div>
           <div class="kpi-value">${fmtNum(overall.target)}<span class="unit">元</span></div>
-          <div class="kpi-foot text-dim">休食组目标</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">💰 当前 GMV</div>
@@ -615,113 +628,46 @@
           <div class="kpi-foot text-dim">完成度 - 时间进度</div>
         </div>
       </div>
-
       <div class="card">
         <div class="card-head">
-          <div class="card-title">🏷️ 三级类目进度详情 <span class="card-sub">按领先/落后排序 · 浅色虚线为时间进度（${fmtPct(b.progressDate, false)}）</span></div>
+          <div class="card-title">🏷️ 三级类目进度</div>
         </div>
-        <table class="table" style="font-size:13px">
-          <thead>
-            <tr>
-              <th>三级类目</th>
-              <th class="num" width="120">目标</th>
-              <th class="num" width="120">当前 GMV</th>
-              <th width="280">进度条</th>
-              <th class="num" width="90">完成度</th>
-              <th class="num" width="90">vs 时间进度</th>
-            </tr>
-          </thead>
+        <table class="table">
+          <thead><tr><th>类目</th><th class="num">目标</th><th class="num">实际</th><th>进度</th><th class="num">完成度</th></tr></thead>
           <tbody>
-            ${cats.map(c => {
-              const status = c.leadGap >= 0.02 ? 'good' : c.leadGap >= -0.05 ? '' : c.leadGap >= -0.15 ? 'warn' : 'bad';
-              const tag = c.leadGap >= 0.02 ? '<span class="chip up">领先</span>' :
-                          c.leadGap >= -0.05 ? '<span class="chip flat">同步</span>' :
-                          c.leadGap >= -0.15 ? '<span class="chip" style="color:#d29922;background:rgba(210,153,34,.12)">落后</span>' :
-                                               '<span class="chip down">滞后</span>';
-              return `
-                <tr>
-                  <td>${c.name}</td>
-                  <td class="num">${fmtNum(c.target)}</td>
-                  <td class="num">${fmtNum(c.actual)}</td>
-                  <td>
-                    <div style="position:relative">
-                      <div class="bar"><div class="bar-fill ${status}" style="width:${Math.min(c.progress, 1) * 100}%"></div></div>
-                      <div style="position:absolute;left:${b.progressDate * 100}%;top:-3px;width:1px;height:12px;background:rgba(255,255,255,0.5)"></div>
-                    </div>
-                  </td>
-                  <td class="num"><b>${fmtPct(c.progress, false)}</b></td>
-                  <td class="num">${tag} <span class="text-dim" style="font-size:11px">${fmtPct(c.leadGap)}</span></td>
-                </tr>
-              `;
-            }).join('')}
+            ${cats.map(c => `
+              <tr>
+                <td>${c.name}</td>
+                <td class="num">${fmtNum(c.target)}</td>
+                <td class="num">${fmtNum(c.actual)}</td>
+                <td><div class="bar"><div class="bar-fill" style="width:${Math.min(c.progress, 1)*100}%"></div></div></td>
+                <td class="num"><b>${fmtPct(c.progress, false)}</b></td>
+              </tr>
+            `).join('')}
           </tbody>
         </table>
       </div>
-
-      <div class="card">
-        <div class="card-head">
-          <div class="card-title">📊 类目完成度 vs 时间进度 <span class="card-sub">参考线为时间进度 ${fmtPct(b.progressDate, false)}</span></div>
-        </div>
-        <div id="chart-cat-progress" class="chart tall"></div>
-      </div>
     `;
-
-    const c1 = echarts.init(document.getElementById('chart-cat-progress'));
-    const opt1 = baseOpt();
-    const sorted = cats.slice().reverse();
-    c1.setOption({
-      ...opt1,
-      grid: { ...opt1.grid, left: 180, right: 30 },
-      tooltip: { ...opt1.tooltip, trigger: 'item', formatter: (p) => `${p.name}<br/>完成度：<b>${p.value}%</b><br/>差异：${fmtPct(sorted[p.dataIndex].leadGap)}` },
-      yAxis: {
-        type: 'category',
-        data: sorted.map(c => c.name),
-        axisLine: { lineStyle: { color: COLORS.grid } },
-        axisLabel: { color: COLORS.dim, fontSize: 11 },
-        axisTick: { show: false },
-      },
-      xAxis: {
-        type: 'value', max: 100, min: 0,
-        axisLine: { show: false },
-        axisLabel: { color: COLORS.dim, fontSize: 11, formatter: '{value}%' },
-        splitLine: { lineStyle: { color: COLORS.grid, type: 'dashed' } },
-      },
-      series: [{
-        type: 'bar',
-        barWidth: '55%',
-        data: sorted.map(c => ({
-          value: +(c.progress * 100).toFixed(1),
-          itemStyle: {
-            borderRadius: [0, 4, 4, 0],
-            color: c.leadGap >= 0.02 ? '#2ea043' : c.leadGap >= -0.05 ? '#58a6ff' : c.leadGap >= -0.15 ? '#d29922' : '#f85149',
-          },
-        })),
-        label: { show: true, position: 'right', color: COLORS.text, fontSize: 11, formatter: '{c}%' },
-        markLine: {
-          symbol: 'none',
-          lineStyle: { color: 'rgba(255,255,255,0.5)', type: 'dashed', width: 1.5 },
-          label: { color: COLORS.dim, fontSize: 11, formatter: '时间进度 {c}%' },
-          data: [{ xAxis: +(b.progressDate * 100).toFixed(1) }],
-        },
-      }],
-    });
-    window.addEventListener('resize', () => c1.resize());
   }
 
   // ============ Tab 切换 ============
   function switchTab(name) {
     document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === name));
-    // 触发 echarts 重绘
     setTimeout(() => window.dispatchEvent(new Event('resize')), 30);
   }
 
   // ============ 初始化 ============
   function init() {
-    // 填充 header meta
     document.getElementById('owner-name').textContent = `${M.meta.ownerName}（${M.meta.ownerAlias}）`;
     document.getElementById('owner-dept').textContent = M.meta.department;
     document.getElementById('updated-at').textContent = M.meta.updatedAt;
+    // 数据来源标记
+    const srcEl = document.getElementById('data-source');
+    if (srcEl) {
+      srcEl.textContent = M.meta.dataSource === 'real' ? '✅ 真实数据' : 'DEMO · Mock 数据';
+      srcEl.style.color = M.meta.dataSource === 'real' ? '#2ea043' : '';
+    }
 
     renderTab1();
     renderTab2();
