@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>大门业绩看板 2.0</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📊%3C/text%3E%3C/svg%3E" />
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-logo">📊</div>
+        <div class="brand-text">
+          <div class="brand-title">大门业绩看板 2.0</div>
+          <div class="brand-sub">AM <span id="owner-name">-</span> · <span id="owner-dept">-</span></div>
+        </div>
+      </div>
+      <div class="header-meta">
+        <span class="pill live"><span class="live-dot"></span>实时数据</span>
+        <span class="pill">更新于 <span id="updated-at">-</span></span>
+        <span class="pill">DEMO · Mock 数据</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <div class="tabs-inner">
+      <div class="tab" data-tab="tab1">🔴 今日实时</div>
+      <div class="tab" data-tab="tab2">📈 趋势 & 异动</div>
+      <div class="tab" data-tab="tab3">🏪 商家健康</div>
+      <div class="tab" data-tab="tab4">🎯 场域分析</div>
+      <div class="tab" data-tab="tab5">📦 双月类目进度</div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div id="tab1" class="tab-panel"></div>
+    <div id="tab2" class="tab-panel"></div>
+    <div id="tab3" class="tab-panel"></div>
+    <div id="tab4" class="tab-panel"></div>
+    <div id="tab5" class="tab-panel"></div>
+
+    <div class="footer">
+      ⚠️ 当前为 Mock 数据演示版 · 真实数据将通过 RedBI 数据集 1922 / 18995 接入<br/>
+      由 DIBP 📊 生成 · 数据基准日 2026-04-22
+    </div>
+  </main>
+
+  <script src="./data/mock.js"></script>
+  <script src="./assets/app.js"></script>
+</body>
+</html>
