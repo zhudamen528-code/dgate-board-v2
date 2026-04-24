@@ -361,3 +361,19 @@ a { color: inherit; text-decoration: none; }
 }
 .table.compact .chip { font-size: 11px; padding: 1px 6px; }
 .kpi-card .card-sub { color: var(--text-dim); font-weight: 400; font-size: 11px; }
+
+/* V3 新增 */
+.note-link {
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color .15s;
+}
+.note-link:hover {
+  border-bottom-color: var(--primary);
+}
+.link-arrow {
+  font-size: 10px;
+  opacity: 0.6;
+  margin-left: 2px;
+}

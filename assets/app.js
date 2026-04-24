@@ -131,14 +131,20 @@
           ${renderSpuTable(t.topSpus)}
         </div>
         <div class="card">
-          <div class="card-head"><div class="card-title">📝 昨日 Top10 笔记</div></div>
+          <div class="card-head"><div class="card-title">📝 昨日 Top10 笔记 <span class="card-sub">点击跳转</span></div></div>
           ${renderNoteTable(t.topNotes)}
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-head"><div class="card-title">💎 昨日 Top10 买手 × 商品 × 商家</div></div>
-        ${renderComboTable(t.topCombos)}
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head"><div class="card-title">💎 昨日 Top10 买手 × 商品 × 商家 <span class="card-sub">仅 K播</span></div></div>
+          ${renderComboTable(t.topCombos)}
+        </div>
+        <div class="card">
+          <div class="card-head"><div class="card-title">📺 昨日 Top10 店播 <span class="card-sub">按商家</span></div></div>
+          ${renderDboTable(t.topDbo)}
+        </div>
       </div>
     `;
 
@@ -200,13 +206,34 @@
     return `<table class="table">
       <thead><tr><th width="40">#</th><th>笔记 / 作者</th><th class="num">DGMV</th></tr></thead>
       <tbody>
-        ${rows.map((r, i) => `
+        ${rows.map((r, i) => {
+          const url = r.url || (r.noteId ? `https://www.xiaohongshu.com/explore/${r.noteId}` : '');
+          const titleHtml = url
+            ? `<a href="${url}" target="_blank" rel="noopener" class="note-link" title="${(r.title||'').replace(/"/g,'&quot;')}">${r.title || '(无标题)'} <span class="link-arrow">↗</span></a>`
+            : `<span title="${(r.title||'').replace(/"/g,'&quot;')}">${r.title || '(无标题)'}</span>`;
+          return `
           <tr>
             <td>${rankBadge(i+1)}</td>
             <td>
-              <div title="${(r.title||'').replace(/"/g,'&quot;')}" style="max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px">${r.title || '(无标题)'}</div>
+              <div style="max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px">${titleHtml}</div>
               <div class="text-dim" style="font-size:11px">@${r.author}</div>
             </td>
+            <td class="num">${fmtNum(r.gmv)}</td>
+          </tr>`;
+        }).join('')}
+      </tbody>
+    </table>`;
+  }
+
+  function renderDboTable(rows) {
+    if (!rows || rows.length === 0) return '<div class="empty">暂无数据</div>';
+    return `<table class="table">
+      <thead><tr><th width="40">#</th><th>商家</th><th class="num">店播 DGMV</th></tr></thead>
+      <tbody>
+        ${rows.map((r, i) => `
+          <tr>
+            <td>${rankBadge(i+1)}</td>
+            <td>${r.seller}</td>
             <td class="num">${fmtNum(r.gmv)}</td>
           </tr>`).join('')}
       </tbody>
@@ -251,9 +278,9 @@
         </div>
         <div class="card">
           <div class="card-head">
-            <div class="card-title">✨ 新动销 Top10 <span class="card-sub">上 7 天=0，近 7 天有 GMV</span></div>
+            <div class="card-title">✨ 新动销 Top10 <span class="card-sub">2026 入驻 + 本月有 GMV</span></div>
           </div>
-          ${renderNewSellerTable(t.sellerNew)}
+          ${renderNewSeller2026Table(t.sellerNew)}
         </div>
         <div class="card">
           <div class="card-head">
@@ -337,6 +364,22 @@
     </table>`;
   }
 
+  function renderNewSeller2026Table(rows) {
+    if (!rows || rows.length === 0) return '<div class="empty">暂无</div>';
+    return `<table class="table compact">
+      <thead><tr><th width="32">#</th><th>商家</th><th class="num">入驻日</th><th class="num">近30d GMV</th></tr></thead>
+      <tbody>
+        ${rows.map((r, i) => `
+          <tr>
+            <td>${rankBadge(i+1)}</td>
+            <td><div style="max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${r.name}">${r.name}</div></td>
+            <td class="num text-dim" style="font-size:10px">${(r.settleDate||'').substring(5)}</td>
+            <td class="num">${fmtNum(r.gmv)}</td>
+          </tr>`).join('')}
+      </tbody>
+    </table>`;
+  }
+
   // ============ Tab 3: 商家健康 ============
   function renderTab3() {
     const t = M.tab3_seller;
@@ -349,19 +392,19 @@
           <div class="kpi-foot text-dim">${M.meta.department}</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">✨ 近 7 天动销商家</div>
-          <div class="kpi-value">${t.activeSellerCount}<span class="unit">家</span></div>
-          <div class="kpi-foot text-dim">动销率 ${fmtPct(t.activeSellerCount / t.totalSellerCount, false)}</div>
+          <div class="kpi-label">✨ 本月动销商家 <span class="card-sub">${M.meta.period.thisMonth || '本月'}</span></div>
+          <div class="kpi-value">${t.monthActiveCount}<span class="unit">家</span></div>
+          <div class="kpi-foot text-dim">动销率 ${fmtPct(t.monthActiveCount / t.totalSellerCount, false)} · 合计 ${fmtNum(t.monthActiveTotal)}</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">🆕 近 7 天新动销</div>
+          <div class="kpi-label">🆕 本月新动销 <span class="card-sub">2026 入驻</span></div>
           <div class="kpi-value">${t.newSellerCount}<span class="unit">家</span></div>
           <div class="kpi-foot text-dim">合计 GMV ${fmtNum(t.newSellerTotal)}</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">⚠️ 未动销商家</div>
-          <div class="kpi-value">${t.totalSellerCount - t.activeSellerCount}<span class="unit">家</span></div>
-          <div class="kpi-foot text-dim">占比 ${fmtPct((t.totalSellerCount - t.activeSellerCount) / t.totalSellerCount, false)}</div>
+          <div class="kpi-label">⚠️ 本月未动销</div>
+          <div class="kpi-value">${t.totalSellerCount - t.monthActiveCount}<span class="unit">家</span></div>
+          <div class="kpi-foot text-dim">占比 ${fmtPct((t.totalSellerCount - t.monthActiveCount) / t.totalSellerCount, false)}</div>
         </div>
       </div>
 
@@ -375,13 +418,13 @@
       <div class="grid-2">
         <div class="card">
           <div class="card-head">
-            <div class="card-title">🆕 新动销商家 Top10 <span class="card-sub">上 7 天=0，近 7 天有成交</span></div>
+            <div class="card-title">🆕 本月新动销商家 Top10 <span class="card-sub">2026 入驻 + 本月有 GMV</span></div>
           </div>
-          ${renderSimpleRankTable(t.newSellers, 'name', 'gmv')}
+          ${renderNewSeller2026Table(t.newSellers)}
         </div>
         <div class="card">
           <div class="card-head">
-            <div class="card-title">📊 商家活跃分布</div>
+            <div class="card-title">📊 商家本月动销分布</div>
           </div>
           <div id="t3-pie" class="chart"></div>
         </div>
@@ -444,8 +487,8 @@
         label: { show: true, color: COLORS.text, fontSize: 12, formatter: '{b}\n{d}%' },
         itemStyle: { borderColor: '#1c232d', borderWidth: 2 },
         data: [
-          { name: '动销商家', value: t.activeSellerCount, itemStyle: { color: COLORS.primary } },
-          { name: '未动销商家', value: t.totalSellerCount - t.activeSellerCount, itemStyle: { color: '#3a4252' } },
+          { name: '本月动销', value: t.monthActiveCount, itemStyle: { color: COLORS.primary } },
+          { name: '本月未动销', value: t.totalSellerCount - t.monthActiveCount, itemStyle: { color: '#3a4252' } },
         ],
       }],
     });
@@ -471,8 +514,8 @@
 
       <div class="grid-2">
         <div class="card">
-          <div class="card-head"><div class="card-title">📺 近 7 天直播场次 Top10 <span class="card-sub">按直播间数排序</span></div></div>
-          ${renderLiveSessionTable(t.topLiveSession)}
+          <div class="card-head"><div class="card-title">📺 近 7 天单场店播 GMV Top10 <span class="card-sub">日期 × 商家</span></div></div>
+          ${renderSessionGmvTable(t.topSessionGmv)}
         </div>
         <div class="card">
           <div class="card-head"><div class="card-title">📝 近 7 天笔记 Top10</div></div>
@@ -481,23 +524,23 @@
       </div>
 
       <div class="card">
-        <div class="card-head"><div class="card-title">💎 近 7 天 Top10 买手 × 商品 × 商家</div></div>
+        <div class="card-head"><div class="card-title">💎 近 7 天 Top10 买手 × 商品 × 商家 <span class="card-sub">仅 K播</span></div></div>
         ${renderComboTable(t.topCombos7d)}
       </div>
     `;
   }
 
-  function renderLiveSessionTable(rows) {
+  function renderSessionGmvTable(rows) {
     if (!rows || rows.length === 0) return '<div class="empty">暂无数据</div>';
     return `<table class="table">
-      <thead><tr><th width="40">#</th><th>商家</th><th class="num">直播场次</th><th class="num">总时长</th></tr></thead>
+      <thead><tr><th width="40">#</th><th class="num">日期</th><th>商家</th><th class="num">单日店播 GMV</th></tr></thead>
       <tbody>
         ${rows.map((r, i) => `
           <tr>
             <td>${rankBadge(i+1)}</td>
-            <td>${r.name}</td>
-            <td class="num">${r.sessionCount}</td>
-            <td class="num text-dim">${r.durationHours} h</td>
+            <td class="num text-dim" style="font-size:12px">${(r.date||'').substring(5)}</td>
+            <td>${r.seller}</td>
+            <td class="num">${fmtNum(r.gmv)}</td>
           </tr>`).join('')}
       </tbody>
     </table>`;
@@ -592,7 +635,7 @@
       root.innerHTML = `
         <div class="card" style="text-align:center;padding:60px 20px">
           <div style="font-size:48px;margin-bottom:16px">✅</div>
-          <div class="card-title" style="margin-bottom:8px">近 7 天名下商家无违规推送</div>
+          <div class="card-title" style="margin-bottom:8px">近 7 天名下商家无违规处罚</div>
           <div class="text-dim">暂未检测到违规消息</div>
         </div>`;
       return;
@@ -605,28 +648,33 @@
           <div class="kpi-foot text-dim">需关注</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">📨 总推送次数</div>
+          <div class="kpi-label">📨 总处罚次数 <span class="card-sub">含黑+白盒</span></div>
           <div class="kpi-value">${t.totalCount}<span class="unit">次</span></div>
-          <div class="kpi-foot text-dim">来自 dataset 39664</div>
+          <div class="kpi-foot text-dim">${t.source || 'Themis 25094'}</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">🔥 最高单店</div>
-          <div class="kpi-value">${t.list[0].pushCount}<span class="unit">次</span></div>
-          <div class="kpi-foot text-dim">${t.list[0].name}</div>
+          <div class="kpi-label">🔴 黑盒处罚</div>
+          <div class="kpi-value">${t.totalBlack || 0}<span class="unit">次</span></div>
+          <div class="kpi-foot text-dim">系统强制</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">🟡 白盒处罚</div>
+          <div class="kpi-value">${t.totalWhite || 0}<span class="unit">次</span></div>
+          <div class="kpi-foot text-dim">人工/可申诉</div>
         </div>
       </div>
 
       <div class="card">
         <div class="card-head">
-          <div class="card-title">⚠️ 近 7 天违规推送商家明细 <span class="card-sub">建议联系商家了解情况</span></div>
+          <div class="card-title">⚠️ 近 7 天违规处罚商家明细 <span class="card-sub">建议联系商家了解情况</span></div>
         </div>
         <table class="table">
           <thead><tr>
-            <th width="40">#</th><th>商家名称</th><th>商家 ID</th><th class="num">推送次数</th><th>预警等级</th>
+            <th width="40">#</th><th>商家名称</th><th class="num">总次数</th><th class="num">🔴 黑盒</th><th class="num">🟡 白盒</th><th>主因</th><th>预警等级</th>
           </tr></thead>
           <tbody>
             ${t.list.map((r, i) => {
-              const level = r.pushCount >= 20 ? 'high' : r.pushCount >= 10 ? 'mid' : 'low';
+              const level = r.totalCount >= 15 ? 'high' : r.totalCount >= 5 ? 'mid' : 'low';
               const levelTag = level === 'high'
                 ? '<span class="chip down">🔴 高</span>'
                 : level === 'mid'
@@ -636,8 +684,10 @@
                 <tr>
                   <td>${rankBadge(i+1)}</td>
                   <td><b>${r.name}</b></td>
-                  <td class="text-dim" style="font-size:11px;font-family:monospace">${r.sellerId}</td>
-                  <td class="num"><b>${r.pushCount}</b></td>
+                  <td class="num"><b>${r.totalCount}</b></td>
+                  <td class="num" style="color:#f85149">${r.blackCount || 0}</td>
+                  <td class="num" style="color:#d29922">${r.whiteCount || 0}</td>
+                  <td><span style="font-size:12px">${r.topReason}</span> <span class="text-dim" style="font-size:10px">×${r.topReasonCount}</span></td>
                   <td>${levelTag}</td>
                 </tr>`;
             }).join('')}
@@ -661,7 +711,7 @@
     document.getElementById('updated-at').textContent = M.meta.updatedAt;
     const srcEl = document.getElementById('data-source');
     if (srcEl) {
-      srcEl.textContent = '✅ 真实数据 V2';
+      srcEl.textContent = '✅ 真实数据 V3';
       srcEl.style.color = '#2ea043';
     }
 
