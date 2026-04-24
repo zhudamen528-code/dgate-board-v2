@@ -347,3 +347,17 @@ a { color: inherit; text-decoration: none; }
 .text-success { color: var(--success); }
 .text-danger { color: var(--danger); }
 .text-warning { color: var(--warning); }
+
+/* V2 新增 */
+.empty {
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 13px;
+}
+.table.compact th, .table.compact td {
+  padding: 8px 10px;
+  font-size: 12px;
+}
+.table.compact .chip { font-size: 11px; padding: 1px 6px; }
+.kpi-card .card-sub { color: var(--text-dim); font-weight: 400; font-size: 11px; }
