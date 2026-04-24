@@ -1,11 +1,11 @@
-// 真实数据 V3 · 自动生成于 2026-04-24 07:48:09
+// 真实数据 V3 · 自动生成于 2026-04-24 07:49:26
 window.MOCK = {
   "meta": {
     "ownerName": "大门",
     "ownerAlias": "朱锦程",
     "department": "五组（休食）",
     "sellerCount": 367,
-    "updatedAt": "2026-04-24 07:48",
+    "updatedAt": "2026-04-24 07:49",
     "dataSource": "real_v3",
     "version": "V3",
     "period": {
