@@ -550,81 +550,139 @@
   function renderTab5() {
     const t = M.tab5_category;
     const root = document.getElementById('tab5');
+    const totalChainCls = t.totalChain == null ? 'flat' : t.totalChain > 0 ? 'up' : 'down';
+    const totalChainSign = t.totalChain == null ? '—' : t.totalChain > 0 ? '↑' : '↓';
+
+    // 涨跌排序的类目
+    const upL2 = t.l2List.filter(x => x.change > 0).sort((a,b) => b.change - a.change).slice(0, 5);
+    const downL2 = t.l2List.filter(x => x.change < 0).sort((a,b) => a.change - b.change).slice(0, 5);
+
     root.innerHTML = `
       <div class="kpi-grid">
         <div class="kpi-card primary">
-          <div class="kpi-label">🏷️ 二级类目数</div>
-          <div class="kpi-value">${t.totalCategories}<span class="unit">个</span></div>
-          <div class="kpi-foot text-dim">近 7 天有动销的类目</div>
+          <div class="kpi-label">💰 本月 GMV <span class="card-sub">${M.meta.period.thisMonth || ''}</span></div>
+          <div class="kpi-value">${fmtNum(t.totalGmv)}<span class="unit">元</span></div>
+          <div class="kpi-foot text-dim">
+            <span class="chip ${totalChainCls}">${totalChainSign} ${t.totalChain != null ? fmtPct(Math.abs(t.totalChain), false) : '—'}</span>
+            vs 上月同期 ${fmtNum(t.totalGmvPrev)}
+          </div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">💰 近 7 天 GMV</div>
-          <div class="kpi-value">${fmtNum(t.totalGmv)}<span class="unit">元</span></div>
+          <div class="kpi-label">🏷️ 二级类目数</div>
+          <div class="kpi-value">${t.totalCategories}<span class="unit">个</span></div>
+          <div class="kpi-foot text-dim">本月有动销</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">📊 Top 5 类目占比</div>
           <div class="kpi-value">${fmtPct(t.l2List.slice(0,5).reduce((s,r)=>s+r.gmv,0)/t.totalGmv, false)}</div>
           <div class="kpi-foot text-dim">头部集中度</div>
         </div>
-      </div>
-
-      <div class="card">
-        <div class="card-head">
-          <div class="card-title">🥧 二级类目 GMV 分布 <span class="card-sub">Top 20</span></div>
+        <div class="kpi-card">
+          <div class="kpi-label">🚀 涨幅最大类目</div>
+          <div class="kpi-value" style="font-size:18px">${upL2[0]?.name || '—'}</div>
+          <div class="kpi-foot text-dim">${upL2[0] ? '<span class="chip up">↑ '+fmtNum(upL2[0].change)+'</span>' : ''}</div>
         </div>
-        <div id="t5-treemap" class="chart tall"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head"><div class="card-title">🚀 涨幅 Top5 类目 <span class="card-sub">本月 vs 上月同期</span></div></div>
+          ${renderL2ChangeTable(upL2, 'up')}
+        </div>
+        <div class="card">
+          <div class="card-head"><div class="card-title">📉 降幅 Top5 类目</div></div>
+          ${renderL2ChangeTable(downL2, 'down')}
+        </div>
       </div>
 
       <div class="card">
         <div class="card-head">
-          <div class="card-title">🏷️ 二级 + 三级类目明细 <span class="card-sub">按 GMV 降序</span></div>
+          <div class="card-title">🏷️ 二级类目盘子 <span class="card-sub">本月 GMV、环比、商家归因</span></div>
         </div>
         <div style="overflow-x:auto">
         <table class="table">
           <thead><tr>
-            <th>二级类目</th><th>三级类目</th>
-            <th class="num">GMV</th><th class="num">占比</th>
+            <th width="40">#</th>
+            <th>二级类目</th>
+            <th class="num">本月 GMV</th>
+            <th class="num">占比</th>
+            <th class="num">环比</th>
+            <th>主要拉动 / 拖累商家</th>
             <th class="num">动销商家</th>
-            <th>占比条</th>
           </tr></thead>
           <tbody>
-            ${t.l2List.flatMap(l2 => l2.sub.slice(0, 5).map((l3, i) => `
-              <tr>
-                <td>${i === 0 ? '<b>'+l2.name+'</b>' : '<span class="text-dim">↳</span>'}</td>
-                <td class="text-dim">${l3.l3}</td>
-                <td class="num">${fmtNum(l3.gmv)}</td>
-                <td class="num">${fmtPct(l3.gmv / t.totalGmv, false)}</td>
-                <td class="num">${l3.sellers}</td>
-                <td><div class="bar" style="width:120px"><div class="bar-fill" style="width:${(l3.gmv/t.l2List[0].gmv*100).toFixed(1)}%"></div></div></td>
-              </tr>`)).join('')}
+            ${t.l2List.map((l2, i) => {
+              const upStr = (l2.topUpSellers || []).slice(0,3).map(s => `<span class="chip up" style="margin-right:4px;font-size:10px">${s.name} +${fmtNum(s.change)}</span>`).join('');
+              const downStr = (l2.topDownSellers || []).slice(0,2).map(s => `<span class="chip down" style="margin-right:4px;font-size:10px">${s.name} ${fmtNum(s.change)}</span>`).join('');
+              const cls = l2.chain == null ? 'flat' : l2.chain > 0 ? 'up' : 'down';
+              const arrow = l2.chain == null ? '—' : l2.chain > 0 ? '↑' : '↓';
+              return `
+                <tr>
+                  <td>${rankBadge(i+1)}</td>
+                  <td><b>${l2.name}</b></td>
+                  <td class="num">${fmtNum(l2.gmv)}</td>
+                  <td class="num">${fmtPct(l2.gmv / t.totalGmv, false)}</td>
+                  <td class="num">
+                    <span class="chip ${cls}">${arrow} ${l2.chain != null ? fmtPct(Math.abs(l2.chain), false) : '新'}</span>
+                    <div class="text-dim" style="font-size:10px">${l2.change > 0 ? '+' : ''}${fmtNum(l2.change)}</div>
+                  </td>
+                  <td style="max-width:380px">${upStr}${downStr || '<span class="text-dim" style="font-size:11px">无下跌</span>'}</td>
+                  <td class="num">${l2.sellers}</td>
+                </tr>`;
+            }).join('')}
           </tbody>
         </table></div>
       </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-title">🥧 二级类目 GMV 分布 <span class="card-sub">Top 20</span></div></div>
+        <div id="t5-treemap" class="chart tall"></div>
+      </div>
     `;
 
-    // Treemap 二级类目
     const c1 = echarts.init(document.getElementById('t5-treemap'));
     c1.setOption({
       backgroundColor: 'transparent',
       tooltip: {
-        formatter: (p) => `<b>${p.name}</b><br/>GMV: ${fmtNum(p.value)}<br/>商家: ${p.data.sellers || '-'}`,
+        formatter: (p) => {
+          const d = p.data;
+          const chainStr = d.chain != null ? ` (${d.chain>0?'+':''}${(d.chain*100).toFixed(1)}%)` : '';
+          return `<b>${p.name}</b><br/>本月: ${fmtNum(p.value)}${chainStr}<br/>上月: ${fmtNum(d.prev || 0)}<br/>商家: ${d.sellers || '-'}`;
+        },
         backgroundColor: 'rgba(28,35,45,0.96)', borderColor: COLORS.grid, textStyle: { color: COLORS.text },
       },
       series: [{
         type: 'treemap',
-        data: t.l2List.map(l2 => ({ name: l2.name, value: l2.gmv, sellers: l2.sellers })),
-        roam: false,
-        nodeClick: false,
-        breadcrumb: { show: false },
+        data: t.l2List.map(l2 => ({
+          name: l2.name, value: l2.gmv,
+          prev: l2.prevGmv, chain: l2.chain, sellers: l2.sellers,
+          itemStyle: { color: l2.chain == null ? '#6e7681' : l2.chain > 0 ? COLORS.primary : '#9d4150' },
+        })),
+        roam: false, nodeClick: false, breadcrumb: { show: false },
         label: { show: true, color: COLORS.text, fontSize: 12, formatter: (p) => `${p.name}\n${fmtNum(p.value)}` },
         itemStyle: { borderColor: '#1c232d', borderWidth: 2, gapWidth: 2 },
-        levels: [{
-          color: ['#ff2442','#ff5577','#fb950b','#d29922','#58a6ff','#7d6df1','#d2a8ff','#2ea043','#46c45f','#6e7681'],
-          colorMappingBy: 'index',
-        }],
       }],
     });
     charts.push(c1);
+  }
+
+  function renderL2ChangeTable(rows, dir) {
+    if (!rows || rows.length === 0) return '<div class="empty">暂无</div>';
+    return `<table class="table compact">
+      <thead><tr><th width="32">#</th><th>类目</th><th class="num">本月 GMV</th><th class="num">变化</th></tr></thead>
+      <tbody>
+        ${rows.map((r, i) => `
+          <tr>
+            <td>${rankBadge(i+1)}</td>
+            <td><b>${r.name}</b></td>
+            <td class="num">${fmtNum(r.gmv)}</td>
+            <td class="num">
+              <span class="chip ${dir}">${dir === 'up' ? '↑' : '↓'} ${fmtNum(Math.abs(r.change))}</span>
+              <div class="text-dim" style="font-size:10px">${r.chain != null ? fmtPct(r.chain) : '新'}</div>
+            </td>
+          </tr>`).join('')}
+      </tbody>
+    </table>`;
   }
 
   // ============ Tab 6: 违规预警 ============
@@ -711,7 +769,7 @@
     document.getElementById('updated-at').textContent = M.meta.updatedAt;
     const srcEl = document.getElementById('data-source');
     if (srcEl) {
-      srcEl.textContent = '✅ 真实数据 V3';
+      srcEl.textContent = '✅ 真实数据 V4';
       srcEl.style.color = '#2ea043';
     }
 
