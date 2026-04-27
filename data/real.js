@@ -1,11 +1,11 @@
-// 真实数据 V3 · 自动生成于 2026-04-27 03:35:15
+// 真实数据 V3 · 自动生成于 2026-04-27 03:42:34
 window.MOCK = {
   "meta": {
     "ownerName": "大门",
     "ownerAlias": "朱锦程",
     "department": "五组（休食）",
     "sellerCount": 367,
-    "updatedAt": "2026-04-27 03:35",
+    "updatedAt": "2026-04-27 03:42",
     "dataSource": "real_v3",
     "version": "V3",
     "period": {
@@ -998,21 +998,21 @@ window.MOCK = {
         "noteId": "69e8bca1000000001a0283bc",
         "author": "Patchi",
         "title": "Patchi新品💥一口酥脆！限时限量尝鲜抢购…",
-        "gmv": 27357.18,
+        "gmv": 27357.180000000004,
         "url": "https://www.xiaohongshu.com/explore/69e8bca1000000001a0283bc"
       },
       {
         "noteId": "69ec3cfa000000001a02ffe6",
         "author": "村驴",
         "title": "犄角旮旯胡同的黏糊麻辣烫味道‼️",
-        "gmv": 24042.470000000172,
+        "gmv": 24042.47000000017,
         "url": "https://www.xiaohongshu.com/explore/69ec3cfa000000001a02ffe6"
       },
       {
         "noteId": "69e98110000000001f000ff4",
         "author": "村驴",
         "title": "吮指空气炸锅烤鸡翅‼️外焦里嫩特别简单‼️",
-        "gmv": 23663.670000000213,
+        "gmv": 23663.67000000021,
         "url": "https://www.xiaohongshu.com/explore/69e98110000000001f000ff4"
       },
       {
@@ -1040,7 +1040,7 @@ window.MOCK = {
         "noteId": "69e7664c000000001a0277d4",
         "author": "遂香记",
         "title": "无馅料的白米“一口粽”居然意外的好吃！",
-        "gmv": 8395.00000000003,
+        "gmv": 8395.000000000027,
         "url": "https://www.xiaohongshu.com/explore/69e7664c000000001a0277d4"
       },
       {
