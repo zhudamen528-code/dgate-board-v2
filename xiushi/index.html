@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>休食组业绩看板</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="emoji">🍫</span>
+    <h1>休食组业绩看板</h1>
+    <span class="subtitle">五组（休食）· 全员视角</span>
+  </div>
+  <div class="meta" id="meta-area">
+    <span id="generated-at">--</span>
+  </div>
+</header>
+
+<nav class="period-bar">
+  <div class="period-label">📅 时段</div>
+  <div class="period-buttons" id="period-buttons"></div>
+  <div class="period-info" id="period-info"></div>
+</nav>
+
+<nav class="tab-bar" id="tab-bar"></nav>
+
+<main id="main-content">
+  <div class="loading">加载中…</div>
+</main>
+
+<footer>
+  <span>数据源：RedBI 1922/2479 等 · 沿用 REDoc 5.11 取数规划</span>
+  <span>问题反馈 → 大门(朱锦程)</span>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: #f5f6f8;
+  color: #1a1a2e;
+  line-height: 1.5;
+  font-size: 14px;
+}
+header.topbar {
+  background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
+  color: #fff;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand .emoji { font-size: 28px; }
+.brand h1 { font-size: 22px; font-weight: 600; }
+.brand .subtitle { opacity: 0.85; font-size: 13px; margin-left: 6px; }
+.meta { font-size: 12px; opacity: 0.85; }
+
+nav.period-bar {
+  background: #fff;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid #eaecef;
+  flex-wrap: wrap;
+}
+.period-label { font-weight: 600; color: #555; }
+.period-buttons { display: flex; gap: 8px; flex-wrap: wrap; }
+.period-buttons button {
+  padding: 7px 14px;
+  border: 1px solid #ddd;
+  background: #fafbfc;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.15s;
+  color: #444;
+}
+.period-buttons button:hover { background: #fff5e0; border-color: #ffc371; }
+.period-buttons button.active {
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  color: #fff;
+  border-color: transparent;
+  font-weight: 600;
+}
+.period-buttons button.yoy-btn { border-style: dashed; }
+.period-buttons button.yoy-btn::before { content: "📊 "; }
+.period-info {
+  margin-left: auto;
+  color: #888;
+  font-size: 13px;
+}
+
+nav.tab-bar {
+  display: flex;
+  background: #fff;
+  padding: 0 28px;
+  border-bottom: 2px solid #eaecef;
+  overflow-x: auto;
+}
+nav.tab-bar button {
+  padding: 14px 22px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-size: 15px;
+  color: #555;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+nav.tab-bar button:hover { color: #ff5f6d; }
+nav.tab-bar button.active {
+  color: #ff5f6d;
+  border-bottom-color: #ff5f6d;
+  font-weight: 600;
+}
+
+main { padding: 24px 28px; min-height: 60vh; }
+
+.loading { text-align: center; padding: 80px 0; color: #888; font-size: 16px; }
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.kpi-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.kpi-card .label { color: #888; font-size: 13px; }
+.kpi-card .value { font-size: 26px; font-weight: 600; color: #1a1a2e; margin-top: 6px; }
+.kpi-card .delta { margin-top: 6px; font-size: 12px; }
+.kpi-card .delta.up { color: #d63031; }
+.kpi-card .delta.down { color: #2c8a47; }
+.kpi-card .yoy { margin-top: 4px; font-size: 12px; color: #888; }
+
+.chart-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.chart-card .chart-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.chart-card .chart-title { font-size: 16px; font-weight: 600; color: #1a1a2e; }
+.chart-card .chart-meta { font-size: 12px; color: #999; display: flex; gap: 12px; flex-wrap: wrap; }
+.chart-card .chart-meta a { color: #ff5f6d; text-decoration: none; }
+.chart-card .chart-meta a:hover { text-decoration: underline; }
+.chart-card .chart-body { min-height: 280px; }
+.chart-card .filters {
+  font-size: 11px;
+  color: #999;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #eee;
+  font-style: italic;
+}
+.chart-card .empty { text-align: center; padding: 60px 0; color: #999; font-size: 14px; }
+
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+table.data-table thead th {
+  background: #fafbfc;
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 1px solid #e8e8e8;
+  position: sticky; top: 0;
+  white-space: nowrap;
+}
+table.data-table tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+table.data-table tbody tr:hover { background: #fffaf3; }
+table.data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+table.data-table .num.up { color: #d63031; }
+table.data-table .num.down { color: #2c8a47; }
+.table-wrap { max-height: 480px; overflow: auto; border: 1px solid #f0f0f0; border-radius: 6px; }
+.table-info { font-size: 12px; color: #888; margin-top: 8px; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+
+footer {
+  text-align: center;
+  padding: 24px;
+  color: #999;
+  font-size: 12px;
+  border-top: 1px solid #eaecef;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.echarts-box { width: 100%; height: 360px; }
+
+/* YoY 高亮模式：当时段是 yoy_bimonth 时，加个角标 */
+body.period-yoy .chart-card { border-left: 4px solid #6c63ff; }
+body.period-yoy nav.tab-bar { background: #f8f7ff; }
