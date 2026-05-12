@@ -55,18 +55,17 @@ const fmt = {
 // 关键：渲染同比/环比变化率，带异常值兜底
 function renderDelta(rate, opts={}) {
   if (rate == null || typeof rate !== "number" || isNaN(rate)) return "-";
-  // 如果绝对值 > 5（=500%），认为是异常或上期为零，不展示具体百分比
-  if (Math.abs(rate) > 5) {
-    return `<span class="delta-abnormal" title="变化幅度异常（多半是上期基数极小）">异常 (${rate>0?"+":""}${(rate*100).toFixed(0)}%)</span>`;
+  // 阈值收紧到 100%：超过则当 BI 口径不可信
+  if (Math.abs(rate) > 1) {
+    return `<span class="delta-abnormal" title="变化幅度过大，可能 BI 口径与本时段不匹配">—</span>`;
   }
   const cls = rate >= 0 ? "delta-up" : "delta-down";
   const arrow = rate >= 0 ? "↑" : "↓";
   return `<span class="${cls}">${arrow} ${(Math.abs(rate)*100).toFixed(1)}%</span>`;
 }
 function deltaInline(rate) {
-  // 用于 KPI 卡片下方
   if (rate == null || typeof rate !== "number" || isNaN(rate)) return "";
-  if (Math.abs(rate) > 5) return `<div class="delta delta-abnormal">变化异常</div>`;
+  if (Math.abs(rate) > 1) return "";
   const cls = rate >= 0 ? "delta-up" : "delta-down";
   const arrow = rate >= 0 ? "↑" : "↓";
   return `<div class="delta ${cls}">${arrow} ${(Math.abs(rate)*100).toFixed(1)}%</div>`;
@@ -290,8 +289,10 @@ function buildHeroKpis(datas) {
     return Math.max(1, Math.round((e - s)/86400000)+1);
   })();
 
+  // 环比仅在"昨日"展示（chart 自带环比口径只对单日有意义；其他时段切换后口径错乱）
+  const showDelta = STATE.currentPeriod === "yesterday" && deltaPct != null && Math.abs(deltaPct) <= 1;
   const items = [
-    {label: `${periodLabel} · 全组 DGMV`, value: totalGmv, delta: deltaPct, deltaLabel: "vs 上期"},
+    {label: `${periodLabel} · 全组 DGMV`, value: totalGmv, delta: showDelta ? deltaPct : null, deltaLabel: "vs 前一日"},
     {label: "日均 DGMV", value: yperf && totalGmv !== "-" ? fmt.money((yperf.rows.find(r=>r[0]==="总计")[findColIdxLoose(yperf.columns,"DGMV")])/days) : "-", sub: `${days} 天`},
     {label: `Top AM`, value: topAM, sub: topAMValue},
     {label: "动销商家数", value: sellerCount === "-" ? "-" : sellerCount + " 家"},
@@ -301,12 +302,10 @@ function buildHeroKpis(datas) {
     const c = document.createElement("div");
     c.className = "kpi-card hero";
     let dh = "";
-    if (it.delta != null && typeof it.delta === "number" && Math.abs(it.delta) <= 5) {
+    if (it.delta != null && typeof it.delta === "number" && Math.abs(it.delta) <= 1) {
       const cls = it.delta >= 0 ? "delta-up" : "delta-down";
       const arrow = it.delta >= 0 ? "↑" : "↓";
       dh = `<div class="delta ${cls}">${arrow} ${(Math.abs(it.delta)*100).toFixed(1)}% ${it.deltaLabel||""}</div>`;
-    } else if (it.delta != null && Math.abs(it.delta) > 5) {
-      dh = `<div class="delta delta-abnormal">环比异常（基数极小）</div>`;
     }
     let sh = it.sub ? `<div class="sub">${it.sub}</div>` : "";
     c.innerHTML = `<div class="label">${it.label}</div><div class="value">${it.value}</div>${dh}${sh}`;
