@@ -228,6 +228,7 @@ function renderChartCard(cdef, data) {
     else if (render === "bar_h_byAM_multi") renderers.barHByAMMulti(body, data, cfg);
     else if (render === "line_trend") renderers.lineTrend(body, data, cfg);
     else if (render === "rank_list") renderers.rankList(body, data, cfg);
+    else if (render === "rank_list_note") renderers.rankListNote(body, data, cfg);
     else if (render === "category_treemap") renderers.categoryTreemap(body, data, cfg);
     else if (render === "category_change_table") renderers.categoryChangeTable(body, data, cfg);
     else if (render === "kpi_grid") body.appendChild(renderKpiGridCard(data).querySelector(".kpi-grid"));
@@ -747,6 +748,54 @@ renderers.amsCountGrid = function(body, data, cfg) {
     rows.slice(0, 500).map(r => `<tr><td><a href="${sellerSearchUrl(r[dimI])}" target="_blank">${r[dimI]}</a></td><td>${r[amI]||"-"}</td></tr>`).join("")
   }</tbody></table></div>${rows.length>500?`<div class="table-info">仅显示前 500 家</div>`:""}`;
   body.appendChild(fold);
+};
+
+// 笔记专属：标题为主、商家为副、DGMV 突出、跳转 explore
+renderers.rankListNote = function(body, data, cfg) {
+  const titleI = findColIdx(data.columns, cfg.dim);
+  const sellerI = findColIdx(data.columns, cfg.extra_dim);
+  const valI = findColIdxLoose(data.columns, cfg.value);
+  const linkI = findColIdx(data.columns, cfg.link_col);
+
+  let rows = data.rows.filter(r => r[titleI] && r[titleI] !== "总计" && (r[valI]||0) > 0);
+  rows = rows.sort((a,b)=>(b[valI]||0)-(a[valI]||0));
+  const top = rows.slice(0, cfg.top || 30);
+  const totalVal = rows.reduce((s,r)=>s+(r[valI]||0), 0);
+
+  const summary = document.createElement("div");
+  summary.className = "rank-summary";
+  summary.innerHTML = `
+    <span><b>${rows.length}</b> 条新发笔记 · 合计 DGMV <b>${fmt.money(totalVal)}</b></span>
+    <span class="muted">显示 Top ${top.length}</span>
+  `;
+  body.appendChild(summary);
+
+  const list = document.createElement("div");
+  list.className = "note-list";
+  top.forEach((r, idx) => {
+    const li = document.createElement("div");
+    li.className = "note-item";
+    const title = String(r[titleI] || "");
+    const seller = String(r[sellerI] || "");
+    const noteId = linkI >= 0 ? r[linkI] : null;
+    const link = noteId ? noteUrl(noteId) : null;
+    const titleHtml = link
+      ? `<a href="${link}" target="_blank" rel="noopener" class="note-title">${title} <span class="ext-icon">↗</span></a>`
+      : `<span class="note-title">${title}</span>`;
+    li.innerHTML = `
+      <div class="note-rank">${idx+1}</div>
+      <div class="note-main">
+        ${titleHtml}
+        <div class="note-seller">📦 ${seller}</div>
+      </div>
+      <div class="note-value">
+        <div class="note-gmv">${fmt.money(r[valI])}</div>
+        <div class="note-gmv-label">DGMV</div>
+      </div>
+    `;
+    list.appendChild(li);
+  });
+  body.appendChild(list);
 };
 
 renderers.fallbackTable = function(body, data) {

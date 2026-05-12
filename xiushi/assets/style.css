@@ -419,3 +419,68 @@ ol.rank-list li:nth-child(3) .rank-no { color: #ff9500; }
   height: 12px;
   border-radius: 2px;
 }
+
+/* note-list 笔记专属样式 */
+.note-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 900px) {
+  .note-list { grid-template-columns: 1fr; }
+}
+.note-item {
+  display: grid;
+  grid-template-columns: 32px 1fr 100px;
+  gap: 12px;
+  align-items: start;
+  padding: 12px;
+  background: #fafbfc;
+  border-radius: 8px;
+  border: 1px solid #f0f2f5;
+  transition: all 0.15s;
+}
+.note-item:hover {
+  background: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(255,95,109,0.08);
+}
+.note-rank {
+  text-align: center;
+  font-weight: 700;
+  color: var(--text-mute);
+  font-size: 16px;
+  padding-top: 2px;
+}
+.note-item:nth-child(2) .note-rank,
+.note-item:nth-child(3) .note-rank,
+.note-item:nth-child(4) .note-rank { color: #ff9500; font-size: 18px; }
+.note-main { min-width: 0; overflow: hidden; }
+.note-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  line-height: 1.4;
+  margin-bottom: 4px;
+  word-wrap: break-word;
+}
+a.note-title:hover { color: var(--primary); }
+.note-seller {
+  font-size: 12px;
+  color: var(--text-soft);
+}
+.note-value {
+  text-align: right;
+}
+.note-gmv {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+.note-gmv-label {
+  font-size: 11px;
+  color: var(--text-mute);
+}

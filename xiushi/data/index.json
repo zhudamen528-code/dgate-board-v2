@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-12 13:49:10",
+  "generated_at": "2026-05-12 13:59:54",
   "periods": [
     {
       "key": "yesterday",
@@ -192,7 +192,7 @@
           "id": "t2_note_top_new",
           "name": "TOP 新发笔记",
           "source_url": "https://redbi.devops.xiaohongshu.com/analysis/edit?analysisId=23119218&shortcutId=15822991&projectId=4",
-          "render": "rank_list",
+          "render": "rank_list_note",
           "available_periods": [
             "yesterday",
             "last_7d",
