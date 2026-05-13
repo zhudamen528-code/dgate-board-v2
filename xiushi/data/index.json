@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-13 12:18:22",
+  "generated_at": "2026-05-13 12:54:23",
   "periods": [
     {
       "key": "yesterday",
@@ -138,7 +138,7 @@
           "id": "t1_category_progress",
           "name": "一级类目业绩",
           "source_url": "https://redbi.devops.xiaohongshu.com/analysis/edit?analysisId=23119218&shortcutId=15875629&projectId=4",
-          "render": "category_treemap",
+          "render": "category_treemap_value",
           "available_periods": [
             "yesterday",
             "last_7d",
@@ -226,6 +226,22 @@
       "key": "tab3_live",
       "name": "店播",
       "charts": [
+        {
+          "id": "t3_live_overview",
+          "name": "店播核心指标（休食组整体）",
+          "source_url": "https://redbi.devops.xiaohongshu.com/analysis/edit?analysisId=53217556&shortcutId=15823266&projectId=4",
+          "render": "kpi_grid_from_total",
+          "available_periods": [
+            "yesterday",
+            "last_7d",
+            "last_14d",
+            "last_30d",
+            "this_month",
+            "this_bimonth",
+            "last_bimonth",
+            "yoy_bimonth"
+          ]
+        },
         {
           "id": "t3_live_byAM",
           "name": "AM 店播勤奋度",

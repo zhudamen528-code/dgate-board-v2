@@ -615,3 +615,31 @@ a.card-title:hover { color: var(--primary); }
   padding-left: 8px;
   border-left: 2px solid #f0f2f5;
 }
+
+.tag-carrier { background: #e8fff4; color: #00a35a; }
+.unit { font-size: 12px; color: var(--text-soft); margin-left: 2px; font-weight: 400; }
+
+.cat-change-table tbody tr.cat-row td { padding-bottom: 4px; }
+.cat-attrib-row td {
+  padding-top: 0 !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px dashed #f0f2f5;
+  background: #fafbfc;
+}
+.attrib-mini-label {
+  font-size: 11px;
+  color: var(--text-mute);
+  margin-right: 4px;
+}
+.attrib-mini-tag {
+  display: inline-block;
+  font-size: 11px;
+  color: var(--text-soft);
+  background: #fff;
+  padding: 1px 5px;
+  margin-right: 4px;
+  border-radius: 3px;
+  border: 1px solid #f0f2f5;
+  text-decoration: none;
+}
+.attrib-mini-tag:hover { color: var(--primary); border-color: var(--primary); }

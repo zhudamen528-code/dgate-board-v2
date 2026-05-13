@@ -65,9 +65,14 @@ function renderDelta(rate, opts={}) {
 }
 function deltaInline(rate) {
   if (rate == null || typeof rate !== "number" || isNaN(rate)) return "";
-  if (Math.abs(rate) > 1) return "";
+  // ≤500% 都展示（阈值放宽，避免合理但大幅的同比被误屏蔽）
+  if (Math.abs(rate) > 5) return `<div class="delta delta-abnormal">变化异常</div>`;
   const cls = rate >= 0 ? "delta-up" : "delta-down";
   const arrow = rate >= 0 ? "↑" : "↓";
+  // >100% 仍展示，但用 "显著↑" 标示
+  if (Math.abs(rate) > 1) {
+    return `<div class="delta ${cls}">${arrow}${(Math.abs(rate)*100).toFixed(0)}%<span class="muted-mini"> 显著</span></div>`;
+  }
   return `<div class="delta ${cls}">${arrow} ${(Math.abs(rate)*100).toFixed(1)}%</div>`;
 }
 
@@ -230,6 +235,7 @@ function renderChartCard(cdef, data) {
     else if (render === "rank_list") renderers.rankList(body, data, cfg);
     else if (render === "rank_list_note") renderers.rankListNote(body, data, cfg);
     else if (render === "card_grid") renderers.cardGrid(body, data, cfg);
+    else if (render === "kpi_grid_from_total") renderers.kpiGridFromTotal(body, data, cfg);
     else if (render === "seller_change_cards") renderers.sellerChangeCards(body, data, cfg);
     else if (render === "category_treemap") renderers.categoryTreemap(body, data, cfg);
     else if (render === "category_treemap_value") renderers.categoryTreemapValue(body, data, cfg);
@@ -803,6 +809,35 @@ renderers.rankListNote = function(body, data, cfg) {
 };
 
 // ============================================================
+// V5 派生：从总计行生成 KPI grid（用于店播/K播组级总览）
+// ============================================================
+renderers.kpiGridFromTotal = function(body, data, cfg) {
+  const grid = document.createElement("div");
+  grid.className = "kpi-grid";
+  const row = data.rows && data.rows[0];
+  (cfg.groups || []).forEach(g => {
+    const ci = findColIdx(data.columns, g.col);
+    const di = g.delta_col ? findColIdx(data.columns, g.delta_col) : -1;
+    if (ci < 0 || !row) return;
+    const v = row[ci];
+    const delta = di>=0 ? row[di] : null;
+    let valStr;
+    if (g.fmt === "money") valStr = fmt.money(v);
+    else if (g.fmt === "int") valStr = fmt.int(v);
+    else if (g.fmt === "int_w") valStr = fmt.int_w(v);
+    else if (g.fmt === "pct") valStr = fmt.pct(v);
+    else valStr = fmt.num(v);
+    if (g.unit) valStr += `<span class="unit">${g.unit}</span>`;
+    const dh = deltaInline(delta);
+    const card = document.createElement("div");
+    card.className = "kpi-card";
+    card.innerHTML = `<div class="label">${g.label}</div><div class="value">${valStr}</div>${dh}`;
+    grid.appendChild(card);
+  });
+  body.appendChild(grid);
+};
+
+// ============================================================
 // V4 业务卡片化：通用 cardGrid（适配 商家/商品/店播/K播）
 // ============================================================
 renderers.cardGrid = function(body, data, cfg) {
@@ -869,14 +904,16 @@ renderers.cardGrid = function(body, data, cfg) {
           <div class="vlabel">单场 GMV</div>
         </div>`;
     } else if (cardType === "kbroadcast") {
-      // K 播大场: 主播(主) + AM 商家 + 日期
+      // K 播大场: 主播(主) + 商家 + AM + 日期
+      const extra3 = cfg.extra_dim3 ? (() => { const i = findColIdx(data.columns, cfg.extra_dim3); return i>=0 ? r[i] : ""; })() : "";
       bodyHtml = `
         <div class="card-rank">${idx+1}</div>
         <div class="card-body">
           ${mainHref ? `<a href="${mainHref}" target="_blank" rel="noopener" class="card-title">🎙 ${mainName} <span class="ext-icon">↗</span></a>` : `<span class="card-title">🎙 ${mainName}</span>`}
           <div class="card-sub">
-            <span class="tag tag-am">归属 ${extra || "-"}</span>
-            <span class="tag tag-date">📅 ${extra2 || "-"}</span>
+            <span class="tag tag-shop">🏪 ${extra || "-"}</span>
+            <span class="tag tag-am">👤 ${extra2 || "-"}</span>
+            ${extra3 ? `<span class="tag tag-date">📅 ${extra3}</span>` : ""}
           </div>
         </div>
         <div class="card-value">
@@ -899,12 +936,23 @@ renderers.cardGrid = function(body, data, cfg) {
           <div class="vlabel">DGMV</div>
         </div>`;
     } else if (cardType === "seller") {
-      // TOP 商家: 商家(主) + AM 归属
+      // TOP 商家: 商家(主) + AM + 核心场域
+      let coreCarrier = "";
+      const sxc = data.attribution_seller_carrier;
+      if (sxc && sxc[mainName] && sxc[mainName].length) {
+        const total = sxc[mainName].reduce((s,x)=>s+(x[1]||0),0);
+        const top = sxc[mainName][0];
+        const pct = total>0 ? Math.round((top[1]||0)/total*100) : 0;
+        coreCarrier = `<span class="tag tag-carrier">🎯 ${top[0]} ${pct}%</span>`;
+      }
       bodyHtml = `
         <div class="card-rank">${idx+1}</div>
         <div class="card-body">
           ${mainHref ? `<a href="${mainHref}" target="_blank" rel="noopener" class="card-title">${mainName} <span class="ext-icon">↗</span></a>` : `<span class="card-title">${mainName}</span>`}
-          ${extra ? `<div class="card-sub"><span class="tag tag-am">👤 ${extra}</span></div>` : ""}
+          <div class="card-sub">
+            ${extra ? `<span class="tag tag-am">👤 ${extra}</span>` : ""}
+            ${coreCarrier}
+          </div>
         </div>
         <div class="card-value">
           <div class="vbig">${fmt.money(val)}</div>
@@ -954,6 +1002,15 @@ renderers.sellerChangeCards = function(body, data, cfg) {
     return Object.entries(byAM).sort((a,b)=>Math.abs(b[1].delta)-Math.abs(a[1].delta)).slice(0,5);
   }
 
+  // 归因: 商家 -> 主要场域
+  const sxc = data.attribution_seller_carrier || {};
+  function carrierTagOf(seller) {
+    if (!sxc[seller] || !sxc[seller].length) return "";
+    const total = sxc[seller].reduce((s,x)=>s+(x[1]||0),0);
+    const top = sxc[seller][0];
+    const pct = total>0 ? Math.round((top[1]||0)/total*100) : 0;
+    return `<span class="tag tag-carrier">🎯 ${top[0]} ${pct}%</span>`;
+  }
   function makeCol(list, isUp) {
     const col = document.createElement("div");
     col.className = "change-col";
@@ -966,12 +1023,13 @@ renderers.sellerChangeCards = function(body, data, cfg) {
       const rate = rateI>=0 ? r[rateI] : null;
       const link = sellerSearchUrl(seller);
       const rateHtml = rate != null && Math.abs(rate) <= 50 ? renderDelta(rate) : (rate != null ? `<span class="muted">×${rate>0?'+':''}${rate.toFixed(1)}</span>` : "");
+      const carrierTag = carrierTagOf(seller);
       html += `
         <div class="biz-card change-card ${isUp?'up':'down'}">
           <div class="card-rank">${idx+1}</div>
           <div class="card-body">
             <a href="${link}" target="_blank" rel="noopener" class="card-title">${seller} <span class="ext-icon">↗</span></a>
-            <div class="card-sub"><span class="tag tag-am">👤 ${am}</span></div>
+            <div class="card-sub"><span class="tag tag-am">👤 ${am}</span>${carrierTag}</div>
           </div>
           <div class="card-value">
             <div class="vbig ${isUp?'up':'down'}">${isUp?'+':''}${fmt.money(delta)}</div>
@@ -981,11 +1039,30 @@ renderers.sellerChangeCards = function(body, data, cfg) {
         </div>`;
     });
     html += `</div>`;
-    // 归因
-    const attrib = attribAM(list);
-    if (attrib && attrib.length) {
+    // 归因 by AM
+    const attribAMRes = attribAM(list);
+    if (attribAMRes && attribAMRes.length) {
       html += `<div class="attrib-box ${isUp?'up':'down'}"><b>${isUp?'增量':'减量'}主要来自 AM：</b>`;
-      html += attrib.map(([am, info]) => `<span class="attrib-tag">${am} <b>${info.count}</b>家 / ${info.delta>=0?'+':''}${fmt.money(info.delta)}</span>`).join(" ");
+      html += attribAMRes.map(([am, info]) => `<span class="attrib-tag">${am} <b>${info.count}</b>家 / ${info.delta>=0?'+':''}${fmt.money(info.delta)}</span>`).join(" ");
+      html += `</div>`;
+    }
+    // 归因 by 场域：聚合所有 list 商家的场域分布
+    const carrierAgg = {};
+    list.forEach(r => {
+      const seller = String(r[dimI] || "");
+      const arr = sxc[seller] || [];
+      arr.forEach(([carrier, gmv]) => {
+        carrierAgg[carrier] = (carrierAgg[carrier]||0) + (gmv||0);
+      });
+    });
+    const carrierTop = Object.entries(carrierAgg).sort((a,b)=>b[1]-a[1]).slice(0,5);
+    if (carrierTop.length) {
+      const totalC = carrierTop.reduce((s,x)=>s+x[1],0);
+      html += `<div class="attrib-box ${isUp?'up':'down'}"><b>主要场域分布：</b>`;
+      html += carrierTop.map(([c, v]) => {
+        const pct = totalC>0 ? Math.round(v/totalC*100) : 0;
+        return `<span class="attrib-tag">${c} ${fmt.money(v)} <b>${pct}%</b></span>`;
+      }).join(" ");
       html += `</div>`;
     }
     col.innerHTML = html;
@@ -1049,9 +1126,6 @@ renderers.categoryTreemapValue = function(body, data, cfg) {
       roam: false,
       breadcrumb: {show: false},
       data: data1,
-      visualDimension: 0,
-      visualMin: data1[data1.length-1].value,
-      visualMax: data1[0].value,
       levels: [{
         itemStyle: {
           borderColor: '#fff',
@@ -1059,7 +1133,7 @@ renderers.categoryTreemapValue = function(body, data, cfg) {
           gapWidth: 2,
         },
         upperLabel: {show: false},
-        colorMappingBy: 'value',
+        colorMappingBy: 'index',
       }],
       label: {
         show: true,
@@ -1074,8 +1148,13 @@ renderers.categoryTreemapValue = function(body, data, cfg) {
         textShadowColor: 'rgba(0,0,0,0.4)',
         textShadowBlur: 2,
       },
-      // 量级渐变：深紫(大) → 浅紫(小)
-      color: ['#4a148c', '#6a1b9a', '#7b1fa2', '#8e24aa', '#9c27b0', '#ab47bc', '#ba68c8', '#ce93d8', '#e1bee7', '#f3e5f5'],
+      // 多色：每个类目独立色，按 GMV 量级深→浅 但跨色相
+      color: [
+        '#5470c6', '#fac858', '#ee6666', '#73c0de', '#3ba272',
+        '#fc8452', '#9a60b4', '#ea7ccc', '#a9bdf4', '#f3a683',
+        '#778beb', '#fed8a4', '#e15f41', '#bcd0c7', '#ffb142',
+        '#ff5252', '#9c88ff', '#00bcd4', '#7bed9f', '#70a1ff',
+      ],
     }],
   });
   setTimeout(() => chart.resize(), 100);
@@ -1108,23 +1187,35 @@ renderers.categoryChangeV2 = function(body, data, cfg) {
     return top3.join(" / ");
   }
 
+  // 归因: 类目 -> Top3 商家
+  const cxs = data.attribution_cat_seller || {};
+  function topSellersOf(category) {
+    const arr = cxs[category];
+    if (!arr || !arr.length) return [];
+    return arr.slice(0,3);
+  }
   function makeCol(list, isUp, label, hint) {
     const col = document.createElement("div");
     col.className = "change-col";
-    let html = `<h4 class="${isUp?'up':'down'}">${label} TOP ${list.length}</h4>${hint}<table class="data-table"><thead><tr><th>类目</th><th class="num">DGMV</th><th class="num">环比</th></tr></thead><tbody>`;
+    let html = `<h4 class="${isUp?'up':'down'}">${label} TOP ${list.length}</h4>${hint}<table class="data-table cat-change-table"><thead><tr><th>类目</th><th class="num">DGMV</th><th class="num">环比</th></tr></thead><tbody>`;
     list.forEach(r => {
+      const cat = r[dimI];
       const rate = r[rateI];
       const rateHtml = Math.abs(rate) <= 5
         ? `<span class="${rate>=0?'delta-up':'delta-down'}">${rate>=0?'↑':'↓'} ${(Math.abs(rate)*100).toFixed(1)}%</span>`
         : `<span class="delta-abnormal">×${rate>0?'+':''}${rate.toFixed(0)}</span>`;
-      html += `<tr><td>${r[dimI]}</td><td class="num">${fmt.money(r[valI])}</td><td class="num">${rateHtml}</td></tr>`;
+      html += `<tr class="cat-row"><td>${cat}</td><td class="num">${fmt.money(r[valI])}</td><td class="num">${rateHtml}</td></tr>`;
+      // 归因行：类目下 Top3 商家
+      const tops = topSellersOf(cat);
+      if (tops.length) {
+        const tagsHtml = tops.map(([s, g]) => {
+          const link = sellerSearchUrl(s);
+          return `<a href="${link}" target="_blank" rel="noopener" class="attrib-mini-tag">${s} ${fmt.money(g)}</a>`;
+        }).join("");
+        html += `<tr class="cat-attrib-row"><td colspan="3"><span class="attrib-mini-label">主要商家：</span>${tagsHtml}</td></tr>`;
+      }
     });
     html += "</tbody></table>";
-    // 归因
-    const top3 = list.slice(0,3).map(r=>r[dimI]).join(" / ");
-    if (top3) {
-      html += `<div class="attrib-box ${isUp?'up':'down'}"><b>主要类目：</b>${top3}</div>`;
-    }
     col.innerHTML = html;
     return col;
   }
