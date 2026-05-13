@@ -93,8 +93,16 @@ function disposeAll() {
 const PALETTE = ["#5470c6","#91cc75","#fac858","#ee6666","#73c0de","#3ba272","#fc8452","#9a60b4","#ea7ccc","#5cabae"];
 
 // 商家/商品 链接生成
+// 苍穹店铺直链（AM 视角，优先）
+function sellerCangqiongUrl(sellerId) {
+  return `https://crm.xiaohongshu.com/eccrm/merchant-detail/${sellerId}?isSellerId=true&type=basicInfo`;
+}
+// 苍穹商品直链
+function productCangqiongUrl(itemId) {
+  return `https://crm.xiaohongshu.com/crm/hawk/item/item/detail?itemId=${itemId}`;
+}
+// 兜底：搜索页（无 ID 时使用）
 function sellerSearchUrl(name) {
-  // 小红书内部搜店暂无固定链接；回退到买家端搜索
   return `https://www.xiaohongshu.com/search_result?keyword=${encodeURIComponent(name)}&type=51`;
 }
 function productSearchUrl(name) {
@@ -555,6 +563,8 @@ renderers.rankList = function(body, data, cfg) {
   const extraI = cfg.extra_dim ? findColIdx(data.columns, cfg.extra_dim) : -1;
   const extra2I = cfg.extra_dim2 ? findColIdx(data.columns, cfg.extra_dim2) : -1;
   const linkColI = cfg.link_col ? findColIdx(data.columns, cfg.link_col) : -1;
+  const sellerIdI = cfg.link_col_seller ? findColIdx(data.columns, cfg.link_col_seller) : -1;
+  const itemIdI = cfg.link_col_item ? findColIdx(data.columns, cfg.link_col_item) : -1;
 
   let rows = data.rows.filter(r => r[dimI] && r[dimI] !== "总计" && (r[valI]||0) > 0);
   rows = rows.sort((a,b)=>(b[valI]||0)-(a[valI]||0));
@@ -579,8 +589,10 @@ renderers.rankList = function(body, data, cfg) {
     const name = String(r[dimI]||"");
     const displayName = cfg.name_max ? fmt.ellipsize(name, cfg.name_max) : name;
     let link = null;
-    if (cfg.link_type === "seller") link = sellerSearchUrl(name);
-    else if (cfg.link_type === "product") link = productSearchUrl(name);
+    const sellerIdVal = sellerIdI >= 0 ? r[sellerIdI] : null;
+    const itemIdVal = itemIdI >= 0 ? r[itemIdI] : null;
+    if (cfg.link_type === "seller") link = sellerIdVal ? sellerCangqiongUrl(sellerIdVal) : sellerSearchUrl(name);
+    else if (cfg.link_type === "product") link = itemIdVal ? productCangqiongUrl(itemIdVal) : productSearchUrl(name);
     else if (cfg.link_type === "note" && linkColI>=0 && r[linkColI]) link = noteUrl(r[linkColI]);
 
     let extraHtml = "";
@@ -900,6 +912,9 @@ renderers.cardGrid = function(body, data, cfg) {
   const extraI = cfg.extra_dim ? findColIdx(data.columns, cfg.extra_dim) : -1;
   const extra2I = cfg.extra_dim2 ? findColIdx(data.columns, cfg.extra_dim2) : -1;
   const valI = findColIdxLoose(data.columns, cfg.value);
+  // ID 列（用于直链跳苍穹）
+  const itemIdI = cfg.link_col_item ? findColIdx(data.columns, cfg.link_col_item) : -1;
+  const sellerIdI = cfg.link_col_seller ? findColIdx(data.columns, cfg.link_col_seller) : -1;
   if (dimI < 0 || valI < 0) {
     body.innerHTML = `<div class="empty">字段缺失：dim=${cfg.dim} val=${cfg.value}</div>`;
     return;
@@ -931,14 +946,17 @@ renderers.cardGrid = function(body, data, cfg) {
     const extra2 = extra2I >= 0 ? String(r[extra2I] || "") : "";
     const val = r[valI];
 
-    // 链接
+    // 链接：优先用 ID 直链跳苍穹
     let mainHref = null;
+    const itemIdVal = itemIdI >= 0 ? r[itemIdI] : null;
+    const sellerIdVal = sellerIdI >= 0 ? r[sellerIdI] : null;
     if (cfg.link_type === "seller" || cardType === "seller" || cardType === "live") {
-      mainHref = sellerSearchUrl(mainName);
+      mainHref = sellerIdVal ? sellerCangqiongUrl(sellerIdVal) : sellerSearchUrl(mainName);
     } else if (cfg.link_type === "product" || cardType === "product") {
-      mainHref = productSearchUrl(mainName);
+      mainHref = itemIdVal ? productCangqiongUrl(itemIdVal) : productSearchUrl(mainName);
     } else if (cardType === "kbroadcast") {
-      mainHref = sellerSearchUrl(mainName); // 主播昵称也能搜
+      // K 播大场：主播昵称仍用搜索（无主播 ID 路径），但商家 chip 可以单独走苍穹
+      mainHref = sellerSearchUrl(mainName);
     }
 
     // 卡片正文（按 card_type 决定布局）
@@ -959,14 +977,17 @@ renderers.cardGrid = function(body, data, cfg) {
           <div class="vlabel">单场 GMV</div>
         </div>`;
     } else if (cardType === "kbroadcast") {
-      // K 播大场: 主播(主) + 商家 + AM + 日期
+      // K 播大场: 主播(主) + 商家(可跳苍穹) + AM + 日期
       const extra3 = cfg.extra_dim3 ? (() => { const i = findColIdx(data.columns, cfg.extra_dim3); return i>=0 ? r[i] : ""; })() : "";
+      const shopChip = sellerIdVal
+        ? `<a class="tag tag-shop tag-link" href="${sellerCangqiongUrl(sellerIdVal)}" target="_blank" rel="noopener">🏪 ${extra || "-"} ↗</a>`
+        : `<span class="tag tag-shop">🏪 ${extra || "-"}</span>`;
       bodyHtml = `
         <div class="card-rank">${idx+1}</div>
         <div class="card-body">
           ${mainHref ? `<a href="${mainHref}" target="_blank" rel="noopener" class="card-title">🎙 ${mainName} <span class="ext-icon">↗</span></a>` : `<span class="card-title">🎙 ${mainName}</span>`}
           <div class="card-sub">
-            <span class="tag tag-shop">🏪 ${extra || "-"}</span>
+            ${shopChip}
             <span class="tag tag-am">👤 ${extra2 || "-"}</span>
             ${extra3 ? `<span class="tag tag-date">📅 ${extra3}</span>` : ""}
           </div>
@@ -976,13 +997,16 @@ renderers.cardGrid = function(body, data, cfg) {
           <div class="vlabel">单场 DGMV</div>
         </div>`;
     } else if (cardType === "product") {
-      // TOP 商品: 商品(主) + 商家 + AM
+      // TOP 商品: 商品(主，跳商品苍穹) + 商家(跳店铺苍穹) + AM
+      const shopChip = sellerIdVal
+        ? `<a class="tag tag-shop tag-link" href="${sellerCangqiongUrl(sellerIdVal)}" target="_blank" rel="noopener">🏪 ${extra || "-"} ↗</a>`
+        : `<span class="tag tag-shop">🏪 ${extra || "-"}</span>`;
       bodyHtml = `
         <div class="card-rank">${idx+1}</div>
         <div class="card-body">
           ${mainHref ? `<a href="${mainHref}" target="_blank" rel="noopener" class="card-title">${mainName} <span class="ext-icon">↗</span></a>` : `<span class="card-title">${mainName}</span>`}
           <div class="card-sub">
-            <span class="tag tag-shop">🏪 ${extra || "-"}</span>
+            ${shopChip}
             ${extra2 ? `<span class="tag tag-am">👤 ${extra2}</span>` : ""}
           </div>
         </div>
@@ -1037,6 +1061,7 @@ renderers.sellerChangeCards = function(body, data, cfg) {
   const valI = findColIdxLoose(data.columns, cfg.value);
   const deltaI = cfg.delta_col ? findColIdx(data.columns, cfg.delta_col) : -1;
   const rateI = cfg.rate ? findColIdx(data.columns, cfg.rate) : -1;
+  const sellerIdI = cfg.link_col_seller ? findColIdx(data.columns, cfg.link_col_seller) : -1;
   if (deltaI < 0) { body.innerHTML = `<div class="empty">变化值字段缺失</div>`; return; }
 
   let rows = data.rows.filter(r => r[dimI] && r[dimI] !== "总计" && (r[valI]||0) > 0 && r[deltaI] != null);
@@ -1076,7 +1101,8 @@ renderers.sellerChangeCards = function(body, data, cfg) {
       const val = r[valI];
       const delta = r[deltaI];
       const rate = rateI>=0 ? r[rateI] : null;
-      const link = sellerSearchUrl(seller);
+      const sellerIdVal = sellerIdI >= 0 ? r[sellerIdI] : null;
+      const link = sellerIdVal ? sellerCangqiongUrl(sellerIdVal) : sellerSearchUrl(seller);
       const rateHtml = rate != null && Math.abs(rate) <= 50 ? renderDelta(rate) : (rate != null ? `<span class="muted">×${rate>0?'+':''}${rate.toFixed(1)}</span>` : "");
       const carrierTag = carrierTagOf(seller);
       html += `
