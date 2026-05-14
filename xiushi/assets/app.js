@@ -116,7 +116,7 @@ async function fetchData(period, chartId) {
   const key = `${period}/${chartId}`;
   if (STATE.cache[key]) return STATE.cache[key];
   try {
-    const r = await fetch(`data/${period}/${chartId}.json`);
+    const r = await fetch(`data/${period}/${chartId}.json` + (STATE.cacheBuster || ""), {cache: "no-store"});
     if (!r.ok) throw new Error("HTTP "+r.status);
     const d = await r.json();
     STATE.cache[key] = d;
@@ -126,16 +126,19 @@ async function fetchData(period, chartId) {
 
 // ============ init ============
 async function init() {
-  const r = await fetch("data/index.json");
+  // 防缓存：每分钟变一次的 cache-buster
+  const cb = "?v=" + Math.floor(Date.now()/60000);
+  STATE.cacheBuster = cb;
+  const r = await fetch("data/index.json" + cb, {cache: "no-store"});
   STATE.index = await r.json();
   // 加载全组日序列 (供 hero KPI 自算环比)
   try {
-    const gs = await fetch("data/_global_series.json");
+    const gs = await fetch("data/_global_series.json" + cb, {cache: "no-store"});
     if (gs.ok) STATE.globalSeries = await gs.json();
   } catch(e) { STATE.globalSeries = null; }
   // 加载 per-period distinct 商家数/商品数（修复 chart limit 截断）
   try {
-    const dc = await fetch("data/_distinct_counts.json");
+    const dc = await fetch("data/_distinct_counts.json" + cb, {cache: "no-store"});
     if (dc.ok) STATE.distinctCounts = await dc.json();
   } catch(e) { STATE.distinctCounts = null; }
   EL.meta.textContent = `数据更新：${STATE.index.generated_at}`;
