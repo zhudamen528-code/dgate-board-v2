@@ -133,6 +133,11 @@ async function init() {
     const gs = await fetch("data/_global_series.json");
     if (gs.ok) STATE.globalSeries = await gs.json();
   } catch(e) { STATE.globalSeries = null; }
+  // 加载 per-period distinct 商家数/商品数（修复 chart limit 截断）
+  try {
+    const dc = await fetch("data/_distinct_counts.json");
+    if (dc.ok) STATE.distinctCounts = await dc.json();
+  } catch(e) { STATE.distinctCounts = null; }
   EL.meta.textContent = `数据更新：${STATE.index.generated_at}`;
   renderPeriodButtons();
   renderTabBar();
@@ -302,10 +307,18 @@ function buildHeroKpis(datas) {
     }
   }
 
-  const sellerData = datas[3];
-  let sellerCount = "-";
-  if (sellerData && sellerData.rows) {
-    sellerCount = sellerData.rows.filter(r => r[0] !== "总计" && (r[findColIdxLoose(sellerData.columns,"DGMV")]||0) > 0).length;
+  // 商家数：优先用 distinct_counts（避免 chart limit 100 行截断）
+  let sellerCount = "-", itemCount = null;
+  if (STATE.distinctCounts && STATE.distinctCounts[STATE.currentPeriod]) {
+    const dc = STATE.distinctCounts[STATE.currentPeriod];
+    if (dc.seller_count != null) sellerCount = dc.seller_count;
+    if (dc.item_count != null) itemCount = dc.item_count;
+  }
+  if (sellerCount === "-") {
+    const sellerData = datas[3];
+    if (sellerData && sellerData.rows) {
+      sellerCount = sellerData.rows.filter(r => r[0] !== "总计" && (r[findColIdxLoose(sellerData.columns,"DGMV")]||0) > 0).length;
+    }
   }
 
   const period = STATE.index.periods.find(p => p.key === STATE.currentPeriod);

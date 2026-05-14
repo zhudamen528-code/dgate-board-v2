@@ -1,41 +1,41 @@
 {
-  "generated_at": "2026-05-14 01:49:03",
+  "generated_at": "2026-05-14 11:38:12",
   "periods": [
     {
       "key": "yesterday",
-      "label": "昨日 (5/11)",
-      "start": "2026-05-11",
-      "end": "2026-05-11"
+      "label": "昨日 (5/13)",
+      "start": "2026-05-13",
+      "end": "2026-05-13"
     },
     {
       "key": "last_7d",
       "label": "近7天",
-      "start": "2026-05-05",
-      "end": "2026-05-11"
+      "start": "2026-05-07",
+      "end": "2026-05-13"
     },
     {
       "key": "last_14d",
       "label": "近14天",
-      "start": "2026-04-28",
-      "end": "2026-05-11"
+      "start": "2026-04-30",
+      "end": "2026-05-13"
     },
     {
       "key": "last_30d",
       "label": "近30天",
-      "start": "2026-04-12",
-      "end": "2026-05-11"
+      "start": "2026-04-14",
+      "end": "2026-05-13"
     },
     {
       "key": "this_month",
       "label": "本月至今",
       "start": "2026-05-01",
-      "end": "2026-05-11"
+      "end": "2026-05-13"
     },
     {
       "key": "this_bimonth",
       "label": "本双月(5-6月)至今",
       "start": "2026-05-01",
-      "end": "2026-05-11"
+      "end": "2026-05-13"
     },
     {
       "key": "last_bimonth",
@@ -65,7 +65,6 @@
             "last_7d",
             "last_14d",
             "last_30d",
-            "this_month",
             "this_bimonth",
             "last_bimonth",
             "yoy_bimonth"
