@@ -178,9 +178,27 @@ async function init() {
     const dc = await fetch("data/_distinct_counts.json" + cb, {cache: "no-store"});
     if (dc.ok) STATE.distinctCounts = await dc.json();
   } catch(e) { STATE.distinctCounts = null; }
+  // V9: 店播 5 层乘数 / 笔记 benchmark / per-AM 商家数 / Summary
+  try {
+    const lb = await fetch("data/_live_breakdown.json" + cb, {cache: "no-store"});
+    if (lb.ok) STATE.liveBreakdown = await lb.json();
+  } catch(e) { STATE.liveBreakdown = null; }
+  try {
+    const nb = await fetch("data/_note_benchmark.json" + cb, {cache: "no-store"});
+    if (nb.ok) STATE.noteBenchmark = await nb.json();
+  } catch(e) { STATE.noteBenchmark = null; }
+  try {
+    const asc = await fetch("data/_am_seller_counts.json" + cb, {cache: "no-store"});
+    if (asc.ok) STATE.amSellerCounts = await asc.json();
+  } catch(e) { STATE.amSellerCounts = null; }
+  try {
+    const sm = await fetch("data/_summary.json" + cb, {cache: "no-store"});
+    if (sm.ok) STATE.summary = await sm.json();
+  } catch(e) { STATE.summary = null; }
   EL.meta.textContent = `数据更新：${STATE.index.generated_at}`;
   renderAMButtons();
   renderPeriodButtons();
+  initCustomRange();
   renderTabBar();
   await renderActiveTab();
 }
@@ -236,6 +254,75 @@ function updatePeriodInfo() {
   EL.periodInfo.innerHTML = `<b>${p.start}</b> 至 <b>${p.end}</b>`;
 }
 
+// V9: 自定义时段（hero KPI 自由选段，chart 维持 8 时段）
+function initCustomRange() {
+  if (!EL.customRange) return;
+  // 默认显示
+  EL.customRange.style.display = "inline-flex";
+  // 默认值 = last 14 days
+  if (STATE.globalSeries && STATE.globalSeries.daily_dgmv) {
+    const dates = STATE.globalSeries.daily_dgmv.map(r => r.date).sort();
+    if (dates.length) {
+      EL.customStart.value = dates[Math.max(0, dates.length-14)];
+      EL.customEnd.value = dates[dates.length-1];
+      EL.customStart.min = dates[0];
+      EL.customStart.max = dates[dates.length-1];
+      EL.customEnd.min = dates[0];
+      EL.customEnd.max = dates[dates.length-1];
+    }
+  }
+  EL.customApply.onclick = () => {
+    const s = EL.customStart.value, e = EL.customEnd.value;
+    if (!s || !e || s > e) { alert("请选择有效的日期范围"); return; }
+    showCustomKPI(s, e);
+  };
+}
+
+function showCustomKPI(start, end) {
+  // 在主内容区顶部插入一个自定义 KPI 卡（不影响其他 chart）
+  if (!STATE.globalSeries || !STATE.globalSeries.daily_dgmv) return;
+  const series = STATE.globalSeries.daily_dgmv;
+  const sumRange = (s, e) => {
+    let total = 0, hit = 0;
+    series.forEach(r => { if (r.date >= s && r.date <= e) { total += r.dgmv; hit++; } });
+    return {sum: total, days: hit};
+  };
+  const cur = sumRange(start, end);
+  const days = (function(){ const a = new Date(start), b = new Date(end); return Math.round((b-a)/86400000)+1; })();
+  // 上一同长度时段
+  const prevEnd = (function(){ const d = new Date(start); d.setDate(d.getDate()-1); return d.toISOString().slice(0,10); })();
+  const prevStart = (function(){ const d = new Date(prevEnd); d.setDate(d.getDate()-(days-1)); return d.toISOString().slice(0,10); })();
+  const prev = sumRange(prevStart, prevEnd);
+  const dod = (prev.sum > 0) ? (cur.sum - prev.sum) / prev.sum : null;
+
+  // 移除已有的自定义卡
+  const old = document.getElementById("custom-kpi-card");
+  if (old) old.remove();
+
+  const card = document.createElement("section");
+  card.id = "custom-kpi-card";
+  card.className = "summary-card";
+  let dh = "";
+  if (dod != null) {
+    const cls = dod >= 0 ? "delta-up" : "delta-down";
+    const arrow = dod >= 0 ? "↑" : "↓";
+    const abs = Math.abs(dod);
+    if (abs > 5) dh = `<span class='delta-abnormal'>异常</span>`;
+    else if (abs > 1) dh = `<span class='${cls}'>${arrow} 显著 ${(abs*100).toFixed(0)}%</span>`;
+    else dh = `<span class='${cls}'>${arrow} ${(abs*100).toFixed(1)}%</span>`;
+  }
+  card.innerHTML = `
+    <div class='summary-header'>📅 自定义时段 KPI · 全组（仅 DGMV，chart 仍按上方时段）</div>
+    <div class='summary-body'>
+      <p><b>${start}</b> 至 <b>${end}</b>（${cur.days} 天）：DGMV <b>${fmt.money(cur.sum)}</b> ${dh}</p>
+      <p class='muted'>对比上 ${days} 天（${prevStart} 至 ${prevEnd}）：${fmt.money(prev.sum)}</p>
+      <p class='muted'>👉 自定义 KPI 用全组日序列计算，仅支持 DGMV；如需各 Tab 拆分，请用上方 8 个固定时段。</p>
+    </div>
+  `;
+  EL.main.insertBefore(card, EL.main.firstChild);
+  card.scrollIntoView({behavior: "smooth", block: "center"});
+}
+
 function renderTabBar() {
   EL.tabBar.innerHTML = "";
   STATE.index.tabs.forEach(t => {
@@ -262,11 +349,16 @@ async function renderActiveTab() {
   EL.main.innerHTML = "";
 
   if (tab.key === "tab1_team_overview") {
+    EL.main.appendChild(buildSummaryCard());  // V9: 业绩摘要（替代 Top AM）
     EL.main.appendChild(buildHeroKpis(datas.map(d => applyAMFilter(d))));
   }
   if (tab.key === "tab2_note") {
+    EL.main.appendChild(buildNoteEfficiencyCard());  // V9: 勤奋度可比指标 + benchmark
     const bd = datas.find(d => d && d.chart_id === "t2_note_breakdown");
     if (bd) EL.main.appendChild(renderKpiGridCard(applyAMFilter(bd)));
+  }
+  if (tab.key === "tab3_live") {
+    EL.main.appendChild(buildLiveBreakdownCard());  // V9: 店播 5 层乘数链
   }
   if (tab.key === "tab4_kbroadcast") {
     const ov = datas.find(d => d && d.chart_id === "t4_k_overview");
@@ -490,6 +582,234 @@ function buildHeroKpis(datas) {
     wrap.appendChild(c);
   });
   return wrap;
+}
+
+// ============ V9 新增模块 ============
+function buildSummaryCard() {
+  // 团队总览顶部 Summary：用 _summary 数据 + 当前 AM 视角
+  const card = document.createElement("section");
+  card.className = "summary-card";
+  const isAM = STATE.currentAM !== "全组";
+  const sm = STATE.summary || {};
+  const last = sm.last_day || {};
+  const dod = last.dod_pct;
+  const wow = sm.wow_pct;
+  const avg7 = sm.last_7d_avg;
+
+  const trend = (rate) => {
+    if (rate == null || isNaN(rate)) return "<span class='muted'>—</span>";
+    const abs = Math.abs(rate);
+    const cls = rate >= 0 ? "delta-up" : "delta-down";
+    const arrow = rate >= 0 ? "↑" : "↓";
+    if (abs > 5) return `<span class='delta-abnormal'>异常波动</span>`;
+    if (abs > 1) return `<span class='${cls}'>${arrow} 显著 ${(abs*100).toFixed(0)}%</span>`;
+    return `<span class='${cls}'>${arrow} ${(abs*100).toFixed(1)}%</span>`;
+  };
+
+  const scope = isAM ? STATE.currentAM : "五组（休食）全组";
+  const dateStr = last.date || "—";
+
+  // 文字化总结
+  let body = "";
+  if (isAM) {
+    // AM 视角：用 hero KPI 已有的数据（这里简化文字描述）
+    body = `<p>当前视角：<b>${STATE.currentAM}</b>。完整业绩请参考下方 KPI 卡片与各 Tab 详细数据。</p>
+            <p class='muted'>📌 提示：环比/同比基于全组日序列（无 AM 拆分），AM 视角下不显示自动计算的环比；请参考 byAM chart 中各 AM 行的"年同比/环比"。</p>`;
+  } else {
+    body = `
+      <p><b>${dateStr}</b>（${scope}）日 DGMV <b>${last.dgmv != null ? fmt.money(last.dgmv) : '—'}</b>，环比前一日 ${trend(dod)}。</p>
+      <p>近 7 天日均 <b>${avg7 != null ? fmt.money(avg7) : '—'}</b>，环比上 7 天 ${trend(wow)}。</p>
+      <p class='muted'>👉 切换上方 AM 即可查看个人版数据，可直接截图作为周报内容。</p>
+    `;
+  }
+
+  card.innerHTML = `
+    <div class='summary-header'>📋 业绩摘要 · ${scope}</div>
+    <div class='summary-body'>${body}</div>
+  `;
+  return card;
+}
+
+function buildLiveBreakdownCard() {
+  // 店播 5 层乘数链：开播时长 → 单位时长曝光 → CTR → CVR → 客单价
+  const card = document.createElement("section");
+  card.className = "chart-card live-breakdown-card";
+  const lb = STATE.liveBreakdown || {};
+  const periodData = lb[STATE.currentPeriod] || {};
+  const isAM = STATE.currentAM !== "全组";
+  const scope = isAM ? STATE.currentAM : "全组";
+  const data = periodData[scope];
+
+  const periodLabel = STATE.index.periods.find(p => p.key === STATE.currentPeriod).label;
+
+  if (!data) {
+    card.innerHTML = `
+      <div class='chart-header'><div class='chart-title'>📺 店播效率拆解 · ${scope}</div></div>
+      <div class='empty'>暂无 ${periodLabel} ${scope} 店播拆解数据</div>
+    `;
+    return card;
+  }
+
+  // 5 层乘数：
+  // L1 开播时长(h) → L2 曝光/h → L3 CTR(购买PV/曝光PV) → L4 CVR(购买/观播) → L5 客单价 → DGMV
+  const fmtN = (v, digits=0) => v == null ? "—" : v.toLocaleString("zh-CN",{maximumFractionDigits:digits});
+  const fmtPct = (v) => v == null ? "—" : (v*100).toFixed(2) + "%";
+
+  // 全组对比（AM 视角下显示 vs 全组的差异）
+  const allGroup = periodData["全组"] || {};
+  const cmp = (key) => {
+    if (!isAM || !allGroup[key] || !data[key]) return "";
+    const ratio = data[key] / (allGroup[key] / 6);  // vs 全组人均
+    if (ratio > 1.1) return `<span class='delta-up muted-mini'>高于全组人均 ${((ratio-1)*100).toFixed(0)}%</span>`;
+    if (ratio < 0.9) return `<span class='delta-down muted-mini'>低于全组人均 ${((1-ratio)*100).toFixed(0)}%</span>`;
+    return `<span class='muted-mini'>≈ 全组人均</span>`;
+  };
+
+  card.innerHTML = `
+    <div class='chart-header'>
+      <div class='chart-title'>📺 店播效率拆解 · ${scope}</div>
+      <div class='chart-meta muted'>${periodLabel}</div>
+    </div>
+    <div class='breakdown-chain'>
+      <div class='bd-step'>
+        <div class='bd-num'>${fmtN(data.duration_h, 0)} h</div>
+        <div class='bd-label'>① 总开播时长</div>
+        <div class='bd-cmp'>${cmp("duration_h")}</div>
+      </div>
+      <div class='bd-arrow'>×</div>
+      <div class='bd-step'>
+        <div class='bd-num'>${fmtN(data.exposure_per_hour, 0)}</div>
+        <div class='bd-label'>② 单位时长曝光 PV/h</div>
+      </div>
+      <div class='bd-arrow'>×</div>
+      <div class='bd-step'>
+        <div class='bd-num'>${fmtPct(data.ctr)}</div>
+        <div class='bd-label'>③ 购买 CTR<br/><span class='muted-mini'>(购买PV/曝光PV)</span></div>
+      </div>
+      <div class='bd-arrow'>×</div>
+      <div class='bd-step'>
+        <div class='bd-num'>${fmtPct(data.cvr)}</div>
+        <div class='bd-label'>④ UV 转化率</div>
+      </div>
+      <div class='bd-arrow'>×</div>
+      <div class='bd-step'>
+        <div class='bd-num'>${data.aov != null ? "¥" + fmtN(data.aov, 0) : "—"}</div>
+        <div class='bd-label'>⑤ 客单价</div>
+      </div>
+      <div class='bd-arrow'>=</div>
+      <div class='bd-step bd-result'>
+        <div class='bd-num'>${data.dgmv != null ? fmt.money(data.dgmv) : "—"}</div>
+        <div class='bd-label'>店播 DGMV</div>
+      </div>
+    </div>
+    <div class='bd-tip muted'>💡 5 层乘数链定位短板：哪一层显著低于行业/全组均值，就是优化重点。</div>
+  `;
+  return card;
+}
+
+function buildNoteEfficiencyCard() {
+  // 勤奋度可比指标：商家平均发笔记数 / 笔记平均曝光 / CVR vs 全平台 benchmark
+  const card = document.createElement("section");
+  card.className = "chart-card note-efficiency-card";
+  const isAM = STATE.currentAM !== "全组";
+  const scope = isAM ? STATE.currentAM : "全组";
+  const periodLabel = STATE.index.periods.find(p => p.key === STATE.currentPeriod).label;
+
+  // 数据源：
+  // _am_seller_counts[period][scope] -> 名下动销商家数
+  // t2_note_byAM 当前时段 -> 各 AM 的笔记数/曝光量/DGMV
+  // _note_benchmark[period] -> 全平台 CVR
+  const ascAll = (STATE.amSellerCounts || {})[STATE.currentPeriod] || {};
+  const sellerCount = ascAll[scope];
+
+  // 取 t2_note_byAM 数据
+  const noteByAM = STATE.cache[`${STATE.currentPeriod}::t2_note_byAM`];
+  let noteCount = null, exposure = null, dgmv = null, cvr = null;
+  if (noteByAM && noteByAM.rows) {
+    const cols = noteByAM.columns;
+    const findIdx = (kw) => {
+      for (let i = 0; i < cols.length; i++) {
+        if (String(cols[i] || "").includes(kw)) return i;
+      }
+      return -1;
+    };
+    const ai = findIdx("AM");
+    const dgmvI = findIdx("商笔DGMV");
+    const cntI = findIdx("新发商笔数");
+    const expI = findIdx("商笔曝光量");
+    if (isAM) {
+      const myRow = noteByAM.rows.find(r => r[ai] === STATE.currentAM);
+      if (myRow) {
+        dgmv = myRow[dgmvI]; noteCount = myRow[cntI]; exposure = myRow[expI];
+      }
+    } else {
+      const tot = noteByAM.rows.find(r => r[ai] === "总计");
+      if (tot) {
+        dgmv = tot[dgmvI]; noteCount = tot[cntI]; exposure = tot[expI];
+      }
+    }
+    // CVR (从 t2_note_breakdown 取，通常按 AM 部门，没拆 AM 不准)
+    // 简化：用 dgmv / 商品笔记ces ≈ 转化率，但 ces 不在 byAM
+    // 直接读 t2_note_breakdown 的 CVR 行
+    const noteBd = STATE.cache[`${STATE.currentPeriod}::t2_note_breakdown`];
+    if (noteBd && noteBd.rows && noteBd.rows[0]) {
+      const bdCols = noteBd.columns;
+      const cvrI = bdCols.findIndex(c => c.includes("商品转化率") && !c.includes("环比") && !c.includes("年同比"));
+      if (cvrI >= 0) cvr = noteBd.rows[0][cvrI];
+    }
+  }
+
+  const benchmark = (STATE.noteBenchmark || {})[STATE.currentPeriod] || {};
+  const benchCvr = benchmark.cvr;
+
+  const avgPerSeller = (sellerCount && noteCount) ? noteCount / sellerCount : null;
+  const avgExpPerNote = (noteCount && exposure) ? exposure / noteCount : null;
+  const fmtN = (v, digits=1) => v == null ? "—" : v.toLocaleString("zh-CN",{maximumFractionDigits:digits});
+  const fmtPct = (v) => v == null ? "—" : (v*100).toFixed(2) + "%";
+
+  // CVR vs benchmark
+  let cvrCmp = "";
+  if (cvr != null && benchCvr) {
+    const ratio = cvr / benchCvr;
+    if (ratio > 1.05) cvrCmp = `<span class='delta-up'>↑ 高于全平台均值 ${((ratio-1)*100).toFixed(0)}%</span>`;
+    else if (ratio < 0.95) cvrCmp = `<span class='delta-down'>↓ 低于全平台均值 ${((1-ratio)*100).toFixed(0)}%</span>`;
+    else cvrCmp = `<span class='muted'>≈ 全平台均值</span>`;
+  }
+
+  card.innerHTML = `
+    <div class='chart-header'>
+      <div class='chart-title'>📝 商品笔记勤奋度 · 可比指标 · ${scope}</div>
+      <div class='chart-meta muted'>${periodLabel}</div>
+    </div>
+    <div class='efficiency-grid'>
+      <div class='eff-cell'>
+        <div class='eff-label'>📚 名下动销商家</div>
+        <div class='eff-num'>${sellerCount != null ? sellerCount : "—"}<span class='unit'> 家</span></div>
+      </div>
+      <div class='eff-cell highlight'>
+        <div class='eff-label'>① 商家平均发商品笔记数<span class='hint'>（数量勤奋度）</span></div>
+        <div class='eff-num'>${avgPerSeller != null ? fmtN(avgPerSeller, 1) : "—"}<span class='unit'> 篇/商家</span></div>
+        <div class='eff-sub muted'>共 ${noteCount != null ? fmtN(noteCount, 0) : "—"} 篇</div>
+      </div>
+      <div class='eff-cell highlight'>
+        <div class='eff-label'>② 笔记平均曝光<span class='hint'>（质量勤奋度）</span></div>
+        <div class='eff-num'>${avgExpPerNote != null ? fmtN(avgExpPerNote/1000, 1) : "—"}<span class='unit'>k PV/篇</span></div>
+        <div class='eff-sub muted'>总曝光 ${exposure != null ? fmt.money(exposure).replace("¥","") : "—"} PV</div>
+      </div>
+      <div class='eff-cell'>
+        <div class='eff-label'>③ 商品转化率</div>
+        <div class='eff-num'>${fmtPct(cvr)}</div>
+        <div class='eff-sub'>${cvrCmp}</div>
+      </div>
+      <div class='eff-cell'>
+        <div class='eff-label'>📊 全平台均值（benchmark）</div>
+        <div class='eff-num benchmark'>${fmtPct(benchCvr)}</div>
+        <div class='eff-sub muted'>商品笔记 CVR · 全平台</div>
+      </div>
+    </div>
+    <div class='bd-tip muted'>💡 评估笔记勤奋度看"商家平均发笔记数"+"笔记平均曝光"，避开盘子大小影响；CVR 与全平台对比看商品质量。</div>
+  `;
+  return card;
 }
 
 // ============ 渲染器 ============
