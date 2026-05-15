@@ -792,3 +792,10 @@ a.card-title:hover { color: var(--primary); }
   .bd-step { min-width: 130px; flex: 1 0 130px; }
   .bd-arrow { display: none; }
 }
+
+.chart-card.note-efficiency-card {
+  background: linear-gradient(135deg, #ecfeff 0%, #f0fdfa 100%);
+}
+.chart-card.live-breakdown-card {
+  background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%);
+}

@@ -353,7 +353,7 @@ async function renderActiveTab() {
     EL.main.appendChild(buildHeroKpis(datas.map(d => applyAMFilter(d))));
   }
   if (tab.key === "tab2_note") {
-    EL.main.appendChild(buildNoteEfficiencyCard());  // V9: 勤奋度可比指标 + benchmark
+    EL.main.appendChild(buildNoteEfficiencyCard(datas, tab));  // V9: 勤奋度可比指标 + benchmark
     const bd = datas.find(d => d && d.chart_id === "t2_note_breakdown");
     if (bd) EL.main.appendChild(renderKpiGridCard(applyAMFilter(bd)));
   }
@@ -707,7 +707,7 @@ function buildLiveBreakdownCard() {
   return card;
 }
 
-function buildNoteEfficiencyCard() {
+function buildNoteEfficiencyCard(datas, tab) {
   // 勤奋度可比指标：商家平均发笔记数 / 笔记平均曝光 / CVR vs 全平台 benchmark
   const card = document.createElement("section");
   card.className = "chart-card note-efficiency-card";
@@ -717,13 +717,19 @@ function buildNoteEfficiencyCard() {
 
   // 数据源：
   // _am_seller_counts[period][scope] -> 名下动销商家数
-  // t2_note_byAM 当前时段 -> 各 AM 的笔记数/曝光量/DGMV
+  // datas (按 chart 顺序) -> 找 t2_note_byAM / t2_note_breakdown
   // _note_benchmark[period] -> 全平台 CVR
   const ascAll = (STATE.amSellerCounts || {})[STATE.currentPeriod] || {};
   const sellerCount = ascAll[scope];
 
-  // 取 t2_note_byAM 数据
-  const noteByAM = STATE.cache[`${STATE.currentPeriod}::t2_note_byAM`];
+  // 从 datas 数组里找 chart（不依赖 cache 时机）
+  const findData = (cid) => {
+    if (!tab || !tab.charts) return null;
+    const idx = tab.charts.findIndex(c => c.id === cid);
+    return idx >= 0 ? datas[idx] : null;
+  };
+  const noteByAM = findData("t2_note_byAM");
+  const noteBd = findData("t2_note_breakdown");
   let noteCount = null, exposure = null, dgmv = null, cvr = null;
   if (noteByAM && noteByAM.rows) {
     const cols = noteByAM.columns;
@@ -748,15 +754,11 @@ function buildNoteEfficiencyCard() {
         dgmv = tot[dgmvI]; noteCount = tot[cntI]; exposure = tot[expI];
       }
     }
-    // CVR (从 t2_note_breakdown 取，通常按 AM 部门，没拆 AM 不准)
-    // 简化：用 dgmv / 商品笔记ces ≈ 转化率，但 ces 不在 byAM
-    // 直接读 t2_note_breakdown 的 CVR 行
-    const noteBd = STATE.cache[`${STATE.currentPeriod}::t2_note_breakdown`];
-    if (noteBd && noteBd.rows && noteBd.rows[0]) {
-      const bdCols = noteBd.columns;
-      const cvrI = bdCols.findIndex(c => c.includes("商品转化率") && !c.includes("环比") && !c.includes("年同比"));
-      if (cvrI >= 0) cvr = noteBd.rows[0][cvrI];
-    }
+  }
+  if (noteBd && noteBd.rows && noteBd.rows[0]) {
+    const bdCols = noteBd.columns;
+    const cvrI = bdCols.findIndex(c => c.includes("商品转化率") && !c.includes("环比") && !c.includes("年同比"));
+    if (cvrI >= 0) cvr = noteBd.rows[0][cvrI];
   }
 
   const benchmark = (STATE.noteBenchmark || {})[STATE.currentPeriod] || {};
