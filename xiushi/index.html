@@ -19,10 +19,23 @@
   </div>
 </header>
 
+<nav class="am-bar">
+  <div class="am-label">👤 视角</div>
+  <div class="am-buttons" id="am-buttons"></div>
+  <div class="am-info" id="am-info"></div>
+</nav>
+
 <nav class="period-bar">
   <div class="period-label">📅 时段</div>
   <div class="period-buttons" id="period-buttons"></div>
   <div class="period-info" id="period-info"></div>
+  <div class="custom-range" id="custom-range" style="display:none;">
+    <span class="muted">自定义：</span>
+    <input type="date" id="custom-start" />
+    <span>~</span>
+    <input type="date" id="custom-end" />
+    <button id="custom-apply">应用</button>
+  </div>
 </nav>
 
 <nav class="tab-bar" id="tab-bar"></nav>

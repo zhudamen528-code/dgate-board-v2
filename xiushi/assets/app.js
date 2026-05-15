@@ -3,15 +3,52 @@ const STATE = {
   index: null,
   currentPeriod: "this_bimonth",
   currentTab: "tab1_team_overview",
+  currentAM: "全组",  // "全组" | AM 名称
   cache: {},
   echarts: [],
 };
+const ALL_AMS = ["全组", "蕾塞(张嘉悦)", "莱拉(付艺迪)", "大门(朱锦程)", "路歌(李红红)", "秋罗(胡春秋)", "诺亚(单恩浩)"];
+
+// AM 维度过滤工具：返回 AM 字段索引；找不到返回 -1
+function findAMColIdx(cols) {
+  if (!cols) return -1;
+  for (let i = 0; i < cols.length; i++) {
+    const c = String(cols[i] || "").trim();
+    if (c === "AM" || c === "商家am名称" || c === "商家am名称(最新日期）" ||
+        c === "商家am名称(最新日期)" || c === "AM五级部门" ||
+        c === "最新分区AM用户名") return i;
+  }
+  return -1;
+}
+
+// 根据当前 AM 过滤 data；如果 AM=全组 或 chart 没 AM 列，原样返回
+function applyAMFilter(data) {
+  if (!data || STATE.currentAM === "全组") return data;
+  const ai = findAMColIdx(data.columns);
+  if (ai < 0) return data;  // chart 没 AM 维度，返回原数据
+  const filtered = data.rows.filter(r => {
+    if (!r || ai >= r.length) return false;
+    const v = String(r[ai] || "").trim();
+    return v === STATE.currentAM || v === "总计";
+  });
+  return Object.assign({}, data, {rows: filtered});
+}
+
+function currentAMHasFilter(data) {
+  return STATE.currentAM !== "全组" && findAMColIdx(data && data.columns) >= 0;
+}
 const EL = {
   meta: document.getElementById("generated-at"),
+  amButtons: document.getElementById("am-buttons"),
+  amInfo: document.getElementById("am-info"),
   periodButtons: document.getElementById("period-buttons"),
   periodInfo: document.getElementById("period-info"),
   tabBar: document.getElementById("tab-bar"),
   main: document.getElementById("main-content"),
+  customRange: document.getElementById("custom-range"),
+  customStart: document.getElementById("custom-start"),
+  customEnd: document.getElementById("custom-end"),
+  customApply: document.getElementById("custom-apply"),
 };
 
 // ============ utils ============
@@ -142,9 +179,36 @@ async function init() {
     if (dc.ok) STATE.distinctCounts = await dc.json();
   } catch(e) { STATE.distinctCounts = null; }
   EL.meta.textContent = `数据更新：${STATE.index.generated_at}`;
+  renderAMButtons();
   renderPeriodButtons();
   renderTabBar();
   await renderActiveTab();
+}
+
+function renderAMButtons() {
+  EL.amButtons.innerHTML = "";
+  ALL_AMS.forEach(am => {
+    const btn = document.createElement("button");
+    btn.textContent = am;
+    if (am === STATE.currentAM) btn.classList.add("active");
+    btn.onclick = async () => {
+      STATE.currentAM = am;
+      EL.amButtons.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      updateAMInfo();
+      await renderActiveTab();
+    };
+    EL.amButtons.appendChild(btn);
+  });
+  updateAMInfo();
+}
+function updateAMInfo() {
+  if (!EL.amInfo) return;
+  if (STATE.currentAM === "全组") {
+    EL.amInfo.innerHTML = `<span class="muted">全员视角（6 AM 合计）</span>`;
+  } else {
+    EL.amInfo.innerHTML = `<span>当前 AM：<b>${STATE.currentAM}</b></span>`;
+  }
 }
 
 function renderPeriodButtons() {
@@ -198,11 +262,11 @@ async function renderActiveTab() {
   EL.main.innerHTML = "";
 
   if (tab.key === "tab1_team_overview") {
-    EL.main.appendChild(buildHeroKpis(datas));
+    EL.main.appendChild(buildHeroKpis(datas.map(d => applyAMFilter(d))));
   }
   if (tab.key === "tab2_note") {
     const bd = datas.find(d => d && d.chart_id === "t2_note_breakdown");
-    if (bd) EL.main.appendChild(renderKpiGridCard(bd));
+    if (bd) EL.main.appendChild(renderKpiGridCard(applyAMFilter(bd)));
   }
   if (tab.key === "tab4_kbroadcast") {
     const ov = datas.find(d => d && d.chart_id === "t4_k_overview");
@@ -219,7 +283,8 @@ async function renderActiveTab() {
         (tab.key === "tab4_kbroadcast" && cdef.id === "t4_k_overview")) {
       return;
     }
-    EL.main.appendChild(renderChartCard(cdef, data));
+    const filteredData = applyAMFilter(data);
+    EL.main.appendChild(renderChartCard(cdef, filteredData));
   });
 }
 
@@ -278,52 +343,71 @@ function buildHeroKpis(datas) {
   const wrap = document.createElement("div");
   wrap.className = "hero-kpis";
   const periodLabel = STATE.index.periods.find(p => p.key === STATE.currentPeriod).label;
+  const isAM = STATE.currentAM !== "全组";
+  const scopeLabel = isAM ? STATE.currentAM : "全组";
 
-  // datas[0]: t1_yesterday_perf  -> 总 DGMV + 场域数
-  // datas[1]: t1_bimonth_byAM   -> AM 数 + Top1 + TGMV
+  // datas[0]: t1_yesterday_perf  -> 总 DGMV + 场域数（按场域分布，无 AM 列，AM 视角下不能用）
+  // datas[1]: t1_bimonth_byAM   -> 按 AM 拆 + TGMV + DGMV
   // datas[3]: t1_bimonth_top_seller -> 商家数
 
-  const yperf = datas[0];
-  let totalGmv = "-", scenes = "-", totalGmvNum = null;
-  if (yperf && yperf.rows && yperf.rows.length) {
-    const ci = findColIdxLoose(yperf.columns, "DGMV");
-    const total = yperf.rows.find(r => r[0] === "总计");
-    if (total) { totalGmvNum = total[ci]; totalGmv = fmt.money(totalGmvNum); }
-    scenes = yperf.rows.filter(r => r[0] !== "总计").length;
-  }
-
+  // ============ 1. 全组 DGMV / TGMV / 场域数 ============
+  // AM 视角：从 byAM 中读对应 AM 的 DGMV/TGMV
+  // 全组视角：从 yesterday_perf '总计' 行读 DGMV
+  let totalGmv = "-", totalGmvNum = null, totalTgmv = null, scenes = "-";
   const byAM = datas[1];
-  let amCount = "-", topAM = "-", topAMValue = "", totalTgmv = null;
   if (byAM && byAM.rows && byAM.rows.length) {
     const dimI = findColIdx(byAM.columns, "AM");
     const dgmvI = findColIdxLoose(byAM.columns, "DGMV");
     const tgmvI = findColIdx(byAM.columns, "TGMV");
     const rows = byAM.rows.filter(r => r[dimI] !== "总计");
-    amCount = rows.length;
-    if (rows.length) {
-      const top = rows.slice().sort((a,b)=>(b[dgmvI]||0)-(a[dgmvI]||0))[0];
-      topAM = top[dimI];
-      topAMValue = fmt.money(top[dgmvI]);
+    if (isAM) {
+      const myRow = rows.find(r => r[dimI] === STATE.currentAM);
+      if (myRow) {
+        totalGmvNum = myRow[dgmvI];
+        totalGmv = fmt.money(totalGmvNum);
+        if (tgmvI >= 0) totalTgmv = myRow[tgmvI];
+      }
+    } else {
+      totalGmvNum = rows.reduce((s,r)=>s+(r[dgmvI]||0),0);
+      totalGmv = fmt.money(totalGmvNum);
+      if (tgmvI >= 0) totalTgmv = rows.reduce((s,r)=>s+(r[tgmvI]||0), 0);
     }
-    if (tgmvI >= 0) {
-      totalTgmv = rows.reduce((s,r)=>s+(r[tgmvI]||0), 0);
+  }
+  // 全组视角下，scenes/totalGmv 优先从 yesterday_perf 取（更准）
+  if (!isAM) {
+    const yperf = datas[0];
+    if (yperf && yperf.rows && yperf.rows.length) {
+      const ci = findColIdxLoose(yperf.columns, "DGMV");
+      const total = yperf.rows.find(r => r[0] === "总计");
+      if (total) { totalGmvNum = total[ci]; totalGmv = fmt.money(totalGmvNum); }
+      scenes = yperf.rows.filter(r => r[0] !== "总计").length;
     }
+  } else {
+    // AM 视角无场域细分 chart, 占位
+    scenes = "-";
   }
 
-  // 商家数：优先用 distinct_counts（避免 chart limit 100 行截断）
-  let sellerCount = "-", itemCount = null;
-  if (STATE.distinctCounts && STATE.distinctCounts[STATE.currentPeriod]) {
-    const dc = STATE.distinctCounts[STATE.currentPeriod];
-    if (dc.seller_count != null) sellerCount = dc.seller_count;
-    if (dc.item_count != null) itemCount = dc.item_count;
-  }
-  if (sellerCount === "-") {
-    const sellerData = datas[3];
+  // ============ 2. 商家数 ============
+  // 全组视角：用 distinct_counts (修复 100 行截断)
+  // AM 视角：从 t1_bimonth_top_seller 数据 filter（已经被 applyAMFilter 过滤过）
+  let sellerCount = "-";
+  const sellerData = datas[3];
+  if (isAM) {
     if (sellerData && sellerData.rows) {
-      sellerCount = sellerData.rows.filter(r => r[0] !== "总计" && (r[findColIdxLoose(sellerData.columns,"DGMV")]||0) > 0).length;
+      const dgmvI = findColIdxLoose(sellerData.columns, "DGMV");
+      sellerCount = sellerData.rows.filter(r => r[0] !== "总计" && (r[dgmvI]||0) > 0).length;
+    }
+  } else {
+    if (STATE.distinctCounts && STATE.distinctCounts[STATE.currentPeriod]) {
+      sellerCount = STATE.distinctCounts[STATE.currentPeriod].seller_count;
+    }
+    if ((sellerCount === "-" || sellerCount == null) && sellerData && sellerData.rows) {
+      const dgmvI = findColIdxLoose(sellerData.columns, "DGMV");
+      sellerCount = sellerData.rows.filter(r => r[0] !== "总计" && (r[dgmvI]||0) > 0).length;
     }
   }
 
+  // ============ 3. 周期天数 + 日均 ============
   const period = STATE.index.periods.find(p => p.key === STATE.currentPeriod);
   const days = (function(){
     if (!period) return 1;
@@ -331,10 +415,10 @@ function buildHeroKpis(datas) {
     return Math.max(1, Math.round((e - s)/86400000)+1);
   })();
 
-  // ============ 自算环比 ============
-  // 用全组日序列 _global_series：当前时段 vs 上一同长度时段的 DGMV
+  // ============ 4. 自算环比 ============
+  // 注意：日序列是全组的，AM 视角下无法精确算环比，所以 AM 视角时不显示环比
   let deltaPct = null, deltaLabel = "vs 上期";
-  if (STATE.globalSeries && STATE.globalSeries.daily_dgmv && period) {
+  if (!isAM && STATE.globalSeries && STATE.globalSeries.daily_dgmv && period) {
     const series = STATE.globalSeries.daily_dgmv;
     const sumRange = (start, end) => {
       let total = 0, hit = 0;
@@ -354,7 +438,6 @@ function buildHeroKpis(datas) {
       prevStart = prevEnd = addDays(period.start, -1);
       deltaLabel = "vs 前一日";
     } else if (period.key === "yoy_bimonth") {
-      // 去年同期，无法本地算环比
       prevStart = null;
     } else {
       prevEnd = addDays(period.start, -1);
@@ -369,18 +452,23 @@ function buildHeroKpis(datas) {
     }
   }
 
-  const items = [
-    {label: `${periodLabel} · 全组 DGMV`, value: totalGmv, delta: deltaPct, deltaLabel},
-    totalTgmv != null
-      ? {label: `${periodLabel} · 全组 TGMV`, value: fmt.money(totalTgmv)}
-      : {label: "日均 DGMV", value: totalGmvNum != null ? fmt.money(totalGmvNum/days) : "-", sub: `${days} 天`},
-    {label: "日均 DGMV", value: totalGmvNum != null ? fmt.money(totalGmvNum/days) : "-", sub: `${days} 天`},
-    {label: `Top AM`, value: topAM, sub: topAMValue},
-    {label: "动销商家数", value: sellerCount === "-" ? "-" : sellerCount + " 家"},
-    {label: "覆盖场域", value: scenes + " 个"},
-  ];
-  // 去重（如果第二项已是 日均 DGMV，去掉第三项）
-  if (items[1].label === items[2].label) items.splice(2, 1);
+  // ============ 卡片清单 ============
+  const items = [];
+  items.push({label: `${periodLabel} · ${scopeLabel} DGMV`, value: totalGmv,
+    delta: deltaPct, deltaLabel});
+  if (totalTgmv != null) {
+    items.push({label: `${periodLabel} · ${scopeLabel} TGMV`, value: fmt.money(totalTgmv)});
+  }
+  items.push({label: "日均 DGMV", value: totalGmvNum != null ? fmt.money(totalGmvNum/days) : "-", sub: `${days} 天`});
+  if (!isAM) {
+    items.push({label: "动销商家数", value: (sellerCount === "-" || sellerCount == null) ? "-" : sellerCount + " 家"});
+  } else {
+    items.push({label: `${STATE.currentAM} 名下动销商家`, value: (sellerCount === "-" || sellerCount == null) ? "-" : sellerCount + " 家"});
+  }
+  if (!isAM && scenes !== "-") {
+    items.push({label: "覆盖场域", value: scenes + " 个"});
+  }
+
   items.forEach(it => {
     const c = document.createElement("div");
     c.className = "kpi-card hero";

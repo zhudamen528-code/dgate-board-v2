@@ -645,3 +645,62 @@ a.card-title:hover { color: var(--primary); }
 .attrib-mini-tag:hover { color: var(--primary); border-color: var(--primary); }
 .tag-link { cursor: pointer; text-decoration: none; }
 .tag-link:hover { box-shadow: 0 0 0 1px rgba(0,0,0,0.15); transform: translateY(-1px); transition: 0.15s; }
+
+/* ============ AM 切换器 ============ */
+.am-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 24px;
+  background: linear-gradient(90deg, #fff7e6 0%, #ffffff 100%);
+  border-bottom: 1px solid #ffe0b3;
+  flex-wrap: wrap;
+}
+.am-label { font-weight: 600; color: #d97706; font-size: 14px; flex-shrink: 0; }
+.am-buttons { display: flex; gap: 6px; flex-wrap: wrap; }
+.am-buttons button {
+  padding: 4px 12px;
+  border: 1px solid #fed7aa;
+  background: #fff;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #6b7280;
+  transition: all 0.15s;
+}
+.am-buttons button:hover { background: #fff7ed; border-color: #fdba74; }
+.am-buttons button.active {
+  background: #f97316;
+  color: #fff;
+  border-color: #f97316;
+  font-weight: 600;
+}
+.am-info { margin-left: auto; font-size: 13px; color: #6b7280; }
+.am-info b { color: #d97706; }
+
+/* 自定义时间段 */
+.custom-range {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: #f0f9ff;
+  border-radius: 16px;
+  margin-left: 8px;
+  font-size: 13px;
+}
+.custom-range input[type="date"] {
+  border: 1px solid #bfdbfe;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+.custom-range button {
+  padding: 2px 10px;
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
