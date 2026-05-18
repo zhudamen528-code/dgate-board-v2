@@ -1296,3 +1296,78 @@ footer {
 
 /* AM 视角下整页加一点点 highlight */
 body[data-am-on="1"] .sidebar { border-right-color: var(--primary); }
+
+/* ============================================================
+ * V12: 环比徽章 + tooltip 注释
+ * ============================================================ */
+.delta-badge {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  margin-left: 6px;
+  vertical-align: baseline;
+  white-space: nowrap;
+  cursor: help;
+  border: 1px solid transparent;
+}
+.delta-badge.delta-up { color: #d63031; background: #fff0f0; border-color: #fad4d4; }
+.delta-badge.delta-down { color: #2c8a47; background: #f0faf3; border-color: #c8e6d3; }
+.delta-badge.delta-abnormal { color: #8a4d00; background: #fff8e1; border-color: #ffd591; }
+
+/* 小问号图标 */
+.hint-tip {
+  display: inline-block;
+  width: 14px; height: 14px;
+  line-height: 12px;
+  text-align: center;
+  font-size: 10px;
+  color: #94a3b8;
+  border: 1px solid #cbd5e1;
+  border-radius: 50%;
+  margin-left: 4px;
+  cursor: help;
+  vertical-align: super;
+  font-style: normal;
+  background: #fff;
+}
+.hint-tip:hover { color: #ff5f6d; border-color: #ff5f6d; }
+
+/* tooltip 全局（hover 出现） */
+[data-tip] {
+  position: relative;
+}
+[data-tip]:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1f2937;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: normal;
+  white-space: nowrap;
+  z-index: 9999;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  max-width: 320px;
+  white-space: normal;
+  width: max-content;
+  text-align: left;
+  line-height: 1.5;
+}
+[data-tip]:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: #1f2937;
+  z-index: 9999;
+  pointer-events: none;
+}

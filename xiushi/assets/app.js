@@ -89,6 +89,58 @@ const fmt = {
   }
 };
 
+// V12: 通用环比 + tooltip 工具
+// ----- 计算"上一同长度时段"DGMV（用 _global_series 日序列）-----
+function getPrevPeriodDGMV(periodKey) {
+  // 返回 {curSum, prevSum, prevLabel, days}
+  const series = (STATE.globalSeries || {}).daily_dgmv;
+  if (!series || !series.length) return null;
+  const period = STATE.index.periods.find(p => p.key === periodKey);
+  if (!period) return null;
+  const s = period.start, e = period.end;
+  const dateSum = (start, end) => {
+    let sum = 0, hit = 0;
+    series.forEach(r => { if (r.date >= start && r.date <= end) { sum += r.dgmv; hit++; } });
+    return {sum, days: hit};
+  };
+  const cur = dateSum(s, e);
+  const days = (function(){ const a=new Date(s), b=new Date(e); return Math.round((b-a)/86400000)+1; })();
+  // 上一同长度时段
+  const prevEnd = (function(){ const d=new Date(s); d.setDate(d.getDate()-1); return d.toISOString().slice(0,10); })();
+  const prevStart = (function(){ const d=new Date(prevEnd); d.setDate(d.getDate()-(days-1)); return d.toISOString().slice(0,10); })();
+  const prev = dateSum(prevStart, prevEnd);
+  return {
+    curSum: cur.sum, curDays: cur.days,
+    prevSum: prev.sum, prevDays: prev.days,
+    prevStart, prevEnd, days,
+    prevLabel: `上 ${days} 天 (${prevStart} ~ ${prevEnd})`
+  };
+}
+
+// ----- 渲染"带 tooltip 的对比徽章" -----
+// kind: 'mom' (环比) | 'bench' (对比 benchmark) | 'avg' (vs 全组人均)
+// curVal / refVal 同口径数值；refLabel 显示 "vs xxx"
+function deltaBadge(curVal, refVal, refLabel, opts={}) {
+  if (curVal == null || refVal == null || refVal == 0) return "";
+  const rate = (curVal - refVal) / Math.abs(refVal);
+  const fmtRef = opts.fmt || (v => v.toLocaleString("zh-CN", {maximumFractionDigits: 1}));
+  // 异常阈值：>500% 不显示具体数字
+  if (Math.abs(rate) > 5) {
+    return `<span class="delta-badge delta-abnormal" title="对比 ${refLabel}：${fmtRef(refVal)}，变化异常">⚠ 异常</span>`;
+  }
+  const arrow = rate >= 0 ? "↑" : "↓";
+  let cls = rate >= 0 ? "delta-up" : "delta-down";
+  let mag = "";
+  if (Math.abs(rate) > 1) mag = " 显著";
+  const tip = `对比 ${refLabel}：${fmtRef(refVal)}（当前 ${fmtRef(curVal)}）`;
+  return `<span class="delta-badge ${cls}" data-tip="${tip.replace(/"/g,'&quot;')}">${arrow}${mag} ${(Math.abs(rate)*100).toFixed(1)}%</span>`;
+}
+
+// ----- 通用 hover tooltip 注释（小问号图标）-----
+function hint(text) {
+  return `<span class="hint-tip" data-tip="${String(text).replace(/"/g,'&quot;')}">ⓘ</span>`;
+}
+
 // 关键：渲染同比/环比变化率，带异常值兜底
 function renderDelta(rate, opts={}) {
   if (rate == null || typeof rate !== "number" || isNaN(rate)) return "-";
@@ -675,18 +727,17 @@ async function ensureSummaryData(periodKey) {
 }
 
 function buildSummaryCard(datas, tab) {
-  // V11: 业绩摘要跟随 currentPeriod（用户选什么时段就显示什么时段）
-  // 异步预取需要的跨 tab chart
+  // V12: 业绩摘要带环比 + benchmark tooltip
   ensureSummaryData(STATE.currentPeriod);
   const card = document.createElement("section");
   card.className = "summary-card weekly-report";
   const isAM = STATE.currentAM !== "全组";
   const scope = isAM ? STATE.currentAM : "五组（休食）全组";
-  const sm = STATE.summary || {};
   const periodLabel = STATE.index.periods.find(p => p.key === STATE.currentPeriod).label;
   const am = isAM ? STATE.currentAM : null;
+  const period = STATE.index.periods.find(p => p.key === STATE.currentPeriod);
 
-  // 从当前 period 的 datas / cache 取数
+  // 通用 helper
   const findCol = (cols, name) => {
     if (!cols) return -1;
     return cols.findIndex(c => c === name || (c && c.startsWith(name)));
@@ -711,7 +762,7 @@ function buildSummaryCard(datas, tab) {
     return STATE.cache[`${STATE.currentPeriod}/${cid}`] || null;
   };
 
-  // ============= 业绩数据（当前时段）=============
+  // ============= 0、业绩总览 + DGMV 环比（用全组日序列自算） =============
   const bimonthByAM = findDataInCurrent("t1_bimonth_byAM");
   let dgmv = null, tgmv = null;
   if (bimonthByAM) {
@@ -720,136 +771,156 @@ function buildSummaryCard(datas, tab) {
     const exclude = new Set(["休食(虚拟员工)","UNKNOWN","总计","",null,undefined]);
     if (am) {
       const r = getAMRow(bimonthByAM, am);
-      if (r) {
-        if (dgmvI >= 0) dgmv = r[dgmvI];
-        if (tgmvI >= 0) tgmv = r[tgmvI];
-      }
+      if (r) { if (dgmvI >= 0) dgmv = r[dgmvI]; if (tgmvI >= 0) tgmv = r[tgmvI]; }
     } else {
-      // 全组：累加 6 AM
       const ai = findCol(bimonthByAM.columns, "AM");
-      let sumD = 0, sumT = 0, hit = 0;
+      let sumD = 0, sumT = 0;
       bimonthByAM.rows.forEach(r => {
-        const a = r[ai];
-        if (exclude.has(a)) return;
+        if (exclude.has(r[ai])) return;
         if (dgmvI >= 0 && r[dgmvI] != null) sumD += Number(r[dgmvI]) || 0;
         if (tgmvI >= 0 && r[tgmvI] != null) sumT += Number(r[tgmvI]) || 0;
-        hit++;
       });
-      if (hit > 0) {
-        if (dgmvI >= 0) dgmv = sumD;
-        if (tgmvI >= 0) tgmv = sumT;
-      }
+      dgmv = sumD; tgmv = sumT;
     }
   }
 
-  // ============= 双月目标进度（仅 this_bimonth 才有意义）=============
+  // 用日序列算全组 DGMV 环比（仅全组视角准确）
+  const dgmvMoM = (!isAM) ? getPrevPeriodDGMV(STATE.currentPeriod) : null;
+  const dgmvBadge = dgmvMoM ? deltaBadge(dgmvMoM.curSum, dgmvMoM.prevSum, dgmvMoM.prevLabel, {fmt: fmt.money}) : "";
+
   let bimonthSection = "";
   if (STATE.currentPeriod === "this_bimonth" && tgmv) {
     const now = new Date();
     const day = now.getDate();
-    // 5-6 双月共 61 天
     const totalDays = 61;
-    const elapsed = (now.getMonth() === 4) ? day : 30 + day;  // 5 月: day, 6 月: 30+day
+    const elapsed = (now.getMonth() === 4) ? day : 30 + day;
     const pct = (elapsed / totalDays * 100).toFixed(1);
+    const gapHint = hint(`MTD = 当前本双月累计 DGMV；TGMV = 本双月目标；时间进度 = 已过天数/61天，理想节奏下 MTD 应≥ TGMV × 时间进度`);
     bimonthSection = `
       <div class="wr-section">
-        <div class="wr-section-title">📊 0、双月 DGMV 目标达成</div>
+        <div class="wr-section-title">📊 0、双月 DGMV 目标达成 ${gapHint}</div>
         <div class="wr-line">
-          MTD 达成 <b>${fmt.money(dgmv || 0)}</b> · TGMV <b>${fmt.money(tgmv)}</b>，时间进度 <b>${pct}%</b>
+          MTD 达成 <b>${fmt.money(dgmv || 0)}</b> ${dgmvBadge} ·
+          TGMV <b>${fmt.money(tgmv)}</b>，时间进度 <b>${pct}%</b>
         </div>
       </div>
     `;
   } else if (dgmv != null) {
+    const dHint = hint(`DGMV = 当前时段 ${period.start} ~ ${period.end} 内动销 GMV；TGMV = 同期 GMV 总盘`);
     bimonthSection = `
       <div class="wr-section">
-        <div class="wr-section-title">📊 0、业绩总览（${periodLabel}）</div>
+        <div class="wr-section-title">📊 0、业绩总览（${periodLabel}） ${dHint}</div>
         <div class="wr-line">
-          DGMV <b>${fmt.money(dgmv)}</b>${tgmv ? ` · TGMV <b>${fmt.money(tgmv)}</b>` : ""}
+          DGMV <b>${fmt.money(dgmv)}</b> ${dgmvBadge}
+          ${tgmv ? ` · TGMV <b>${fmt.money(tgmv)}</b>` : ""}
         </div>
       </div>
     `;
   }
 
-  // ============= 场域进展（当前时段）=============
+  // ============= 场域进展 =============
   const noteByAM = findDataInCurrent("t2_note_byAM");
-  const liveByAM = findDataInCurrent("t3_live_byAM");
   const kOv = findDataInCurrent("t4_k_overview");
-  const period = STATE.index.periods.find(p => p.key === STATE.currentPeriod);
+  const findColI = (cols, kw) => cols.findIndex(c => c && c.includes(kw) && !c.includes("环比") && !c.includes("年同比") && !c.includes("_"));
+  const findRateI = (cols, kw) => cols.findIndex(c => c && c === "环比上期_环比-变化率");
 
   // 笔记
   let noteLine = "—";
   if (noteByAM) {
-    const cols = noteByAM.columns;
-    const ci = (kw) => cols.findIndex(c => c && c.includes(kw) && !c.includes("环比") && !c.includes("年同比") && !c.includes("_"));
     const row = am ? getAMRow(noteByAM, am) : getTotalRow(noteByAM);
     if (row) {
-      const ndgmvI = ci("商笔DGMV"), cntI = ci("新发商笔数"), expI = ci("商笔曝光量");
+      const cols = noteByAM.columns;
+      const ndgmvI = findColI(cols, "商笔DGMV");
+      const cntI = findColI(cols, "新发商笔数");
+      const expI = findColI(cols, "商笔曝光量");
       const ndgmv = ndgmvI >= 0 ? row[ndgmvI] : null;
       const cnt = cntI >= 0 ? row[cntI] : null;
       const exp = expI >= 0 ? row[expI] : null;
-      // 环比
-      const dgmvRateI = cols.findIndex((c,i) => c === "环比上期_环比-变化率" && i > 0);
-      const dgmvRate = dgmvRateI >= 0 ? row[dgmvRateI] : null;
-      const rateBadge = (dgmvRate != null)
-        ? `<span class='${dgmvRate >= 0 ? "delta-up" : "delta-down"}'>${dgmvRate >= 0 ? "↑" : "↓"} ${Math.abs(dgmvRate*100).toFixed(1)}%</span>`
-        : "";
-      noteLine = `DGMV <b>${fmt.money(ndgmv || 0)}</b> ${rateBadge}（环比）<br/>
-        <span class='wr-sub'>新发笔记 <b>${cnt ? cnt.toLocaleString("zh-CN") : "—"}</b> 篇 · 曝光 <b>${exp ? (exp > 1e8 ? (exp/1e8).toFixed(2)+"亿" : (exp/1e4).toFixed(0)+"万") + " PV" : "—"}</b></span>`;
+      // 环比字段（chart 自带）：第一个 "环比上期_环比-变化率" 是 DGMV 的；其它字段同样模式 _环比-变化率_1/_2
+      const dgmvRateI = cols.indexOf("环比上期_环比-变化率");
+      const cntRateI = cols.indexOf("环比上期_环比-变化率_1");
+      const expRateI = cols.indexOf("环比上期_环比-变化率_2");
+      const dgmvRate = (dgmvRateI >= 0) ? row[dgmvRateI] : null;
+      const cntRate = (cntRateI >= 0) ? row[cntRateI] : null;
+      const expRate = (expRateI >= 0) ? row[expRateI] : null;
+      const renderRate = (r, label) => {
+        if (r == null) return "";
+        if (Math.abs(r) > 5) return ` <span class='delta-badge delta-abnormal' data-tip='${label} 变化异常'>⚠</span>`;
+        const cls = r >= 0 ? "delta-up" : "delta-down", a = r >= 0 ? "↑" : "↓";
+        return ` <span class='delta-badge ${cls}' data-tip='${label}'>${a} ${Math.abs(r*100).toFixed(1)}%</span>`;
+      };
+      noteLine = `DGMV <b>${fmt.money(ndgmv || 0)}</b>${renderRate(dgmvRate, "vs 上一同长度时段 DGMV 环比")}${hint("商笔 DGMV = 商品笔记带来的动销 GMV；环比来自 BI chart 同口径计算")}<br/>
+        <span class='wr-sub'>新发笔记 <b>${cnt ? cnt.toLocaleString("zh-CN") : "—"}</b> 篇${renderRate(cntRate, "vs 上一同长度时段 新发笔记数 环比")} · 曝光 <b>${exp ? (exp > 1e8 ? (exp/1e8).toFixed(2)+"亿" : (exp/1e4).toFixed(0)+"万") + " PV" : "—"}</b>${renderRate(expRate, "vs 上一同长度时段 曝光量 环比")}</span>`;
     }
   }
 
   // 店播
   let liveLine = "—";
-  const lb = ((STATE.liveBreakdown || {})[STATE.currentPeriod] || {})[am || "全组"];
+  const lbAll = (STATE.liveBreakdown || {})[STATE.currentPeriod] || {};
+  const lb = lbAll[am || "全组"];
   if (lb) {
-    liveLine = `DGMV <b>${fmt.money(lb.dgmv || 0)}</b><br/>
-      <span class='wr-sub'>开播商家 <b>${lb.live_seller_count || "—"}</b> 家 · 时长 <b>${(lb.duration_h||0).toLocaleString("zh-CN",{maximumFractionDigits:0})} h</b> · CTR <b>${((lb.card_ctr||0)*100).toFixed(2)}%</b> · 客单 <b>¥${(lb.aov||0).toFixed(1)}</b></span>`;
+    // 计算店播 DGMV 环比：用上一时段 _live_breakdown
+    const prevKey = (function(){
+      const map = {yesterday: null, last_7d: null, last_14d: null, last_30d: null,
+                   this_month: null, this_bimonth: "last_bimonth", last_bimonth: "yoy_bimonth", yoy_bimonth: null};
+      return map[STATE.currentPeriod];
+    })();
+    const prevLb = prevKey ? (((STATE.liveBreakdown || {})[prevKey] || {})[am || "全组"]) : null;
+    const liveBadge = prevLb ? deltaBadge(lb.dgmv, prevLb.dgmv, `${STATE.index.periods.find(p=>p.key===prevKey)?.label||prevKey} 店播 DGMV`, {fmt: fmt.money}) : "";
+    const tipDur = "开播时长 = 商家直播间累计开播小时数（dataset 5574）";
+    const tipCTR = "CTR = 店播卡片点击 PV / 曝光 PV";
+    const tipAov = "客单 = 店播 DGMV / 购买 PV";
+    liveLine = `DGMV <b>${fmt.money(lb.dgmv || 0)}</b> ${liveBadge}<br/>
+      <span class='wr-sub'>开播商家 <b>${lb.live_seller_count || "—"}</b> 家${hint("当时段内有过开播的商家去重数（dataset 5574 店铺ID distinct）")} · 时长 <b>${(lb.duration_h||0).toLocaleString("zh-CN",{maximumFractionDigits:0})} h</b>${hint(tipDur)} · CTR <b>${((lb.card_ctr||0)*100).toFixed(2)}%</b>${hint(tipCTR)} · 客单 <b>¥${(lb.aov||0).toFixed(1)}</b>${hint(tipAov)}</span>`;
   }
 
   // K 播
   let kLine = "—";
   const kbyAM = ((STATE.kByAM || {})[STATE.currentPeriod] || {})[am || "全组"];
   if (kbyAM && kbyAM.dgmv != null) {
-    kLine = `DGMV <b>${fmt.money(kbyAM.dgmv)}</b><br/>
-      <span class='wr-sub'>动销商家 <b>${(kbyAM.active_sellers||0).toLocaleString("zh-CN")}</b> 家 · 订单 <b>${(kbyAM.orders||0).toLocaleString("zh-CN")}</b> 单</span>`;
+    // 同样基于上一时段
+    const prevKey = ({this_bimonth: "last_bimonth", last_bimonth: "yoy_bimonth"})[STATE.currentPeriod];
+    const prevK = prevKey ? (((STATE.kByAM || {})[prevKey] || {})[am || "全组"]) : null;
+    const kBadge = prevK ? deltaBadge(kbyAM.dgmv, prevK.dgmv, `${STATE.index.periods.find(p=>p.key===prevKey)?.label||prevKey} K播 DGMV`, {fmt: fmt.money}) : "";
+    kLine = `DGMV <b>${fmt.money(kbyAM.dgmv)}</b> ${kBadge}<br/>
+      <span class='wr-sub'>动销商家 <b>${(kbyAM.active_sellers||0).toLocaleString("zh-CN")}</b> 家${hint("当时段内有过 K 播带货成交的商家数（dataset 1922 载体=K播 去重）")} · 订单 <b>${(kbyAM.orders||0).toLocaleString("zh-CN")}</b> 单${hint("K 播带来的购买订单总数")}</span>`;
   } else if (kOv && !isAM) {
-    // 全组：用 chart 取 K 播总览
     const cols = kOv.columns;
     const dgmvI2 = cols.findIndex(c => c === "DGMV（元）");
     const showI = cols.findIndex(c => c.includes("场次"));
     const anchorI = cols.findIndex(c => c.includes("主播"));
+    const dgmvRateI = cols.findIndex(c => c === "DGMV（元）_环比-变化率");
     const r = kOv.rows[0];
     if (r) {
-      kLine = `DGMV <b>${fmt.money(r[dgmvI2] || 0)}</b><br/>
-        <span class='wr-sub'>动销主播 <b>${r[anchorI] ? r[anchorI].toLocaleString("zh-CN") : "—"}</b> 位 · 场次 <b>${r[showI] ? r[showI].toLocaleString("zh-CN") : "—"}</b> 场</span>`;
+      const dgmvRate = dgmvRateI >= 0 ? r[dgmvRateI] : null;
+      const renderRate = (rt, lbl) => {
+        if (rt == null) return "";
+        if (Math.abs(rt) > 5) return ` <span class='delta-badge delta-abnormal' data-tip='${lbl} 变化异常'>⚠</span>`;
+        const cls = rt >= 0 ? "delta-up" : "delta-down", a = rt >= 0 ? "↑" : "↓";
+        return ` <span class='delta-badge ${cls}' data-tip='${lbl}'>${a} ${Math.abs(rt*100).toFixed(1)}%</span>`;
+      };
+      kLine = `DGMV <b>${fmt.money(r[dgmvI2] || 0)}</b>${renderRate(dgmvRate, "vs 上一同长度时段 K播 DGMV 环比（chart 自带）")}<br/>
+        <span class='wr-sub'>动销主播 <b>${r[anchorI] ? r[anchorI].toLocaleString("zh-CN") : "—"}</b> 位${hint("当时段内有过带货成交的 K 播主播数")} · 场次 <b>${r[showI] ? r[showI].toLocaleString("zh-CN") : "—"}</b> 场${hint("K 播开播场次数")}</span>`;
     }
   }
 
-  // ============= 新商家（与时段无关，永远是近30天 + 2026本月动销）=============
+  // ============= 新商 =============
   const ns = STATE.newSeller || {};
   const new30d = (ns.new_30d && ns.new_30d.count) ? ns.new_30d.count[am || "全组"] : null;
   const new2026 = (ns.new2026_active && ns.new2026_active.count) ? ns.new2026_active.count[am || "全组"] : null;
   const new2026DGMV = (ns.new2026_active && ns.new2026_active.dgmv) ? ns.new2026_active.dgmv[am || "全组"] : null;
+  const newHint = hint("新商家数据与时段无关：近 30 天 = 最近 30 天新入驻的商家；2026 新开本月动销 = 2026 年新入驻且本月有成交的商家");
 
   const body = `
     ${bimonthSection}
     <div class="wr-section">
-      <div class="wr-section-title">🎯 1、场域进展（${period.start} ~ ${period.end}）</div>
-      <div class="wr-channel">
-        <div class="wr-channel-name">🎬 店播</div>
-        <div class="wr-line">${liveLine}</div>
-      </div>
-      <div class="wr-channel">
-        <div class="wr-channel-name">📺 K 播</div>
-        <div class="wr-line">${kLine}</div>
-      </div>
-      <div class="wr-channel">
-        <div class="wr-channel-name">📝 商笔</div>
-        <div class="wr-line">${noteLine}</div>
-      </div>
+      <div class="wr-section-title">🎯 1、场域进展（${period.start} ~ ${period.end}）${hint(`所有场域 DGMV 均按 ${period.start} ~ ${period.end} 时段聚合；环比基准 = 上一同长度时段`)}</div>
+      <div class="wr-channel"><div class="wr-channel-name">🎬 店播</div><div class="wr-line">${liveLine}</div></div>
+      <div class="wr-channel"><div class="wr-channel-name">📺 K 播</div><div class="wr-line">${kLine}</div></div>
+      <div class="wr-channel"><div class="wr-channel-name">📝 商笔</div><div class="wr-line">${noteLine}</div></div>
     </div>
     <div class="wr-section">
-      <div class="wr-section-title">📦 2、新商（近 30 天）</div>
+      <div class="wr-section-title">📦 2、新商（近 30 天）${newHint}</div>
       <div class="wr-line">
         近 30 天新开商家 <b>${new30d != null ? new30d : "—"}</b> 家 ·
         2026 新开商家本月动销 <b>${new2026 != null ? new2026 : "—"}</b> 家
@@ -858,7 +929,7 @@ function buildSummaryCard(datas, tab) {
     </div>
     <div class="wr-footer muted">
       📌 当前时段：<b>${periodLabel}</b> · 切换顶部时段筛选可联动所有数据 ·
-      可直接截图作为周报「业绩部分」内容
+      鼠标悬停 <span class="hint-tip">ⓘ</span> 查看字段口径；悬停 <span class="delta-badge delta-up">↑ 12%</span> 看对比基准
     </div>
   `;
 
@@ -868,7 +939,6 @@ function buildSummaryCard(datas, tab) {
   `;
   return card;
 }
-
 function buildCategoryByAMCard() {
   // V10: AM 视角下二级类目 DGMV Top 15（笔记）
   const card = document.createElement("section");
@@ -923,27 +993,34 @@ function buildKByAMCard() {
     return card;
   }
   const ratio = (data.dgmv && grp && grp.dgmv) ? data.dgmv / grp.dgmv : null;
+  // V12 环比
+  const prevKey = ({this_bimonth: "last_bimonth", last_bimonth: "yoy_bimonth"})[STATE.currentPeriod];
+  const prev = prevKey ? ((STATE.kByAM || {})[prevKey] || {})[am] : null;
+  const prevLabel = prevKey ? (STATE.index.periods.find(p=>p.key===prevKey)?.label || prevKey) : "";
+  const dgmvBadge = prev ? deltaBadge(data.dgmv, prev.dgmv, `${prevLabel} K播 DGMV`, {fmt: fmt.money}) : "";
+  const sBadge = prev ? deltaBadge(data.active_sellers, prev.active_sellers, `${prevLabel} K播 动销商家数`, {fmt: v=>v.toLocaleString("zh-CN")}) : "";
+  const oBadge = prev ? deltaBadge(data.orders, prev.orders, `${prevLabel} K播 订单数`, {fmt: v=>v.toLocaleString("zh-CN")}) : "";
   card.innerHTML = `
     <div class='chart-header'>
-      <div class='chart-title'>📺 K 播核心指标 · ${am}</div>
+      <div class='chart-title'>📺 K 播核心指标 · ${am} ${hint("AM 视角下 K 播指标（dataset 1922 载体=K播 按 AM 分组）；环比 = vs 同 AM 上一时段")}</div>
       <div class='chart-meta muted'>${periodLabel}</div>
     </div>
     <div class='kpi-grid'>
       <div class='kpi-cell'>
-        <div class='kpi-label'>K 播 DGMV</div>
-        <div class='kpi-num'>${fmt.money(data.dgmv || 0)}</div>
-        ${ratio != null ? `<div class='kpi-sub muted'>占全组 ${(ratio*100).toFixed(1)}%</div>` : ""}
+        <div class='kpi-label'>K 播 DGMV ${hint("当 AM 名下 K 播带货成交 GMV")}</div>
+        <div class='kpi-num'>${fmt.money(data.dgmv || 0)} ${dgmvBadge}</div>
+        ${ratio != null ? `<div class='kpi-sub muted' data-tip='全组 K 播 DGMV ${fmt.money(grp.dgmv)}'>占全组 ${(ratio*100).toFixed(1)}%</div>` : ""}
       </div>
       <div class='kpi-cell'>
-        <div class='kpi-label'>动销商家数</div>
-        <div class='kpi-num'>${(data.active_sellers||0).toLocaleString("zh-CN")} <span class='unit'>家</span></div>
+        <div class='kpi-label'>动销商家数 ${hint("当 AM 名下有过 K 播带货成交的商家数（distinct）")}</div>
+        <div class='kpi-num'>${(data.active_sellers||0).toLocaleString("zh-CN")} <span class='unit'>家</span> ${sBadge}</div>
       </div>
       <div class='kpi-cell'>
-        <div class='kpi-label'>购买订单数</div>
-        <div class='kpi-num'>${(data.orders||0).toLocaleString("zh-CN")} <span class='unit'>单</span></div>
+        <div class='kpi-label'>购买订单数 ${hint("K 播带来的购买订单总数（订单维度）")}</div>
+        <div class='kpi-num'>${(data.orders||0).toLocaleString("zh-CN")} <span class='unit'>单</span> ${oBadge}</div>
       </div>
     </div>
-    <div class='bd-tip muted'>💡 K 播按 AM 拆分。主播榜下方仍展示全组 K 播主播排行（K 播无 AM 维度，业务上更看主播个体）。</div>
+    <div class='bd-tip muted'>💡 K 播主播榜在下方（K 播是主播维度业务，无 AM 直接拆分，全组维度看主播个体）。</div>
   `;
   return card;
 }
@@ -1010,20 +1087,20 @@ function buildNewSellerCard() {
 
   const headerStats = `
     <div class="ns-stats">
-      <span>近 30 天新开 <b>${new30d != null ? new30d : "—"}</b> 家</span>
-      <span>· 2026 新开本月动销 <b>${new2026 != null ? new2026 : "—"}</b> 家</span>
-      ${new2026DGMV != null ? `<span>· 贡献 <b>${fmt.money(new2026DGMV)}</b></span>` : ""}
+      <span>近 30 天新开 <b>${new30d != null ? new30d : "—"}</b> 家${hint("最近 30 天内入驻平台的商家数（dataset 2479 商家入驻时间 distinct）")}</span>
+      <span>· 2026 新开本月动销 <b>${new2026 != null ? new2026 : "—"}</b> 家${hint("2026 年新入驻 + 本月有过成交的商家数")}</span>
+      ${new2026DGMV != null ? `<span>· 贡献 <b>${fmt.money(new2026DGMV)}</b>${hint("2026 新商家本月成交 GMV 总和；衡量新商起量速度")}</span>` : ""}
     </div>
   `;
 
   card.innerHTML = `
     <div class='chart-header'>
-      <div class='chart-title'>🆕 新商家动销 Top（by AM）· ${scope}</div>
-      <div class='chart-meta muted'>${periodLabel}</div>
+      <div class='chart-title'>🆕 新商家动销 Top（by AM）· ${scope} ${hint("当前时段内 ${scope} 名下 2026 新开商家的成交 Top 5；用于跟踪新商起量、做周报「新商」模块素材")}</div>
+      <div class='chart-meta muted'>${periodLabel} · 时段内成交</div>
     </div>
     ${headerStats}
     <div class="ns-grid">${cardListHTML}</div>
-    <div class='bd-tip muted'>💡 点击商家名跳转苍穹后台；新商起量是周报"新商"模块的核心数据。</div>
+    <div class='bd-tip muted'>💡 点击商家名跳转苍穹后台。新商家无环比（新开商家本就在变化），看绝对量级。</div>
   `;
   return card;
 }
@@ -1053,59 +1130,77 @@ function buildLiveBreakdownCard() {
   const fmtN = (v, digits=0) => v == null ? "—" : v.toLocaleString("zh-CN",{maximumFractionDigits:digits});
   const fmtPct = (v) => v == null ? "—" : (v*100).toFixed(2) + "%";
 
-  // 全组对比（AM 视角下显示 vs 全组的差异）
+  // V12: 全组对比（AM 视角下）+ 上一时段环比（任意视角）
   const allGroup = periodData["全组"] || {};
-  const cmp = (key) => {
-    if (!isAM || !allGroup[key] || !data[key]) return "";
-    const ratio = data[key] / (allGroup[key] / 6);  // vs 全组人均
-    if (ratio > 1.1) return `<span class='delta-up muted-mini'>高于全组人均 ${((ratio-1)*100).toFixed(0)}%</span>`;
-    if (ratio < 0.9) return `<span class='delta-down muted-mini'>低于全组人均 ${((1-ratio)*100).toFixed(0)}%</span>`;
-    return `<span class='muted-mini'>≈ 全组人均</span>`;
+  // AM 视角下用 6 AM 算人均 base（dgmv/duration_h/exposure_per_hour 是加法/平均，其它率指标本身可比）
+  const cmpAvg = (key, isRate) => {
+    if (!isAM || data[key] == null) return "";
+    if (allGroup[key] == null) return "";
+    const base = isRate ? allGroup[key] : (allGroup[key] / 6);
+    const ratio = data[key] / base;
+    if (ratio > 1.1) return `<span class='delta-badge delta-up' data-tip='vs 全组${isRate?'均值':'人均'} ${isRate ? (base*100).toFixed(2)+'%' : fmtN(base,1)}'>↑ ${((ratio-1)*100).toFixed(0)}%</span>`;
+    if (ratio < 0.9) return `<span class='delta-badge delta-down' data-tip='vs 全组${isRate?'均值':'人均'} ${isRate ? (base*100).toFixed(2)+'%' : fmtN(base,1)}'>↓ ${((1-ratio)*100).toFixed(0)}%</span>`;
+    return `<span class='delta-badge' data-tip='vs 全组${isRate?'均值':'人均'} ${isRate ? (base*100).toFixed(2)+'%' : fmtN(base,1)}' style='background:#f1f5f9;color:#64748b;'>≈</span>`;
+  };
+  // 环比（用上一时段 _live_breakdown 同 scope 数据）
+  const prevKey = ({this_bimonth: "last_bimonth", last_bimonth: "yoy_bimonth"})[STATE.currentPeriod];
+  const prevData = prevKey ? (periodData === lb[STATE.currentPeriod] ? (lb[prevKey] || {})[scope] : null) : null;
+  const cmpMoM = (key, isRate) => {
+    if (!prevData || prevData[key] == null || data[key] == null) return "";
+    const prevLabel = STATE.index.periods.find(p => p.key === prevKey)?.label || prevKey;
+    const fmtRef = isRate ? (v => (v*100).toFixed(2)+'%') : (v => fmtN(v,1));
+    return deltaBadge(data[key], prevData[key], `${prevLabel} 同口径`, {fmt: fmtRef});
   };
 
   card.innerHTML = `
     <div class='chart-header'>
-      <div class='chart-title'>📺 店播效率拆解 · ${scope}</div>
-      <div class='chart-meta muted'>${periodLabel}</div>
+      <div class='chart-title'>📺 店播效率拆解 · ${scope} ${hint("公式：开播时长 × 曝光/h × 卡片CTR × 商详率 × 购买CVR × 客单价 = 店播 DGMV；数据源 dataset 5574")}</div>
+      <div class='chart-meta muted'>${periodLabel} · 数据源 dataset 5574</div>
     </div>
     <div class='breakdown-chain'>
       <div class='bd-step'>
         <div class='bd-num'>${fmtN(data.duration_h, 0)} h</div>
-        <div class='bd-label'>① 总开播时长</div>
-        <div class='bd-cmp'>${cmp("duration_h")}</div>
+        <div class='bd-label'>① 总开播时长 ${hint("商家累计直播开播秒数 ÷ 3600；越大说明供给越足")}</div>
+        <div class='bd-cmp'>${cmpAvg("duration_h", false)}${cmpMoM("duration_h", false)}</div>
       </div>
       <div class='bd-arrow'>×</div>
       <div class='bd-step'>
         <div class='bd-num'>${fmtN(data.exposure_per_hour, 0)}</div>
-        <div class='bd-label'>② 曝光 PV/h<br/><span class='muted-mini'>(供给)</span></div>
+        <div class='bd-label'>② 曝光 PV/h ${hint("店播商卡曝光 PV ÷ 总开播时长；衡量平台推流强度")}</div>
+        <div class='bd-cmp'>${cmpAvg("exposure_per_hour", true)}${cmpMoM("exposure_per_hour", false)}</div>
       </div>
       <div class='bd-arrow'>×</div>
       <div class='bd-step'>
         <div class='bd-num'>${fmtPct(data.card_ctr)}</div>
-        <div class='bd-label'>③ 卡片 CTR<br/><span class='muted-mini'>(点击/曝光)</span></div>
+        <div class='bd-label'>③ 卡片 CTR ${hint("商卡点击 PV / 商卡曝光 PV；商品的卡片吸引力")}</div>
+        <div class='bd-cmp'>${cmpAvg("card_ctr", true)}${cmpMoM("card_ctr", true)}</div>
       </div>
       <div class='bd-arrow'>×</div>
       <div class='bd-step'>
         <div class='bd-num'>${fmtPct(data.detail_rate)}</div>
-        <div class='bd-label'>④ 商详率<br/><span class='muted-mini'>(商详UV/点击)</span></div>
+        <div class='bd-label'>④ 商详率 ${hint("商详曝光 UV / 商卡点击 PV；点击后是否真去看商详")}</div>
+        <div class='bd-cmp'>${cmpAvg("detail_rate", true)}${cmpMoM("detail_rate", true)}</div>
       </div>
       <div class='bd-arrow'>×</div>
       <div class='bd-step'>
         <div class='bd-num'>${fmtPct(data.purchase_cvr)}</div>
-        <div class='bd-label'>⑤ 购买 CVR<br/><span class='muted-mini'>(购买/商详)</span></div>
+        <div class='bd-label'>⑤ 购买 CVR ${hint("购买 PV / 商详曝光 UV；商详到购买的最终转化")}</div>
+        <div class='bd-cmp'>${cmpAvg("purchase_cvr", true)}${cmpMoM("purchase_cvr", true)}</div>
       </div>
       <div class='bd-arrow'>×</div>
       <div class='bd-step'>
         <div class='bd-num'>${data.aov != null ? "¥" + fmtN(data.aov, 1) : "—"}</div>
-        <div class='bd-label'>⑥ 客单价</div>
+        <div class='bd-label'>⑥ 客单价 ${hint("店播 DGMV / 购买 PV；客户购买的平均订单价值")}</div>
+        <div class='bd-cmp'>${cmpAvg("aov", true)}${cmpMoM("aov", true)}</div>
       </div>
       <div class='bd-arrow'>=</div>
       <div class='bd-step bd-result'>
         <div class='bd-num'>${data.dgmv != null ? fmt.money(data.dgmv) : "—"}</div>
-        <div class='bd-label'>店播 DGMV</div>
+        <div class='bd-label'>店播 DGMV ${hint("当前时段店播带来的动销 GMV")}</div>
+        <div class='bd-cmp'>${cmpAvg("dgmv", false)}${cmpMoM("dgmv", false)}</div>
       </div>
     </div>
-    <div class='bd-tip muted'>💡 V10: 6 层完整漏斗（曝光 → 卡片点击 → 商详浏览 → 购买）。哪层最低就是优化重点。</div>
+    <div class='bd-tip muted'>💡 6 层完整漏斗。badge 上数字悬停可看对比基准。哪层最低就是优化重点。</div>
   `;
   return card;
 }
@@ -1178,44 +1273,66 @@ function buildLiveEfficiencyCard() {
     return `<span class='muted-mini'>≈ 全组</span>`;
   };
 
+  // V12: 上一时段环比
+  const prevKey = ({this_bimonth: "last_bimonth", last_bimonth: "yoy_bimonth"})[STATE.currentPeriod];
+  const prevPD = prevKey ? ((STATE.liveBreakdown || {})[prevKey] || {}) : {};
+  const prevData = prevPD[scope];
+  const prevAscAll = prevKey ? ((STATE.amSellerCounts || {})[prevKey] || {}) : {};
+  const prevTotalSellers = prevAscAll[scope];
+  const cmpMoM = (key, curVal, isRate, isDerived) => {
+    if (!prevData || curVal == null) return "";
+    let benchVal = null;
+    if (key === "openRatio") {
+      benchVal = (prevData.live_seller_count && prevTotalSellers) ? prevData.live_seller_count / prevTotalSellers : null;
+    } else if (key === "avgDurationPerSeller") {
+      benchVal = (prevData.duration_h && prevData.live_seller_count) ? prevData.duration_h / prevData.live_seller_count : null;
+    } else {
+      benchVal = prevData[key];
+    }
+    if (benchVal == null) return "";
+    const prevLabel = STATE.index.periods.find(p => p.key === prevKey)?.label || prevKey;
+    const fmtRef = isRate ? (v => (v*100).toFixed(2)+'%') : (v => fmtN(v,1));
+    return deltaBadge(curVal, benchVal, `${prevLabel} 同口径`, {fmt: fmtRef});
+  };
+
   card.innerHTML = `
     <div class='chart-header'>
-      <div class='chart-title'>🎯 店播勤奋度（可比指标）· ${scope}</div>
+      <div class='chart-title'>🎯 店播勤奋度（可比指标）· ${scope} ${hint("vs 全组 = 当前 AM vs 五组全平均；vs 上时段 = 同 scope 上一时段同口径环比")}</div>
       <div class='chart-meta muted'>${periodLabel}</div>
     </div>
     <div class='efficiency-grid'>
       <div class='eff-cell highlight'>
-        <div class='eff-label'>① 开播商家占比<span class='hint'>（覆盖率）</span></div>
+        <div class='eff-label'>① 开播商家占比 ${hint("开播商家数 / 名下动销商家数；衡量直播覆盖率")}</div>
         <div class='eff-num'>${fmtPct(openRatio)}</div>
-        <div class='eff-sub'>${liveSellerCount != null ? fmtN(liveSellerCount) : "—"} / ${totalSellers != null ? fmtN(totalSellers) : "—"} 家 · ${cmp("openRatio", openRatio)}</div>
+        <div class='eff-sub'>${liveSellerCount != null ? fmtN(liveSellerCount) : "—"} / ${totalSellers != null ? fmtN(totalSellers) : "—"} 家 ${cmp("openRatio", openRatio)} ${cmpMoM("openRatio", openRatio, true)}</div>
       </div>
       <div class='eff-cell highlight'>
-        <div class='eff-label'>② 商均开播时长<span class='hint'>（投入度）</span></div>
+        <div class='eff-label'>② 商均开播时长 ${hint("总开播时长 / 开播商家数；衡量商家投入度")}</div>
         <div class='eff-num'>${fmtN(avgDurationPerSeller, 0)}<span class='unit'> h/商家</span></div>
-        <div class='eff-sub'>${cmp("avgDurationPerSeller", avgDurationPerSeller)}</div>
+        <div class='eff-sub'>${cmp("avgDurationPerSeller", avgDurationPerSeller)} ${cmpMoM("avgDurationPerSeller", avgDurationPerSeller, false)}</div>
       </div>
       <div class='eff-cell'>
-        <div class='eff-label'>③ 单位时长曝光</div>
+        <div class='eff-label'>③ 单位时长曝光 ${hint("店播商卡曝光 PV / 总开播时长；衡量平台推流密度")}</div>
         <div class='eff-num'>${fmtN(expPerHour, 0)}<span class='unit'> PV/h</span></div>
-        <div class='eff-sub'>${cmp("exposure_per_hour", expPerHour)}</div>
+        <div class='eff-sub'>${cmp("exposure_per_hour", expPerHour)} ${cmpMoM("exposure_per_hour", expPerHour, false)}</div>
       </div>
       <div class='eff-cell'>
-        <div class='eff-label'>④ 购买 CTR</div>
+        <div class='eff-label'>④ 购买 CTR ${hint("店播购买 PV / 曝光 PV；端到端转化率（旧口径，下方店播效率拆解中拆得更细）")}</div>
         <div class='eff-num'>${fmtPct(ctr)}</div>
-        <div class='eff-sub'>${cmp("ctr", ctr)}</div>
+        <div class='eff-sub'>${cmp("ctr", ctr)} ${cmpMoM("ctr", ctr, true)}</div>
       </div>
       <div class='eff-cell'>
-        <div class='eff-label'>⑤ UV 转化率</div>
+        <div class='eff-label'>⑤ UV 转化率 ${hint("购买 PV / 观播 UV；商家流量转化效率")}</div>
         <div class='eff-num'>${fmtPct(cvr)}</div>
-        <div class='eff-sub'>${cmp("cvr", cvr)}</div>
+        <div class='eff-sub'>${cmp("cvr", cvr)} ${cmpMoM("cvr", cvr, true)}</div>
       </div>
       <div class='eff-cell'>
-        <div class='eff-label'>⑥ 客单价</div>
+        <div class='eff-label'>⑥ 客单价 ${hint("店播 DGMV / 购买 PV；平均订单金额")}</div>
         <div class='eff-num'>${aov != null ? "¥" + fmtN(aov, 0) : "—"}</div>
-        <div class='eff-sub'>${cmp("aov", aov)}</div>
+        <div class='eff-sub'>${cmp("aov", aov)} ${cmpMoM("aov", aov, false)}</div>
       </div>
     </div>
-    <div class='bd-tip muted'>💡 与"店播商家清单"绝对值不同，这里指标都已归一化，可横向对比 AM。</div>
+    <div class='bd-tip muted'>💡 所有指标已归一化，可横向对比 AM。悬停 ⓘ 看定义；悬停 ↑↓ 徽章看对比基准数值。</div>
   `;
   return card;
 }
@@ -1297,54 +1414,69 @@ function buildNoteEfficiencyCard(datas, tab) {
   const fmtN = (v, digits=1) => v == null ? "—" : v.toLocaleString("zh-CN",{maximumFractionDigits:digits});
   const fmtPct = (v) => v == null ? "—" : (v*100).toFixed(2) + "%";
 
-  // CTR / CVR vs benchmark
-  const cmpVsBench = (val, bench) => {
+  // CTR / CVR vs benchmark（带 tooltip 标准）
+  const cmpVsBench = (val, bench, label) => {
     if (val == null || !bench) return "";
     const ratio = val / bench;
-    if (ratio > 1.05) return `<span class='delta-up'>↑ 高于全平台 ${((ratio-1)*100).toFixed(0)}%</span>`;
-    if (ratio < 0.95) return `<span class='delta-down'>↓ 低于全平台 ${((1-ratio)*100).toFixed(0)}%</span>`;
-    return `<span class='muted'>≈ 全平台</span>`;
+    const tip = `${label}：${(bench*100).toFixed(2)}%（当前 ${(val*100).toFixed(2)}%）`;
+    if (ratio > 1.05) return `<span class='delta-badge delta-up' data-tip='${tip}'>↑ 高于全平台 ${((ratio-1)*100).toFixed(0)}%</span>`;
+    if (ratio < 0.95) return `<span class='delta-badge delta-down' data-tip='${tip}'>↓ 低于全平台 ${((1-ratio)*100).toFixed(0)}%</span>`;
+    return `<span class='delta-badge' style='background:#f1f5f9;color:#64748b;' data-tip='${tip}'>≈ 全平台</span>`;
   };
-  const ctrCmp = cmpVsBench(ctr, benchCtr);
-  const cvrCmp = cmpVsBench(cvr, benchCvr);
+  const ctrCmp = cmpVsBench(ctr, benchCtr, "全平台 CTR benchmark");
+  const cvrCmp = cmpVsBench(cvr, benchCvr, "全平台 CVR benchmark");
+
+  // V12: vs 上一时段笔记勤奋度环比
+  const prevKey = ({this_bimonth: "last_bimonth", last_bimonth: "yoy_bimonth"})[STATE.currentPeriod];
+  const prevAscAll = prevKey ? ((STATE.amSellerCounts || {})[prevKey] || {}) : {};
+  const prevSC = prevAscAll[isAM ? STATE.currentAM : "全组"];
+  const prevNCC = prevKey ? (((STATE.noteCtrCvrByAM || {})[prevKey] || {})[isAM ? STATE.currentAM : null]) : null;
+  const prevBench = prevKey ? ((STATE.noteBenchmark || {})[prevKey] || {}) : {};
+  const prevLabel = prevKey ? (STATE.index.periods.find(p => p.key === prevKey)?.label || prevKey) : "";
+  const prevCtr = (isAM && prevNCC) ? prevNCC.ctr : prevBench.ctr;
+  const prevCvr = (isAM && prevNCC) ? prevNCC.cvr : prevBench.cvr;
+  const ctrMoM = prevCtr ? deltaBadge(ctr, prevCtr, `${prevLabel} 同 scope CTR`, {fmt: v => (v*100).toFixed(2)+'%'}) : "";
+  const cvrMoM = prevCvr ? deltaBadge(cvr, prevCvr, `${prevLabel} 同 scope CVR`, {fmt: v => (v*100).toFixed(2)+'%'}) : "";
+  const scMoM = (prevSC != null && sellerCount) ? deltaBadge(sellerCount, prevSC, `${prevLabel} 同 scope 动销商家`, {fmt: v => fmtN(v,0)}) : "";
 
   card.innerHTML = `
     <div class='chart-header'>
-      <div class='chart-title'>📝 商品笔记勤奋度 · 可比指标 · ${scope}</div>
+      <div class='chart-title'>📝 商品笔记勤奋度 · 可比指标 · ${scope} ${hint("勤奋度指标都是归一化的，避免被商家盘子大小绑架；红绿徽章悬停可看对比基准")}</div>
       <div class='chart-meta muted'>${periodLabel}</div>
     </div>
     <div class='efficiency-grid'>
       <div class='eff-cell'>
-        <div class='eff-label'>📚 名下动销商家</div>
+        <div class='eff-label'>📚 名下动销商家 ${hint("当时段内 ${scope} 名下有过商品笔记成交的商家数（distinct count，过滤虚拟员工/未知）")}</div>
         <div class='eff-num'>${sellerCount != null ? sellerCount : "—"}<span class='unit'> 家</span></div>
+        <div class='eff-sub'>${scMoM || `<span class='muted'>—</span>`}</div>
       </div>
       <div class='eff-cell highlight'>
-        <div class='eff-label'>① 商家平均发商品笔记数<span class='hint'>（数量勤奋度）</span></div>
+        <div class='eff-label'>① 商家平均发商品笔记数 ${hint("数量勤奋度 = 时段内新发笔记数 / 动销商家数；衡量商家发笔记的活跃度")}</div>
         <div class='eff-num'>${avgPerSeller != null ? fmtN(avgPerSeller, 1) : "—"}<span class='unit'> 篇/商家</span></div>
         <div class='eff-sub muted'>共 ${noteCount != null ? fmtN(noteCount, 0) : "—"} 篇</div>
       </div>
       <div class='eff-cell highlight'>
-        <div class='eff-label'>② 笔记平均曝光<span class='hint'>（质量勤奋度）</span></div>
+        <div class='eff-label'>② 笔记平均曝光 ${hint("质量勤奋度 = 总曝光 PV / 笔记数；衡量笔记的内容质量+推荐效率")}</div>
         <div class='eff-num'>${avgExpPerNote != null ? fmtN(avgExpPerNote/1000, 1) : "—"}<span class='unit'>k PV/篇</span></div>
         <div class='eff-sub muted'>总曝光 ${exposure != null ? fmt.money(exposure).replace("¥","") : "—"} PV</div>
       </div>
       <div class='eff-cell'>
-        <div class='eff-label'>③ 笔记 CTR<span class='hint'>（曝光→商详）</span></div>
+        <div class='eff-label'>③ 笔记 CTR ${hint("商品笔记 CTR ≈ 商详 UV 转化率（曝光 → 商详 UV），数据源 dataset 1922")}</div>
         <div class='eff-num'>${fmtPct(ctr)}</div>
-        <div class='eff-sub'>${ctrCmp || `<span class='muted'>—</span>`}</div>
+        <div class='eff-sub'>${ctrCmp || `<span class='muted'>—</span>`} ${ctrMoM}</div>
       </div>
       <div class='eff-cell'>
-        <div class='eff-label'>④ 笔记 CVR<span class='hint'>（商详→购买）</span></div>
+        <div class='eff-label'>④ 笔记 CVR ${hint("商品笔记 CVR ≈ 购买转化率（商详 → 购买），数据源 dataset 1922")}</div>
         <div class='eff-num'>${fmtPct(cvr)}</div>
-        <div class='eff-sub'>${cvrCmp || `<span class='muted'>—</span>`}</div>
+        <div class='eff-sub'>${cvrCmp || `<span class='muted'>—</span>`} ${cvrMoM}</div>
       </div>
       <div class='eff-cell benchmark-cell'>
-        <div class='eff-label'>📊 全平台 benchmark</div>
+        <div class='eff-label'>📊 全平台 benchmark ${hint("全平台 = 整个小红书电商所有商家在当前时段的均值（dataset 1922 不分组）；判断五组水平的参照系")}</div>
         <div class='eff-num benchmark'>${fmtPct(benchCtr)} / ${fmtPct(benchCvr)}</div>
         <div class='eff-sub muted'>CTR / CVR · 全平台均值</div>
       </div>
     </div>
-    <div class='bd-tip muted'>💡 数量勤奋度（商家平均发笔记数）+ 质量勤奋度（笔记平均曝光 / CTR / CVR）；红/绿对比全平台 benchmark。</div>
+    <div class='bd-tip muted'>💡 悬停 <span class="hint-tip">ⓘ</span> 看指标定义；悬停红/绿徽章看对比基准（vs 全平台 / vs 上时段）。</div>
   `;
   return card;
 }
