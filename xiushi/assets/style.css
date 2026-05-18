@@ -799,3 +799,85 @@ a.card-title:hover { color: var(--primary); }
 .chart-card.live-breakdown-card {
   background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%);
 }
+
+/* V9.1: AM 视角下无 AM 列的 chart 角标 */
+.fallback-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 4px;
+  vertical-align: middle;
+  border: 1px solid #fde68a;
+}
+
+/* V9.1: byAM 拆分异动 */
+.byam-change-wrap {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px dashed #e2e8f0;
+}
+.byam-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 12px;
+}
+.byam-change-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+.byam-am-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  border-left: 3px solid #6366f1;
+}
+.byam-am-name {
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 13px;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #f1f5f9;
+}
+.byam-sub-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.byam-sub-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+.byam-sub-title.up { color: #16a34a; }
+.byam-sub-title.down { color: #dc2626; }
+.byam-list {
+  list-style: none;
+  padding: 0; margin: 0;
+}
+.byam-list li {
+  font-size: 11px;
+  padding: 3px 0;
+  color: #334155;
+  border-bottom: 1px dotted #f1f5f9;
+  line-height: 1.4;
+}
+.byam-list li.up { color: #166534; }
+.byam-list li.down { color: #991b1b; }
+.byam-list li.muted { color: #94a3b8; font-style: italic; }
+.byam-list .d {
+  float: right;
+  font-weight: 500;
+}
+
+.chart-card.live-efficiency-card {
+  background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+}

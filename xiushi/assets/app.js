@@ -359,6 +359,7 @@ async function renderActiveTab() {
   }
   if (tab.key === "tab3_live") {
     EL.main.appendChild(buildLiveBreakdownCard());  // V9: 店播 5 层乘数链
+    EL.main.appendChild(buildLiveEfficiencyCard());  // V9.1: 店播勤奋度可比指标
   }
   if (tab.key === "tab4_kbroadcast") {
     const ov = datas.find(d => d && d.chart_id === "t4_k_overview");
@@ -372,11 +373,14 @@ async function renderActiveTab() {
       return;
     }
     if ((tab.key === "tab2_note" && cdef.id === "t2_note_breakdown") ||
-        (tab.key === "tab4_kbroadcast" && cdef.id === "t4_k_overview")) {
+        (tab.key === "tab4_kbroadcast" && cdef.id === "t4_k_overview") ||
+        (tab.key === "tab3_live" && cdef.id === "t3_live_stopped")) {  // V9.1: 删店播商家清单
       return;
     }
     const filteredData = applyAMFilter(data);
-    EL.main.appendChild(renderChartCard(cdef, filteredData));
+    // 标记：AM 视角下，该 chart 无 AM 列 → 加"全组数据"角标
+    const showFallbackBadge = (STATE.currentAM !== "全组") && (findAMColIdx(data && data.columns) < 0);
+    EL.main.appendChild(renderChartCard(cdef, filteredData, {showFallbackBadge}));
   });
 }
 
@@ -387,12 +391,16 @@ function emptyCard(cdef, msg) {
   return c;
 }
 
-function renderChartCard(cdef, data) {
+function renderChartCard(cdef, data, opts) {
+  opts = opts || {};
   const card = document.createElement("section");
   card.className = "chart-card";
+  const fallbackBadge = opts.showFallbackBadge
+    ? `<span class="fallback-badge" title="该图表无 AM 维度，仍展示全组数据">⚠️ 全组数据</span>`
+    : "";
   card.innerHTML = `
     <div class="chart-header">
-      <div class="chart-title">${cdef.name}</div>
+      <div class="chart-title">${cdef.name} ${fallbackBadge}</div>
       <div class="chart-meta">
         <a href="${cdef.source_url}" target="_blank" rel="noopener">🔗 BI 原图</a>
       </div>
@@ -703,6 +711,116 @@ function buildLiveBreakdownCard() {
       </div>
     </div>
     <div class='bd-tip muted'>💡 5 层乘数链定位短板：哪一层显著低于行业/全组均值，就是优化重点。</div>
+  `;
+  return card;
+}
+
+function buildLiveEfficiencyCard() {
+  // 店播勤奋度可比指标（老板要求：去掉绝对值，全用占比/比率/平均）
+  const card = document.createElement("section");
+  card.className = "chart-card live-efficiency-card";
+  const lb = STATE.liveBreakdown || {};
+  const periodData = lb[STATE.currentPeriod] || {};
+  const isAM = STATE.currentAM !== "全组";
+  const scope = isAM ? STATE.currentAM : "全组";
+  const periodLabel = STATE.index.periods.find(p => p.key === STATE.currentPeriod).label;
+  const data = periodData[scope];
+  const allGroup = periodData["全组"];
+
+  // 名下总商家数 (来自 _am_seller_counts) - 用于"开播商家占比"
+  const ascAll = (STATE.amSellerCounts || {})[STATE.currentPeriod] || {};
+  const totalSellers = ascAll[scope];
+
+  // hero KPI 中的全组 DGMV，用于"店播 GMV 占比"
+  // 简化：用 _summary 或 _global_series 的 7d 均估算；这里用当前时段总 DGMV
+  let totalDGMV = null;
+  if (allGroup && allGroup.dgmv) {
+    if (isAM && data && data.dgmv) {
+      // AM 视角：用大盘（datas 里 t1_bimonth_byAM 总 DGMV）
+      // 简化：用 noteByAM 总 + live 总
+      totalDGMV = data._scope_total_dgmv || null;  // 可选 inject
+    } else {
+      // 全组：直接用 hero 总 DGMV，但暂不取，用 live DGMV 算店播占比
+      totalDGMV = null;
+    }
+  }
+
+  if (!data) {
+    card.innerHTML = `
+      <div class='chart-header'><div class='chart-title'>🎯 店播勤奋度（可比指标）· ${scope}</div></div>
+      <div class='empty'>暂无 ${periodLabel} ${scope} 店播勤奋度数据</div>
+    `;
+    return card;
+  }
+
+  const fmtN = (v, d=0) => v == null ? "—" : v.toLocaleString("zh-CN",{maximumFractionDigits:d});
+  const fmtPct = (v) => v == null ? "—" : (v*100).toFixed(2) + "%";
+
+  // 6 个可比指标
+  const liveSellerCount = data.live_seller_count;
+  const openRatio = (liveSellerCount && totalSellers) ? liveSellerCount / totalSellers : null;
+  const avgDurationPerSeller = (data.duration_h && liveSellerCount) ? data.duration_h / liveSellerCount : null;
+  const expPerHour = data.exposure_per_hour;
+  const ctr = data.ctr;
+  const cvr = data.cvr;
+  const aov = data.aov;
+
+  // 对比：vs 全组人均
+  const cmp = (key, val) => {
+    if (!isAM || !allGroup) return "";
+    let benchVal = null;
+    if (key === "openRatio") {
+      benchVal = (allGroup.live_seller_count && ascAll["全组"]) ? allGroup.live_seller_count / ascAll["全组"] : null;
+    } else if (key === "avgDurationPerSeller") {
+      benchVal = (allGroup.duration_h && allGroup.live_seller_count) ? allGroup.duration_h / allGroup.live_seller_count : null;
+    } else {
+      benchVal = allGroup[key];
+    }
+    if (!benchVal || !val) return "";
+    const ratio = val / benchVal;
+    if (ratio > 1.1) return `<span class='delta-up muted-mini'>↑ 高于全组 ${((ratio-1)*100).toFixed(0)}%</span>`;
+    if (ratio < 0.9) return `<span class='delta-down muted-mini'>↓ 低于全组 ${((1-ratio)*100).toFixed(0)}%</span>`;
+    return `<span class='muted-mini'>≈ 全组</span>`;
+  };
+
+  card.innerHTML = `
+    <div class='chart-header'>
+      <div class='chart-title'>🎯 店播勤奋度（可比指标）· ${scope}</div>
+      <div class='chart-meta muted'>${periodLabel}</div>
+    </div>
+    <div class='efficiency-grid'>
+      <div class='eff-cell highlight'>
+        <div class='eff-label'>① 开播商家占比<span class='hint'>（覆盖率）</span></div>
+        <div class='eff-num'>${fmtPct(openRatio)}</div>
+        <div class='eff-sub'>${liveSellerCount != null ? fmtN(liveSellerCount) : "—"} / ${totalSellers != null ? fmtN(totalSellers) : "—"} 家 · ${cmp("openRatio", openRatio)}</div>
+      </div>
+      <div class='eff-cell highlight'>
+        <div class='eff-label'>② 商均开播时长<span class='hint'>（投入度）</span></div>
+        <div class='eff-num'>${fmtN(avgDurationPerSeller, 0)}<span class='unit'> h/商家</span></div>
+        <div class='eff-sub'>${cmp("avgDurationPerSeller", avgDurationPerSeller)}</div>
+      </div>
+      <div class='eff-cell'>
+        <div class='eff-label'>③ 单位时长曝光</div>
+        <div class='eff-num'>${fmtN(expPerHour, 0)}<span class='unit'> PV/h</span></div>
+        <div class='eff-sub'>${cmp("exposure_per_hour", expPerHour)}</div>
+      </div>
+      <div class='eff-cell'>
+        <div class='eff-label'>④ 购买 CTR</div>
+        <div class='eff-num'>${fmtPct(ctr)}</div>
+        <div class='eff-sub'>${cmp("ctr", ctr)}</div>
+      </div>
+      <div class='eff-cell'>
+        <div class='eff-label'>⑤ UV 转化率</div>
+        <div class='eff-num'>${fmtPct(cvr)}</div>
+        <div class='eff-sub'>${cmp("cvr", cvr)}</div>
+      </div>
+      <div class='eff-cell'>
+        <div class='eff-label'>⑥ 客单价</div>
+        <div class='eff-num'>${aov != null ? "¥" + fmtN(aov, 0) : "—"}</div>
+        <div class='eff-sub'>${cmp("aov", aov)}</div>
+      </div>
+    </div>
+    <div class='bd-tip muted'>💡 与"店播商家清单"绝对值不同，这里指标都已归一化，可横向对比 AM。</div>
   `;
   return card;
 }
@@ -1580,6 +1698,55 @@ renderers.sellerChangeCards = function(body, data, cfg) {
   grid.appendChild(makeCol(ups, true));
   grid.appendChild(makeCol(downs, false));
   body.appendChild(grid);
+
+  // V9.1: by AM 拆分突增/突降（每 AM 各 5 条）
+  // 仅全组视角下展示（AM 视角下已经 filter）
+  if (STATE.currentAM === "全组" && extraI >= 0) {
+    const byAMRows = {};
+    rows.forEach(r => {
+      const am = r[extraI];
+      if (!am) return;
+      if (!byAMRows[am]) byAMRows[am] = [];
+      byAMRows[am].push(r);
+    });
+    const amWrap = document.createElement("div");
+    amWrap.className = "byam-change-wrap";
+    amWrap.innerHTML = `<div class="byam-title">📋 按 AM 拆分（每 AM Top 5 突增 / Top 5 突降）</div>`;
+    const amGrid = document.createElement("div");
+    amGrid.className = "byam-change-grid";
+    const orderedAMs = ["大门(朱锦程)","蕾塞(张嘉悦)","莱拉(付艺迪)","路歌(李红红)","秋罗(胡春秋)","诺亚(单恩浩)"];
+    orderedAMs.forEach(am => {
+      const list = byAMRows[am] || [];
+      if (!list.length) return;
+      const ups5 = [...list].sort((a,b)=>(b[deltaI]||0)-(a[deltaI]||0)).slice(0,5).filter(r=>(r[deltaI]||0)>0);
+      const dns5 = [...list].sort((a,b)=>(a[deltaI]||0)-(b[deltaI]||0)).slice(0,5).filter(r=>(r[deltaI]||0)<0);
+      const card = document.createElement("div");
+      card.className = "byam-am-card";
+      const liItem = (r, isUp) => {
+        const sname = String(r[dimI]||"").replace(/<[^>]+>/g,"");
+        const delta = r[deltaI]||0;
+        const arrow = isUp ? "📈" : "📉";
+        const cls = isUp ? "up" : "down";
+        return `<li class="${cls}">${arrow} ${sname} <span class="d">${isUp?"+":""}${fmt.money(delta)}</span></li>`;
+      };
+      card.innerHTML = `
+        <div class="byam-am-name">${am}</div>
+        <div class="byam-sub-cols">
+          <div class="byam-sub-col">
+            <div class="byam-sub-title up">突增 Top 5</div>
+            <ul class="byam-list">${ups5.length ? ups5.map(r=>liItem(r,true)).join("") : '<li class="muted">无</li>'}</ul>
+          </div>
+          <div class="byam-sub-col">
+            <div class="byam-sub-title down">突降 Top 5</div>
+            <ul class="byam-list">${dns5.length ? dns5.map(r=>liItem(r,false)).join("") : '<li class="muted">无</li>'}</ul>
+          </div>
+        </div>
+      `;
+      amGrid.appendChild(card);
+    });
+    amWrap.appendChild(amGrid);
+    body.appendChild(amWrap);
+  }
 };
 
 // ============================================================
