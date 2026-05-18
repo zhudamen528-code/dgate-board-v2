@@ -191,6 +191,21 @@ async function init() {
     const asc = await fetch("data/_am_seller_counts.json" + cb, {cache: "no-store"});
     if (asc.ok) STATE.amSellerCounts = await asc.json();
   } catch(e) { STATE.amSellerCounts = null; }
+  // V10: 每 AM 笔记 CTR/CVR
+  try {
+    const ncc = await fetch("data/_note_ctr_cvr_byam.json" + cb, {cache: "no-store"});
+    if (ncc.ok) STATE.noteCtrCvrByAM = await ncc.json();
+  } catch(e) { STATE.noteCtrCvrByAM = null; }
+  // V10: K 播 by AM
+  try {
+    const kb = await fetch("data/_k_byam.json" + cb, {cache: "no-store"});
+    if (kb.ok) STATE.kByAM = await kb.json();
+  } catch(e) { STATE.kByAM = null; }
+  // V10: 类目 by AM
+  try {
+    const cb2 = await fetch("data/_category_byam.json" + cb, {cache: "no-store"});
+    if (cb2.ok) STATE.categoryByAM = await cb2.json();
+  } catch(e) { STATE.categoryByAM = null; }
   try {
     const sm = await fetch("data/_summary.json" + cb, {cache: "no-store"});
     if (sm.ok) STATE.summary = await sm.json();
@@ -379,10 +394,20 @@ async function renderActiveTab() {
   }
   if (tab.key === "tab4_kbroadcast") {
     const ov = datas.find(d => d && d.chart_id === "t4_k_overview");
-    if (ov) EL.main.appendChild(renderKpiGridCard(ov));
+    if (ov) {
+      // V10: AM 视角下用 _k_byam 派生 KPI 卡
+      if (STATE.currentAM !== "全组") {
+        EL.main.appendChild(buildKByAMCard());
+      } else {
+        EL.main.appendChild(renderKpiGridCard(ov));
+      }
+    }
   }
   if (tab.key === "tab6_seller") {
     EL.main.appendChild(buildNewSellerCard());  // V10: 新商家 by AM Top 5
+  }
+  if (tab.key === "tab5_category" && STATE.currentAM !== "全组") {
+    EL.main.appendChild(buildCategoryByAMCard());  // V10: AM 视角类目 Top 15
   }
 
   tab.charts.forEach((cdef, i) => {
@@ -834,6 +859,85 @@ function buildSummaryCard(datas, tab) {
   return card;
 }
 
+function buildCategoryByAMCard() {
+  // V10: AM 视角下二级类目 DGMV Top 15（笔记）
+  const card = document.createElement("section");
+  card.className = "chart-card category-byam-card";
+  const periodLabel = STATE.index.periods.find(p => p.key === STATE.currentPeriod).label;
+  const am = STATE.currentAM;
+  const data = ((STATE.categoryByAM || {})[STATE.currentPeriod] || {})[am] || [];
+  if (!data.length) {
+    card.innerHTML = `<div class='chart-header'><div class='chart-title'>📦 ${am} · 二级类目 Top 15（笔记 DGMV）</div></div>
+      <div class='empty'>暂无该 AM 类目数据</div>`;
+    return card;
+  }
+  const top = data.slice(0, 15);
+  const total = top.reduce((s,x)=>s+x.dgmv, 0);
+  const max = top[0].dgmv;
+  const rowsHTML = top.map((x,i) => {
+    const pct = (x.dgmv / total * 100).toFixed(1);
+    const bar = (x.dgmv / max * 100).toFixed(0);
+    return `
+      <li class="cb-row">
+        <span class="cb-rank">${i+1}</span>
+        <span class="cb-cat">${x.category}</span>
+        <span class="cb-bar-wrap"><span class="cb-bar" style="width:${bar}%"></span></span>
+        <span class="cb-gmv">${fmt.money(x.dgmv)}</span>
+        <span class="cb-pct muted">${pct}%</span>
+      </li>
+    `;
+  }).join("");
+  card.innerHTML = `
+    <div class='chart-header'>
+      <div class='chart-title'>📦 ${am} · 二级类目 Top 15（笔记 DGMV）</div>
+      <div class='chart-meta muted'>${periodLabel} · 合计 ${fmt.money(total)}</div>
+    </div>
+    <ol class="cb-list">${rowsHTML}</ol>
+    <div class='bd-tip muted'>💡 AM 视角下二级类目细分。本卡为 by AM 派生，下方"全组类目分布"卡仍展示全组（带角标）。</div>
+  `;
+  return card;
+}
+
+function buildKByAMCard() {
+  // V10: K 播 AM 派生 KPI 卡
+  const card = document.createElement("section");
+  card.className = "chart-card k-byam-card";
+  const periodLabel = STATE.index.periods.find(p => p.key === STATE.currentPeriod).label;
+  const am = STATE.currentAM;
+  const all = (STATE.kByAM || {})[STATE.currentPeriod] || {};
+  const data = all[am];
+  const grp = all["全组"];
+  if (!data) {
+    card.innerHTML = `<div class='chart-header'><div class='chart-title'>📺 K 播核心指标 · ${am}</div></div>
+      <div class='empty'>暂无该 AM 的 K 播 by AM 数据</div>`;
+    return card;
+  }
+  const ratio = (data.dgmv && grp && grp.dgmv) ? data.dgmv / grp.dgmv : null;
+  card.innerHTML = `
+    <div class='chart-header'>
+      <div class='chart-title'>📺 K 播核心指标 · ${am}</div>
+      <div class='chart-meta muted'>${periodLabel}</div>
+    </div>
+    <div class='kpi-grid'>
+      <div class='kpi-cell'>
+        <div class='kpi-label'>K 播 DGMV</div>
+        <div class='kpi-num'>${fmt.money(data.dgmv || 0)}</div>
+        ${ratio != null ? `<div class='kpi-sub muted'>占全组 ${(ratio*100).toFixed(1)}%</div>` : ""}
+      </div>
+      <div class='kpi-cell'>
+        <div class='kpi-label'>动销商家数</div>
+        <div class='kpi-num'>${(data.active_sellers||0).toLocaleString("zh-CN")} <span class='unit'>家</span></div>
+      </div>
+      <div class='kpi-cell'>
+        <div class='kpi-label'>购买订单数</div>
+        <div class='kpi-num'>${(data.orders||0).toLocaleString("zh-CN")} <span class='unit'>单</span></div>
+      </div>
+    </div>
+    <div class='bd-tip muted'>💡 K 播按 AM 拆分。主播榜下方仍展示全组 K 播主播排行（K 播无 AM 维度，业务上更看主播个体）。</div>
+  `;
+  return card;
+}
+
 function buildNewSellerCard() {
   // V10: 新商家 by AM Top 5（动销新商家清单）
   // 数据来源：当前 period 的 t6_new_active chart
@@ -963,22 +1067,27 @@ function buildLiveBreakdownCard() {
       <div class='bd-arrow'>×</div>
       <div class='bd-step'>
         <div class='bd-num'>${fmtN(data.exposure_per_hour, 0)}</div>
-        <div class='bd-label'>② 单位时长曝光 PV/h</div>
+        <div class='bd-label'>② 曝光 PV/h<br/><span class='muted-mini'>(供给)</span></div>
       </div>
       <div class='bd-arrow'>×</div>
       <div class='bd-step'>
-        <div class='bd-num'>${fmtPct(data.ctr)}</div>
-        <div class='bd-label'>③ 购买 CTR<br/><span class='muted-mini'>(购买PV/曝光PV)</span></div>
+        <div class='bd-num'>${fmtPct(data.card_ctr)}</div>
+        <div class='bd-label'>③ 卡片 CTR<br/><span class='muted-mini'>(点击/曝光)</span></div>
       </div>
       <div class='bd-arrow'>×</div>
       <div class='bd-step'>
-        <div class='bd-num'>${fmtPct(data.cvr)}</div>
-        <div class='bd-label'>④ UV 转化率</div>
+        <div class='bd-num'>${fmtPct(data.detail_rate)}</div>
+        <div class='bd-label'>④ 商详率<br/><span class='muted-mini'>(商详UV/点击)</span></div>
       </div>
       <div class='bd-arrow'>×</div>
       <div class='bd-step'>
-        <div class='bd-num'>${data.aov != null ? "¥" + fmtN(data.aov, 0) : "—"}</div>
-        <div class='bd-label'>⑤ 客单价</div>
+        <div class='bd-num'>${fmtPct(data.purchase_cvr)}</div>
+        <div class='bd-label'>⑤ 购买 CVR<br/><span class='muted-mini'>(购买/商详)</span></div>
+      </div>
+      <div class='bd-arrow'>×</div>
+      <div class='bd-step'>
+        <div class='bd-num'>${data.aov != null ? "¥" + fmtN(data.aov, 1) : "—"}</div>
+        <div class='bd-label'>⑥ 客单价</div>
       </div>
       <div class='bd-arrow'>=</div>
       <div class='bd-step bd-result'>
@@ -986,7 +1095,7 @@ function buildLiveBreakdownCard() {
         <div class='bd-label'>店播 DGMV</div>
       </div>
     </div>
-    <div class='bd-tip muted'>💡 5 层乘数链定位短板：哪一层显著低于行业/全组均值，就是优化重点。</div>
+    <div class='bd-tip muted'>💡 V10: 6 层完整漏斗（曝光 → 卡片点击 → 商详浏览 → 购买）。哪层最低就是优化重点。</div>
   `;
   return card;
 }
@@ -1163,6 +1272,14 @@ function buildNoteEfficiencyCard(datas, tab) {
   if (noteBd && noteBd.rows && noteBd.rows[0]) {
     const ctrI = noteBd.columns.findIndex(c => c && c.includes("阅读率") && !c.includes("环比") && !c.includes("年同比"));
     if (ctrI >= 0) ctr = noteBd.rows[0][ctrI];
+  }
+  // V10: AM 视角下覆盖 ctr/cvr 用 _note_ctr_cvr_byam（dataset 1922 按 AM 分组）
+  if (isAM) {
+    const amCC = ((STATE.noteCtrCvrByAM || {})[STATE.currentPeriod] || {})[STATE.currentAM];
+    if (amCC) {
+      if (amCC.ctr != null) ctr = amCC.ctr;
+      if (amCC.cvr != null) cvr = amCC.cvr;
+    }
   }
 
   const avgPerSeller = (sellerCount && noteCount) ? noteCount / sellerCount : null;
