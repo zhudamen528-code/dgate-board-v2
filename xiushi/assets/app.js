@@ -713,12 +713,34 @@ function buildSummaryCard(datas, tab) {
 
   // ============= 业绩数据（当前时段）=============
   const bimonthByAM = findDataInCurrent("t1_bimonth_byAM");
-  let gmvRow = null;
-  if (bimonthByAM) gmvRow = am ? getAMRow(bimonthByAM, am) : getTotalRow(bimonthByAM);
-  const dgmvI = bimonthByAM ? findCol(bimonthByAM.columns, "DGMV") : -1;
-  const tgmvI = bimonthByAM ? findCol(bimonthByAM.columns, "TGMV") : -1;
-  const dgmv = (gmvRow && dgmvI >= 0) ? gmvRow[dgmvI] : null;
-  const tgmv = (gmvRow && tgmvI >= 0) ? gmvRow[tgmvI] : null;
+  let dgmv = null, tgmv = null;
+  if (bimonthByAM) {
+    const dgmvI = findCol(bimonthByAM.columns, "DGMV");
+    const tgmvI = findCol(bimonthByAM.columns, "TGMV");
+    const exclude = new Set(["休食(虚拟员工)","UNKNOWN","总计","",null,undefined]);
+    if (am) {
+      const r = getAMRow(bimonthByAM, am);
+      if (r) {
+        if (dgmvI >= 0) dgmv = r[dgmvI];
+        if (tgmvI >= 0) tgmv = r[tgmvI];
+      }
+    } else {
+      // 全组：累加 6 AM
+      const ai = findCol(bimonthByAM.columns, "AM");
+      let sumD = 0, sumT = 0, hit = 0;
+      bimonthByAM.rows.forEach(r => {
+        const a = r[ai];
+        if (exclude.has(a)) return;
+        if (dgmvI >= 0 && r[dgmvI] != null) sumD += Number(r[dgmvI]) || 0;
+        if (tgmvI >= 0 && r[tgmvI] != null) sumT += Number(r[tgmvI]) || 0;
+        hit++;
+      });
+      if (hit > 0) {
+        if (dgmvI >= 0) dgmv = sumD;
+        if (tgmvI >= 0) tgmv = sumT;
+      }
+    }
+  }
 
   // ============= 双月目标进度（仅 this_bimonth 才有意义）=============
   let bimonthSection = "";
