@@ -443,6 +443,15 @@ async function renderActiveTab() {
   const tab = STATE.index.tabs.find(t => t.key === STATE.currentTab);
   if (!tab) return;
   const datas = await Promise.all(tab.charts.map(c => fetchData(STATE.currentPeriod, c.id)));
+  // V13: 预 fetch 邻居 period 的 t1_yesterday_perf + t1_bimonth_byAM 用于 hero/donut 环比
+  const prevKeyMap = {this_bimonth: "last_bimonth", last_bimonth: "yoy_bimonth"};
+  const prevK = prevKeyMap[STATE.currentPeriod];
+  if (prevK && tab.key === "tab1_team_overview") {
+    await Promise.all([
+      fetchData(prevK, "t1_yesterday_perf"),
+      fetchData(prevK, "t1_bimonth_byAM"),
+    ]);
+  }
   EL.main.innerHTML = "";
 
   if (tab.key === "tab1_team_overview") {
