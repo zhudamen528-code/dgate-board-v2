@@ -674,10 +674,22 @@ function buildHeroKpis(datas) {
   // V13: 邻居 period 算 TGMV/动销商家数/覆盖场域 环比（仅双月类时段可用）
   const prevKeyHero = ({this_bimonth: "last_bimonth", last_bimonth: "yoy_bimonth"})[STATE.currentPeriod];
   const prevLabelHero = prevKeyHero ? (STATE.index.periods.find(p => p.key === prevKeyHero)?.label || prevKeyHero) : "";
-  const heroDelta = (curVal, prevVal, label) => {
+  // V13c: 进行中的 this_bimonth 用 days_ratio 缩放 prev 上双月（完整 61 天）到同长度（18 天）
+  const prevPeriod = prevKeyHero ? STATE.index.periods.find(p => p.key === prevKeyHero) : null;
+  let prevScale = 1, prevDays = null;
+  if (prevPeriod && STATE.currentPeriod === "this_bimonth") {
+    const ps = new Date(prevPeriod.start), pe = new Date(prevPeriod.end);
+    prevDays = Math.round((pe - ps)/86400000) + 1;
+    prevScale = days / prevDays;  // 按进行中天数缩放
+  }
+  const heroDelta = (curVal, prevVal, label, opts) => {
+    opts = opts || {};
     if (curVal == null || prevVal == null || prevVal === 0) return null;
-    const rate = (curVal - prevVal) / Math.abs(prevVal);
-    return {rate, prevVal, label};
+    // 累加型字段按 prevScale 缩放（TGMV/DGMV/商家数都按比例算前 N 天）
+    // 比率型/计数型场域字段不缩放
+    const effPrev = opts.skipScale ? prevVal : (prevVal * prevScale);
+    const rate = (curVal - effPrev) / Math.abs(effPrev);
+    return {rate, prevVal: effPrev, label};
   };
   // TGMV 上一时段：从 STATE.cache[prevKey/t1_bimonth_byAM] 拿
   let prevTgmv = null, prevSellerCount = null, prevScenes = null;
@@ -715,9 +727,9 @@ function buildHeroKpis(datas) {
       prevScenes = sceneSet.size || null;
     }
   }
-  const tgmvDelta = heroDelta(totalTgmv, prevTgmv, prevLabelHero);
-  const scDelta = heroDelta(sellerCount === "-" || sellerCount == null ? null : sellerCount, prevSellerCount, prevLabelHero);
-  const scenesDelta = heroDelta(scenes === "-" || scenes == null ? null : scenes, prevScenes, prevLabelHero);
+  const tgmvDelta = heroDelta(totalTgmv, prevTgmv, prevLabelHero);  // TGMV 累加型按比例缩
+  const scDelta = heroDelta(sellerCount === "-" || sellerCount == null ? null : sellerCount, prevSellerCount, prevLabelHero, {skipScale: true});  // 商家数 distinct 不缩
+  const scenesDelta = heroDelta(scenes === "-" || scenes == null ? null : scenes, prevScenes, prevLabelHero, {skipScale: true});  // 场域数不缩
 
   // ============ 卡片清单 ============
   const items = [];
@@ -1603,6 +1615,15 @@ renderers.donutTableClean = function(body, data, cfg) {
     });
   }
   const prevLabel = prevKey ? (STATE.index.periods.find(p => p.key === prevKey)?.label || prevKey) : "";
+  // V13c: 进行中本双月 vs 完整上双月 按天数缩放
+  const periodCur = STATE.index.periods.find(p => p.key === STATE.currentPeriod);
+  const periodPrev = prevKey ? STATE.index.periods.find(p => p.key === prevKey) : null;
+  let scaleFactor = 1;
+  if (STATE.currentPeriod === "this_bimonth" && periodCur && periodPrev) {
+    const curD = (new Date(periodCur.end) - new Date(periodCur.start))/86400000 + 1;
+    const prevD = (new Date(periodPrev.end) - new Date(periodPrev.start))/86400000 + 1;
+    scaleFactor = curD / prevD;
+  }
 
   const grid = document.createElement("div");
   grid.className = "grid-donut";
@@ -1623,8 +1644,10 @@ renderers.donutTableClean = function(body, data, cfg) {
     const prevV = prevDimVal[dim];
     let envCell = '<span class="muted">—</span>';
     if (prevKey && prevV != null && v != null && prevV !== 0) {
-      const rate = (v - prevV) / Math.abs(prevV);
-      envCell = `<span class="${rate>=0?'delta-up':'delta-down'}" data-tip="vs ${prevLabel}: ${fmt.money(prevV)}（当前 ${fmt.money(v)}）">${rate>=0?'↑':'↓'} ${Math.abs(rate*100).toFixed(1)}%</span>`;
+      const effPrev = prevV * scaleFactor;
+      const rate = (v - effPrev) / Math.abs(effPrev);
+      const scaleTip = scaleFactor !== 1 ? `（按时间长度 ${(scaleFactor*100).toFixed(0)}% 缩放）` : '';
+      envCell = `<span class="${rate>=0?'delta-up':'delta-down'}" data-tip="vs ${prevLabel} ${scaleTip}: ${fmt.money(effPrev)}（原 ${fmt.money(prevV)}）">${rate>=0?'↑':'↓'} ${Math.abs(rate*100).toFixed(1)}%</span>`;
     }
     html += `<tr><td>${dim}</td><td class="num">${fmt.money(v)}</td><td class="num">${pct}</td><td class="num">${envCell}</td></tr>`;
   });
