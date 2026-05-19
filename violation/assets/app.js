@@ -1,374 +1,373 @@
-// 违规预警看板 app.js
-const CACHE_BUSTER = '?v=' + Date.now();
-const AM_ORDER = ['大门(朱锦程)', '秋罗(胡春秋)', '路歌(李红红)', '诺亚(单恩浩)', '莱拉(付艺迪)', '蕾塞(张嘉悦)'];
-
+// 违规预警 v2 单页 4 区
+const CB = '?v=' + Date.now();
 let DATA = {};
-let currentView = 'team'; // 'team' or AM name
 
 async function fetchJson(name) {
-  const r = await fetch(`data/${name}${CACHE_BUSTER}`, { cache: 'no-store' });
+  const r = await fetch(`data/${name}${CB}`, { cache: 'no-store' });
   return await r.json();
 }
 
 async function init() {
   try {
-    const [summary, byAm, tags, avoid, meta, index] = await Promise.all([
+    const [summary, domains, heavy, avoid, detailNew, meta] = await Promise.all([
       fetchJson('_summary.json'),
-      fetchJson('_by_am.json'),
-      fetchJson('_tags.json'),
+      fetchJson('_domains.json'),
+      fetchJson('_heavy_sellers.json'),
       fetchJson('_avoid.json'),
+      fetchJson('_detail_new.json'),
       fetchJson('_meta.json'),
-      fetchJson('index.json'),
     ]);
-    DATA = { summary, byAm, tags, avoid, meta, index };
-    renderSidebar();
-    renderMeta();
+    DATA = { summary, domains, heavy, avoid, detailNew, meta };
+    renderHeader();
     render();
+    initTabs();
   } catch (e) {
-    document.getElementById('main-content').innerHTML = `<div class="loading">加载失败: ${e.message}</div>`;
+    document.getElementById('main').innerHTML = `<div class="loading">加载失败: ${e.message}</div>`;
     console.error(e);
   }
 }
 
-function renderSidebar() {
-  const ams = DATA.index.am_list;
-  const teamCount = DATA.summary.yest_total;
-  const teamSevere = DATA.summary.yest_severe;
-  const html = [
-    `<div class="am-btn ${currentView==='team'?'active':''}" data-view="team">
-       <span>👥 全组汇总</span>
-       <span class="badge">${teamCount}${teamSevere?` <span class="severe">${teamSevere}重</span>`:''}</span>
-     </div>`,
-    ...ams.map(a => `<div class="am-btn ${currentView===a.am?'active':''}" data-view="${a.am}">
-       <span>${a.am.split('(')[0]}</span>
-       <span class="badge">${a.yest_count}${a.yest_severe?` <span class="severe">${a.yest_severe}重</span>`:''}</span>
-     </div>`)
-  ].join('');
-  document.getElementById('am-buttons').innerHTML = html;
-  document.querySelectorAll('.am-btn').forEach(btn => {
-    btn.onclick = () => { currentView = btn.dataset.view; renderSidebar(); render(); };
+function renderHeader() {
+  document.getElementById('board-title').textContent = `🚨 ${DATA.summary.am_short}的违规预警`;
+  document.getElementById('board-subtitle').textContent = `${DATA.summary.am} · 数据日期 ${DATA.summary.yest_date}`;
+  document.getElementById('meta').innerHTML = `🔄 ${DATA.meta.generated_at} · 📊 ${DATA.meta.data_source} · ⚠️ 仅显示你 AM 名下违规`;
+}
+
+function initTabs() {
+  document.querySelectorAll('.tab').forEach(t => {
+    t.onclick = e => {
+      e.preventDefault();
+      document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      const id = t.getAttribute('href').substring(1);
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
   });
 }
 
-function renderMeta() {
-  const m = DATA.meta;
-  document.getElementById('meta-info').innerHTML = `
-    📅 数据日期：${m.yest_date}<br>
-    🔄 生成时间：${m.generated_at}<br>
-    📊 14d 窗口：${m.d14_start} ~ ${m.d14_end}
-  `;
-}
-
-function escapeHtml(s) {
+function esc(s) {
   if (s == null) return '';
   return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
-function l1Class(l1) {
-  if (!l1) return '默认';
-  if (l1.includes('违规营销')) return '违规营销';
-  if (l1.includes('虚假宣传')) return '虚假宣传';
-  if (l1.includes('主控侵权') || l1.includes('肖像') || l1.includes('版权')) return '主控侵权';
-  if (l1.includes('内容生态')) return '内容生态';
-  if (l1.includes('医疗')) return '医疗';
-  if (l1.includes('合规') || l1.includes('准入')) return '合规';
-  return '默认';
+function l1Class(d) {
+  if (!d) return '';
+  if (d.includes('问题账号')) return 'l-problem';
+  if (d.includes('内容画风') || d.includes('内容生态')) return 'l-content';
+  if (d.includes('违规营销') || d.includes('虚假宣传')) return 'l-marketing';
+  if (d.includes('医疗') || d.includes('医美')) return 'l-medical';
+  if (d.includes('作弊') || d.includes('反作弊')) return 'l-fraud';
+  return '';
 }
 
-function deltaBadge(value, suffix = '%') {
-  if (value == null || isNaN(value)) return '';
-  const abs = Math.abs(value);
-  // 阈值：>500% 视为异常不显示
-  if (abs > 500) return `<span class="kpi-delta flat">环比异常波动</span>`;
-  const arrow = value > 0 ? '↑' : (value < 0 ? '↓' : '→');
-  const cls = value > 0 ? 'up' : (value < 0 ? 'down' : 'flat');
-  return `<span class="kpi-delta ${cls}">${arrow} ${abs}${suffix}</span>`;
+function actionPills(action) {
+  if (!action) return '';
+  const parts = action.split(/[，,;；]/).map(s => s.trim()).filter(Boolean);
+  return parts.map(p => {
+    const heavy = ['下架','清退','封禁','重度','100%','沉底','禁言'].some(k => p.includes(k));
+    return `<span class="action-pill ${heavy?'heavy':''}">${esc(p)}</span>`;
+  }).join(' ');
 }
 
-function cangqiongShopUrl(sellerId) {
-  if (!sellerId) return '#';
-  return `https://cangqiong.devops.xiaohongshu.com/customer/${sellerId}`;
+function cangqiongShopUrl(sid) {
+  return sid ? `https://cangqiong.devops.xiaohongshu.com/customer/${sid}` : '#';
 }
-
-function cangqiongNoteUrl(noteId) {
-  if (!noteId) return '#';
-  return `https://www.xiaohongshu.com/explore/${noteId}`;
+function noteUrl(nid) {
+  return nid ? `https://www.xiaohongshu.com/explore/${nid}` : '#';
 }
 
 function render() {
-  const main = document.getElementById('main-content');
-  if (currentView === 'team') {
-    main.innerHTML = renderTeamView();
-  } else {
-    main.innerHTML = renderAmView(currentView);
-  }
-  // 渲染 chart
+  const s = DATA.summary;
+  const main = document.getElementById('main');
+
+  // === Tab 1: 当天新增 ===
+  const tabNew = renderTabNew();
+  // === Tab 2: 持续中 ===
+  const tabActive = renderTabActive();
+  // === Tab 3: 重点商家 ===
+  const tabHeavy = renderTabHeavy();
+  // === Tab 4: 规避指南 ===
+  const tabAvoid = renderTabAvoid();
+
+  main.innerHTML = tabNew + tabActive + tabHeavy + tabAvoid;
+
+  // 渲染 echarts
   setTimeout(() => {
     document.querySelectorAll('.chart-container[data-chart]').forEach(el => {
       const chart = echarts.init(el);
-      const opt = JSON.parse(el.dataset.chart);
-      chart.setOption(opt);
+      chart.setOption(JSON.parse(el.dataset.chart));
       window.addEventListener('resize', () => chart.resize());
     });
   }, 50);
 }
 
-function renderTeamView() {
+function renderTabNew() {
   const s = DATA.summary;
-  const tags = DATA.tags;
-  const avoid = DATA.avoid;
-  const byAm = DATA.byAm;
+  const detail = DATA.detailNew;
+  const totalDomains = Object.entries(detail);
 
-  // Hero
-  let hero = `
-    <div class="hero">
-      <div class="hero-title">🚨 全组违规预警 · ${s.yest_date}</div>
-      <div class="hero-subtitle">五组（休食）昨日新增违规处罚汇总 · 仅含未撤销处罚</div>
-      <div class="hero-kpi">
-        <div class="kpi-card">
+  // KPI
+  let kpi = `
+    <div class="section" id="tab-new">
+      <div class="section-title">📥 当天新增违规 <span class="badge danger">${s.yest_date}</span></div>
+      <div class="section-subtitle">仅看"处罚时间=昨日"的真正新增处罚，与苍穹后台对齐</div>
+      <div class="hero-kpi-row">
+        <div class="kpi-card danger">
           <div class="kpi-label">昨日新增违规</div>
-          <div class="kpi-value danger">${s.yest_total}</div>
-          ${s.mom != null ? deltaBadge(s.mom) + ' vs 前日' : ''}
+          <div class="kpi-value danger">${s.new_total}</div>
         </div>
-        <div class="kpi-card">
+        <div class="kpi-card ${s.new_severe>0?'danger':''}">
           <div class="kpi-label">重度违规</div>
-          <div class="kpi-value ${s.yest_severe>0?'danger':''}">${s.yest_severe}</div>
+          <div class="kpi-value ${s.new_severe>0?'danger':''}">${s.new_severe}</div>
+          <div class="kpi-sub">${s.new_total>0?Math.round(s.new_severe/s.new_total*100):0}% 占比</div>
         </div>
-        <div class="kpi-card">
+        <div class="kpi-card warn">
           <div class="kpi-label">涉及商家</div>
-          <div class="kpi-value warn">${s.yest_seller_count}</div>
+          <div class="kpi-value warn">${s.new_sellers}</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">涉及 AM</div>
-          <div class="kpi-value">${s.yest_am_count} / 6</div>
+          <div class="kpi-label">涉及买手</div>
+          <div class="kpi-value">${s.new_buyers}</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">近 14 天累计</div>
-          <div class="kpi-value">${s.d14_total}</div>
-          <div class="muted-mini">涉及 ${s.d14_seller_count} 商家</div>
+          <div class="kpi-label">黑盒 / 白盒</div>
+          <div class="kpi-value" style="font-size:18px">${s.new_black} / ${s.new_white}</div>
         </div>
       </div>
     </div>`;
 
-  // AM 矩阵
-  let amGrid = `<div class="am-grid">`;
-  for (const am of AM_ORDER) {
-    const a = byAm[am];
-    if (!a) continue;
-    const tagsHtml = a.tag_l1_top5_14d && a.tag_l1_top5_14d.length
-      ? a.tag_l1_top5_14d.slice(0,3).map(([t,c]) => `<span class="tag-pill l1-${l1Class(t)}">${escapeHtml(t)} ${c}</span>`).join('')
-      : '<span class="muted-mini">无</span>';
-    amGrid += `
-      <div class="am-card">
-        <div class="am-card-header">
-          <span class="am-card-name">${a.am}</span>
-          <span class="am-card-count">${a.yest_count}${a.yest_severe?` <small style="color:#fa8c16">(${a.yest_severe}重)</small>`:''}</span>
-        </div>
-        <div class="am-card-meta">昨日涉及 ${a.yest_seller_count} 商家 · 14d 累计 ${a.d14_count} 起 / ${a.d14_seller_count} 商家</div>
-        <div class="am-card-meta" style="margin-bottom:6px">14d 高频违规类型：</div>
-        <div class="am-card-tags">${tagsHtml}</div>
-      </div>`;
-  }
-  amGrid += `</div>`;
-
-  // 标签 Top10
-  const maxCount = tags.tag_top20[0] ? tags.tag_top20[0][1] : 1;
-  const tagRank = tags.tag_top20.slice(0, 15).map((t, i) => `
-    <div class="tag-rank-item">
-      <span class="tag-rank-num top${i<3?i+1:''}">${i+1}</span>
-      <span class="tag-rank-name">${escapeHtml(t[0])}</span>
-      <span class="tag-rank-bar"><span class="tag-rank-bar-fill" style="width:${t[1]/maxCount*100}%"></span></span>
-      <span class="tag-rank-count">${t[1]}</span>
-    </div>
-  `).join('');
-
-  // 规避指南
-  const avoidHtml = avoid.slice(0, 8).map(g => `
-    <div class="avoid-item l1-${l1Class(g.tag_l1)}">
-      <div class="avoid-header">
-        <span class="avoid-title">${escapeHtml(g.tag_l1)}</span>
-        <span class="avoid-pct">14d ${g.count} 起 · 占比 ${g.pct}%</span>
-      </div>
-      <div class="avoid-risk">⚠️ 风险点：${escapeHtml(g.risk)}</div>
-      ${g.tips && g.tips.length ? `<ul class="avoid-tips">${g.tips.map(t => `<li>${escapeHtml(t)}</li>`).join('')}</ul>` : ''}
-      <div class="avoid-subtags">
-        子标签：${g.top_sub_tags.slice(0,3).map(t => `${escapeHtml(t[0])} (${t[1]})`).join('、')}
-        ${g.top_ams ? ` · 主要 AM：${g.top_ams.slice(0,3).map(t => t[0].split('(')[0]).join('、')}` : ''}
-      </div>
-    </div>
-  `).join('');
-
-  // AM 14d 累计柱图
-  const amDist = tags.am_dist_14d;
-  const amChartOpt = {
-    grid: { top: 20, right: 20, bottom: 30, left: 90 },
-    tooltip: { trigger: 'axis' },
-    xAxis: { type: 'value' },
-    yAxis: { type: 'category', data: amDist.map(x => x[0].split('(')[0]) },
-    series: [{ type: 'bar', data: amDist.map(x => x[1]), itemStyle: { color: '#ff7875' }, label: { show: true, position: 'right' } }]
-  };
-
-  return hero + `
-    <div class="section">
-      <div class="section-title">🎯 AM 矩阵 <span class="badge">昨日 ${s.yest_date}</span></div>
-      ${amGrid}
-    </div>
-    <div class="section">
-      <div class="section-title">📊 近 14 天 AM 违规累计</div>
-      <div class="chart-container" data-chart='${JSON.stringify(amChartOpt).replace(/'/g, "&#39;")}'></div>
-    </div>
-    <div class="section">
-      <div class="section-title">🏷️ 高频违规标签 Top15 <span class="badge">14 天</span></div>
-      <div class="tag-rank">${tagRank}</div>
-    </div>
-    <div class="section">
-      <div class="section-title">💡 违规根因 & 规避指南 <span class="badge">基于 14 天数据自动生成</span></div>
-      <div class="section-subtitle">建议 AM 据此提醒商家自查；与商家沟通时可直接引用这些条目</div>
-      <div class="avoid-list">${avoidHtml}</div>
-    </div>
-  `;
-}
-
-function renderAmView(am) {
-  const a = DATA.byAm[am];
-  if (!a) return `<div class="loading">无数据</div>`;
-  const s = DATA.summary;
-
-  // Hero
-  let hero = `
-    <div class="hero">
-      <div class="hero-title">👤 ${a.am}</div>
-      <div class="hero-subtitle">📧 ${a.email} · 数据日期 ${s.yest_date}</div>
-      <div class="hero-kpi">
-        <div class="kpi-card">
-          <div class="kpi-label">昨日新增违规</div>
-          <div class="kpi-value danger">${a.yest_count}</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">重度违规</div>
-          <div class="kpi-value ${a.yest_severe>0?'danger':''}">${a.yest_severe}</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">涉及商家</div>
-          <div class="kpi-value warn">${a.yest_seller_count}</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">14d 累计</div>
-          <div class="kpi-value">${a.d14_count}</div>
-          <div class="muted-mini">${a.d14_seller_count} 商家</div>
-        </div>
-      </div>
+  // 风险域排名（按 new count）
+  const maxNew = totalDomains[0] ? totalDomains[0][1].length : 1;
+  const rank = totalDomains.slice(0, 12).map(([d, rows], i) => {
+    const severe = rows.filter(r => r.is_severe).length;
+    return `<div class="rank-item">
+      <span class="rank-num top${i<3?i+1:''}">${i+1}</span>
+      <span class="rank-name">${esc(d)}</span>
+      <span class="rank-meta">${severe?`<span class="level-severe">${severe}重</span>`:''}</span>
+      <span class="rank-bar"><span class="rank-bar-fill" style="width:${rows.length/maxNew*100}%"></span></span>
+      <span class="rank-count">${rows.length}</span>
     </div>`;
+  }).join('');
 
-  // 商家清单
-  let sellerHtml = '';
-  if (a.sellers.length === 0) {
-    sellerHtml = `<div class="am-card-empty">🎉 昨日名下无新增违规</div>`;
-  } else {
-    sellerHtml = `<table class="detail">
-      <thead>
-        <tr><th style="width:200px">店铺</th><th style="width:60px">违规数</th><th>主要违规标签</th><th style="width:130px">实体类型</th></tr>
-      </thead><tbody>`;
-    for (const s of a.sellers) {
-      const isSevere = s.severe > 0;
-      const tagsList = s.top_tags.map(t => `<span class="tag-pill">${escapeHtml(t[0])} ×${t[1]}</span>`).join(' ');
-      const entities = Object.entries(s.entities).map(([k,v]) => `${k} ${v}`).join(' / ');
-      const tipText = s.samples.length ? s.samples.map(x => `[${x.tag}] ${x.desc||''}`).join('\n\n') : '';
-      const tipAttr = tipText ? `data-tip="${escapeHtml(tipText)}"` : '';
-      sellerHtml += `
-        <tr ${isSevere?'class="severe-row"':''}>
-          <td>
-            <div class="cell-shop">
-              <a href="${cangqiongShopUrl(s.seller_id)}" target="_blank" class="shop-link" ${tipAttr}>${escapeHtml(s.shop_name)}</a>
-              ${isSevere?'<span class="level-severe"> [重度]</span>':''}
-            </div>
-            <div class="seller-detail">${s.seller_id}</div>
-          </td>
-          <td><strong>${s.count}</strong>${s.severe?` <small class="level-severe">(${s.severe}重)</small>`:''}</td>
-          <td>${tagsList}</td>
-          <td><span class="entity-label">${escapeHtml(entities)}</span></td>
-        </tr>`;
-    }
-    sellerHtml += '</tbody></table>';
-  }
-
-  // 14d 高频标签
-  const tagRank = a.tag_top10_14d.length === 0 ? '<div class="muted-mini">近 14 天无违规</div>' :
-    a.tag_top10_14d.map((t, i) => `
-    <div class="tag-rank-item">
-      <span class="tag-rank-num top${i<3?i+1:''}">${i+1}</span>
-      <span class="tag-rank-name">${escapeHtml(t[0])}</span>
-      <span class="tag-rank-count">${t[1]}</span>
-    </div>`).join('');
-
-  // 个性化规避建议（基于该 AM Top 标签匹配 avoid 模板）
-  const amL1Tags = a.tag_l1_top5_14d.map(t => t[0]);
-  const myAvoid = DATA.avoid.filter(g => amL1Tags.includes(g.tag_l1));
-  const avoidHtml = myAvoid.length === 0 ? '<div class="muted-mini">无</div>' :
-    myAvoid.slice(0, 5).map(g => `
-    <div class="avoid-item l1-${l1Class(g.tag_l1)}">
-      <div class="avoid-header">
-        <span class="avoid-title">${escapeHtml(g.tag_l1)}</span>
-        <span class="avoid-pct">你名下 14d ${a.tag_l1_top5_14d.find(t=>t[0]===g.tag_l1)?.[1]||0} 起</span>
-      </div>
-      <div class="avoid-risk">⚠️ ${escapeHtml(g.risk)}</div>
-      ${g.tips && g.tips.length ? `<ul class="avoid-tips">${g.tips.map(t => `<li>${escapeHtml(t)}</li>`).join('')}</ul>` : ''}
-    </div>
-  `).join('');
-
-  // 完整明细表
+  // 完整明细按风险域分组
   let detailHtml = '';
-  if (a.detail_yest.length > 0) {
-    detailHtml = `<table class="detail">
-      <thead>
-        <tr><th style="width:160px">店铺</th><th style="width:80px">类型</th><th>违规标签</th><th style="width:80px">等级</th><th style="width:120px">处罚动作</th><th style="width:300px">违规描述</th></tr>
-      </thead><tbody>`;
-    for (const d of a.detail_yest) {
-      const isSevere = d.level_label === '重度';
-      const entityLink = d.entity_label === '笔记' && d.entity_id
-        ? `<a href="${cangqiongNoteUrl(d.entity_id)}" target="_blank" class="shop-link">笔记</a>`
-        : `<span class="entity-label">${d.entity_label}</span>`;
-      const actionsHtml = (d.actions_short||[]).map(a => `<span class="action-pill ${a.includes('重')||a==='下架'||a==='清退'||a==='封禁'?'heavy':''}">${a}</span>`).join('');
-      detailHtml += `
-        <tr ${isSevere?'class="severe-row"':''}>
-          <td>
-            <a href="${cangqiongShopUrl(d.seller_id)}" target="_blank" class="shop-link">${escapeHtml(d.shop_name)}</a>
-            <div class="seller-detail">${d.punish_type}</div>
-          </td>
-          <td>${entityLink}</td>
-          <td>${escapeHtml(d.tag)}<br><span class="muted-mini">${escapeHtml(d.tag_l1)}</span></td>
-          <td><span class="${isSevere?'level-severe':'level-light'}">${d.level_label}</span></td>
-          <td>${actionsHtml}</td>
-          <td><span style="font-size:11px;color:#6b7280">${escapeHtml(d.desc || '(无描述)')}</span></td>
-        </tr>`;
+  for (const [domain, rows] of totalDomains) {
+    if (rows.length === 0) continue;
+    detailHtml += `
+      <h4 style="margin:14px 0 8px;font-size:13px;color:#1f2330">
+        <span class="tag-domain">${esc(domain)}</span>
+        <span style="font-weight:400;color:#8b8fa3;font-size:12px"> ${rows.length} 起</span>
+      </h4>
+      <table class="detail"><thead><tr>
+        <th style="width:170px">店铺/买手</th><th style="width:60px">类型</th><th>违规标签</th>
+        <th style="width:140px">处置动作</th><th style="width:80px">重复违规</th><th style="width:60px">黑/白盒</th>
+      </tr></thead><tbody>`;
+    for (const r of rows.slice(0, 20)) {
+      const buyerMark = r.is_buyer ? `<span class="buyer-mark">[买手 ${esc(r.buyer_nickname||'')}]</span>` : '';
+      const entityLink = r.entity_label === '笔记' && r.entity_id
+        ? `<a href="${noteUrl(r.entity_id)}" target="_blank">${r.entity_label}</a>`
+        : `<span class="entity-label">${r.entity_label}</span>`;
+      detailHtml += `<tr ${r.is_severe?'class="severe-row"':''}>
+        <td>
+          <div class="cell-shop"><a href="${cangqiongShopUrl(r.seller_id)}" target="_blank">${esc(r.shop_name)}</a></div>
+          <div class="cell-meta">${buyerMark}</div>
+        </td>
+        <td>${entityLink}</td>
+        <td>
+          <span class="tag-pill">${esc(r.tag||'(无)')}</span>
+          ${r.sub_domain?`<div class="cell-meta">${esc(r.sub_domain)}</div>`:''}
+        </td>
+        <td>${actionPills(r.action)}</td>
+        <td>${r.repeat_count>0?`<span class="level-severe">${r.repeat_count}次</span>`:'-'}</td>
+        <td>${r.punish_type}</td>
+      </tr>`;
+    }
+    if (rows.length > 20) {
+      detailHtml += `<tr><td colspan="6" style="text-align:center;color:#8b8fa3;font-size:11px;padding:6px">… 其余 ${rows.length - 20} 条同类违规</td></tr>`;
     }
     detailHtml += '</tbody></table>';
   }
 
-  return hero + `
+  let rankSection = `
     <div class="section">
-      <div class="section-title">🏪 你名下昨日违规商家 <span class="badge">${a.sellers.length} 家 / ${a.yest_count} 起</span></div>
-      <div class="section-subtitle">点击店铺名跳转苍穹 CRM · 重度违规已高亮 · 鼠标悬停店铺名可看违规描述</div>
-      ${sellerHtml}
-    </div>
+      <div class="section-title">📊 当天新增 - 风险域分布</div>
+      <div class="rank-list">${rank}</div>
+    </div>`;
+
+  let detailSection = `
     <div class="section">
-      <div class="section-title">💡 你名下高频违规规避建议</div>
-      <div class="section-subtitle">基于你名下近 14 天高频违规类型，建议优先与对应商家沟通</div>
-      <div class="avoid-list">${avoidHtml}</div>
-    </div>
-    <div class="section">
-      <div class="section-title">🏷️ 你名下 14d 高频违规标签</div>
-      <div class="tag-rank">${tagRank}</div>
-    </div>
-    ${detailHtml ? `<div class="section">
-      <div class="section-title">📋 昨日违规完整明细 <span class="badge">${a.detail_yest.length} 条</span></div>
+      <div class="section-title">📋 当天新增完整明细 <span class="badge">按风险域分组</span></div>
+      <div class="section-subtitle">每个风险域最多展示 20 条，重度违规已高亮</div>
       ${detailHtml}
-    </div>` : ''}
+    </div>`;
+
+  return kpi + rankSection + detailSection;
+}
+
+function renderTabActive() {
+  const s = DATA.summary;
+  const d = DATA.domains;
+
+  let kpi = `
+    <div class="section" id="tab-active">
+      <div class="section-title">🔄 持续中违规 <span class="badge">截止 ${s.yest_date} 仍在处罚中</span></div>
+      <div class="section-subtitle">所有未撤销/未到期的处罚，反映"积压问题"全貌</div>
+      <div class="hero-kpi-row">
+        <div class="kpi-card warn">
+          <div class="kpi-label">持续中总数</div>
+          <div class="kpi-value warn">${s.active_total}</div>
+        </div>
+        <div class="kpi-card danger">
+          <div class="kpi-label">重度违规</div>
+          <div class="kpi-value danger">${s.active_severe}</div>
+          <div class="kpi-sub">${Math.round(s.active_severe/s.active_total*100)}%</div>
+        </div>
+        <div class="kpi-card danger">
+          <div class="kpi-label">重复违规≥5次</div>
+          <div class="kpi-value danger">${s.active_high_repeat}</div>
+          <div class="kpi-sub">屡教不改</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">涉及商家</div>
+          <div class="kpi-value">${s.active_sellers}</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">涉及买手</div>
+          <div class="kpi-value">${s.active_buyers_count}</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">黑盒 / 白盒</div>
+          <div class="kpi-value" style="font-size:18px">${s.active_black} / ${s.active_white}</div>
+        </div>
+      </div>
+    </div>`;
+
+  // 持续中 vs 新增风险域对比
+  const allDomains = [...new Set([...d.active.map(x=>x[0]), ...d.new.map(x=>x[0])])];
+  const activeMap = Object.fromEntries(d.active);
+  const newMap = Object.fromEntries(d.new);
+  const sorted = allDomains.sort((a,b)=> (activeMap[b]||0) - (activeMap[a]||0)).slice(0, 15);
+  const maxActive = Math.max(...d.active.map(x=>x[1]), 1);
+
+  const compareRows = sorted.map(dom => {
+    const a = activeMap[dom] || 0;
+    const n = newMap[dom] || 0;
+    return `<div class="split-row">
+      <span class="name">${esc(dom)}</span>
+      <span class="active-num">${a}</span>
+      <span class="rank-bar"><span class="rank-bar-fill" style="width:${a/maxActive*100}%;background:#5b8def"></span></span>
+      <span class="new-num">+${n}</span>
+    </div>`;
+  }).join('');
+
+  // 持续中 Top 标签
+  const maxTag = d.top_tags_active[0] ? d.top_tags_active[0][1] : 1;
+  const tagRank = d.top_tags_active.slice(0, 12).map(([t, c], i) => `
+    <div class="rank-item">
+      <span class="rank-num top${i<3?i+1:''}">${i+1}</span>
+      <span class="rank-name">${esc(t||'(无标签)')}</span>
+      <span class="rank-bar"><span class="rank-bar-fill" style="width:${c/maxTag*100}%"></span></span>
+      <span class="rank-count">${c}</span>
+    </div>`).join('');
+
+  // 持续中 Top 处置动作
+  const maxAct = d.top_actions_active[0] ? d.top_actions_active[0][1] : 1;
+  const actRank = d.top_actions_active.slice(0, 10).map(([a, c], i) => `
+    <div class="rank-item">
+      <span class="rank-num top${i<3?i+1:''}">${i+1}</span>
+      <span class="rank-name">${esc(a||'(无)')}</span>
+      <span class="rank-bar"><span class="rank-bar-fill" style="width:${c/maxAct*100}%;background:#8d9aff"></span></span>
+      <span class="rank-count">${c}</span>
+    </div>`).join('');
+
+  return kpi + `
+    <div class="section">
+      <div class="section-title">📊 风险域分布 <span class="badge">持续中 vs 当天新增对比</span></div>
+      <div class="section-subtitle">蓝色=持续中累计 · 红色=昨日新增（看哪些类型在持续累积）</div>
+      ${compareRows}
+    </div>
+    <div class="section">
+      <div class="section-title">🏷️ 持续中 - 高频违规标签 Top12</div>
+      <div class="rank-list">${tagRank}</div>
+    </div>
+    <div class="section">
+      <div class="section-title">⚙️ 持续中 - 处置动作 Top10</div>
+      <div class="section-subtitle">看哪些处罚类型最多 - 反映违规严重程度</div>
+      <div class="rank-list">${actRank}</div>
+    </div>
   `;
 }
 
-document.getElementById('sidebar-toggle')?.addEventListener('click', () => {
-  document.getElementById('sidebar').classList.toggle('open');
-});
+function renderTabHeavy() {
+  const h = DATA.heavy;
+
+  const renderHeavyItem = (s, type) => {
+    let badges = '';
+    if (type === 'today') badges += `<span class="badge today">昨日 ${s.count} 起</span>`;
+    if (type === 'repeat') badges += `<span class="badge repeat">重复 ${s.high_repeat}</span>`;
+    if (type === 'burst') badges += `<span class="badge burst">🔥 爆发</span>`;
+    if (s.severe > 0) badges += `<span class="badge severe">${s.severe}重</span>`;
+    if (s.new_today > 0 && type !== 'today') badges += `<span class="badge today">昨日+${s.new_today}</span>`;
+    const topDomains = s.top_domains.map(d => `${d[0]}(${d[1]})`).join(' · ');
+    return `<div class="heavy-item">
+      <div class="name">
+        <a href="${cangqiongShopUrl(s.seller_id)}" target="_blank">${esc(s.shop_name)}</a>
+        ${badges}
+      </div>
+      <div class="stats">持续中 ${s.count} 起 · ${topDomains}</div>
+    </div>`;
+  };
+
+  return `
+    <div class="section" id="tab-heavy">
+      <div class="section-title">🎯 重点商家 <span class="badge">优先沟通</span></div>
+      <div class="section-subtitle">从 4 个维度筛选重点商家，建议从"昨日爆发"和"屡教不改"开始约谈</div>
+      <div class="heavy-grid">
+        <div class="heavy-section">
+          <h3>🔥 昨日爆发商家 <span class="desc">新增≥5起</span></h3>
+          ${h.new_burst.length === 0 ? '<div class="cell-meta">昨日无单店爆发</div>' : h.new_burst.map(s => renderHeavyItem(s, 'burst')).join('')}
+        </div>
+        <div class="heavy-section">
+          <h3>🔁 屡教不改商家 <span class="desc">重复违规≥5次</span></h3>
+          ${h.high_repeat.length === 0 ? '<div class="cell-meta">无重复违规</div>' : h.high_repeat.slice(0, 10).map(s => renderHeavyItem(s, 'repeat')).join('')}
+        </div>
+        <div class="heavy-section">
+          <h3>📊 累计违规 Top10 <span class="desc">持续中总数最多</span></h3>
+          ${h.top_active.slice(0, 10).map(s => renderHeavyItem(s, 'top')).join('')}
+        </div>
+        <div class="heavy-section">
+          <h3>🚨 重度违规集中 <span class="desc">重度处罚最多</span></h3>
+          ${h.severe.slice(0, 10).map(s => renderHeavyItem(s, 'severe')).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderTabAvoid() {
+  const avoid = DATA.avoid;
+  return `
+    <div class="section" id="tab-avoid">
+      <div class="section-title">💡 违规根因 & 规避指南</div>
+      <div class="section-subtitle">基于你名下持续中违规分析，从高到低排序。与商家沟通时可直接引用这些条目</div>
+      <div class="avoid-list">
+        ${avoid.map(g => `
+          <div class="avoid-item ${l1Class(g.risk_domain)}">
+            <div class="avoid-header">
+              <span class="avoid-title">${esc(g.risk_domain)}</span>
+              <span class="avoid-meta">持续 ${g.active_count} 起 (${g.active_pct}%) · 昨日新增 ${g.new_count}</span>
+            </div>
+            <div class="avoid-risk">⚠️ 风险点：${esc(g.risk||'-')}</div>
+            ${g.tips && g.tips.length ? `<ul class="avoid-tips">${g.tips.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : '<div class="cell-meta">暂无标准模板</div>'}
+            <div class="avoid-subdomains">
+              ${g.top_sub_domains.length ? `子风险：${g.top_sub_domains.map(t=>`${esc(t[0])} (${t[1]})`).join('、')}` : ''}
+              ${g.top_sellers.length ? ` · 集中商家：${g.top_sellers.map(t=>esc(t[0])).join('、')}` : ''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
 
 init();
