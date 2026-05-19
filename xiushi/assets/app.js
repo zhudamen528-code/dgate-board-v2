@@ -866,12 +866,24 @@ function buildSummaryCard(datas, tab) {
       return map[STATE.currentPeriod];
     })();
     const prevLb = prevKey ? (((STATE.liveBreakdown || {})[prevKey] || {})[am || "全组"]) : null;
-    const liveBadge = prevLb ? deltaBadge(lb.dgmv, prevLb.dgmv, `${STATE.index.periods.find(p=>p.key===prevKey)?.label||prevKey} 店播 DGMV`, {fmt: fmt.money}) : "";
+    // V13 优先用 chart 自带 mom（全 8 时段）
+    let liveBadge = "", durBadge = "", sellersBadge = "";
+    if (lb.dgmv_mom != null) {
+      liveBadge = deltaBadge(lb.dgmv, lb.dgmv/(1+lb.dgmv_mom), "上一同长度时段（chart 自算）", {fmt: fmt.money});
+    } else if (prevLb && prevLb.dgmv != null) {
+      liveBadge = deltaBadge(lb.dgmv, prevLb.dgmv, `${STATE.index.periods.find(p=>p.key===prevKey)?.label||prevKey} 店播 DGMV`, {fmt: fmt.money});
+    }
+    if (lb.duration_mom != null) {
+      durBadge = deltaBadge(lb.duration_h, lb.duration_h/(1+lb.duration_mom), "上一同长度时段（chart 自算）", {fmt: v => v.toLocaleString("zh-CN",{maximumFractionDigits:0})+"h"});
+    }
+    if (lb.live_seller_count_mom != null) {
+      sellersBadge = deltaBadge(lb.live_seller_count, lb.live_seller_count/(1+lb.live_seller_count_mom), "上一同长度时段（chart 自算）", {fmt: v => Math.round(v)+"家"});
+    }
     const tipDur = "开播时长 = 商家直播间累计开播小时数（dataset 5574）";
     const tipCTR = "CTR = 店播卡片点击 PV / 曝光 PV";
     const tipAov = "客单 = 店播 DGMV / 购买 PV";
     liveLine = `DGMV <b>${fmt.money(lb.dgmv || 0)}</b> ${liveBadge}<br/>
-      <span class='wr-sub'>开播商家 <b>${lb.live_seller_count || "—"}</b> 家${hint("当时段内有过开播的商家去重数（dataset 5574 店铺ID distinct）")} · 时长 <b>${(lb.duration_h||0).toLocaleString("zh-CN",{maximumFractionDigits:0})} h</b>${hint(tipDur)} · CTR <b>${((lb.card_ctr||0)*100).toFixed(2)}%</b>${hint(tipCTR)} · 客单 <b>¥${(lb.aov||0).toFixed(1)}</b>${hint(tipAov)}</span>`;
+      <span class='wr-sub'>开播商家 <b>${lb.live_seller_count || "—"}</b> 家 ${sellersBadge}${hint("当时段内有过开播的商家去重数（dataset 5574 店铺ID distinct）")} · 时长 <b>${(lb.duration_h||0).toLocaleString("zh-CN",{maximumFractionDigits:0})} h</b> ${durBadge}${hint(tipDur)} · CTR <b>${((lb.card_ctr||0)*100).toFixed(2)}%</b>${hint(tipCTR)} · 客单 <b>¥${(lb.aov||0).toFixed(1)}</b>${hint(tipAov)}</span>`;
   }
 
   // K 播
@@ -1142,10 +1154,21 @@ function buildLiveBreakdownCard() {
     if (ratio < 0.9) return `<span class='delta-badge delta-down' data-tip='vs 全组${isRate?'均值':'人均'} ${isRate ? (base*100).toFixed(2)+'%' : fmtN(base,1)}'>↓ ${((1-ratio)*100).toFixed(0)}%</span>`;
     return `<span class='delta-badge' data-tip='vs 全组${isRate?'均值':'人均'} ${isRate ? (base*100).toFixed(2)+'%' : fmtN(base,1)}' style='background:#f1f5f9;color:#64748b;'>≈</span>`;
   };
-  // 环比（用上一时段 _live_breakdown 同 scope 数据）
+  // V12 环比 — 双月类时段（this_bimonth / last_bimonth）用 _live_breakdown 上时段
   const prevKey = ({this_bimonth: "last_bimonth", last_bimonth: "yoy_bimonth"})[STATE.currentPeriod];
   const prevData = prevKey ? (periodData === lb[STATE.currentPeriod] ? (lb[prevKey] || {})[scope] : null) : null;
+  // V13 升级 — DGMV / 时长 / 商家数 用 chart 自带 _mom（全 8 时段可用）
+  const momKeyMap = {dgmv: "dgmv_mom", duration_h: "duration_mom", live_seller_count: "live_seller_count_mom"};
   const cmpMoM = (key, isRate) => {
+    // 优先走 chart 自带 mom
+    const momKey = momKeyMap[key];
+    if (momKey && data[momKey] != null) {
+      const rate = data[momKey];
+      const prevVal = data[key] / (1 + rate);  // 反推上一时段值给 tooltip
+      const fmtRef = isRate ? (v => (v*100).toFixed(2)+'%') : (v => fmtN(v,1));
+      return deltaBadge(data[key], prevVal, "上一同长度时段（chart 自算）", {fmt: fmtRef});
+    }
+    // 后备：双月类时段才有的 prevData
     if (!prevData || prevData[key] == null || data[key] == null) return "";
     const prevLabel = STATE.index.periods.find(p => p.key === prevKey)?.label || prevKey;
     const fmtRef = isRate ? (v => (v*100).toFixed(2)+'%') : (v => fmtN(v,1));
@@ -1280,6 +1303,12 @@ function buildLiveEfficiencyCard() {
   const prevAscAll = prevKey ? ((STATE.amSellerCounts || {})[prevKey] || {}) : {};
   const prevTotalSellers = prevAscAll[scope];
   const cmpMoM = (key, curVal, isRate, isDerived) => {
+    // V13: 优先用 chart 自带 mom（覆盖全 8 时段）
+    if (key === "duration_h" && data.duration_mom != null) {
+      const rate = data.duration_mom;
+      const prevVal = curVal / (1 + rate);
+      return deltaBadge(curVal, prevVal, "上一同长度时段（chart 自算）", {fmt: v => fmtN(v,1)});
+    }
     if (!prevData || curVal == null) return "";
     let benchVal = null;
     if (key === "openRatio") {
