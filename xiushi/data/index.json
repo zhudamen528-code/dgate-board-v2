@@ -1,41 +1,41 @@
 {
-  "generated_at": "2026-05-22 09:56:55",
+  "generated_at": "2026-05-23 10:15:49",
   "periods": [
     {
       "key": "yesterday",
-      "label": "昨日 (5/21)",
-      "start": "2026-05-21",
-      "end": "2026-05-21"
+      "label": "昨日 (5/22)",
+      "start": "2026-05-22",
+      "end": "2026-05-22"
     },
     {
       "key": "last_7d",
       "label": "近7天",
-      "start": "2026-05-15",
-      "end": "2026-05-21"
+      "start": "2026-05-16",
+      "end": "2026-05-22"
     },
     {
       "key": "last_14d",
       "label": "近14天",
-      "start": "2026-05-08",
-      "end": "2026-05-21"
+      "start": "2026-05-09",
+      "end": "2026-05-22"
     },
     {
       "key": "last_30d",
       "label": "近30天",
-      "start": "2026-04-22",
-      "end": "2026-05-21"
+      "start": "2026-04-23",
+      "end": "2026-05-22"
     },
     {
       "key": "this_month",
       "label": "本月至今",
       "start": "2026-05-01",
-      "end": "2026-05-21"
+      "end": "2026-05-22"
     },
     {
       "key": "this_bimonth",
       "label": "本双月(5-6月)至今",
       "start": "2026-05-01",
-      "end": "2026-05-21"
+      "end": "2026-05-22"
     },
     {
       "key": "last_bimonth",
@@ -67,6 +67,7 @@
             "last_30d",
             "this_month",
             "this_bimonth",
+            "last_bimonth",
             "yoy_bimonth"
           ]
         },
@@ -114,6 +115,7 @@
             "last_30d",
             "this_month",
             "this_bimonth",
+            "last_bimonth",
             "yoy_bimonth"
           ]
         },
@@ -145,6 +147,7 @@
             "last_30d",
             "this_month",
             "this_bimonth",
+            "last_bimonth",
             "yoy_bimonth"
           ]
         }
