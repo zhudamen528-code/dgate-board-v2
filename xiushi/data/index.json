@@ -1,41 +1,41 @@
 {
-  "generated_at": "2026-05-24 09:53:58",
+  "generated_at": "2026-05-26 09:56:11",
   "periods": [
     {
       "key": "yesterday",
-      "label": "昨日 (5/23)",
-      "start": "2026-05-23",
-      "end": "2026-05-23"
+      "label": "昨日 (5/25)",
+      "start": "2026-05-25",
+      "end": "2026-05-25"
     },
     {
       "key": "last_7d",
       "label": "近7天",
-      "start": "2026-05-17",
-      "end": "2026-05-23"
+      "start": "2026-05-19",
+      "end": "2026-05-25"
     },
     {
       "key": "last_14d",
       "label": "近14天",
-      "start": "2026-05-10",
-      "end": "2026-05-23"
+      "start": "2026-05-12",
+      "end": "2026-05-25"
     },
     {
       "key": "last_30d",
       "label": "近30天",
-      "start": "2026-04-24",
-      "end": "2026-05-23"
+      "start": "2026-04-26",
+      "end": "2026-05-25"
     },
     {
       "key": "this_month",
       "label": "本月至今",
       "start": "2026-05-01",
-      "end": "2026-05-23"
+      "end": "2026-05-25"
     },
     {
       "key": "this_bimonth",
       "label": "本双月(5-6月)至今",
       "start": "2026-05-01",
-      "end": "2026-05-23"
+      "end": "2026-05-25"
     },
     {
       "key": "last_bimonth",
@@ -109,6 +109,7 @@
           "source_url": "https://redbi.devops.xiaohongshu.com/analysis/edit?analysisId=23119218&shortcutId=15820873&projectId=4",
           "render": "card_grid",
           "available_periods": [
+            "yesterday",
             "last_7d",
             "last_14d",
             "last_30d",
@@ -140,7 +141,6 @@
           "source_url": "https://redbi.devops.xiaohongshu.com/analysis/edit?analysisId=23119218&shortcutId=15875629&projectId=4",
           "render": "category_treemap_value",
           "available_periods": [
-            "last_7d",
             "last_14d",
             "last_30d",
             "this_month",
@@ -162,7 +162,6 @@
           "render": "kpi_grid",
           "available_periods": [
             "yesterday",
-            "last_7d",
             "last_14d",
             "last_30d",
             "this_month",
