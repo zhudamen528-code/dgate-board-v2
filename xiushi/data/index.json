@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26 09:56:11",
+  "generated_at": "2026-05-26 15:22:27",
   "periods": [
     {
       "key": "yesterday",
@@ -141,6 +141,8 @@
           "source_url": "https://redbi.devops.xiaohongshu.com/analysis/edit?analysisId=23119218&shortcutId=15875629&projectId=4",
           "render": "category_treemap_value",
           "available_periods": [
+            "yesterday",
+            "last_7d",
             "last_14d",
             "last_30d",
             "this_month",
@@ -162,6 +164,7 @@
           "render": "kpi_grid",
           "available_periods": [
             "yesterday",
+            "last_7d",
             "last_14d",
             "last_30d",
             "this_month",
