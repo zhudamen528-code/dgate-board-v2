@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>休食组 B3/B4 商家信号筛选</title>
-<link rel="stylesheet" href="assets/style.css?v=20260527v1">
+<title>休食组 B3/B4 商家信号筛选 V2</title>
+<link rel="stylesheet" href="assets/style.css?v=v2-20260528">
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 </head>
 <body>
@@ -13,8 +13,8 @@
   <div class="brand">
     <span class="emoji">🎯</span>
     <div>
-      <h1>休食组 B3/B4 商家信号筛选</h1>
-      <div class="subtitle">五组（休食） · 4 维信号体系 · 周更 T-1</div>
+      <h1>休食组 B3/B4 商家信号筛选 <span class="ver-pill">V2</span></h1>
+      <div class="subtitle">五组（休食） · 3 维子分 + 场域约束 · 方案 C · 周更 T-1</div>
     </div>
   </div>
   <div class="meta-info">
@@ -29,7 +29,7 @@
 <nav class="tabs">
   <button class="tab active" data-tab="tracks">🌱 赛道清单</button>
   <button class="tab" data-tab="sellers">🎯 重点商家</button>
-  <button class="tab" data-tab="dict">📊 信号字典</button>
+  <button class="tab" data-tab="dict">📊 信号字典 + 模型说明</button>
 </nav>
 
 <main class="content">
@@ -71,7 +71,6 @@
         <option value="">全部象限</option>
         <option value="🌟 优等生">🌟 优等生</option>
         <option value="⚡ 黑马">⚡ 黑马</option>
-        <option value="⚡ 黑马(待激活)">⚡ 黑马(待激活)</option>
         <option value="🐢 慢热">🐢 慢热</option>
         <option value="· 中间态">· 中间态</option>
         <option value="⚠️ 待观察">⚠️ 待观察</option>
@@ -82,6 +81,16 @@
         <option value="B3">B3 [1万,10万)</option>
         <option value="B4">B4 [10万,50万)</option>
       </select>
+      <select id="filter-growth">
+        <option value="">全部赛道</option>
+        <option value="1">仅增长赛道</option>
+        <option value="top20">仅 Top20 赛道</option>
+      </select>
+      <select id="filter-critical">
+        <option value="">全部 GMV 区间</option>
+        <option value="1">仅 GMV ≥40万 临界商家</option>
+        <option value="0">仅 GMV &lt;40万</option>
+      </select>
       <input type="text" id="filter-search" placeholder="🔍 商家名搜索...">
       <span class="filter-cnt">显示 <span id="filter-result-cnt">0</span> / <span id="filter-total-cnt">0</span></span>
     </div>
@@ -89,7 +98,7 @@
     <div id="seller-cards" class="card-grid"></div>
   </section>
 
-  <!-- Tab 3: 信号字典 -->
+  <!-- Tab 3: 信号字典 + 模型说明 -->
   <section class="tab-panel" id="panel-dict">
     <div id="dict-content"></div>
   </section>
@@ -102,8 +111,10 @@
   <span>取数口径：近30天 GMV (T-1) + 当期信号切片</span>
   <span class="dot">·</span>
   <span>更新频率：每周一早 8:00 自动刷新</span>
+  <span class="dot">·</span>
+  <span>V2 (2026-05-28) · 6 个月回测复验 S-低位 +972%</span>
 </footer>
 
-<script src="assets/app.js?v=20260527v1"></script>
+<script src="assets/app.js?v=v2-20260528"></script>
 </body>
 </html>
