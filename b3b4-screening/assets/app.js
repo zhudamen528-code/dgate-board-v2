@@ -231,6 +231,7 @@ function renderSellerCards() {
   }
 
   // 渲染 4 维雷达图
+  const isMobile = window.innerWidth <= 768;
   list.forEach(s => {
     const el = document.getElementById(`radar-${s.sid}`);
     if (!el) return;
@@ -243,10 +244,10 @@ function renderSellerCards() {
           { name: '🎬场域纯', max: 100 },
           { name: '🎬场域约束', max: 100 },
         ],
-        radius: '60%',
+        radius: isMobile ? '62%' : '60%',
         center: ['50%', '52%'],
-        splitNumber: 2,
-        axisName: { color: '#475569', fontSize: 9 },
+        splitNumber: isMobile ? 2 : 2,
+        axisName: { color: '#475569', fontSize: isMobile ? 10 : 9 },
         splitArea: { areaStyle: { color: ['#fafafa', '#fff'] } },
         splitLine: { lineStyle: { color: '#e5e7eb' } },
       },
@@ -501,4 +502,16 @@ async function boot() {
 boot().catch(err => {
   console.error(err);
   document.body.innerHTML += `<div style="background:#fee;color:#900;padding:20px;font-family:monospace">${err.message}</div>`;
+});
+
+// === 监听窗口 resize，重新调整所有 echarts 实例 ===
+let _resizeTimer = null;
+window.addEventListener('resize', () => {
+  clearTimeout(_resizeTimer);
+  _resizeTimer = setTimeout(() => {
+    document.querySelectorAll('.sc-radar').forEach(el => {
+      const inst = echarts.getInstanceByDom(el);
+      if (inst) inst.resize();
+    });
+  }, 200);
 });

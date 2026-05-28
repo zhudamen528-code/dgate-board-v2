@@ -544,3 +544,230 @@ a:hover { text-decoration: underline; }
   font-size: 12px;
   padding: 6px 8px;
 }
+
+/* ============================================================ */
+/* === 移动端响应式适配 (2026-05-28) ≤768px === */
+/* ============================================================ */
+@media (max-width: 768px) {
+  body { font-size: 13px; }
+
+  /* Topbar：纵向堆叠，meta 换行 */
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 16px;
+    gap: 10px;
+  }
+  .brand { gap: 10px; }
+  .brand .emoji { font-size: 28px; }
+  .brand h1 { font-size: 16px; line-height: 1.3; }
+  .brand .subtitle { font-size: 11px; margin-top: 2px; }
+  .ver-pill { font-size: 10px; padding: 1px 6px; }
+  .meta-info {
+    font-size: 11px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 0;
+    line-height: 1.5;
+    width: 100%;
+  }
+  .meta-info .dot { margin: 0 6px; }
+
+  /* Tabs：横滚 + 紧凑 */
+  .tabs {
+    padding: 0 12px;
+    gap: 0;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    padding: 12px 14px;
+    font-size: 13px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-height: 44px;
+  }
+
+  /* Content 内边距收紧 */
+  .content { padding: 14px 12px 60px; }
+
+  /* === Tab 1 赛道 === */
+  .two-col { gap: 14px; }
+  .col h2 { font-size: 14px; }
+  .col .hint { font-size: 11px; margin-bottom: 10px; }
+  .track-card { padding: 10px 12px; }
+  .track-card-head { flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+  .track-name { font-size: 13px; }
+  .track-qoq { font-size: 13px; }
+  .track-stats {
+    gap: 8px 12px;
+    font-size: 11px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  .track-recommend { font-size: 11px; line-height: 1.4; }
+
+  /* 模态框：全屏 */
+  .modal-body {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    top: 0;
+    left: 0;
+    transform: none;
+    border-radius: 0;
+    padding: 16px;
+  }
+  .modal-close {
+    top: 10px; right: 10px;
+    font-size: 24px;
+    min-width: 44px; min-height: 44px;
+  }
+  .track-detail-table { font-size: 11px; }
+  .track-detail-table th, .track-detail-table td { padding: 5px 6px; }
+
+  /* === Tab 2 商家 === */
+  .grade-switch {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 10px;
+  }
+  .grade-btn {
+    padding: 10px 12px;
+    font-size: 12px;
+    flex: 1;
+    min-height: 40px;
+    white-space: nowrap;
+  }
+
+  .filter-bar {
+    padding: 10px;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  .filter-bar select, .filter-bar input {
+    font-size: 12px;
+    padding: 8px;
+    min-height: 36px;
+    flex: 1 1 calc(50% - 6px);
+    min-width: 0;
+  }
+  .filter-bar input { min-width: 100%; flex: 1 1 100%; }
+  .filter-cnt {
+    width: 100%;
+    margin-left: 0;
+    text-align: right;
+    font-size: 11px;
+  }
+
+  /* card-grid 单列 */
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .seller-card { padding: 12px; }
+  .sc-head { margin-bottom: 8px; gap: 8px; }
+  .sc-name { font-size: 14px; }
+  .sc-meta { font-size: 11px; }
+  .sc-gmv { font-size: 13px; min-width: 64px; }
+  .sc-quad-line { margin: 6px 0 4px; }
+  .sc-quadrant { font-size: 11px; }
+  .combo-kpi { font-size: 11px; }
+  .combo-kpi b { font-size: 14px; }
+
+  /* 雷达图：固定高度，确保不被压缩 */
+  .sc-radar {
+    width: 100%;
+    height: 200px;
+    min-height: 200px;
+  }
+  .sc-signal { font-size: 11px; padding: 6px 8px; }
+  .sc-action { font-size: 11px; }
+  .sc-tag { font-size: 11px; padding: 3px 8px; }
+  .sc-tag.tag-link {
+    display: inline-block;
+    min-height: 32px;
+    line-height: 26px;
+    padding: 3px 12px;
+  }
+  .sc-jump {
+    padding: 10px;
+    min-height: 40px;
+    font-size: 13px;
+  }
+
+  /* === Tab 3 信号字典 === */
+  #dict-content { max-width: 100%; }
+  .dict-section {
+    padding: 14px 14px;
+    margin-bottom: 12px;
+  }
+  .dict-section h3 { font-size: 14px; }
+  .dict-section .formula { font-size: 11px; padding: 6px 8px; }
+
+  /* 表格：横向滚动 */
+  .dict-section table,
+  .backtest-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .dict-section th, .dict-section td,
+  .backtest-table th, .backtest-table td {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  /* 四象限：2 列 */
+  .quadrant-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .quad-card { padding: 10px; }
+  .quad-card .qc-name { font-size: 12px; }
+  .quad-card .qc-rule { font-size: 10px; }
+  .quad-card .qc-play { font-size: 11px; }
+
+  /* 公式树单列 */
+  .formula-tree {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .formula-card { padding: 10px 12px; }
+
+  /* 分级卡：单列堆叠 */
+  .grade-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 10px 12px;
+  }
+  .grade-card .gc-name { font-size: 18px; width: auto; }
+  .gc-count { font-size: 12px; min-width: 0; }
+  .gc-rule { font-size: 11px; line-height: 1.5; }
+  .gc-aud { font-size: 10px; }
+
+  /* 回测 headline */
+  .backtest-headline { font-size: 12px; padding: 8px 10px; }
+
+  /* Footer */
+  .footer {
+    padding: 14px 12px;
+    font-size: 10px;
+    line-height: 1.7;
+  }
+  .footer .dot { margin: 0 4px; }
+}
+
+/* 超窄屏 (≤375px iPhone SE) 进一步压缩 */
+@media (max-width: 375px) {
+  .brand h1 { font-size: 15px; }
+  .tab { padding: 10px 10px; font-size: 12px; }
+  .quadrant-grid { grid-template-columns: 1fr; }
+  .filter-bar select { flex: 1 1 100%; }
+}
