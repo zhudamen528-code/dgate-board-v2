@@ -1,41 +1,41 @@
 {
-  "generated_at": "2026-05-31 09:55:29",
+  "generated_at": "2026-06-01 11:13:43",
   "periods": [
     {
       "key": "yesterday",
-      "label": "昨日 (5/30)",
-      "start": "2026-05-30",
-      "end": "2026-05-30"
+      "label": "昨日 (5/31)",
+      "start": "2026-05-31",
+      "end": "2026-05-31"
     },
     {
       "key": "last_7d",
       "label": "近7天",
-      "start": "2026-05-24",
-      "end": "2026-05-30"
+      "start": "2026-05-25",
+      "end": "2026-05-31"
     },
     {
       "key": "last_14d",
       "label": "近14天",
-      "start": "2026-05-17",
-      "end": "2026-05-30"
+      "start": "2026-05-18",
+      "end": "2026-05-31"
     },
     {
       "key": "last_30d",
       "label": "近30天",
-      "start": "2026-05-01",
-      "end": "2026-05-30"
+      "start": "2026-05-02",
+      "end": "2026-05-31"
     },
     {
       "key": "this_month",
       "label": "本月至今",
       "start": "2026-05-01",
-      "end": "2026-05-30"
+      "end": "2026-05-31"
     },
     {
       "key": "this_bimonth",
       "label": "本双月(5-6月)至今",
       "start": "2026-05-01",
-      "end": "2026-05-30"
+      "end": "2026-05-31"
     },
     {
       "key": "last_bimonth",
@@ -281,7 +281,6 @@
           "source_url": "https://redbi.devops.xiaohongshu.com/analysis/edit?analysisId=49332778&shortcutId=15825364&projectId=4",
           "render": "ams_count_grid",
           "available_periods": [
-            "yesterday",
             "last_7d",
             "last_14d",
             "last_30d",
