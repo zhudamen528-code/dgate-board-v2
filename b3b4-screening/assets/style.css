@@ -1114,3 +1114,13 @@ a:hover { text-decoration: underline; }
   .meb-text { width: 100%; }
   .meb-hint { display: block; margin-left: 0; margin-top: 2px; }
 }
+
+/* 登录按钮特别高亮 */
+.meb-login {
+  background: #fff7ed !important;
+  border-color: #ea580c !important;
+  color: #c2410c !important;
+  text-decoration: none;
+  font-weight: 700 !important;
+}
+.meb-login:hover { background: #fed7aa !important; }

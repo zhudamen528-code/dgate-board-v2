@@ -875,18 +875,36 @@ function renderMarksErrorBanner() {
   const existing = document.getElementById('marks-error-banner');
   if (existing) existing.remove();
   if (!state.marksError) return;
+
+  // 判断是否登录态失效：HTTP 400 含"用户信息" / "登录" / "未识别"
+  const errMsg = String(state.marksError);
+  const isAuthErr = /未识别|登录|unauth|HTTP 401|HTTP 403/i.test(errMsg);
+
   const banner = document.createElement('div');
   banner.id = 'marks-error-banner';
   banner.className = 'marks-error-banner';
-  banner.innerHTML = `
-    <span class="meb-icon">⚠️</span>
-    <span class="meb-text">
-      <strong>协作打标功能离线</strong> · ${escHTML(state.marksError)}
-      <span class="meb-hint">（仅影响 ⭐ 标重要 / 📝 备注，其他数据正常）</span>
-    </span>
-    <button class="meb-retry" id="meb-retry-btn">🔄 重试</button>
-    <button class="meb-close" id="meb-close-btn" title="关闭">×</button>
-  `;
+  if (isAuthErr) {
+    banner.innerHTML = `
+      <span class="meb-icon">🔐</span>
+      <span class="meb-text">
+        <strong>需要先登录 Builder 平台</strong> · 协作打标功能需要 SSO 登录态
+        <span class="meb-hint">（点右侧按钮 → 新标签页登录 Builder → 回来刷新本页即可。其他数据正常显示）</span>
+      </span>
+      <a class="meb-retry meb-login" href="https://builder.devops.xiaohongshu.com" target="_blank" rel="noopener">🔐 去登录 Builder</a>
+      <button class="meb-retry" id="meb-retry-btn">🔄 已登录，重试</button>
+      <button class="meb-close" id="meb-close-btn" title="关闭">×</button>
+    `;
+  } else {
+    banner.innerHTML = `
+      <span class="meb-icon">⚠️</span>
+      <span class="meb-text">
+        <strong>协作打标功能离线</strong> · ${escHTML(state.marksError)}
+        <span class="meb-hint">（仅影响 ⭐ 标重要 / 📝 备注，其他数据正常）</span>
+      </span>
+      <button class="meb-retry" id="meb-retry-btn">🔄 重试</button>
+      <button class="meb-close" id="meb-close-btn" title="关闭">×</button>
+    `;
+  }
   document.body.insertBefore(banner, document.body.firstChild);
   document.getElementById('meb-retry-btn').addEventListener('click', async () => {
     const btn = document.getElementById('meb-retry-btn');
