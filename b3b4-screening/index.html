@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>休食组 B3/B4 商家信号筛选 V2</title>
-<link rel="stylesheet" href="assets/style.css?v=v2-20260528b">
+<link rel="stylesheet" href="assets/style.css?v=v3-marks-20260603">
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 </head>
 <body>
@@ -23,6 +23,9 @@
     <span id="pool-info">--</span>
     <span class="dot">·</span>
     <span id="version">--</span>
+    <span class="dot">·</span>
+    <span id="marks-kpi" class="marks-kpi">⭐ 全组已标重要 0 个</span>
+    <button id="current-am-badge" class="current-am-badge" title="点击切换当前 AM 身份">👤 未设置</button>
   </div>
 </header>
 
@@ -92,6 +95,9 @@
         <option value="0">仅 GMV &lt;40万</option>
       </select>
       <input type="text" id="filter-search" placeholder="🔍 商家名搜索...">
+      <label class="filter-important-toggle" title="只看被任意 AM 标记重要的商家">
+        <input type="checkbox" id="filter-important"> ⭐ 只看重要
+      </label>
       <span class="filter-cnt">显示 <span id="filter-result-cnt">0</span> / <span id="filter-total-cnt">0</span></span>
     </div>
 
@@ -115,6 +121,6 @@
   <span>V2 (2026-05-28) · 6 个月回测复验 S-低位 +972%</span>
 </footer>
 
-<script src="assets/app.js?v=v2-20260528b"></script>
+<script src="assets/app.js?v=v3-marks-20260603"></script>
 </body>
 </html>

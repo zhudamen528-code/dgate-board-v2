@@ -7,6 +7,12 @@ const fetchJson = (p) => fetch(`${p}?v=${CB}`, { cache: 'no-store' }).then(r => 
 const SHOP_SEARCH = (name) => `https://www.xiaohongshu.com/search_result?keyword=${encodeURIComponent(name)}&type=51`;
 const CANGQIONG_LINK = (sid) => `https://canghai.devops.xiaohongshu.com/seller-portrait?sid=${sid}`;
 
+// === Builder 协作打标存储 ===
+const BUILDER_BASE = 'https://builder.devops.xiaohongshu.com/builder-api/v1';
+const BUILDER_APP_ID = 'bld_c34ff7082494448fa4ce936776fed002';
+const MARK_TABLE = 'b3b4_seller_user_marks';
+const NOTE_MAX = 50;
+
 let state = {
   meta: null,
   sellers: [],
@@ -14,6 +20,11 @@ let state = {
   signalsDict: null,
   currentGrade: 'S',
   filters: { am: '', quadrant: '', cat: '', layer: '', growth: '', critical: '', search: '' },
+  filter_important: false,
+  marks: {},          // { sid: { id, is_important, note, author_name, updated_at } }
+  marksLoaded: false,
+  marksError: null,
+  currentUser: null,  // 当前 AM（从 localStorage 取，未选则弹选择器）
 };
 
 const Q_CLASS = {
@@ -39,6 +50,296 @@ function fmtNum(v) {
 function escHTML(s) {
   return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
+
+// ============================================================
+// === 协作打标：Builder 存储 + 当前用户身份 + Toast + 防抖 ===
+// ============================================================
+function showToast(msg, kind) {
+  kind = kind || 'info';
+  const t = document.createElement('div');
+  t.className = `toast toast-${kind}`;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.classList.add('show'), 10);
+  setTimeout(() => {
+    t.classList.remove('show');
+    setTimeout(() => t.remove(), 300);
+  }, 2600);
+}
+
+function debounce(fn, wait) {
+  let timer = null;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, args), wait);
+  };
+}
+
+function getStoredUser() {
+  try { return localStorage.getItem('b3b4_current_am') || null; } catch (_) { return null; }
+}
+function setStoredUser(name) {
+  try { localStorage.setItem('b3b4_current_am', name); } catch (_) {}
+  state.currentUser = name;
+  const badge = document.getElementById('current-am-badge');
+  if (badge) badge.textContent = `👤 ${name}`;
+}
+
+function ensureCurrentUser() {
+  if (state.currentUser) return Promise.resolve(state.currentUser);
+  return new Promise(resolve => {
+    const overlay = document.createElement('div');
+    overlay.className = 'user-picker-overlay';
+    const ams = (state.meta && state.meta.am_list) ? state.meta.am_list : [];
+    overlay.innerHTML = `
+      <div class="user-picker">
+        <h3>👋 请选择你是哪位 AM</h3>
+        <p class="hint">仅本机记录，用于在打标记录上署名。可在右上角再次切换。</p>
+        <div class="user-picker-list">
+          ${ams.map(a => `<button class="user-pick-btn" data-am="${escHTML(a)}">${escHTML(a)}</button>`).join('')}
+        </div>
+      </div>`;
+    document.body.appendChild(overlay);
+    overlay.querySelectorAll('.user-pick-btn').forEach(b => {
+      b.addEventListener('click', () => {
+        const am = b.dataset.am;
+        setStoredUser(am);
+        overlay.remove();
+        resolve(am);
+      });
+    });
+  });
+}
+
+// Builder API 调用：始终带 credentials: 'include'，失败必抛
+async function builderPost(path, body) {
+  const url = `${BUILDER_BASE}${path}`;
+  const resp = await fetch(url, {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Builder-App-Id': BUILDER_APP_ID,
+    },
+    body: JSON.stringify(body),
+  });
+  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+  const json = await resp.json();
+  if (json.code !== 0) throw new Error(json.message || `Builder code ${json.code}`);
+  return json.data;
+}
+
+async function loadAllMarks() {
+  // 一次性拉全表（全表 ≤ 952 行规模，可以全拉）
+  state.marksError = null;
+  try {
+    let offset = 0;
+    const pageSize = 1000;
+    const acc = {};
+    // 一次拉 1000，5 AM × 952 量级一页就够
+    const data = await builderPost('/supabase/rows/query', {
+      table_name: MARK_TABLE,
+      limit: pageSize,
+      offset,
+      query: { order: 'id.desc' },
+    });
+    (data.rows || []).forEach(r => {
+      // 同 sid 可能出现并发多行，取 id desc 第一条（已 order 过）
+      if (!acc[r.sid]) acc[r.sid] = r;
+    });
+    state.marks = acc;
+    state.marksLoaded = true;
+  } catch (err) {
+    console.warn('[marks] load failed:', err);
+    state.marksError = err.message || String(err);
+    state.marksLoaded = false;
+    showToast('⚠️ 打标数据加载失败，仅展示原始数据：' + state.marksError, 'err');
+  }
+}
+
+// upsert：先查 → 有则 update by id / 无则 insert
+async function upsertMark(sid, patch) {
+  const user = await ensureCurrentUser();
+  const now = new Date().toISOString();
+  const existed = state.marks[sid];
+  if (existed && existed.id) {
+    const data = await builderPost('/supabase/rows/update', {
+      table_name: MARK_TABLE,
+      values: { ...patch, author_name: user, updated_at: now },
+      filters: { id: `eq.${existed.id}` },
+    });
+    const row = (data.rows && data.rows[0]) || { ...existed, ...patch, author_name: user, updated_at: now };
+    state.marks[sid] = row;
+    return row;
+  } else {
+    const data = await builderPost('/supabase/rows/insert', {
+      table_name: MARK_TABLE,
+      rows: [{ sid, ...patch, author_name: user, created_at: now, updated_at: now }],
+    });
+    const row = (data.rows && data.rows[0]) || { sid, ...patch, author_name: user, created_at: now, updated_at: now };
+    state.marks[sid] = row;
+    return row;
+  }
+}
+
+// 切换 ⭐：optimistic update + 失败回滚
+async function toggleImportant(sid) {
+  if (!state.marksLoaded) { showToast('⚠️ 打标功能离线中', 'err'); return; }
+  await ensureCurrentUser();
+  const before = state.marks[sid] ? { ...state.marks[sid] } : null;
+  const newVal = !(before && before.is_important);
+  // optimistic
+  state.marks[sid] = {
+    ...(before || { sid, note: '' }),
+    sid,
+    is_important: newVal,
+    author_name: state.currentUser,
+    updated_at: new Date().toISOString(),
+  };
+  refreshOneSellerCard(sid);
+  refreshKPI();
+  try {
+    await upsertMark(sid, {
+      is_important: newVal,
+      note: (before && before.note) || '',
+    });
+    refreshOneSellerCard(sid);
+    refreshKPI();
+  } catch (err) {
+    // 回滚
+    if (before) state.marks[sid] = before; else delete state.marks[sid];
+    refreshOneSellerCard(sid);
+    refreshKPI();
+    showToast('❌ 保存失败：' + (err.message || err), 'err');
+  }
+}
+
+// 保存备注：防抖 500ms
+const saveNoteDebounced = debounce(async function (sid, note) {
+  if (!state.marksLoaded) { showToast('⚠️ 打标功能离线中', 'err'); return; }
+  await ensureCurrentUser();
+  const before = state.marks[sid] ? { ...state.marks[sid] } : null;
+  state.marks[sid] = {
+    ...(before || { sid, is_important: false }),
+    sid,
+    note,
+    author_name: state.currentUser,
+    updated_at: new Date().toISOString(),
+  };
+  refreshOneSellerCard(sid);
+  try {
+    await upsertMark(sid, {
+      is_important: !!(before && before.is_important),
+      note,
+    });
+    refreshOneSellerCard(sid);
+    showToast('✅ 备注已保存', 'ok');
+  } catch (err) {
+    if (before) state.marks[sid] = before; else delete state.marks[sid];
+    refreshOneSellerCard(sid);
+    showToast('❌ 备注保存失败：' + (err.message || err), 'err');
+  }
+}, 500);
+
+function openNoteEditor(sid) {
+  const seller = state.sellers.find(s => s.sid === sid);
+  if (!seller) return;
+  const cur = state.marks[sid] || {};
+  const overlay = document.createElement('div');
+  overlay.className = 'note-editor-overlay';
+  overlay.innerHTML = `
+    <div class="note-editor">
+      <div class="ne-head">
+        <h3>📝 备注 · ${escHTML(seller.name)}</h3>
+        <button class="ne-close">✕</button>
+      </div>
+      <textarea class="ne-textarea" maxlength="${NOTE_MAX}" placeholder="≤${NOTE_MAX} 字，全组可见">${escHTML(cur.note || '')}</textarea>
+      <div class="ne-foot">
+        <span class="ne-counter"><span class="ne-cnt">0</span>/${NOTE_MAX}</span>
+        <div>
+          <button class="ne-cancel">取消</button>
+          <button class="ne-save">保存</button>
+        </div>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+  const ta = overlay.querySelector('.ne-textarea');
+  const cnt = overlay.querySelector('.ne-cnt');
+  const updateCnt = () => { cnt.textContent = ta.value.length; };
+  updateCnt();
+  ta.addEventListener('input', updateCnt);
+  setTimeout(() => ta.focus(), 30);
+  const close = () => overlay.remove();
+  overlay.querySelector('.ne-close').addEventListener('click', close);
+  overlay.querySelector('.ne-cancel').addEventListener('click', close);
+  overlay.querySelector('.ne-save').addEventListener('click', async () => {
+    const note = ta.value.slice(0, NOTE_MAX);
+    close();
+    saveNoteDebounced(sid, note);
+  });
+}
+
+// 重渲染单张商家卡（标注变更后用，比整页重绘便宜）
+function refreshOneSellerCard(sid) {
+  const old = document.getElementById(`card-${sid}`);
+  if (!old) return;
+  const seller = state.sellers.find(s => s.sid === sid);
+  if (!seller) return;
+  // 旧 echarts 实例必须 dispose，否则新 dom 节点会拿不到图
+  const oldRadar = document.getElementById(`radar-${sid}`);
+  if (oldRadar) {
+    const inst = echarts.getInstanceByDom(oldRadar);
+    if (inst) inst.dispose();
+  }
+  const html = sellerCardHTML(seller);
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  const newNode = tmp.firstElementChild;
+  old.replaceWith(newNode);
+  // 在新 dom 节点上重新 init radar
+  const newRadar = document.getElementById(`radar-${sid}`);
+  if (newRadar) {
+    const isMobile = window.innerWidth <= 768;
+    const chart = echarts.init(newRadar);
+    chart.setOption({
+      radar: {
+        indicator: [
+          { name: '🏗️底盘', max: 100 },
+          { name: '🚀动能', max: 100 },
+          { name: '🎬场域纯', max: 100 },
+          { name: '🎬场域约束', max: 100 },
+        ],
+        radius: isMobile ? '62%' : '60%',
+        center: ['50%', '52%'],
+        splitNumber: 2,
+        axisName: { color: '#475569', fontSize: isMobile ? 10 : 9 },
+        splitArea: { areaStyle: { color: ['#fafafa', '#fff'] } },
+        splitLine: { lineStyle: { color: '#e5e7eb' } },
+      },
+      series: [{
+        type: 'radar',
+        data: [{
+          value: [seller.fund, seller.mom, seller.field_pure, seller.field_cons],
+          symbol: 'circle',
+          symbolSize: 4,
+          areaStyle: { color: 'rgba(37,99,235,0.22)' },
+          lineStyle: { color: '#2563eb', width: 2 },
+          itemStyle: { color: '#2563eb' },
+        }],
+      }],
+    });
+  }
+}
+
+function refreshKPI() {
+  const total = Object.values(state.marks).filter(m => m && m.is_important).length;
+  const el = document.getElementById('marks-kpi');
+  if (el) el.textContent = `⭐ 全组已标重要 ${total} 个`;
+}
+
+// 暴露给 inline handler
+window.toggleImportant = toggleImportant;
+window.openNoteEditor = openNoteEditor;
 
 // === Tabs ===
 function initTabs() {
@@ -185,8 +486,11 @@ function initSellersTab() {
     catSel.innerHTML += `<option value="${escHTML(c)}">${escHTML(c)}</option>`;
   });
 
-  ['filter-am', 'filter-quadrant', 'filter-cat', 'filter-layer', 'filter-growth', 'filter-critical', 'filter-search'].forEach(id => {
-    document.getElementById(id).addEventListener('input', () => {
+  ['filter-am', 'filter-quadrant', 'filter-cat', 'filter-layer', 'filter-growth', 'filter-critical', 'filter-search', 'filter-important'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const ev = (id === 'filter-important') ? 'change' : 'input';
+    el.addEventListener(ev, () => {
       state.filters.am = document.getElementById('filter-am').value;
       state.filters.quadrant = document.getElementById('filter-quadrant').value;
       state.filters.cat = document.getElementById('filter-cat').value;
@@ -194,6 +498,7 @@ function initSellersTab() {
       state.filters.growth = document.getElementById('filter-growth').value;
       state.filters.critical = document.getElementById('filter-critical').value;
       state.filters.search = document.getElementById('filter-search').value.toLowerCase();
+      state.filter_important = document.getElementById('filter-important').checked;
       renderSellerCards();
     });
   });
@@ -211,9 +516,20 @@ function renderSellerCards() {
   if (f.critical === '1') list = list.filter(s => s.gmv_near_b5 === 1);
   else if (f.critical === '0') list = list.filter(s => s.gmv_near_b5 === 0);
   if (f.search) list = list.filter(s => s.name.toLowerCase().includes(f.search));
+  if (state.filter_important) {
+    list = list.filter(s => {
+      const m = state.marks[s.sid];
+      return m && m.is_important;
+    });
+  }
 
-  // 排序：按 combo 降序
-  list.sort((a, b) => b.combo - a.combo);
+  // 排序：被标记重要的排前；其次按 combo 降序
+  list.sort((a, b) => {
+    const am = state.marks[a.sid] && state.marks[a.sid].is_important ? 1 : 0;
+    const bm = state.marks[b.sid] && state.marks[b.sid].is_important ? 1 : 0;
+    if (am !== bm) return bm - am;
+    return b.combo - a.combo;
+  });
   const baseTotal = state.sellers.filter(s => s.grade === state.currentGrade).length;
   document.getElementById('filter-result-cnt').textContent = list.length;
   document.getElementById('filter-total-cnt').textContent = baseTotal;
@@ -273,8 +589,34 @@ function sellerCardHTML(s) {
   const criticalIcon = s.gmv_near_b5
     ? `<span class="critical-icon" title="GMV ≥40万 临界商家：模型预测力较弱，建议结合常规跟进">⚠️</span>` : '';
 
+  // —— 协作打标 UI ——
+  const mark = state.marks[s.sid];
+  const isMarked = !!(mark && mark.is_important);
+  const note = (mark && mark.note) || '';
+  const author = (mark && mark.author_name) || '';
+  const updated = (mark && mark.updated_at) ? mark.updated_at.replace('T', ' ').slice(0, 16) : '';
+  const tip = author
+    ? `最后修改：${author} · ${updated}`
+    : '点亮 ⭐ 标为重要';
+  const offline = state.marksError ? ' mark-offline' : '';
+  const markBtnDisabled = state.marksError ? ' disabled title="打标功能离线"' : ` title="${escHTML(tip)}"`;
+  const noteBtnDisabled = state.marksError ? ' disabled' : '';
+  const cardCls = `seller-card${isMarked ? ' is-marked' : ''}`;
+  const notePreview = note
+    ? `<div class="sc-note-line" title="${escHTML(author)} · ${escHTML(updated)}">📝 ${escHTML(note)}</div>`
+    : '';
+
   return `
-  <div class="seller-card">
+  <div class="${cardCls}" id="card-${s.sid}">
+    <div class="sc-mark-bar${offline}">
+      <button class="mark-btn star-btn ${isMarked ? 'on' : ''}"${markBtnDisabled} onclick="toggleImportant('${s.sid}')">
+        ${isMarked ? '⭐ 重要' : '☆ 标重要'}
+      </button>
+      <button class="mark-btn note-btn"${noteBtnDisabled} onclick="openNoteEditor('${s.sid}')" title="${note ? '编辑备注' : '加备注'}">
+        📝${note ? '<span class="dot-indicator"></span>' : ''}
+      </button>
+      ${author ? `<span class="mark-author" title="${escHTML(tip)}">· ${escHTML(author.split('(')[0])}</span>` : ''}
+    </div>
     <div class="sc-head">
       <div class="sc-name-block">
         <h3 class="sc-name">
@@ -297,6 +639,7 @@ function sellerCardHTML(s) {
     </div>
     <div id="radar-${s.sid}" class="sc-radar"></div>
     <div class="sc-signal">💡 ${escHTML(s.key_signal)}</div>
+    ${notePreview}
     <div class="sc-tags">
       ${trackBadges.join('')}
       <a class="sc-tag tag-link" href="${CANGQIONG_LINK(s.sid)}" target="_blank">🔗 跳转苍穹</a>
@@ -492,11 +835,28 @@ async function boot() {
   state.categories = categories;
   state.signalsDict = signalsDict;
 
+  // 当前 AM 身份（localStorage）+ 顶栏切换按钮
+  state.currentUser = getStoredUser();
+  const badge = document.getElementById('current-am-badge');
+  if (badge) {
+    if (state.currentUser) badge.textContent = `👤 ${state.currentUser}`;
+    badge.addEventListener('click', () => {
+      try { localStorage.removeItem('b3b4_current_am'); } catch (_) {}
+      state.currentUser = null;
+      badge.textContent = '👤 未设置';
+      ensureCurrentUser();
+    });
+  }
+
+  // 先拉打标缓存（失败不阻塞主流程）
+  await loadAllMarks();
+
   renderTopbar();
   renderTracks();
   initSellersTab();
   renderSellerCards();
   renderDict();
+  refreshKPI();
 }
 
 boot().catch(err => {
