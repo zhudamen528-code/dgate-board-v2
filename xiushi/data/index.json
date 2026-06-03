@@ -1,41 +1,41 @@
 {
-  "generated_at": "2026-06-02 09:51:48",
+  "generated_at": "2026-06-03 09:58:52",
   "periods": [
     {
       "key": "yesterday",
-      "label": "昨日 (6/1)",
-      "start": "2026-06-01",
-      "end": "2026-06-01"
+      "label": "昨日 (6/2)",
+      "start": "2026-06-02",
+      "end": "2026-06-02"
     },
     {
       "key": "last_7d",
       "label": "近7天",
-      "start": "2026-05-26",
-      "end": "2026-06-01"
+      "start": "2026-05-27",
+      "end": "2026-06-02"
     },
     {
       "key": "last_14d",
       "label": "近14天",
-      "start": "2026-05-19",
-      "end": "2026-06-01"
+      "start": "2026-05-20",
+      "end": "2026-06-02"
     },
     {
       "key": "last_30d",
       "label": "近30天",
-      "start": "2026-05-03",
-      "end": "2026-06-01"
+      "start": "2026-05-04",
+      "end": "2026-06-02"
     },
     {
       "key": "this_month",
       "label": "本月至今",
       "start": "2026-06-01",
-      "end": "2026-06-01"
+      "end": "2026-06-02"
     },
     {
       "key": "this_bimonth",
       "label": "本双月(5-6月)至今",
       "start": "2026-05-01",
-      "end": "2026-06-01"
+      "end": "2026-06-02"
     },
     {
       "key": "last_bimonth",
@@ -194,7 +194,16 @@
           "name": "TOP 新发笔记",
           "source_url": "https://redbi.devops.xiaohongshu.com/analysis/edit?analysisId=23119218&shortcutId=15822991&projectId=4",
           "render": "rank_list_note",
-          "available_periods": []
+          "available_periods": [
+            "yesterday",
+            "last_7d",
+            "last_14d",
+            "last_30d",
+            "this_month",
+            "this_bimonth",
+            "last_bimonth",
+            "yoy_bimonth"
+          ]
         },
         {
           "id": "t2_note_top_seller",
@@ -309,7 +318,16 @@
           "name": "K 播大场（1W+）商家×主播",
           "source_url": "https://redbi.devops.xiaohongshu.com/analysis/edit?analysisId=49051631&projectId=4&shortcutId=15825686",
           "render": "card_grid",
-          "available_periods": []
+          "available_periods": [
+            "yesterday",
+            "last_7d",
+            "last_14d",
+            "last_30d",
+            "this_month",
+            "this_bimonth",
+            "last_bimonth",
+            "yoy_bimonth"
+          ]
         },
         {
           "id": "t4_k_buyer_rank",
