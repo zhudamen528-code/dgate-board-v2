@@ -809,6 +809,8 @@ a:hover { text-decoration: underline; }
   color: #c2410c;
   cursor: pointer;
   user-select: none;
+  white-space: nowrap;
+  flex: 0 0 auto;
 }
 .filter-important-toggle input { cursor: pointer; }
 
