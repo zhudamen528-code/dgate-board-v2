@@ -1124,3 +1124,277 @@ a:hover { text-decoration: underline; }
   font-weight: 700 !important;
 }
 .meb-login:hover { background: #fed7aa !important; }
+
+/* ============================================================
+   Tab「⭐ 已标重要」V4 — 2026-06-09
+   ============================================================ */
+
+.empty-marked {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b7280;
+}
+.empty-marked h3 { font-size: 18px; margin: 8px 0; color: #374151; }
+.empty-marked p { font-size: 13px; }
+
+/* === KPI section === */
+.marked-kpi-section {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.kpi-card {
+  background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  padding: 14px;
+  text-align: center;
+}
+.kpi-card.kpi-card-warn {
+  background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
+  border-color: #fecaca;
+}
+.kpi-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2563eb;
+  line-height: 1;
+}
+.kpi-card-warn .kpi-num { color: #dc2626; }
+.kpi-lbl {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 6px;
+}
+.dist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.dist-block {
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+.dist-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+.dist-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 30px;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 3px;
+  font-size: 11px;
+}
+.dist-label { color: #4b5563; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dist-bar-wrap { background: #e5e7eb; height: 10px; border-radius: 5px; overflow: hidden; }
+.dist-bar { background: linear-gradient(90deg, #3b82f6, #60a5fa); height: 100%; }
+.dist-val { text-align: right; color: #374151; font-variant-numeric: tabular-nums; }
+
+/* === Trend table === */
+.marked-trend-section {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.marked-trend-section h3 { font-size: 15px; margin: 0 0 8px; color: #111827; }
+.trend-info {
+  font-size: 12px;
+  color: #475569;
+  background: #f0f9ff;
+  border-left: 3px solid #0ea5e9;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.hist-warn {
+  display: inline-block;
+  margin-left: 12px;
+  color: #c2410c;
+  font-weight: 500;
+}
+.trend-sort-bar {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+.sort-btn {
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #4b5563;
+}
+.sort-btn:hover { background: #f3f4f6; }
+.sort-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+.trend-table-wrap { overflow-x: auto; }
+.trend-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.trend-table th, .trend-table td {
+  border-bottom: 1px solid #f3f4f6;
+  padding: 6px 8px;
+  text-align: left;
+  white-space: nowrap;
+}
+.trend-table th {
+  background: #f9fafb;
+  color: #374151;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+}
+.trend-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.trend-table tbody tr:hover { background: #fafafa; }
+.delta-up { color: #16a34a; font-weight: 600; }
+.delta-down { color: #dc2626; font-weight: 600; }
+.delta-na { color: #9ca3af; }
+.delta-new { color: #ea580c; font-weight: 600; }
+.dropped-tag {
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-left: 4px;
+}
+.row-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 11px;
+}
+
+/* === Change section === */
+.marked-change-section {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.marked-change-section h3 { font-size: 15px; margin: 0 0 10px; color: #111827; }
+.change-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.change-col {
+  background: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #f3f4f6;
+  overflow: hidden;
+}
+.change-head {
+  background: #f3f4f6;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.change-emoji { font-size: 15px; }
+.change-cnt {
+  margin-left: auto;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1px 8px;
+  font-size: 11px;
+  color: #2563eb;
+  font-weight: 600;
+}
+.change-body {
+  padding: 8px 10px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+.change-item {
+  font-size: 12px;
+  padding: 4px 0;
+  border-bottom: 1px dashed #f3f4f6;
+  color: #374151;
+}
+.change-item:last-child { border-bottom: none; }
+.change-arrow {
+  font-size: 11px;
+  color: #6b7280;
+  margin-left: 4px;
+}
+
+/* === Cards section === */
+.marked-cards-section {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+}
+.marked-cards-section h3 { font-size: 15px; margin: 0 0 10px; color: #111827; }
+.mk-card { background: linear-gradient(180deg, #fffbeb 0%, #ffffff 30%); border-color: #fde68a; }
+.mk-mark-line {
+  font-size: 11px;
+  color: #6b7280;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #fde68a;
+  padding-bottom: 4px;
+  margin-bottom: 6px;
+}
+.mk-delta-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 11px;
+  color: #4b5563;
+  background: #f9fafb;
+  padding: 6px 8px;
+  border-radius: 4px;
+  margin: 6px 0;
+}
+.mk-obs-line {
+  display: flex;
+  gap: 10px;
+  font-size: 11px;
+  color: #4b5563;
+  margin: 6px 0;
+}
+.mk-spark-wrap {
+  margin-top: 6px;
+}
+.mk-spark-lbl {
+  font-size: 10px;
+  color: #9ca3af;
+  margin-bottom: 2px;
+}
+.mk-spark {
+  height: 40px;
+}
+
+@media (max-width: 768px) {
+  .kpi-row { grid-template-columns: repeat(2, 1fr); }
+  .dist-grid { grid-template-columns: 1fr; }
+  .change-grid { grid-template-columns: 1fr 1fr; }
+  .trend-table { font-size: 11px; }
+}

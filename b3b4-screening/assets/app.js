@@ -25,6 +25,10 @@ let state = {
   marksLoaded: false,
   marksError: null,
   currentUser: null,  // 当前 AM（从 localStorage 取，未选则弹选择器）
+  // 历史快照：缺失时为 null（优雅降级）
+  history: { 'W-1': null, 'M-1': null, 'Y-1': null },
+  markedTabSort: 'wow',  // 默认按 WoW 涨幅降序
+  markedTabRendered: false,
 };
 
 const Q_CLASS = {
@@ -367,8 +371,43 @@ function initTabs() {
           });
         }, 50);
       }
+      if (btn.dataset.tab === 'marked') {
+        renderMarkedTab();
+      }
     });
   });
+}
+
+// ============================================================
+// === 历史快照加载（W-1 / M-1 完整版，Y-1 简版只含 sid/name/gmv_30d）
+// ============================================================
+async function loadHistorySnapshots() {
+  const sources = [
+    ['W-1', 'data/history/sellers_2026-06-01.json'],
+    ['M-1', 'data/history/sellers_2026-05-09.json'],
+    ['Y-1', 'data/history/sellers_2025-06-09.json'],
+  ];
+  await Promise.all(sources.map(async ([key, path]) => {
+    try {
+      const arr = await fetchJson(path);
+      if (Array.isArray(arr) && arr.length > 0) {
+        const map = {};
+        arr.forEach(s => { if (s && s.sid) map[s.sid] = s; });
+        state.history[key] = map;
+        console.log(`[history] ${key} loaded: ${arr.length} sellers`);
+      } else {
+        console.warn(`[history] ${key} empty`);
+      }
+    } catch (e) {
+      console.warn(`[history] ${key} load failed:`, e);
+      state.history[key] = null;
+    }
+  }));
+  // 若已切到 marked tab，重渲染
+  const panel = document.getElementById('panel-marked');
+  if (panel && panel.classList.contains('active')) {
+    renderMarkedTab();
+  }
 }
 
 // === Topbar meta ===
@@ -666,7 +705,457 @@ function sellerCardHTML(s) {
   </div>`;
 }
 
-// === Tab 3: 信号字典 + 模型说明 (V2 大改) ===
+// ============================================================
+// === Tab 「⭐ 已标重要」===
+// ============================================================
+function pctDelta(now, prev) {
+  // 返回 {str, cls, missing}
+  if (prev == null || isNaN(prev) || prev === 0) {
+    if (now != null && !isNaN(now) && now > 0) return { str: 'new', cls: 'new', missing: false };
+    return { str: '—', cls: 'na', missing: true };
+  }
+  if (now == null || isNaN(now)) return { str: '—', cls: 'na', missing: true };
+  const d = (now - prev) / Math.abs(prev) * 100;
+  const cls = d >= 0 ? 'up' : 'down';
+  // 超过 500% 不展示数字
+  if (Math.abs(d) > 500) {
+    return { str: (d >= 0 ? '↑ 异常' : '↓ 异常'), cls, missing: false, value: d };
+  }
+  if (Math.abs(d) > 100) {
+    return { str: (d >= 0 ? '+' : '') + d.toFixed(0) + '% 显著', cls, missing: false, value: d };
+  }
+  return { str: (d >= 0 ? '+' : '') + d.toFixed(1) + '%', cls, missing: false, value: d };
+}
+
+function getMarkedSellers() {
+  // 取打标商家：当周池里仍存在 + 当周已淘汰的也算
+  const out = [];
+  Object.entries(state.marks).forEach(([sid, m]) => {
+    if (!m || !m.is_important) return;
+    const cur = state.sellers.find(s => s.sid === sid);
+    out.push({
+      sid,
+      mark: m,
+      current: cur || null,
+      wPrev: state.history['W-1'] ? state.history['W-1'][sid] : null,
+      mPrev: state.history['M-1'] ? state.history['M-1'][sid] : null,
+      yPrev: state.history['Y-1'] ? state.history['Y-1'][sid] : null,
+    });
+  });
+  return out;
+}
+
+function relativeTimeFromNow(iso) {
+  if (!iso) return '';
+  const t = new Date(iso).getTime();
+  if (!t) return '';
+  const diff = (Date.now() - t) / 1000;
+  if (diff < 60) return '刚刚';
+  if (diff < 3600) return `${Math.floor(diff / 60)}分钟前`;
+  if (diff < 86400) return `${Math.floor(diff / 3600)}小时前`;
+  if (diff < 86400 * 30) return `${Math.floor(diff / 86400)}天前`;
+  return new Date(iso).toISOString().slice(0, 10);
+}
+
+function startOfWeekISO() {
+  const d = new Date();
+  const day = d.getDay() || 7; // 周日=7
+  d.setDate(d.getDate() - day + 1);
+  d.setHours(0, 0, 0, 0);
+  return d.toISOString();
+}
+
+function renderMarkedTab() {
+  const panel = document.getElementById('panel-marked');
+  if (!panel) return;
+  if (!state.marksLoaded && !state.marksError) {
+    panel.innerHTML = `<div class="hint" style="padding:40px;text-align:center">⏳ 打标数据加载中…</div>`;
+    return;
+  }
+  if (state.marksError) {
+    panel.innerHTML = `<div class="hint" style="padding:40px;text-align:center;color:#dc2626">⚠️ 打标功能离线，本 Tab 暂不可用。<br>${escHTML(state.marksError)}</div>`;
+    return;
+  }
+
+  const list = getMarkedSellers();
+
+  if (list.length === 0) {
+    panel.innerHTML = `
+      <div class="empty-marked">
+        <div style="font-size:48px;margin-bottom:12px">⭐</div>
+        <h3>暂无被标记重要的商家</h3>
+        <p>到「🎯 重点商家」Tab 点 <b>☆ 标重要</b> 给商家打标，会显示在这里</p>
+      </div>`;
+    return;
+  }
+
+  // === Section 1: KPI 顶部状态面板 ===
+  const weekStartISO = startOfWeekISO();
+  const newThisWeek = list.filter(x => x.mark.updated_at && x.mark.updated_at >= weekStartISO).length;
+  const activeIn30d = list.filter(x => x.current).length;  // 在当前池里 = 近30天活跃
+
+  const byAM = {};
+  const byGrade = { S: 0, A: 0, B: 0, '已淘汰': 0 };
+  const byQuadrant = {};
+  const byCat = {};
+  list.forEach(x => {
+    const am = (x.current && x.current.am) || (x.mark.author_name || '未知');
+    byAM[am] = (byAM[am] || 0) + 1;
+    if (x.current) {
+      byGrade[x.current.grade] = (byGrade[x.current.grade] || 0) + 1;
+      const q = x.current.quadrant || '· 中间态';
+      byQuadrant[q] = (byQuadrant[q] || 0) + 1;
+      const c = x.current.cat3 || 'UNKNOWN';
+      byCat[c] = (byCat[c] || 0) + 1;
+    } else {
+      byGrade['已淘汰'] += 1;
+    }
+  });
+
+  const topCats = Object.entries(byCat).sort((a, b) => b[1] - a[1]).slice(0, 5);
+
+  function distBars(data, labels, max) {
+    const m = max || Math.max(...data, 1);
+    return data.map((v, i) => `
+      <div class="dist-row">
+        <div class="dist-label">${escHTML(labels[i])}</div>
+        <div class="dist-bar-wrap"><div class="dist-bar" style="width:${(v / m * 100).toFixed(0)}%"></div></div>
+        <div class="dist-val">${v}</div>
+      </div>`).join('');
+  }
+
+  const amEntries = Object.entries(byAM).sort((a, b) => b[1] - a[1]);
+  const gradeOrder = ['S', 'A', 'B', '已淘汰'];
+  const gradeData = gradeOrder.map(g => byGrade[g] || 0);
+  const quadOrder = ['🌟 优等生', '⚡ 黑马', '🐢 慢热', '· 中间态', '⚠️ 待观察'];
+  const quadData = quadOrder.map(q => byQuadrant[q] || 0);
+
+  const kpiHTML = `
+    <section class="marked-kpi-section">
+      <div class="kpi-row">
+        <div class="kpi-card"><div class="kpi-num">${list.length}</div><div class="kpi-lbl">⭐ 共标</div></div>
+        <div class="kpi-card"><div class="kpi-num">${newThisWeek}</div><div class="kpi-lbl">本周新增</div></div>
+        <div class="kpi-card"><div class="kpi-num">${activeIn30d}</div><div class="kpi-lbl">近30天活跃</div></div>
+        <div class="kpi-card kpi-card-warn"><div class="kpi-num">${list.length - activeIn30d}</div><div class="kpi-lbl">已跌出池子</div></div>
+      </div>
+      <div class="dist-grid">
+        <div class="dist-block">
+          <div class="dist-title">按 AM 分布</div>
+          ${distBars(amEntries.map(e => e[1]), amEntries.map(e => e[0]))}
+        </div>
+        <div class="dist-block">
+          <div class="dist-title">按等级分布</div>
+          ${distBars(gradeData, gradeOrder)}
+        </div>
+        <div class="dist-block">
+          <div class="dist-title">按象限分布</div>
+          ${distBars(quadData, quadOrder)}
+        </div>
+        <div class="dist-block">
+          <div class="dist-title">类目 Top5</div>
+          ${topCats.length > 0 ? distBars(topCats.map(e => e[1]), topCats.map(e => e[0])) : '<div class="hint">—</div>'}
+        </div>
+      </div>
+    </section>
+  `;
+
+  // === Section 2: 历史趋势表格 ===
+  const hasW1 = !!state.history['W-1'];
+  const hasM1 = !!state.history['M-1'];
+  const hasY1 = !!state.history['Y-1'];
+
+  // 计算每行的变化值
+  const enriched = list.map(x => {
+    const curCombo = x.current ? x.current.combo : null;
+    const curGmv = x.current ? x.current.gmv_30d : null;
+    const wCombo = x.wPrev ? x.wPrev.combo : null;
+    const mCombo = x.mPrev ? x.mPrev.combo : null;
+    const yGmv = x.yPrev ? x.yPrev.gmv_30d : null;
+    return {
+      ...x,
+      curCombo,
+      curGmv,
+      wow: pctDelta(curCombo, wCombo),
+      mom: pctDelta(curCombo, mCombo),
+      yoy: pctDelta(curGmv, yGmv),
+    };
+  });
+
+  // 排序
+  const sortBy = state.markedTabSort;
+  function sortKey(x) {
+    switch (sortBy) {
+      case 'wow': return x.wow.value != null ? -x.wow.value : 9999;
+      case 'mom': return x.mom.value != null ? -x.mom.value : 9999;
+      case 'yoy': return x.yoy.value != null ? -x.yoy.value : 9999;
+      case 'combo': return -(x.curCombo || 0);
+      case 'gmv': return -(x.curGmv || 0);
+      case 'time': return -(new Date(x.mark.updated_at || 0).getTime());
+      default: return 0;
+    }
+  }
+  enriched.sort((a, b) => sortKey(a) - sortKey(b));
+
+  function renderRow(x) {
+    const name = x.current ? x.current.name : (x.yPrev && x.yPrev.name) || `(已淘汰 ${x.sid.slice(-6)})`;
+    const am = x.current ? x.current.am : (x.mark.author_name || '—');
+    const gmvStr = x.curGmv != null ? fmtWan(x.curGmv) : '—';
+    const comboStr = x.curCombo != null ? x.curCombo.toFixed(1) : '—';
+    return `<tr>
+      <td><a href="${SHOP_SEARCH(name)}" target="_blank">${escHTML(name)}</a>${!x.current ? ' <span class="dropped-tag">已跌出</span>' : ''}</td>
+      <td>${escHTML(am.split('(')[0])}</td>
+      <td class="num">${gmvStr}</td>
+      <td class="num"><b>${comboStr}</b></td>
+      <td class="num delta delta-${x.wow.cls}">${x.wow.str}</td>
+      <td class="num delta delta-${x.mom.cls}">${x.mom.str}</td>
+      <td class="num delta delta-${x.yoy.cls}">${x.yoy.str}</td>
+      <td>${x.current ? `<a class="row-link" href="${CANGQIONG_LINK(x.sid)}" target="_blank">苍穹↗</a>` : '<span class="hint">—</span>'}</td>
+    </tr>`;
+  }
+
+  const histInfoBits = [];
+  if (!hasW1) histInfoBits.push('W-1 缺失');
+  if (!hasM1) histInfoBits.push('M-1 缺失');
+  if (!hasY1) histInfoBits.push('Y-1 缺失');
+  const histWarn = histInfoBits.length > 0 ? `<span class="hist-warn">⚠️ 历史快照部分缺失：${histInfoBits.join('、')}</span>` : '';
+
+  const tableHTML = `
+    <section class="marked-trend-section">
+      <h3>📈 历史趋势</h3>
+      <div class="trend-info">
+        ℹ️ WoW/MoM 对比<b>组合分</b>（信号强度变化），YoY 对比 <b>GMV</b>（生意盘体量变化）；
+        复购 / 笔记 / 店播等观测指标看下方卡片<b>当下值</b>
+        ${histWarn}
+      </div>
+      <div class="trend-sort-bar">
+        排序：
+        ${[['wow', 'WoW Δ组合分'], ['mom', 'MoM Δ组合分'], ['yoy', 'YoY ΔGMV'], ['combo', '当前组合分'], ['gmv', '当前 GMV'], ['time', '标记时间倒序']].map(([k, lbl]) =>
+          `<button class="sort-btn${sortBy === k ? ' active' : ''}" data-sort="${k}">${lbl}</button>`).join('')}
+      </div>
+      <div class="trend-table-wrap">
+        <table class="trend-table">
+          <thead><tr>
+            <th>商家</th><th>AM</th><th>当前 GMV</th><th>当前组合分</th>
+            <th>WoW Δ组合分</th><th>MoM Δ组合分</th><th>YoY ΔGMV ⭐</th><th>操作</th>
+          </tr></thead>
+          <tbody>${enriched.map(renderRow).join('')}</tbody>
+        </table>
+      </div>
+    </section>
+  `;
+
+  // === Section 3: 池子变动 ===
+  const upgraded = [];
+  const downgraded = [];
+  const dropped = [];
+  const newlyMarked = [];
+  const gradeRank = { 'S': 3, 'A': 2, 'B': 1 };
+  enriched.forEach(x => {
+    if (!x.current) {
+      dropped.push(x);
+      return;
+    }
+    if (x.wPrev) {
+      const prevG = x.wPrev.grade;
+      const curG = x.current.grade;
+      if (prevG && curG && prevG !== curG) {
+        if ((gradeRank[curG] || 0) > (gradeRank[prevG] || 0)) {
+          upgraded.push({ ...x, from: prevG, to: curG });
+        } else {
+          downgraded.push({ ...x, from: prevG, to: curG });
+        }
+      }
+    }
+    if (x.mark.updated_at && x.mark.updated_at >= weekStartISO) {
+      newlyMarked.push(x);
+    }
+  });
+
+  function changeCol(title, items, emoji, formatLine, emptyMsg) {
+    return `
+      <div class="change-col">
+        <div class="change-head"><span class="change-emoji">${emoji}</span>${title} <span class="change-cnt">${items.length}</span></div>
+        <div class="change-body">
+          ${items.length === 0 ? `<div class="hint">${emptyMsg}</div>` :
+            items.map(formatLine).join('')}
+        </div>
+      </div>`;
+  }
+
+  const changeHTML = `
+    <section class="marked-change-section">
+      <h3>🔀 层级 / 池子变动（vs W-1）</h3>
+      <div class="change-grid">
+        ${changeCol('升档', upgraded.sort((a, b) => (gradeRank[b.to] || 0) - (gradeRank[a.to] || 0)), '🆙',
+          x => `<div class="change-item"><b>${escHTML(x.current.name)}</b> <span class="change-arrow">${x.from} → ${x.to}</span></div>`,
+          hasW1 ? '本周无升档' : 'W-1 快照缺失')}
+        ${changeCol('降档', downgraded.sort((a, b) => (gradeRank[a.to] || 0) - (gradeRank[b.to] || 0)), '📉',
+          x => `<div class="change-item"><b>${escHTML(x.current.name)}</b> <span class="change-arrow">${x.from} → ${x.to}</span></div>`,
+          hasW1 ? '本周无降档' : 'W-1 快照缺失')}
+        ${changeCol('已跌出池子', dropped, '🚪',
+          x => `<div class="change-item"><b>${escHTML(x.yPrev?.name || x.sid.slice(-6))}</b> <span class="hint">本周不在 B3/B4 池</span></div>`,
+          '无')}
+        ${changeCol('本周新加标', newlyMarked, '🆕',
+          x => `<div class="change-item"><b>${escHTML((x.current && x.current.name) || x.sid.slice(-6))}</b> <span class="hint">${escHTML((x.mark.author_name || '').split('(')[0])}</span></div>`,
+          '本周无新打标')}
+      </div>
+    </section>
+  `;
+
+  // === Section 4: 卡片列表（含 mini sparkline + 备注 + 标记人）===
+  const cardsList = enriched.filter(x => x.current);  // 卡片只画在池里的
+  const cardSortBy = state.markedTabSort;
+  if (cardSortBy === 'time') {
+    cardsList.sort((a, b) => (new Date(b.mark.updated_at || 0)) - (new Date(a.mark.updated_at || 0)));
+  }
+  // 否则沿用上面排序
+
+  const cardsHTML = `
+    <section class="marked-cards-section">
+      <h3>📋 商家卡片（${cardsList.length}）</h3>
+      <div id="marked-card-grid" class="card-grid">
+        ${cardsList.map(x => markedSellerCardHTML(x)).join('') ||
+          '<div class="hint" style="padding:30px;text-align:center;grid-column:1/-1">所有打标商家已跌出当前池</div>'}
+      </div>
+    </section>
+  `;
+
+  panel.innerHTML = kpiHTML + tableHTML + changeHTML + cardsHTML;
+
+  // 绑定排序按钮
+  panel.querySelectorAll('.sort-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      state.markedTabSort = b.dataset.sort;
+      renderMarkedTab();
+    });
+  });
+
+  // 渲染雷达图 + sparkline
+  const isMobile = window.innerWidth <= 768;
+  cardsList.forEach(x => {
+    const s = x.current;
+    const el = document.getElementById(`mk-radar-${s.sid}`);
+    if (el) {
+      const chart = echarts.init(el);
+      chart.setOption({
+        radar: {
+          indicator: [
+            { name: '🏗️底盘', max: 100 },
+            { name: '🚀动能', max: 100 },
+            { name: '🎬场域纯', max: 100 },
+            { name: '🎬场域约束', max: 100 },
+          ],
+          radius: isMobile ? '60%' : '58%',
+          center: ['50%', '52%'],
+          splitNumber: 2,
+          axisName: { color: '#475569', fontSize: 9 },
+          splitArea: { areaStyle: { color: ['#fafafa', '#fff'] } },
+          splitLine: { lineStyle: { color: '#e5e7eb' } },
+        },
+        series: [{
+          type: 'radar',
+          data: [{
+            value: [s.fund, s.mom, s.field_pure, s.field_cons],
+            symbol: 'circle',
+            symbolSize: 3,
+            areaStyle: { color: 'rgba(37,99,235,0.22)' },
+            lineStyle: { color: '#2563eb', width: 2 },
+            itemStyle: { color: '#2563eb' },
+          }],
+        }],
+      });
+    }
+    const spk = document.getElementById(`mk-spark-${s.sid}`);
+    if (spk) {
+      // sparkline 统一用 GMV 4 点（Y-1 → M-1 → W-1 → 当前）
+      const pts = [
+        x.yPrev && x.yPrev.gmv_30d != null ? x.yPrev.gmv_30d : null,
+        x.mPrev && x.mPrev.gmv_30d != null ? x.mPrev.gmv_30d : null,
+        x.wPrev && x.wPrev.gmv_30d != null ? x.wPrev.gmv_30d : null,
+        s.gmv_30d,
+      ];
+      const chart = echarts.init(spk);
+      chart.setOption({
+        grid: { left: 4, right: 4, top: 4, bottom: 4 },
+        xAxis: { type: 'category', show: false, data: ['Y-1', 'M-1', 'W-1', '今'] },
+        yAxis: { type: 'value', show: false, scale: true },
+        series: [{
+          type: 'line', data: pts, smooth: true,
+          symbol: 'circle', symbolSize: 3,
+          lineStyle: { color: '#10b981', width: 1.5 },
+          itemStyle: { color: '#10b981' },
+          areaStyle: { color: 'rgba(16,185,129,0.18)' },
+          connectNulls: true,
+        }],
+        tooltip: {
+          trigger: 'axis',
+          formatter: params => params.map(p => `${p.name}: ${p.value == null ? '—' : fmtWan(p.value)}`).join('<br>'),
+        },
+      });
+    }
+  });
+}
+
+function markedSellerCardHTML(x) {
+  const s = x.current;
+  if (!s) return '';
+  const m = x.mark || {};
+  const note = m.note || '';
+  const author = (m.author_name || '').split('(')[0];
+  const updatedRel = relativeTimeFromNow(m.updated_at);
+  const raw = s.raw || {};
+  const repurchase = raw.repurchase_30d != null ? (raw.repurchase_30d * 100).toFixed(1) + '%' : '—';
+  const notes30 = raw.notes_30d != null ? Math.round(raw.notes_30d) + '篇' : '—';
+  const liveDays = raw.live_days != null ? Math.round(raw.live_days) + '天' : '—';
+
+  return `
+  <div class="seller-card mk-card" id="mk-card-${s.sid}">
+    <div class="mk-mark-line">
+      <span class="mk-author">👤 ${escHTML(author || '—')}</span>
+      <span class="mk-time">⏰ ${escHTML(updatedRel)}</span>
+    </div>
+    <div class="sc-head">
+      <div class="sc-name-block">
+        <h3 class="sc-name">
+          <a href="${SHOP_SEARCH(s.name)}" target="_blank">${escHTML(s.name)} ↗</a>
+        </h3>
+        <div class="sc-meta">
+          <span class="am-tag">${escHTML(s.am)}</span>
+          <span>${escHTML(s.cat3)}</span>
+        </div>
+      </div>
+      <div class="sc-gmv">
+        ${fmtWan(s.gmv_30d)}
+        <div><span class="layer-pill">${s.layer}</span></div>
+      </div>
+    </div>
+    <div class="sc-quad-line">
+      <span class="sc-quadrant ${Q_CLASS[s.quadrant] || ''}">${s.quadrant}</span>
+      <span class="combo-kpi">组合分 <b>${s.combo.toFixed(1)}</b></span>
+    </div>
+    <div class="mk-delta-line">
+      <span>WoW: <span class="delta-${x.wow.cls}">${x.wow.str}</span></span>
+      <span>MoM: <span class="delta-${x.mom.cls}">${x.mom.str}</span></span>
+      <span>YoY GMV: <span class="delta-${x.yoy.cls}">${x.yoy.str}</span></span>
+    </div>
+    <div id="mk-radar-${s.sid}" class="sc-radar"></div>
+    <div class="mk-obs-line">
+      <span title="近30天复购率">🔁 ${repurchase}</span>
+      <span title="近30天笔记数">📝 ${notes30}</span>
+      <span title="近30天店播开播天数">📺 ${liveDays}</span>
+    </div>
+    <div class="mk-spark-wrap">
+      <div class="mk-spark-lbl">GMV 4 点趋势 (Y-1 → M-1 → W-1 → 今)</div>
+      <div id="mk-spark-${s.sid}" class="mk-spark"></div>
+    </div>
+    ${note ? `<div class="sc-note-line">📝 ${escHTML(note)}</div>` : ''}
+    <div class="sc-tags">
+      <a class="sc-tag tag-link" href="${CANGQIONG_LINK(s.sid)}" target="_blank">🔗 跳转苍穹</a>
+    </div>
+  </div>`;
+}
+
+// === Tab 4: 信号字典 + 模型说明 (V2 大改) ===
 function renderDict() {
   const d = state.signalsDict;
   const container = document.getElementById('dict-content');
@@ -853,6 +1342,9 @@ async function boot() {
   state.sellers = sellers;
   state.categories = categories;
   state.signalsDict = signalsDict;
+
+  // 异步加载历史快照（不阻塞主流程；缺失时 null）
+  loadHistorySnapshots();
 
   // 当前 AM 身份（localStorage）+ 顶栏切换按钮
   state.currentUser = getStoredUser();

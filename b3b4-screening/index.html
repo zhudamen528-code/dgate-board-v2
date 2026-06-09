@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>休食组 B3/B4 商家信号筛选 V2</title>
-<link rel="stylesheet" href="assets/style.css?v=v3-marks-20260609a">
+<link rel="stylesheet" href="assets/style.css?v=v4-marked-20260609a">
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 </head>
 <body>
@@ -32,6 +32,7 @@
 <nav class="tabs">
   <button class="tab active" data-tab="tracks">🌱 赛道清单</button>
   <button class="tab" data-tab="sellers">🎯 重点商家</button>
+  <button class="tab" data-tab="marked">⭐ 已标重要</button>
   <button class="tab" data-tab="dict">📊 信号说明</button>
 </nav>
 
@@ -105,7 +106,12 @@
     <div id="seller-cards" class="card-grid"></div>
   </section>
 
-  <!-- Tab 3: 信号字典 + 模型说明 -->
+  <!-- Tab 3: ⭐ 已标重要 -->
+  <section class="tab-panel" id="panel-marked">
+    <!-- 内容由 app.js renderMarkedTab() 动态渲染 -->
+  </section>
+
+  <!-- Tab 4: 信号字典 + 模型说明 -->
   <section class="tab-panel" id="panel-dict">
     <div id="dict-content"></div>
   </section>
@@ -122,6 +128,6 @@
   <span>V2 (2026-05-28) · 6 个月回测复验 S-低位 +972%</span>
 </footer>
 
-<script src="assets/app.js?v=v3-marks-20260609a"></script>
+<script src="assets/app.js?v=v4-marked-20260609a"></script>
 </body>
 </html>
