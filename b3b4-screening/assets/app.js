@@ -486,6 +486,8 @@ function initSellersTab() {
   document.getElementById('cnt-s').textContent = state.meta.n_s;
   document.getElementById('cnt-a').textContent = state.meta.n_a;
   document.getElementById('cnt-b').textContent = state.meta.n_b;
+  const cntAll = document.getElementById('cnt-all');
+  if (cntAll) cntAll.textContent = state.sellers.length;
 
   const amSel = document.getElementById('filter-am');
   state.meta.am_list.forEach(am => {
@@ -516,7 +518,10 @@ function initSellersTab() {
 
 function renderSellerCards() {
   const f = state.filters;
-  let list = state.sellers.filter(s => s.grade === state.currentGrade);
+  // grade=ALL 时不按等级筛，看全部 964
+  let list = state.currentGrade === 'ALL'
+    ? state.sellers.slice()
+    : state.sellers.filter(s => s.grade === state.currentGrade);
   if (f.am) list = list.filter(s => s.am === f.am);
   if (f.quadrant) list = list.filter(s => s.quadrant === f.quadrant);
   if (f.cat) list = list.filter(s => s.cat3 === f.cat);
@@ -540,11 +545,15 @@ function renderSellerCards() {
     if (am !== bm) return bm - am;
     return b.combo - a.combo;
   });
-  const baseTotal = state.sellers.filter(s => s.grade === state.currentGrade).length;
+  const baseTotal = state.currentGrade === 'ALL'
+    ? state.sellers.length
+    : state.sellers.filter(s => s.grade === state.currentGrade).length;
   document.getElementById('filter-result-cnt').textContent = list.length;
   document.getElementById('filter-total-cnt').textContent = baseTotal;
 
-  const LIMIT = state.currentGrade === 'S' ? 100 : (state.currentGrade === 'A' ? 80 : 60);
+  // ALL 模式给更大 LIMIT（200），让用户配合筛选用
+  const LIMIT = state.currentGrade === 'ALL' ? 200
+    : (state.currentGrade === 'S' ? 100 : (state.currentGrade === 'A' ? 80 : 60));
   const truncated = list.length > LIMIT;
   list = list.slice(0, LIMIT);
 
