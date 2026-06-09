@@ -935,8 +935,10 @@ function renderMarkedTab() {
       <div class="trend-table-wrap">
         <table class="trend-table">
           <thead><tr>
-            <th>商家</th><th>AM</th><th>当前 GMV</th><th>当前组合分</th>
-            <th>WoW ΔGMV</th><th>MoM ΔGMV</th><th>YoY ΔGMV ⭐</th><th>操作</th>
+            <th>商家</th><th>AM</th>
+            <th class="num">当前 GMV</th><th class="num">当前组合分</th>
+            <th class="num">WoW ΔGMV</th><th class="num">MoM ΔGMV</th><th class="num">YoY ΔGMV ⭐</th>
+            <th>操作</th>
           </tr></thead>
           <tbody>${enriched.map(renderRow).join('')}</tbody>
         </table>

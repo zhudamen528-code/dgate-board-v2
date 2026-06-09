@@ -1266,7 +1266,10 @@ a:hover { text-decoration: underline; }
   position: sticky;
   top: 0;
 }
-.trend-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.trend-table td.num,
+.trend-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.trend-table th.num { padding-right: 12px; }
+.trend-table td.num { padding-right: 12px; }
 .trend-table tbody tr:hover { background: #fafafa; }
 .delta-up { color: #16a34a; font-weight: 600; }
 .delta-down { color: #dc2626; font-weight: 600; }
