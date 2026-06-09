@@ -868,15 +868,15 @@ function renderMarkedTab() {
   const enriched = list.map(x => {
     const curCombo = x.current ? x.current.combo : null;
     const curGmv = x.current ? x.current.gmv_30d : null;
-    const wCombo = x.wPrev ? x.wPrev.combo : null;
-    const mCombo = x.mPrev ? x.mPrev.combo : null;
+    const wGmv = x.wPrev ? x.wPrev.gmv_30d : null;
+    const mGmv = x.mPrev ? x.mPrev.gmv_30d : null;
     const yGmv = x.yPrev ? x.yPrev.gmv_30d : null;
     return {
       ...x,
       curCombo,
       curGmv,
-      wow: pctDelta(curCombo, wCombo),
-      mom: pctDelta(curCombo, mCombo),
+      wow: pctDelta(curGmv, wGmv),
+      mom: pctDelta(curGmv, mGmv),
       yoy: pctDelta(curGmv, yGmv),
     };
   });
@@ -923,20 +923,20 @@ function renderMarkedTab() {
     <section class="marked-trend-section">
       <h3>📈 历史趋势</h3>
       <div class="trend-info">
-        ℹ️ WoW/MoM 对比<b>组合分</b>（信号强度变化），YoY 对比 <b>GMV</b>（生意盘体量变化）；
+        ℹ️ WoW / MoM / YoY 三个 Δ 都对比 <b>GMV</b>（生意盘体量变化）；当前组合分单列展示模型对该商家的信号强度；
         复购 / 笔记 / 店播等观测指标看下方卡片<b>当下值</b>
         ${histWarn}
       </div>
       <div class="trend-sort-bar">
         排序：
-        ${[['wow', 'WoW Δ组合分'], ['mom', 'MoM Δ组合分'], ['yoy', 'YoY ΔGMV'], ['combo', '当前组合分'], ['gmv', '当前 GMV'], ['time', '标记时间倒序']].map(([k, lbl]) =>
+        ${[['wow', 'WoW ΔGMV'], ['mom', 'MoM ΔGMV'], ['yoy', 'YoY ΔGMV'], ['combo', '当前组合分'], ['gmv', '当前 GMV'], ['time', '标记时间倒序']].map(([k, lbl]) =>
           `<button class="sort-btn${sortBy === k ? ' active' : ''}" data-sort="${k}">${lbl}</button>`).join('')}
       </div>
       <div class="trend-table-wrap">
         <table class="trend-table">
           <thead><tr>
             <th>商家</th><th>AM</th><th>当前 GMV</th><th>当前组合分</th>
-            <th>WoW Δ组合分</th><th>MoM Δ组合分</th><th>YoY ΔGMV ⭐</th><th>操作</th>
+            <th>WoW ΔGMV</th><th>MoM ΔGMV</th><th>YoY ΔGMV ⭐</th><th>操作</th>
           </tr></thead>
           <tbody>${enriched.map(renderRow).join('')}</tbody>
         </table>
@@ -1134,8 +1134,8 @@ function markedSellerCardHTML(x) {
       <span class="combo-kpi">组合分 <b>${s.combo.toFixed(1)}</b></span>
     </div>
     <div class="mk-delta-line">
-      <span>WoW: <span class="delta-${x.wow.cls}">${x.wow.str}</span></span>
-      <span>MoM: <span class="delta-${x.mom.cls}">${x.mom.str}</span></span>
+      <span>WoW GMV: <span class="delta-${x.wow.cls}">${x.wow.str}</span></span>
+      <span>MoM GMV: <span class="delta-${x.mom.cls}">${x.mom.str}</span></span>
       <span>YoY GMV: <span class="delta-${x.yoy.cls}">${x.yoy.str}</span></span>
     </div>
     <div id="mk-radar-${s.sid}" class="sc-radar"></div>
