@@ -1,19 +1,19 @@
-// 真实数据 V3 · 自动生成于 2026-06-09 03:05:45
+// 真实数据 V3 · 自动生成于 2026-06-09 03:34:43
 window.MOCK = {
   "meta": {
     "ownerName": "大门",
     "ownerAlias": "朱锦程",
     "department": "五组（休食）",
     "sellerCount": 367,
-    "updatedAt": "2026-06-09 03:05",
+    "updatedAt": "2026-06-09 03:34",
     "dataSource": "real_v3",
     "version": "V3",
     "period": {
-      "yesterday": "2026-04-23",
-      "last7d": "2026-04-17 ~ 2026-04-23",
-      "prev7d": "2026-04-10 ~ 2026-04-16",
-      "trend14d": "2026-04-10 ~ 2026-04-23",
-      "thisMonth": "2026-04-01 ~ 2026-04-23"
+      "yesterday": "2026-06-08",
+      "last7d": "2026-06-02 ~ 2026-06-08",
+      "prev7d": "2026-05-26 ~ 2026-06-01",
+      "trend14d": "2026-05-26 ~ 2026-06-08",
+      "thisMonth": "2026-06-01 ~ 2026-06-08"
     },
     "dataNotes": {
       "yesterday": "dataset 1922",
@@ -27,7 +27,7 @@ window.MOCK = {
     }
   },
   "tab1_yesterday": {
-    "date": "2026-04-23",
+    "date": "2026-06-08",
     "total": 1649123.2400000035,
     "breakdown": [
       {
@@ -805,7 +805,7 @@ window.MOCK = {
       }
     ],
     "monthActiveCount": 323,
-    "monthActiveTotal": 11396505.340000115,
+    "monthActiveTotal": 12289137.680000117,
     "monthTop10": [
       {
         "sellerId": "691541977bc98300158e54ed",
@@ -977,7 +977,78 @@ window.MOCK = {
         "gmv": 24836.07000000019
       }
     ],
-    "topNotes7d": [],
+    "topNotes7d": [
+      {
+        "noteId": "6a18ee0700000000080261f0",
+        "author": "村驴",
+        "title": "酸甜适口‼️酱汁浓郁的麻酱拌冷面‼️",
+        "gmv": 299966.06999999355,
+        "url": "https://www.xiaohongshu.com/explore/6a18ee0700000000080261f0"
+      },
+      {
+        "noteId": "69e1ee680000000023025879",
+        "author": "沃尔玛",
+        "title": "官方旗舰店已重新上架4.0牛奶",
+        "gmv": 123045.51000000136,
+        "url": "https://www.xiaohongshu.com/explore/69e1ee680000000023025879"
+      },
+      {
+        "noteId": "6a15636c000000003701e929",
+        "author": "锋味派",
+        "title": "谢霆锋自律食谱大公开‼️独家诀窍分享",
+        "gmv": 104320.83999999995,
+        "url": "https://www.xiaohongshu.com/explore/6a15636c000000003701e929"
+      },
+      {
+        "noteId": "6a16b0e50000000035025ca6",
+        "author": "南食召食品",
+        "title": "灰汤粽经过碱化，吃完不会反酸，肠胃很舒服",
+        "gmv": 71470.94999999779,
+        "url": "https://www.xiaohongshu.com/explore/6a16b0e50000000035025ca6"
+      },
+      {
+        "noteId": "6a221fa4000000002201647e",
+        "author": "村驴",
+        "title": "下班回家快速吃上饭‼️砂锅土豆粉‼️",
+        "gmv": 67997.70000000174,
+        "url": "https://www.xiaohongshu.com/explore/6a221fa4000000002201647e"
+      },
+      {
+        "noteId": "6a16c6ea0000000007023d3b",
+        "author": "温小张",
+        "title": "一包100多卡，一顿刚刚好！",
+        "gmv": 38097.91000000001,
+        "url": "https://www.xiaohongshu.com/explore/6a16c6ea0000000007023d3b"
+      },
+      {
+        "noteId": "686e1e68000000000b02f0f0",
+        "author": "锋味派",
+        "title": "谢霆锋自律食谱大公开‼️独家秘诀分享",
+        "gmv": 35095.950000000004,
+        "url": "https://www.xiaohongshu.com/explore/686e1e68000000000b02f0f0"
+      },
+      {
+        "noteId": "69ccaa94000000002301cf4d",
+        "author": "村驴",
+        "title": "春暖花开，又到了吃东北大冷面的季节‼️",
+        "gmv": 24818.960000000254,
+        "url": "https://www.xiaohongshu.com/explore/69ccaa94000000002301cf4d"
+      },
+      {
+        "noteId": "6a16907f0000000037034660",
+        "author": "温小张热卤",
+        "title": "按照粉丝宝宝要求，推出仅80g小包金钱腱",
+        "gmv": 21904.189999999995,
+        "url": "https://www.xiaohongshu.com/explore/6a16907f0000000037034660"
+      },
+      {
+        "noteId": "6809dc8c000000001202c642",
+        "author": "锋味派",
+        "title": "谢霆锋自律饮食大公开！超绝小窍门分享",
+        "gmv": 20205.039999999997,
+        "url": "https://www.xiaohongshu.com/explore/6809dc8c000000001202c642"
+      }
+    ],
     "topCombos7d": [
       {
         "spu": "一块小宇宙 【馨子专属】冻干咖啡 意式浓缩阿拉比卡中深烘 独立包装便携速溶 【到手27杯】可可风味+榛果风味+黑巧咖啡 赠品：电动咖啡杯",
@@ -1924,44 +1995,197 @@ window.MOCK = {
   "tab6_violation": {
     "list": [
       {
-        "sellerId": "641990299a611c00013a14e2",
-        "name": "和苑酒家食品旗舰店",
-        "totalCount": 85,
-        "blackCount": 85,
+        "sellerId": "64082baa9a611c0001397174",
+        "name": "蓝鹊烘焙的店",
+        "totalCount": 221,
+        "blackCount": 221,
         "whiteCount": 0,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 83
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 221
       },
       {
-        "sellerId": "65b368dd2cdd640001d6c207",
-        "name": "小禾家零食分装的店",
-        "totalCount": 12,
-        "blackCount": 12,
+        "sellerId": "65d4461b5fd0a00001077205",
+        "name": "蓝昔鸟食品的店",
+        "totalCount": 213,
+        "blackCount": 213,
         "whiteCount": 0,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 12
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 213
       },
       {
-        "sellerId": "677ff3c4290ef900146ddf93",
-        "name": "一群娃的妈妈是潘潘海外专营店",
-        "totalCount": 11,
-        "blackCount": 8,
-        "whiteCount": 3,
-        "topReason": "山寨假货",
-        "topReasonCount": 11
+        "sellerId": "690dbb0a34e7e700157345a2",
+        "name": "一菓爱吃甜的店",
+        "totalCount": 55,
+        "blackCount": 55,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 55
       },
       {
         "sellerId": "69ac144203e2c70015a2eea9",
         "name": "綩朵的店",
-        "totalCount": 10,
-        "blackCount": 10,
+        "totalCount": 53,
+        "blackCount": 53,
         "whiteCount": 0,
         "topReason": "商品合规准入回查",
-        "topReasonCount": 10
+        "topReasonCount": 51
+      },
+      {
+        "sellerId": "6407ef3d9cd18100012e2bbb",
+        "name": "Mamiya旗舰店",
+        "totalCount": 49,
+        "blackCount": 47,
+        "whiteCount": 2,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 47
+      },
+      {
+        "sellerId": "5fe05f34248ecc0001f823f8",
+        "name": "小黄象旗舰店",
+        "totalCount": 45,
+        "blackCount": 45,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 45
+      },
+      {
+        "sellerId": "5c274148eb90b93684d73b21",
+        "name": "极盏旗舰店",
+        "totalCount": 41,
+        "blackCount": 41,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 41
+      },
+      {
+        "sellerId": "67341683d48b0b001510e44a",
+        "name": "辻利茶铺的店",
+        "totalCount": 33,
+        "blackCount": 33,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 33
+      },
+      {
+        "sellerId": "60a7acd6566a170001d00733",
+        "name": "每日黑巧 CHOCDAY旗舰店",
+        "totalCount": 23,
+        "blackCount": 23,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 23
+      },
+      {
+        "sellerId": "639022cbfa525500016d2f0d",
+        "name": "幸福口袋旗舰店",
+        "totalCount": 21,
+        "blackCount": 21,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 21
+      },
+      {
+        "sellerId": "60b093322e34890001a9ba26",
+        "name": "乔尔卢布松旗舰店",
+        "totalCount": 21,
+        "blackCount": 21,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 21
+      },
+      {
+        "sellerId": "64882fe2ac730a0001544b99",
+        "name": "民和旗舰店",
+        "totalCount": 19,
+        "blackCount": 19,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 17
+      },
+      {
+        "sellerId": "65b368dd2cdd640001d6c207",
+        "name": "小禾家零食分装的店",
+        "totalCount": 18,
+        "blackCount": 18,
+        "whiteCount": 0,
+        "topReason": "违规营销笔记",
+        "topReasonCount": 16
+      },
+      {
+        "sellerId": "62a03d8914b93b000180a12d",
+        "name": "锋味派旗舰店",
+        "totalCount": 17,
+        "blackCount": 17,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 17
+      },
+      {
+        "sellerId": "677ff3c4290ef900146ddf93",
+        "name": "一群娃的妈妈是潘潘海外专营店",
+        "totalCount": 16,
+        "blackCount": 14,
+        "whiteCount": 2,
+        "topReason": "山寨假货",
+        "topReasonCount": 16
+      },
+      {
+        "sellerId": "64ccc00ba14d4e0001322a18",
+        "name": "珍妮曲奇聪明小熊饼干旗舰店",
+        "totalCount": 15,
+        "blackCount": 15,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 15
       },
       {
         "sellerId": "64a7c6b2fb86f50001ad48c1",
         "name": "蒸笼头旗舰店",
+        "totalCount": 15,
+        "blackCount": 15,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 15
+      },
+      {
+        "sellerId": "619b26a4d136ed00013a43fc",
+        "name": "BENNS旗舰店",
+        "totalCount": 13,
+        "blackCount": 13,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 13
+      },
+      {
+        "sellerId": "659e4f4c0c0d4400014ff8b0",
+        "name": "宿咕的铁皮盒旗舰店",
+        "totalCount": 12,
+        "blackCount": 10,
+        "whiteCount": 2,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 10
+      },
+      {
+        "sellerId": "5d0c7ec4fcdfee0001d162af",
+        "name": "旺仔俱乐部旗舰店",
+        "totalCount": 11,
+        "blackCount": 11,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 11
+      },
+      {
+        "sellerId": "6538d0cf368edf00013d8069",
+        "name": "小鸡收腹旗舰店",
+        "totalCount": 10,
+        "blackCount": 0,
+        "whiteCount": 10,
+        "topReason": "笔记内容生态",
+        "topReasonCount": 10
+      },
+      {
+        "sellerId": "6467479c2aedbc00010b080e",
+        "name": "墨茉点心局旗舰店",
         "totalCount": 9,
         "blackCount": 9,
         "whiteCount": 0,
@@ -1969,8 +2193,35 @@ window.MOCK = {
         "topReasonCount": 9
       },
       {
-        "sellerId": "5fe05f34248ecc0001f823f8",
-        "name": "小黄象旗舰店",
+        "sellerId": "5f51e94ff2774b00014df845",
+        "name": "空刻旗舰店",
+        "totalCount": 9,
+        "blackCount": 9,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 9
+      },
+      {
+        "sellerId": "67fe00f32890a4001510dfd8",
+        "name": "旺旺糕饼旗舰店",
+        "totalCount": 9,
+        "blackCount": 9,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 9
+      },
+      {
+        "sellerId": "647ea5ea59544100014f050d",
+        "name": "海福盛旗舰店",
+        "totalCount": 8,
+        "blackCount": 8,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 8
+      },
+      {
+        "sellerId": "64424f32a3c2d90001dcdf48",
+        "name": "卡乐比Calbee旗舰店",
         "totalCount": 7,
         "blackCount": 7,
         "whiteCount": 0,
@@ -1978,71 +2229,233 @@ window.MOCK = {
         "topReasonCount": 7
       },
       {
-        "sellerId": "6538d0cf368edf00013d8069",
-        "name": "小鸡收腹旗舰店",
-        "totalCount": 6,
-        "blackCount": 0,
-        "whiteCount": 6,
-        "topReason": "笔记内容生态",
-        "topReasonCount": 6
-      },
-      {
-        "sellerId": "67a9b817eec1480015bc74a1",
-        "name": "善维他旗舰店",
-        "totalCount": 6,
-        "blackCount": 0,
-        "whiteCount": 6,
-        "topReason": "消费者安全",
-        "topReasonCount": 6
-      },
-      {
-        "sellerId": "69d8800c631b7800159f6814",
-        "name": "FIT馒|新中式馒头的店",
-        "totalCount": 4,
-        "blackCount": 4,
-        "whiteCount": 0,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 4
-      },
-      {
-        "sellerId": "63c50988f2eae8000112dbe1",
-        "name": "茶口乐旗舰店",
-        "totalCount": 4,
-        "blackCount": 0,
-        "whiteCount": 4,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 4
-      },
-      {
-        "sellerId": "64082baa9a611c0001397174",
-        "name": "蓝鹊烘焙的店",
-        "totalCount": 4,
-        "blackCount": 4,
+        "sellerId": "6479b579937a2b000159190e",
+        "name": "格力高glico旗舰店",
+        "totalCount": 7,
+        "blackCount": 7,
         "whiteCount": 0,
         "topReason": "商品合规准入回查",
-        "topReasonCount": 4
+        "topReasonCount": 7
       },
       {
-        "sellerId": "69298e7e6560f5001595562b",
-        "name": "谷饼集GUBINGJI的店",
-        "totalCount": 3,
-        "blackCount": 3,
+        "sellerId": "60ed480f79080e0001048377",
+        "name": "头厨旗舰店",
+        "totalCount": 6,
+        "blackCount": 6,
         "whiteCount": 0,
-        "topReason": "履约服务负反馈",
-        "topReasonCount": 3
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 6
       },
       {
-        "sellerId": "6722dde433325a0015a49b5c",
-        "name": "paldo食品旗舰店",
-        "totalCount": 3,
-        "blackCount": 0,
-        "whiteCount": 3,
-        "topReason": "笔记内容生态",
-        "topReasonCount": 3
+        "sellerId": "5f59e07db6f9da0001627118",
+        "name": "食验室旗舰店",
+        "totalCount": 6,
+        "blackCount": 6,
+        "whiteCount": 0,
+        "topReason": "违规营销笔记",
+        "topReasonCount": 6
+      },
+      {
+        "sellerId": "665eaf894b3b770001890445",
+        "name": "Waitrose海外旗舰店",
+        "totalCount": 6,
+        "blackCount": 6,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 6
+      },
+      {
+        "sellerId": "5cb815c6d2263300019b4752",
+        "name": "薄荷健康旗舰店",
+        "totalCount": 6,
+        "blackCount": 6,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 6
+      },
+      {
+        "sellerId": "66daa713a6e9d10016598505",
+        "name": "康师傅味道馆旗舰店",
+        "totalCount": 6,
+        "blackCount": 6,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 6
+      },
+      {
+        "sellerId": "641990299a611c00013a14e2",
+        "name": "和苑酒家食品旗舰店",
+        "totalCount": 6,
+        "blackCount": 6,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 6
+      },
+      {
+        "sellerId": "619dffd9f6b1260001e4d48b",
+        "name": "必品阁 BIBIGO旗舰店",
+        "totalCount": 6,
+        "blackCount": 6,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 6
       },
       {
         "sellerId": "5ae9928e69ffa37fff8ae48e",
         "name": "十分可旗舰店",
+        "totalCount": 6,
+        "blackCount": 6,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 6
+      },
+      {
+        "sellerId": "63528784814e2d00019e54c1",
+        "name": "松鲜鲜安心店铺旗舰店",
+        "totalCount": 6,
+        "blackCount": 3,
+        "whiteCount": 3,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 3
+      },
+      {
+        "sellerId": "6629bf7ca57f580001f74388",
+        "name": "三太子食品旗舰店",
+        "totalCount": 5,
+        "blackCount": 0,
+        "whiteCount": 5,
+        "topReason": "违规营销笔记",
+        "topReasonCount": 5
+      },
+      {
+        "sellerId": "658026f41675ec000118a166",
+        "name": "糙能农场旗舰店",
+        "totalCount": 5,
+        "blackCount": 2,
+        "whiteCount": 3,
+        "topReason": "虚假宣传笔记",
+        "topReasonCount": 3
+      },
+      {
+        "sellerId": "64e342fc7264af0001148588",
+        "name": "小馋嘟嘟的店",
+        "totalCount": 4,
+        "blackCount": 4,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 4
+      },
+      {
+        "sellerId": "6075832ac6b8ed000120ada8",
+        "name": "GODIVA歌帝梵旗舰店",
+        "totalCount": 4,
+        "blackCount": 4,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 4
+      },
+      {
+        "sellerId": "62f468974aed2d00013c751b",
+        "name": "心之senz旗舰店",
+        "totalCount": 4,
+        "blackCount": 4,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 4
+      },
+      {
+        "sellerId": "64c799c76bd5b60001dd59de",
+        "name": "Ms.SU苏味的店",
+        "totalCount": 4,
+        "blackCount": 4,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 4
+      },
+      {
+        "sellerId": "649167e65ada740001bac6c3",
+        "name": "臻江味臻选零食的店",
+        "totalCount": 4,
+        "blackCount": 0,
+        "whiteCount": 4,
+        "topReason": "虚假宣传笔记",
+        "topReasonCount": 4
+      },
+      {
+        "sellerId": "63f34b7936c40c000132d7e8",
+        "name": "PIERRE MARCOLINI旗舰店",
+        "totalCount": 4,
+        "blackCount": 4,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 4
+      },
+      {
+        "sellerId": "6576c4905730cc000137005c",
+        "name": "麦小年旗舰店",
+        "totalCount": 4,
+        "blackCount": 0,
+        "whiteCount": 4,
+        "topReason": "笔记内容生态",
+        "topReasonCount": 4
+      },
+      {
+        "sellerId": "665ff76e72288900019bb298",
+        "name": "王妈手撕烤兔东门店的店",
+        "totalCount": 4,
+        "blackCount": 4,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 4
+      },
+      {
+        "sellerId": "64a52ecad314380001643dee",
+        "name": "怡浓旗舰店",
+        "totalCount": 4,
+        "blackCount": 4,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 4
+      },
+      {
+        "sellerId": "6620c96da57f58000152cbfa",
+        "name": "喜之郎官方旗舰店",
+        "totalCount": 4,
+        "blackCount": 4,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 4
+      },
+      {
+        "sellerId": "673afa71f777e70015964296",
+        "name": "巴拉 Studio🌈Emm31533的店",
+        "totalCount": 4,
+        "blackCount": 3,
+        "whiteCount": 1,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 3
+      },
+      {
+        "sellerId": "6357bc3e814e2d00019e749b",
+        "name": "拉面口袋的店",
+        "totalCount": 4,
+        "blackCount": 2,
+        "whiteCount": 2,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 2
+      },
+      {
+        "sellerId": "64a6e6a1d6c6f20001773408",
+        "name": "三养食品旗舰店",
+        "totalCount": 4,
+        "blackCount": 2,
+        "whiteCount": 2,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 2
+      },
+      {
+        "sellerId": "5c1b65421d97714c40aca129",
+        "name": "红谷林旗舰店",
         "totalCount": 3,
         "blackCount": 3,
         "whiteCount": 0,
@@ -2050,62 +2463,224 @@ window.MOCK = {
         "topReasonCount": 3
       },
       {
-        "sellerId": "658171711675ec0001bf5409",
-        "name": "运康锅巴旗舰店",
+        "sellerId": "60f131ee217f7700010108de",
+        "name": "吃货妞妞旗舰店",
+        "totalCount": 3,
+        "blackCount": 3,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 3
+      },
+      {
+        "sellerId": "614099f29479b90001781918",
+        "name": "薛记炒货旗舰店",
         "totalCount": 3,
         "blackCount": 0,
         "whiteCount": 3,
         "topReason": "违规营销笔记",
-        "topReasonCount": 2
+        "topReasonCount": 3
       },
       {
-        "sellerId": "62972c7e94350b0001e86bf1",
-        "name": "宛禾食品旗舰店",
+        "sellerId": "677d02aa4079990015d31995",
+        "name": "宫门口馒头铺旗舰店",
         "totalCount": 3,
-        "blackCount": 2,
-        "whiteCount": 1,
+        "blackCount": 0,
+        "whiteCount": 3,
         "topReason": "违规营销笔记",
         "topReasonCount": 3
       },
       {
-        "sellerId": "619b26a4d136ed00013a43fc",
-        "name": "BENNS旗舰店",
+        "sellerId": "611f6edffc67c90001f2a5f0",
+        "name": "德叔鲍鱼旗舰店",
         "totalCount": 3,
         "blackCount": 3,
         "whiteCount": 0,
-        "topReason": "履约服务负反馈",
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 3
+      },
+      {
+        "sellerId": "6690ff19a62b650001f38229",
+        "name": "于小嘉爱尝鲜的店",
+        "totalCount": 3,
+        "blackCount": 3,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 3
+      },
+      {
+        "sellerId": "6758e55c4adb920015709bdb",
+        "name": "爱至尊旗舰店",
+        "totalCount": 3,
+        "blackCount": 3,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 3
+      },
+      {
+        "sellerId": "66544c3997af910001b6760e",
+        "name": "玛氏箭牌  MARS WRIGLEY旗舰店",
+        "totalCount": 3,
+        "blackCount": 3,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 3
+      },
+      {
+        "sellerId": "69afcfddcf9d2c00155eab61",
+        "name": "大成家的菌菇的店",
+        "totalCount": 3,
+        "blackCount": 0,
+        "whiteCount": 3,
+        "topReason": "虚假宣传笔记",
+        "topReasonCount": 3
+      },
+      {
+        "sellerId": "69e1a3568d4c55001596ba77",
+        "name": "香美客饼干旗舰店",
+        "totalCount": 3,
+        "blackCount": 0,
+        "whiteCount": 3,
+        "topReason": "违规营销笔记",
+        "topReasonCount": 3
+      },
+      {
+        "sellerId": "65e6e13556541c000122d83e",
+        "name": "X-it食品旗舰店",
+        "totalCount": 3,
+        "blackCount": 3,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 3
+      },
+      {
+        "sellerId": "667246fa7ef194000185f454",
+        "name": "laderach莱德拉旗舰店",
+        "totalCount": 3,
+        "blackCount": 3,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 3
+      },
+      {
+        "sellerId": "69b3889568857b0015f60b2f",
+        "name": "小安低卡轻饮食🍊的店",
+        "totalCount": 2,
+        "blackCount": 0,
+        "whiteCount": 2,
+        "topReason": "虚假宣传笔记",
+        "topReasonCount": 2
+      },
+      {
+        "sellerId": "623463a0d5964e00011b942c",
+        "name": "知食大爆炸旗舰店",
+        "totalCount": 2,
+        "blackCount": 0,
+        "whiteCount": 2,
+        "topReason": "笔记内容生态",
+        "topReasonCount": 2
+      },
+      {
+        "sellerId": "5da805a2c0e5ea0001f3bbcf",
+        "name": "好欢螺旗舰店",
+        "totalCount": 2,
+        "blackCount": 2,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 2
+      },
+      {
+        "sellerId": "6130bd034bf2ea0001f095a8",
+        "name": "熟道旗舰店",
+        "totalCount": 2,
+        "blackCount": 0,
+        "whiteCount": 2,
+        "topReason": "笔记内容生态",
+        "topReasonCount": 2
+      },
+      {
+        "sellerId": "6a200c37bcfe4d00151b4db4",
+        "name": "岁岁宝藏铺的店",
+        "totalCount": 2,
+        "blackCount": 2,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 2
+      },
+      {
+        "sellerId": "646afc7f80cd88000151b59a",
+        "name": "蜀中桃子姐旗舰店",
+        "totalCount": 2,
+        "blackCount": 2,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 2
+      },
+      {
+        "sellerId": "64bde47a26eb390001caf7c2",
+        "name": "轻师傅食品旗舰店",
+        "totalCount": 2,
+        "blackCount": 0,
+        "whiteCount": 2,
+        "topReason": "违规营销笔记",
+        "topReasonCount": 2
+      },
+      {
+        "sellerId": "660d19a0aeebf8000164f9a0",
+        "name": "臭宝旗舰店",
+        "totalCount": 2,
+        "blackCount": 0,
+        "whiteCount": 2,
+        "topReason": "违规营销笔记",
+        "topReasonCount": 2
+      },
+      {
+        "sellerId": "69d8800c631b7800159f6814",
+        "name": "FIT馒|新中式馒头的店",
+        "totalCount": 2,
+        "blackCount": 2,
+        "whiteCount": 0,
+        "topReason": "违规营销笔记",
+        "topReasonCount": 2
+      },
+      {
+        "sellerId": "66010e83f0b53500013b9430",
+        "name": "粒上皇旗舰店",
+        "totalCount": 2,
+        "blackCount": 2,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 2
+      },
+      {
+        "sellerId": "6274faa7430f29000171f00c",
+        "name": "南食召食品旗舰店",
+        "totalCount": 2,
+        "blackCount": 2,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 2
+      },
+      {
+        "sellerId": "69aa26a8b5ee1300156314d0",
+        "name": "华丰方便面旗舰店",
+        "totalCount": 2,
+        "blackCount": 0,
+        "whiteCount": 2,
+        "topReason": "违规营销笔记",
         "topReasonCount": 2
       },
       {
         "sellerId": "5e1441c6f488980001bcaadc",
         "name": "ffit8旗舰店",
-        "totalCount": 3,
-        "blackCount": 0,
-        "whiteCount": 3,
-        "topReason": "笔记内容生态",
+        "totalCount": 2,
+        "blackCount": 2,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
         "topReasonCount": 2
       },
       {
-        "sellerId": "67e8f768ad176f0015b51c34",
-        "name": "嬛嬛的低卡轻食日记的店",
-        "totalCount": 3,
-        "blackCount": 0,
-        "whiteCount": 3,
-        "topReason": "商品合规",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "6909eed3eb74ab001568f8f6",
-        "name": "桂潮食品的店",
-        "totalCount": 3,
-        "blackCount": 2,
-        "whiteCount": 1,
-        "topReason": "笔记内容生态",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "6876172ef869720015fa0ea4",
-        "name": "疯狂大榴莲的店",
+        "sellerId": "650844c2ae36980001a9401b",
+        "name": "遂香记的店",
         "totalCount": 2,
         "blackCount": 0,
         "whiteCount": 2,
@@ -2113,98 +2688,8 @@ window.MOCK = {
         "topReasonCount": 2
       },
       {
-        "sellerId": "643f550ea3c2d90001dcbf35",
-        "name": "蜀山故事旗舰店",
-        "totalCount": 2,
-        "blackCount": 0,
-        "whiteCount": 2,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 2
-      },
-      {
-        "sellerId": "6274faa7430f29000171f00c",
-        "name": "南食召食品旗舰店",
-        "totalCount": 2,
-        "blackCount": 0,
-        "whiteCount": 2,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 2
-      },
-      {
-        "sellerId": "6497fc2d48b95a0001e0cbee",
-        "name": "仙启坊i的店",
-        "totalCount": 2,
-        "blackCount": 0,
-        "whiteCount": 2,
-        "topReason": "笔记内容生态",
-        "topReasonCount": 2
-      },
-      {
-        "sellerId": "69d5ba549cbf82001526f02f",
-        "name": "老许农产品的店的店",
-        "totalCount": 2,
-        "blackCount": 0,
-        "whiteCount": 2,
-        "topReason": "虚假宣传笔记",
-        "topReasonCount": 2
-      },
-      {
-        "sellerId": "66f2996fff158e0015b52a58",
-        "name": "Happylogist快乐哲学旗舰店",
-        "totalCount": 2,
-        "blackCount": 0,
-        "whiteCount": 2,
-        "topReason": "笔记内容生态",
-        "topReasonCount": 2
-      },
-      {
-        "sellerId": "69d38311c6431d0015c29613",
-        "name": "郭记宫门口馒头旗舰店",
-        "totalCount": 2,
-        "blackCount": 0,
-        "whiteCount": 2,
-        "topReason": "违规营销直播",
-        "topReasonCount": 2
-      },
-      {
-        "sellerId": "69afcfddcf9d2c00155eab61",
-        "name": "大成家的菌菇的店",
-        "totalCount": 2,
-        "blackCount": 0,
-        "whiteCount": 2,
-        "topReason": "虚假宣传笔记",
-        "topReasonCount": 2
-      },
-      {
-        "sellerId": "69e1a3568d4c55001596ba77",
-        "name": "香美客饼干旗舰店",
-        "totalCount": 2,
-        "blackCount": 0,
-        "whiteCount": 2,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 2
-      },
-      {
-        "sellerId": "6583fd2d623df60001a83a15",
-        "name": "黄飞红旗舰店",
-        "totalCount": 2,
-        "blackCount": 0,
-        "whiteCount": 2,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 2
-      },
-      {
-        "sellerId": "64a6e6a1d6c6f20001773408",
-        "name": "三养食品旗舰店",
-        "totalCount": 2,
-        "blackCount": 0,
-        "whiteCount": 2,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 2
-      },
-      {
-        "sellerId": "647ea5ea59544100014f050d",
-        "name": "海福盛旗舰店",
+        "sellerId": "66b07e0da6d846001616f539",
+        "name": "X-it糖果零食旗舰店",
         "totalCount": 2,
         "blackCount": 2,
         "whiteCount": 0,
@@ -2212,12 +2697,30 @@ window.MOCK = {
         "topReasonCount": 2
       },
       {
-        "sellerId": "6426ae83970ed30001de578f",
-        "name": "脆升升旗舰店",
+        "sellerId": "6859074fafe81a00158f6fd1",
+        "name": "冠生园官方旗舰店",
         "totalCount": 2,
-        "blackCount": 0,
-        "whiteCount": 2,
-        "topReason": "违规营销笔记",
+        "blackCount": 2,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 2
+      },
+      {
+        "sellerId": "664f1d49dd2218000187ddf6",
+        "name": "像宝石一样的巧克力的店",
+        "totalCount": 2,
+        "blackCount": 2,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 2
+      },
+      {
+        "sellerId": "5c9ae814f8daf30001596deb",
+        "name": "上好佳旗舰店",
+        "totalCount": 2,
+        "blackCount": 2,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
         "topReasonCount": 2
       },
       {
@@ -2230,116 +2733,35 @@ window.MOCK = {
         "topReasonCount": 2
       },
       {
-        "sellerId": "6653e9eca275880001114091",
-        "name": "南狮佛山",
-        "totalCount": 2,
-        "blackCount": 2,
-        "whiteCount": 0,
-        "topReason": "店铺合规准入回查",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "62ba771ff233e7000156acbd",
-        "name": "NTY南台月",
-        "totalCount": 2,
-        "blackCount": 2,
-        "whiteCount": 0,
-        "topReason": "用户系统任务",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "65b0dcc75690aa00014498ea",
-        "name": "子墨的品品冷吃的店",
-        "totalCount": 2,
-        "blackCount": 0,
-        "whiteCount": 2,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "64db4180de53cd0001520e29",
-        "name": "幸福口袋满满的店",
-        "totalCount": 2,
-        "blackCount": 2,
-        "whiteCount": 0,
-        "topReason": "用户系统任务",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "6662a77497b6e20001a80ae4",
-        "name": "鲜鲜每日优选的店",
-        "totalCount": 2,
-        "blackCount": 2,
-        "whiteCount": 0,
-        "topReason": "用户系统任务",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "5f3250406024760001910bb5",
-        "name": "主厨广坦的店",
-        "totalCount": 2,
-        "blackCount": 2,
-        "whiteCount": 0,
-        "topReason": "店铺合规准入回查",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "6662703c83cedf0001f51506",
-        "name": "糙能量面坊的店",
-        "totalCount": 2,
-        "blackCount": 2,
-        "whiteCount": 0,
-        "topReason": "店铺合规准入回查",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "698bdca297c974001536dea4",
-        "name": "只有一间手工烘焙的店",
-        "totalCount": 2,
-        "blackCount": 2,
-        "whiteCount": 0,
-        "topReason": "店铺合规准入回查",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "6860a7595f0e3600157964d1",
-        "name": "琴妈手作（丸子版）的店",
-        "totalCount": 2,
-        "blackCount": 2,
-        "whiteCount": 0,
-        "topReason": "店铺合规准入回查",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "67eb755afccf410015cf12bd",
-        "name": "寒鲜食品旗舰店",
-        "totalCount": 2,
-        "blackCount": 0,
-        "whiteCount": 2,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "665d64984b3b77000188f530",
-        "name": "松小鲜九谷优选的店",
-        "totalCount": 2,
-        "blackCount": 2,
-        "whiteCount": 0,
-        "topReason": "店铺合规准入回查",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "661f7d59821c840001b6c864",
-        "name": "农科美食的店",
-        "totalCount": 2,
+        "sellerId": "63c7996742138f00019a9cee",
+        "name": "白白家糖果的店",
+        "totalCount": 1,
         "blackCount": 1,
-        "whiteCount": 1,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 2
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 1
       },
       {
-        "sellerId": "5c1b65421d97714c40aca129",
-        "name": "红谷林旗舰店",
+        "sellerId": "6426ae83970ed30001de578f",
+        "name": "脆升升旗舰店",
+        "totalCount": 1,
+        "blackCount": 1,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 1
+      },
+      {
+        "sellerId": "69c9f3f655413600156f6cac",
+        "name": "西丽旗舰店",
+        "totalCount": 1,
+        "blackCount": 1,
+        "whiteCount": 0,
+        "topReason": "商品合规准入回查",
+        "topReasonCount": 1
+      },
+      {
+        "sellerId": "6854ffe15697e80015395ce3",
+        "name": "旺旺糖果旗舰店",
         "totalCount": 1,
         "blackCount": 0,
         "whiteCount": 1,
@@ -2347,289 +2769,37 @@ window.MOCK = {
         "topReasonCount": 1
       },
       {
-        "sellerId": "5f804c51b793c500016a9adf",
-        "name": "寻味潮汕的店",
+        "sellerId": "64678bbf275ad100012100f5",
+        "name": "左右吾家旗舰店",
         "totalCount": 1,
         "blackCount": 1,
         "whiteCount": 0,
-        "topReason": "无货源",
+        "topReason": "已失效标签",
         "topReasonCount": 1
       },
       {
-        "sellerId": "665030b4fdcbf5000189bdea",
-        "name": "小松的健康生活的店",
+        "sellerId": "699af4c33def9a0015fd3f78",
+        "name": "麻大侠老火锅掌门人的店",
         "totalCount": 1,
         "blackCount": 1,
         "whiteCount": 0,
-        "topReason": "店铺合规准入回查",
+        "topReason": "商品合规准入回查",
         "topReasonCount": 1
       },
       {
-        "sellerId": "68512377e94311001571fd78",
-        "name": "鑫鑫小食铺的店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "虚假宣传笔记",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "68c5637c63594e0015bdfaa6",
-        "name": "小乔爱吃的店",
-        "totalCount": 1,
-        "blackCount": 1,
-        "whiteCount": 0,
-        "topReason": "履约服务负反馈",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "6407ef3d9cd18100012e2bbb",
-        "name": "Mamiya旗舰店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "6714ce417f3e1d00154dadad",
-        "name": "温农山药熟地食养的店",
-        "totalCount": 1,
-        "blackCount": 1,
-        "whiteCount": 0,
-        "topReason": "用户系统任务",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "693990e79e186a0015dae77b",
-        "name": "亲食派旗舰店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "虚假宣传笔记",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "65816c9bc98601000168df48",
-        "name": "金帝巧克力旗舰店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "64f6ea948265a10001b21279",
-        "name": "徐福记旗舰店",
-        "totalCount": 1,
-        "blackCount": 1,
-        "whiteCount": 0,
-        "topReason": "违规营销商品",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "647077c5937a2b000158c242",
-        "name": "原豆复兴Peasup旗舰店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "虚假宣传笔记",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "65efeef1f0b5350001d5be65",
-        "name": "西梅自由的店",
-        "totalCount": 1,
-        "blackCount": 1,
-        "whiteCount": 0,
-        "topReason": "店铺合规准入回查",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "65d4461b5fd0a00001077205",
-        "name": "蓝昔鸟食品的店",
+        "sellerId": "684d3f4b05721d001589163c",
+        "name": "东经135度公社的店",
         "totalCount": 1,
         "blackCount": 0,
         "whiteCount": 1,
         "topReason": "笔记内容生态",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "69a543361a2ce30015b99bb0",
-        "name": "小舒君的店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "笔记内容生态",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "5cb815c6d2263300019b4752",
-        "name": "薄荷健康旗舰店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "6278fb55b1999c0001ecbf50",
-        "name": "Patchi旗舰店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "6663f8c5dd221800012edd04",
-        "name": "村驴的店",
-        "totalCount": 1,
-        "blackCount": 1,
-        "whiteCount": 0,
-        "topReason": "履约服务负反馈",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "6459aa9eb05b4d000198adec",
-        "name": "肖三婆旗舰店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "69a3ca3a012e360015726eeb",
-        "name": "福满零食铺的店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "直播内容生态",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "660d19a0aeebf8000164f9a0",
-        "name": "臭宝旗舰店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "69779e767603ce001522344c",
-        "name": "肥记牛肉的店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "大盘/横向品质治理",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "6357bc3e814e2d00019e749b",
-        "name": "拉面口袋的店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "64c5c38558540000013204a5",
-        "name": "稻廷斋粽子的店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "直播内容生态",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "63e4c70df2eae80001efdd2c",
-        "name": "茶颜悦色旗舰店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "648a6e618a48cc00012cc3e3",
-        "name": "小凯家纯手工棒棒鸡的店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "大盘/横向品质治理",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "65e946bfdbd5d9000130f510",
-        "name": "金舟潮汕食品的店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "商品合规",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "698c2e16c349040015c7df49",
-        "name": "带你回趟咱老家重口吧的店",
-        "totalCount": 1,
-        "blackCount": 1,
-        "whiteCount": 0,
-        "topReason": "履约服务负反馈",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "66023de7f641fa0001fb9959",
-        "name": "卡奇食品的店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "645cc2bc54cf120001995dfb",
-        "name": "燕如妃的店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "直播内容生态",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "6729b6997f3e1d0015aa2806",
-        "name": "婷亭的零食小屋哟的店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "笔记内容生态",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "623463a0d5964e00011b942c",
-        "name": "知食大爆炸旗舰店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "违规营销笔记",
-        "topReasonCount": 1
-      },
-      {
-        "sellerId": "69aa26a8b5ee1300156314d0",
-        "name": "华丰方便面旗舰店",
-        "totalCount": 1,
-        "blackCount": 0,
-        "whiteCount": 1,
-        "topReason": "违规营销笔记",
         "topReasonCount": 1
       }
     ],
-    "totalSellers": 78,
-    "totalCount": 269,
-    "totalBlack": 181,
-    "totalWhite": 88,
+    "totalSellers": 89,
+    "totalCount": 1167,
+    "totalBlack": 1097,
+    "totalWhite": 70,
     "source": "Themis (25094) · 含黑+白盒"
   }
 };
