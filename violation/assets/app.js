@@ -70,7 +70,7 @@ function actionPills(action) {
 }
 
 function cangqiongShopUrl(sid) {
-  return sid ? `https://cangqiong.devops.xiaohongshu.com/customer/${sid}` : '#';
+  return sid ? `https://crm.xiaohongshu.com/eccrm/merchant-detail/${sid}?isSellerId=true&type=basicInfo` : '#';
 }
 function noteUrl(nid) {
   return nid ? `https://www.xiaohongshu.com/explore/${nid}` : '#';
