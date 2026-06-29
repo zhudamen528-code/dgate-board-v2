@@ -27,6 +27,8 @@ let state = {
   currentUser: null,  // 当前 AM（从 localStorage 取，未选则弹选择器）
   // 历史快照：缺失时为 null（优雅降级）
   history: { 'W-1': null, 'M-1': null, 'Y-1': null },
+  markedExtra: {},        // { sid: { name, gmv_30d, layer_inferred } } - 被标 sid 真实 GMV 兜底
+  markedExtraMeta: null,
   markedTabSort: 'wow',  // 默认按 WoW 涨幅降序
   markedTabRendered: false,
 };
@@ -891,8 +893,11 @@ function renderMarkedTab() {
 
   // 计算每行的变化值
   const enriched = list.map(x => {
+    const ex = state.markedExtra[x.sid];  // 真实 GMV 兜底（含跌出池子的）
     const curCombo = x.current ? x.current.combo : null;
-    const curGmv = x.current ? x.current.gmv_30d : null;
+    // GMV 优先用池内数据，否则用 markedExtra 兜底
+    const curGmv = x.current ? x.current.gmv_30d : (ex ? ex.gmv_30d : null);
+    const layerNow = x.current ? x.current.layer : (ex ? ex.layer_inferred : null);
     const wGmv = x.wPrev ? x.wPrev.gmv_30d : null;
     const mGmv = x.mPrev ? x.mPrev.gmv_30d : null;
     const yGmv = x.yPrev ? x.yPrev.gmv_30d : null;
@@ -900,6 +905,8 @@ function renderMarkedTab() {
       ...x,
       curCombo,
       curGmv,
+      layerNow,
+      extra: ex,
       wow: pctDelta(curGmv, wGmv),
       mom: pctDelta(curGmv, mGmv),
       yoy: pctDelta(curGmv, yGmv),
@@ -922,19 +929,26 @@ function renderMarkedTab() {
   enriched.sort((a, b) => sortKey(a) - sortKey(b));
 
   function renderRow(x) {
-    const name = x.current ? x.current.name : (x.yPrev && x.yPrev.name) || `(已淘汰 ${x.sid.slice(-6)})`;
+    const name = x.current ? x.current.name : (x.extra && x.extra.name) || (x.yPrev && x.yPrev.name) || `(已淘汰 ${x.sid.slice(-6)})`;
     const am = x.current ? x.current.am : (x.mark.author_name || '—');
     const gmvStr = x.curGmv != null ? fmtWan(x.curGmv) : '—';
     const comboStr = x.curCombo != null ? x.curCombo.toFixed(1) : '—';
+    // 跌出池子时的状态标签
+    let statusTag = '';
+    if (!x.current) {
+      if (x.layerNow === 'B5+') statusTag = ' <span class="dropped-tag" style="background:#dcfce7;color:#15803d">🚀 已升档 B5+</span>';
+      else if (x.layerNow === 'B2-') statusTag = ' <span class="dropped-tag" style="background:#fee2e2;color:#b91c1c">📉 已降档 B2-</span>';
+      else statusTag = ' <span class="dropped-tag">已跌出</span>';
+    }
     return `<tr>
-      <td><a href="${SHOP_SEARCH(name)}" target="_blank">${escHTML(name)}</a>${!x.current ? ' <span class="dropped-tag">已跌出</span>' : ''}</td>
+      <td><a href="${SHOP_SEARCH(name)}" target="_blank">${escHTML(name)}</a>${statusTag}</td>
       <td>${escHTML(am.split('(')[0])}</td>
       <td class="num">${gmvStr}</td>
       <td class="num"><b>${comboStr}</b></td>
       <td class="num delta delta-${x.wow.cls}">${x.wow.str}</td>
       <td class="num delta delta-${x.mom.cls}">${x.mom.str}</td>
       <td class="num delta delta-${x.yoy.cls}">${x.yoy.str}</td>
-      <td>${x.current ? `<a class="row-link" href="${CANGQIONG_LINK(x.sid)}" target="_blank">苍穹↗</a>` : '<span class="hint">—</span>'}</td>
+      <td>${x.current || x.extra ? `<a class="row-link" href="${CANGQIONG_LINK(x.sid)}" target="_blank">苍穹↗</a>` : '<span class="hint">—</span>'}</td>
     </tr>`;
   }
 
@@ -979,7 +993,14 @@ function renderMarkedTab() {
   const gradeRank = { 'S': 3, 'A': 2, 'B': 1 };
   enriched.forEach(x => {
     if (!x.current) {
-      dropped.push(x);
+      // 跌出池子的：根据 layerNow 分流到升档/降档/兜底
+      if (x.layerNow === 'B5+') {
+        upgraded.push({ ...x, from: x.wPrev ? x.wPrev.layer || 'B?' : 'B?', to: 'B5+', isLayerJump: true });
+      } else if (x.layerNow === 'B2-') {
+        downgraded.push({ ...x, from: x.wPrev ? x.wPrev.layer || 'B?' : 'B?', to: 'B2-', isLayerJump: true });
+      } else {
+        dropped.push(x);
+      }
       return;
     }
     if (x.wPrev) {
@@ -1014,13 +1035,21 @@ function renderMarkedTab() {
       <h3>🔀 层级 / 池子变动（vs W-1）</h3>
       <div class="change-grid">
         ${changeCol('升档', upgraded.sort((a, b) => (gradeRank[b.to] || 0) - (gradeRank[a.to] || 0)), '🆙',
-          x => `<div class="change-item"><b>${escHTML(x.current.name)}</b> <span class="change-arrow">${x.from} → ${x.to}</span></div>`,
+          x => {
+            const name = x.current ? x.current.name : (x.extra ? x.extra.name : x.sid.slice(-6));
+            const extra = x.isLayerJump ? ` <span class="hint">跑出 B3/B4 上限</span>` : '';
+            return `<div class="change-item"><b>${escHTML(name)}</b> <span class="change-arrow">${x.from} → ${x.to}</span>${extra}</div>`;
+          },
           hasW1 ? '本周无升档' : 'W-1 快照缺失')}
         ${changeCol('降档', downgraded.sort((a, b) => (gradeRank[a.to] || 0) - (gradeRank[b.to] || 0)), '📉',
-          x => `<div class="change-item"><b>${escHTML(x.current.name)}</b> <span class="change-arrow">${x.from} → ${x.to}</span></div>`,
+          x => {
+            const name = x.current ? x.current.name : (x.extra ? x.extra.name : x.sid.slice(-6));
+            const extra = x.isLayerJump ? ` <span class="hint">跌破 B3 下限</span>` : '';
+            return `<div class="change-item"><b>${escHTML(name)}</b> <span class="change-arrow">${x.from} → ${x.to}</span>${extra}</div>`;
+          },
           hasW1 ? '本周无降档' : 'W-1 快照缺失')}
         ${changeCol('已跌出池子', dropped, '🚪',
-          x => `<div class="change-item"><b>${escHTML(x.yPrev?.name || x.sid.slice(-6))}</b> <span class="hint">本周不在 B3/B4 池</span></div>`,
+          x => `<div class="change-item"><b>${escHTML((x.extra && x.extra.name) || x.yPrev?.name || x.sid.slice(-6))}</b> <span class="hint">本周不在 B3/B4 池</span></div>`,
           '无')}
         ${changeCol('本周新加标', newlyMarked, '🆕',
           x => `<div class="change-item"><b>${escHTML((x.current && x.current.name) || x.sid.slice(-6))}</b> <span class="hint">${escHTML((x.mark.author_name || '').split('(')[0])}</span></div>`,
@@ -1372,6 +1401,16 @@ async function boot() {
 
   // 异步加载历史快照（不阻塞主流程；缺失时 null）
   loadHistorySnapshots();
+
+  // 异步加载 marked_extra（被标 sid 真实 GMV 兜底，含跌出池子的）
+  fetchJson('data/marked_extra.json').then(d => {
+    state.markedExtra = (d && d.extra) ? d.extra : {};
+    state.markedExtraMeta = d || null;
+    const panel = document.getElementById('panel-marked');
+    if (panel && panel.classList.contains('active')) {
+      renderMarkedTab();
+    }
+  }).catch(() => { state.markedExtra = {}; });
 
   // 当前 AM 身份（localStorage）+ 顶栏切换按钮
   state.currentUser = getStoredUser();
