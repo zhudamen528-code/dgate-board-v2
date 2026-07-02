@@ -77,6 +77,20 @@ function actionPills(action) {
 function cangqiongShopUrl(sid) {
   return sid ? `https://crm.xiaohongshu.com/eccrm/merchant-detail/${sid}?isSellerId=true&type=basicInfo` : '#';
 }
+
+// 根据违规实体类型智能选择跳转链接
+// - 有 seller_id 且 shop_name 不以"用户("开头 → 苍穹商家详情（真实店铺）
+// - 有 user_id 或 shop_name 以"用户("开头 → 小红书用户主页（直播/笔记账号）
+// - 都没有 → 不跳
+function shopLink(r) {
+  const isUserId = r.shop_name && r.shop_name.startsWith('用户(');
+  if (r.seller_id && !isUserId) {
+    return `https://crm.xiaohongshu.com/eccrm/merchant-detail/${r.seller_id}?isSellerId=true&type=basicInfo`;
+  }
+  const uid = r.user_id || (isUserId ? r.seller_id : '') || r.shop_id_key;
+  if (uid) return `https://www.xiaohongshu.com/user/profile/${uid}`;
+  return '#';
+}
 function noteUrl(nid) {
   return nid ? `https://www.xiaohongshu.com/explore/${nid}` : '#';
 }
@@ -174,7 +188,7 @@ function renderTabNew() {
         : `<span class="entity-label">${r.entity_label}</span>`;
       detailHtml += `<tr ${r.is_severe?'class="severe-row"':''}>
         <td>
-          <div class="cell-shop"><a href="${cangqiongShopUrl(r.seller_id)}" target="_blank">${esc(r.shop_name)}</a></div>
+          <div class="cell-shop"><a href="${shopLink(r)}" target="_blank">${esc(r.shop_name)}</a></div>
           <div class="cell-meta">${buyerMark}</div>
         </td>
         <td>${entityLink}</td>
@@ -316,7 +330,7 @@ function renderTabHeavy() {
     const topDomains = s.top_domains.map(d => `${d[0]}(${d[1]})`).join(' · ');
     return `<div class="heavy-item">
       <div class="name">
-        <a href="${cangqiongShopUrl(s.seller_id)}" target="_blank">${esc(s.shop_name)}</a>
+        <a href="${shopLink({seller_id: s.seller_id, user_id: s.shop_name.startsWith('用户(') ? s.seller_id : '', shop_id_key: s.seller_id})}" target="_blank">${esc(s.shop_name)}</a>
         ${badges}
       </div>
       <div class="stats">持续中 ${s.count} 起 · ${topDomains}</div>
