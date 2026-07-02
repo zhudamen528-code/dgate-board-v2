@@ -1,267 +1,78 @@
 {
   "top_active": [
     {
-      "seller_id": "66f2996fff158e0015b52a58",
-      "shop_name": "Happylogist快乐哲学旗舰店",
-      "count": 151,
-      "severe": 83,
-      "high_repeat": 49,
+      "seller_id": "6915b322db1b070015b59650",
+      "shop_name": "有鲤鲤的店的店",
+      "count": 28,
+      "severe": 28,
+      "high_repeat": 13,
       "top_domains": [
         [
-          "问题账号",
-          151
+          "内容画风",
+          28
         ]
       ],
       "top_tags": [
         [
-          "同质化搬运号-经营账号-他相似笔记",
-          89
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          60
-        ],
-        [
-          "工业化流水号-经营账号-中频",
-          1
-        ],
-        [
-          "同质化搬运号-经营账号",
-          1
+          "封标跟风",
+          28
         ]
       ],
       "entities": {
-        "笔记": 149,
-        "用户": 2
+        "笔记": 28
       },
       "punish_types": {
-        "黑盒": 151
+        "黑盒": 28
       },
       "samples": [
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a31248300000000110192b4",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 3,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a32722f0000000011004b42",
+          "entity_id": "6a28bd06000000002201a39d",
           "action": "搜索沉底",
-          "repeat_count": 2,
-          "punish_time": "2026-06-17",
+          "repeat_count": 1,
+          "punish_time": "2026-06-10",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a268bb200000000360001c6",
+          "entity_id": "6a1d249800000000350204f5",
           "action": "搜索沉底",
-          "repeat_count": 6,
-          "punish_time": "2026-06-08",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1d5f28000000003502a621",
-          "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-01",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a22b96c0000000021015f96",
-          "action": "搜索沉底",
-          "repeat_count": 0,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "64082baa9a611c0001397174",
-      "shop_name": "蓝鹊烘焙的店",
-      "count": 132,
-      "severe": 66,
-      "high_repeat": 57,
-      "top_domains": [
-        [
-          "问题账号",
-          132
-        ]
-      ],
-      "top_tags": [
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          70
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          62
-        ]
-      ],
-      "entities": {
-        "笔记": 132
-      },
-      "punish_types": {
-        "黑盒": 132
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1e4bce0000000038035a11",
-          "action": "搜索沉底",
-          "repeat_count": 3,
-          "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a20461f0000000038020a7b",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 4,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a204339000000003701c36b",
-          "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a21758f000000003700f005",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 3,
-          "punish_time": "2026-06-04",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2c1d00000000001603ddee",
-          "action": "笔记推荐限流50%",
           "repeat_count": 6,
           "punish_time": "2026-06-12",
           "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "69ac144203e2c70015a2eea9",
-      "shop_name": "綩朵的店",
-      "count": 127,
-      "severe": 63,
-      "high_repeat": 54,
-      "top_domains": [
-        [
-          "问题账号",
-          127
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          78
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          44
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          4
-        ],
-        [
-          "同质化搬运号-经营账号",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 126,
-        "用户": 1
-      },
-      "punish_types": {
-        "黑盒": 123,
-        "白盒": 4
-      },
-      "samples": [
+        },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a2d0a2c000000001603ee6a",
+          "entity_id": "6a0186bb000000003503353e",
           "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-13",
+          "repeat_count": 5,
+          "punish_time": "2026-06-14",
           "punish_type": "黑盒"
         },
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a253e24000000001603daca",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2ac07c0000000015025455",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 6,
-          "punish_time": "2026-06-11",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a23d2aa0000000015025df3",
+          "entity_id": "6a37c1d7000000000702f904",
           "action": "搜索沉底",
           "repeat_count": 1,
-          "punish_time": "2026-06-06",
+          "punish_time": "2026-06-22",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a27ca3a0000000022019de6",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 8,
-          "punish_time": "2026-06-09",
+          "entity_id": "6a3a59470000000021019224",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-23",
           "punish_type": "黑盒"
         }
       ],
@@ -271,718 +82,76 @@
     {
       "seller_id": "67e8f768ad176f0015b51c34",
       "shop_name": "嬛嬛的低卡轻食日记的店",
-      "count": 92,
-      "severe": 47,
-      "high_repeat": 31,
-      "top_domains": [
-        [
-          "问题账号",
-          92
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          45
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          44
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          3
-        ]
-      ],
-      "entities": {
-        "笔记": 92
-      },
-      "punish_types": {
-        "黑盒": 89,
-        "白盒": 3
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a254d060000000035024f7f",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1d32e200000000080007f7",
-          "action": "搜索沉底",
-          "repeat_count": 3,
-          "punish_time": "2026-06-01",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1d6e25000000003600037d",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 7,
-          "punish_time": "2026-06-01",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a28d59b000000003502e00d",
-          "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-10",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2bb8210000000006022e44",
-          "action": "搜索沉底",
-          "repeat_count": 3,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "65d4461b5fd0a00001077205",
-      "shop_name": "蓝昔鸟食品的店",
-      "count": 85,
-      "severe": 43,
-      "high_repeat": 24,
-      "top_domains": [
-        [
-          "问题账号",
-          85
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          38
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          36
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          8
-        ],
-        [
-          "同质化搬运号-经营账号",
-          2
-        ],
-        [
-          "工业化流水号-经营账号-高频",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 82,
-        "用户": 3
-      },
-      "punish_types": {
-        "黑盒": 77,
-        "白盒": 8
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2ac23b0000000036002183",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 7,
-          "punish_time": "2026-06-11",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3397f9000000001101b5a9",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1ed61a0000000036000399",
-          "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a33ce160000000011010f2d",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a203b24000000002201b28c",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-03",
-          "punish_type": "白盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "6722dde433325a0015a49b5c",
-      "shop_name": "paldo食品旗舰店",
-      "count": 82,
-      "severe": 41,
-      "high_repeat": 37,
-      "top_domains": [
-        [
-          "问题账号",
-          82
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          62
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          16
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          4
-        ]
-      ],
-      "entities": {
-        "笔记": 82
-      },
-      "punish_types": {
-        "白盒": 78,
-        "黑盒": 4
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a38895c000000001603dda5",
-          "action": "笔记搜索过滤",
-          "repeat_count": 5,
-          "punish_time": "2026-06-22",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a33c2340000000022018dc5",
-          "action": "笔记搜索过滤",
-          "repeat_count": 6,
-          "punish_time": "2026-06-18",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1a8cb9000000000702235e",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 8,
-          "punish_time": "2026-06-10",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a23eb5b0000000007011248",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-06",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1fa7e100000000210080d7",
-          "action": "笔记搜索过滤",
-          "repeat_count": 4,
-          "punish_time": "2026-06-03",
-          "punish_type": "白盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "69b3889568857b0015f60b2f",
-      "shop_name": "小安低卡轻饮食🍊的店",
-      "count": 44,
-      "severe": 24,
-      "high_repeat": 4,
-      "top_domains": [
-        [
-          "问题账号",
-          44
-        ]
-      ],
-      "top_tags": [
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          22
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          15
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          7
-        ]
-      ],
-      "entities": {
-        "笔记": 44
-      },
-      "punish_types": {
-        "白盒": 7,
-        "黑盒": 37
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a226c8b000000003802017e",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-05",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1d40660000000006030b3b",
-          "action": "搜索沉底",
-          "repeat_count": 3,
-          "punish_time": "2026-06-01",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1be1160000000036031861",
-          "action": "笔记搜索过滤",
-          "repeat_count": 1,
-          "punish_time": "2026-05-31",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1ffb23000000000702ed7f",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 3,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a22d23f000000003501d7ed",
-          "action": "搜索沉底",
-          "repeat_count": 0,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "6821be9575cd1900157b82cb",
-      "shop_name": "不正经糖铺的店",
-      "count": 31,
-      "severe": 20,
+      "count": 25,
+      "severe": 25,
       "high_repeat": 0,
       "top_domains": [
         [
-          "问题账号",
-          31
+          "内容画风",
+          25
         ]
       ],
       "top_tags": [
         [
-          "工业化流水号-经营账号-他相似笔记",
-          17
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          8
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          6
+          "封标跟风",
+          25
         ]
       ],
       "entities": {
-        "笔记": 31
+        "笔记": 25
       },
       "punish_types": {
-        "黑盒": 25,
-        "白盒": 6
+        "黑盒": 25
       },
       "samples": [
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a22b44c0000000008030f79",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2a443d000000002202e1f6",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 1,
+          "entity_id": "6a292f470000000022017aba",
+          "action": "搜索沉底",
+          "repeat_count": 3,
           "punish_time": "2026-06-11",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2c09850000000008027d2b",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-12",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a2fbcd800000000060356bf",
-          "action": "笔记推荐限流50%",
+          "entity_id": "69a787670000000022022b74",
+          "action": "搜索沉底",
           "repeat_count": 1,
           "punish_time": "2026-06-15",
           "punish_type": "黑盒"
         },
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a22c4470000000017028d17",
+          "entity_id": "691364a2000000000700b064",
           "action": "搜索沉底",
           "repeat_count": 0,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "68512377e94311001571fd78",
-      "shop_name": "鑫鑫小食铺的店",
-      "count": 29,
-      "severe": 11,
-      "high_repeat": 6,
-      "top_domains": [
-        [
-          "问题账号",
-          29
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          13
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          8
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          7
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 29
-      },
-      "punish_types": {
-        "黑盒": 21,
-        "白盒": 8
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2130070000000038022753",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-04",
+          "punish_time": "2026-06-24",
           "punish_type": "黑盒"
         },
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a23b895000000001702f10d",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-06",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2ae306000000001503d624",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 4,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2ad7600000000016025f3c",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 4,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a33b341000000001702bf75",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "6909eed3eb74ab001568f8f6",
-      "shop_name": "桂潮食品的店",
-      "count": 23,
-      "severe": 11,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "问题账号",
-          23
-        ]
-      ],
-      "top_tags": [
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          8
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          7
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          5
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          3
-        ]
-      ],
-      "entities": {
-        "笔记": 23
-      },
-      "punish_types": {
-        "白盒": 15,
-        "黑盒": 8
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3cfda50000000007022df8",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-25",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3cfd0b000000000f02a3c1",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-25",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a27cc1b0000000022023915",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-09",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a23cbd6000000000803ce99",
-          "action": "搜索沉底",
-          "repeat_count": 1,
-          "punish_time": "2026-06-06",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1a8ec9000000003701ce7a",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "69a3cc3ce5811a00158c7b4c",
-      "shop_name": "飞飞的零食小铺的店",
-      "count": 23,
-      "severe": 12,
-      "high_repeat": 3,
-      "top_domains": [
-        [
-          "问题账号",
-          23
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          18
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          4
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 23
-      },
-      "punish_types": {
-        "黑盒": 22,
-        "白盒": 1
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a201ac9000000002100a06d",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2a3ef30000000007029e93",
-          "action": "搜索沉底",
-          "repeat_count": 5,
-          "punish_time": "2026-06-11",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a30b9ce0000000007013954",
-          "action": "搜索沉底",
-          "repeat_count": 1,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a311f17000000000f01df2e",
-          "action": "搜索沉底",
-          "repeat_count": 0,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2e60e50000000021019867",
+          "entity_id": "69391d1f000000001e02eeb0",
           "action": "搜索沉底",
           "repeat_count": 2,
-          "punish_time": "2026-06-14",
+          "punish_time": "2026-06-22",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2c0cdc000000002100b0e4",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-13",
           "punish_type": "黑盒"
         }
       ],
@@ -990,87 +159,320 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "6357bc3e814e2d00019e749b",
-      "shop_name": "拉面口袋的店",
+      "seller_id": "6220932a00db3b00019e6e18",
+      "shop_name": "麻六记旗舰店",
       "count": 22,
-      "severe": 10,
-      "high_repeat": 0,
+      "severe": 22,
+      "high_repeat": 14,
       "top_domains": [
         [
-          "问题账号",
+          "内容画风",
           22
         ]
       ],
       "top_tags": [
         [
-          "同质化搬运号-经营账号-他相似笔记",
-          15
+          "直播举报—影响观播体验—观感不佳",
+          21
         ],
         [
-          "工业化流水号-经营账号-他相似笔记",
-          6
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
+          "封标跟风",
           1
         ]
       ],
       "entities": {
-        "笔记": 22
+        "直播间": 21,
+        "笔记": 1
       },
       "punish_types": {
-        "黑盒": 21,
-        "白盒": 1
+        "黑盒": 22
       },
       "samples": [
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a295af80000000008033409",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-11",
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570330414460918668",
+          "action": "直播间流量干预-公域停推100%",
+          "repeat_count": 8,
+          "punish_time": "2026-06-22",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2912ff000000001c024a9f",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-10",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a33d49e000000002200a7d9",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-18",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "69facf2f00000000380359ae",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570323158431190833",
+          "action": "直播间流量干预-公域停推100%",
+          "repeat_count": 11,
           "punish_time": "2026-06-17",
           "punish_type": "黑盒"
         },
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570314406732066571",
+          "action": "直播间流量干预-公域停推100%",
+          "repeat_count": 10,
+          "punish_time": "2026-06-11",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570321712027551438",
+          "action": "直播间流量干预-公域停推100%",
+          "repeat_count": 11,
+          "punish_time": "2026-06-16",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570336207709690849",
+          "action": "直播间流量干预-公域停推100%",
+          "repeat_count": 4,
+          "punish_time": "2026-06-26",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 1,
+      "new_severe_today": 1
+    },
+    {
+      "seller_id": "66f5161ea9bf3400163b030e",
+      "shop_name": "虹孩儿的店",
+      "count": 21,
+      "severe": 21,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          21
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          21
+        ]
+      ],
+      "entities": {
+        "笔记": 21
+      },
+      "punish_types": {
+        "黑盒": 21
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a2628b4000000002003be84",
-          "action": "笔记推荐限流50%",
+          "entity_id": "688885ca0000000023023281",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69301e0b000000001e02908f",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6854cbfa00000000230060b0",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a297a1b0000000022016c0b",
+          "action": "搜索沉底",
           "repeat_count": 0,
+          "punish_time": "2026-06-11",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "682a9e5f000000002102e96b",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-25",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "64afb6e7c46602000150ed0c",
+      "shop_name": "一只liuliu的店",
+      "count": 15,
+      "severe": 15,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          15
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          15
+        ]
+      ],
+      "entities": {
+        "笔记": 15
+      },
+      "punish_types": {
+        "黑盒": 15
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2685360000000016024dbb",
+          "action": "搜索沉底",
+          "repeat_count": 1,
           "punish_time": "2026-06-08",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6889b7b0000000000500af83",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6854df85000000001203d151",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a21072b0000000036032a01",
+          "action": "搜索沉底",
+          "repeat_count": 2,
+          "punish_time": "2026-06-04",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a196060000000003601c799",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "6497fc2d48b95a0001e0cbee",
+      "shop_name": "仙启坊i的店",
+      "count": 12,
+      "severe": 12,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          12
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          12
+        ]
+      ],
+      "entities": {
+        "笔记": 12
+      },
+      "punish_types": {
+        "黑盒": 12
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2121f800000000220154ca",
+          "action": "搜索沉底",
+          "repeat_count": 2,
+          "punish_time": "2026-06-12",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a354f6a0000000007027272",
+          "action": "搜索沉底",
+          "repeat_count": 2,
+          "punish_time": "2026-06-22",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "689fdcb4000000001b03e54a",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a23e79600000000210190b3",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-07",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "687d199a000000001203dc15",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
           "punish_type": "黑盒"
         }
       ],
@@ -1080,953 +482,163 @@
     {
       "seller_id": "611f6edffc67c90001f2a5f0",
       "shop_name": "德叔鲍鱼旗舰店",
-      "count": 19,
-      "severe": 6,
+      "count": 11,
+      "severe": 11,
       "high_repeat": 0,
       "top_domains": [
         [
-          "问题账号",
-          19
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          14
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          5
-        ]
-      ],
-      "entities": {
-        "笔记": 19
-      },
-      "punish_types": {
-        "白盒": 19
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a278e70000000001702e1c4",
-          "action": "笔记搜索过滤",
-          "repeat_count": 0,
-          "punish_time": "2026-06-09",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2fac87000000000800056c",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-15",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3e11f4000000001503e9b4",
-          "action": "笔记搜索过滤",
-          "repeat_count": 0,
-          "punish_time": "2026-06-26",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a263c42000000001700aa0b",
-          "action": "笔记搜索过滤",
-          "repeat_count": 1,
-          "punish_time": "2026-06-08",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a210490000000003700f5bd",
-          "action": "笔记搜索过滤",
-          "repeat_count": 0,
-          "punish_time": "2026-06-04",
-          "punish_type": "白盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "64c5c38558540000013204a5",
-      "shop_name": "稻廷斋粽子的店",
-      "count": 18,
-      "severe": 8,
-      "high_repeat": 2,
-      "top_domains": [
-        [
-          "问题账号",
-          18
-        ]
-      ],
-      "top_tags": [
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          10
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          7
-        ],
-        [
-          "工业化流水号-经营账号-低频",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 17,
-        "用户": 1
-      },
-      "punish_types": {
-        "黑盒": 18
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2515f90000000035032e70",
-          "action": "搜索沉底",
-          "repeat_count": 0,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1fe9f60000000036001eaf",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 3,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2277480000000035028acb",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1e8fa1000000002201b146",
-          "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-低频",
-          "domain": "问题账号",
-          "entity_type": "用户",
-          "entity_id": "64ac8cf0000000002b008866",
-          "action": "用户推荐限流30%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "69e0d530440dea001579fccd",
-      "shop_name": "甜度超标咯的店",
-      "count": 14,
-      "severe": 6,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "问题账号",
-          14
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          12
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          2
-        ]
-      ],
-      "entities": {
-        "笔记": 14
-      },
-      "punish_types": {
-        "黑盒": 12,
-        "白盒": 2
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2bf7140000000016027ee0",
-          "action": "搜索沉底",
-          "repeat_count": 3,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3141ce0000000006036d3e",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2d47a2000000000800327f",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-13",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3141d90000000011015952",
-          "action": "搜索沉底",
-          "repeat_count": 0,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2fc1df0000000006030f6b",
-          "action": "搜索沉底",
-          "repeat_count": 1,
-          "punish_time": "2026-06-15",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "619b26a4d136ed00013a43fc",
-      "shop_name": "BENNS旗舰店",
-      "count": 13,
-      "severe": 6,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "问题账号",
-          13
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          10
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          3
-        ]
-      ],
-      "entities": {
-        "笔记": 13
-      },
-      "punish_types": {
-        "黑盒": 13
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2b7b18000000003501fd85",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 3,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2a6c84000000001702c5af",
-          "action": "搜索沉底",
-          "repeat_count": 2,
-          "punish_time": "2026-06-11",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a31fa2a00000000220198c8",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-17",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3119fa000000000f02994e",
-          "action": "搜索沉底",
-          "repeat_count": 1,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a30f0e400000000160257dd",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "658171711675ec0001bf5409",
-      "shop_name": "运康锅巴旗舰店",
-      "count": 13,
-      "severe": 10,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "问题账号",
-          13
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-自相似笔记",
+          "内容画风",
           11
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          1
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 13
-      },
-      "punish_types": {
-        "白盒": 11,
-        "黑盒": 2
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a29044e0000000035021e53",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 3,
-          "punish_time": "2026-06-10",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3fb679000000000f005cf8",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-27",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2d3c2e000000003503180c",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-13",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a291d93000000002202525f",
-          "action": "笔记搜索过滤",
-          "repeat_count": 3,
-          "punish_time": "2026-06-10",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2904b90000000035033466",
-          "action": "搜索沉底",
-          "repeat_count": 0,
-          "punish_time": "2026-06-10",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "63c50988f2eae8000112dbe1",
-      "shop_name": "茶口乐旗舰店",
-      "count": 13,
-      "severe": 7,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "问题账号",
-          13
         ]
       ],
       "top_tags": [
         [
-          "同质化搬运号-经营账号-自相似笔记",
+          "封标跟风",
           9
         ],
         [
-          "工业化流水号-经营账号-自相似笔记",
-          4
-        ]
-      ],
-      "entities": {
-        "笔记": 13
-      },
-      "punish_types": {
-        "白盒": 13
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1eaa1f0000000035025770",
-          "action": "笔记搜索过滤",
-          "repeat_count": 1,
-          "punish_time": "2026-06-02",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3e1ef2000000001702ac80",
-          "action": "笔记搜索过滤",
-          "repeat_count": 1,
-          "punish_time": "2026-06-26",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a292e63000000001c0277d3",
-          "action": "笔记搜索过滤",
-          "repeat_count": 3,
-          "punish_time": "2026-06-10",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3e1e7200000000160272fd",
-          "action": "笔记搜索过滤",
-          "repeat_count": 1,
-          "punish_time": "2026-06-26",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3676d800000000110168ce",
-          "action": "笔记搜索过滤",
-          "repeat_count": 2,
-          "punish_time": "2026-06-20",
-          "punish_type": "白盒"
-        }
-      ],
-      "new_today": 1,
-      "new_severe_today": 1
-    },
-    {
-      "seller_id": "68d10c38cdd2c90015764135",
-      "shop_name": "千张爱养生的店",
-      "count": 12,
-      "severe": 5,
-      "high_repeat": 2,
-      "top_domains": [
-        [
-          "问题账号",
-          12
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          10
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          1
-        ],
-        [
-          "同质化搬运号-经营账号",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 11,
-        "用户": 1
-      },
-      "punish_types": {
-        "白盒": 10,
-        "黑盒": 2
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "692d59bc000000001e0259ec",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 5,
-          "punish_time": "2026-06-16",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "69abc138000000001a02b734",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 3,
-          "punish_time": "2026-06-18",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "692eb12c000000001f00b641",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 5,
-          "punish_time": "2026-06-16",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "699d1f5f00000000280227eb",
-          "action": "笔记搜索过滤",
-          "repeat_count": 4,
-          "punish_time": "2026-06-17",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "69a01d7c000000000e00fb05",
-          "action": "笔记搜索过滤",
-          "repeat_count": 4,
-          "punish_time": "2026-06-17",
-          "punish_type": "白盒"
-        }
-      ],
-      "new_today": 1,
-      "new_severe_today": 1
-    },
-    {
-      "seller_id": "677d02aa4079990015d31995",
-      "shop_name": "宫门口馒头铺旗舰店",
-      "count": 11,
-      "severe": 5,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "问题账号",
-          11
-        ]
-      ],
-      "top_tags": [
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          5
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          5
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          1
+          "封标悬念",
+          2
         ]
       ],
       "entities": {
         "笔记": 11
       },
       "punish_types": {
-        "白盒": 10,
-        "黑盒": 1
+        "黑盒": 11
       },
       "samples": [
         {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
+          "tag": "封标悬念",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a1f87970000000022021801",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-03",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2771b2000000000803e714",
-          "action": "笔记搜索过滤",
-          "repeat_count": 1,
-          "punish_time": "2026-06-09",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3ba0450000000022016721",
-          "action": "笔记搜索过滤",
-          "repeat_count": 0,
-          "punish_time": "2026-06-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2557310000000006034116",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-07",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a221c5a000000000802629d",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-05",
-          "punish_type": "白盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    }
-  ],
-  "high_repeat": [
-    {
-      "seller_id": "64082baa9a611c0001397174",
-      "shop_name": "蓝鹊烘焙的店",
-      "count": 132,
-      "severe": 66,
-      "high_repeat": 57,
-      "top_domains": [
-        [
-          "问题账号",
-          132
-        ]
-      ],
-      "top_tags": [
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          70
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          62
-        ]
-      ],
-      "entities": {
-        "笔记": 132
-      },
-      "punish_types": {
-        "黑盒": 132
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1e4bce0000000038035a11",
+          "entity_id": "6a2b73b40000000022014d9a",
           "action": "搜索沉底",
-          "repeat_count": 3,
-          "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a20461f0000000038020a7b",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 4,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a204339000000003701c36b",
-          "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a21758f000000003700f005",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 3,
-          "punish_time": "2026-06-04",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2c1d00000000001603ddee",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 6,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "69ac144203e2c70015a2eea9",
-      "shop_name": "綩朵的店",
-      "count": 127,
-      "severe": 63,
-      "high_repeat": 54,
-      "top_domains": [
-        [
-          "问题账号",
-          127
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          78
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          44
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          4
-        ],
-        [
-          "同质化搬运号-经营账号",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 126,
-        "用户": 1
-      },
-      "punish_types": {
-        "黑盒": 123,
-        "白盒": 4
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2d0a2c000000001603ee6a",
-          "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-13",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a253e24000000001603daca",
-          "action": "笔记推荐限流50%",
           "repeat_count": 0,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2ac07c0000000015025455",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 6,
-          "punish_time": "2026-06-11",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a23d2aa0000000015025df3",
-          "action": "搜索沉底",
-          "repeat_count": 1,
-          "punish_time": "2026-06-06",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a27ca3a0000000022019de6",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 8,
-          "punish_time": "2026-06-09",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "66f2996fff158e0015b52a58",
-      "shop_name": "Happylogist快乐哲学旗舰店",
-      "count": 151,
-      "severe": 83,
-      "high_repeat": 49,
-      "top_domains": [
-        [
-          "问题账号",
-          151
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          89
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          60
-        ],
-        [
-          "工业化流水号-经营账号-中频",
-          1
-        ],
-        [
-          "同质化搬运号-经营账号",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 149,
-        "用户": 2
-      },
-      "punish_types": {
-        "黑盒": 151
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a31248300000000110192b4",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 3,
           "punish_time": "2026-06-16",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a32722f0000000011004b42",
+          "entity_id": "69648c9e00000000220220c4",
           "action": "搜索沉底",
-          "repeat_count": 2,
-          "punish_time": "2026-06-17",
+          "repeat_count": 1,
+          "punish_time": "2026-06-15",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a268bb200000000360001c6",
-          "action": "搜索沉底",
-          "repeat_count": 6,
-          "punish_time": "2026-06-08",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1d5f28000000003502a621",
-          "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-01",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a22b96c0000000021015f96",
+          "entity_id": "6a2b865c0000000036002b1c",
           "action": "搜索沉底",
           "repeat_count": 0,
-          "punish_time": "2026-06-05",
+          "punish_time": "2026-06-15",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2f973a0000000008000313",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a1f93e9000000003703407e",
+          "action": "搜索沉底",
+          "repeat_count": 2,
+          "punish_time": "2026-06-06",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 1,
+      "new_severe_today": 1
+    },
+    {
+      "seller_id": "66f2996fff158e0015b52a58",
+      "shop_name": "Happylogist快乐哲学旗舰店",
+      "count": 10,
+      "severe": 10,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          10
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          7
+        ],
+        [
+          "封标悬念",
+          3
+        ]
+      ],
+      "entities": {
+        "笔记": 10
+      },
+      "punish_types": {
+        "黑盒": 10
+      },
+      "samples": [
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2a6ae8000000000602173d",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-12",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6881e71c0000000022031256",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2fce57000000001c02706f",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-29",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6874defb000000000b02e51a",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a38fbb300000000170081a9",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-23",
           "punish_type": "黑盒"
         }
       ],
@@ -2036,715 +648,159 @@
     {
       "seller_id": "6722dde433325a0015a49b5c",
       "shop_name": "paldo食品旗舰店",
-      "count": 82,
-      "severe": 41,
-      "high_repeat": 37,
+      "count": 9,
+      "severe": 9,
+      "high_repeat": 0,
       "top_domains": [
         [
-          "问题账号",
-          82
+          "内容画风",
+          9
         ]
       ],
       "top_tags": [
         [
-          "同质化搬运号-经营账号-自相似笔记",
-          62
+          "封标悬念",
+          7
         ],
         [
-          "工业化流水号-经营账号-自相似笔记",
-          16
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          4
-        ]
-      ],
-      "entities": {
-        "笔记": 82
-      },
-      "punish_types": {
-        "白盒": 78,
-        "黑盒": 4
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a38895c000000001603dda5",
-          "action": "笔记搜索过滤",
-          "repeat_count": 5,
-          "punish_time": "2026-06-22",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a33c2340000000022018dc5",
-          "action": "笔记搜索过滤",
-          "repeat_count": 6,
-          "punish_time": "2026-06-18",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1a8cb9000000000702235e",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 8,
-          "punish_time": "2026-06-10",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a23eb5b0000000007011248",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-06",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1fa7e100000000210080d7",
-          "action": "笔记搜索过滤",
-          "repeat_count": 4,
-          "punish_time": "2026-06-03",
-          "punish_type": "白盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "67e8f768ad176f0015b51c34",
-      "shop_name": "嬛嬛的低卡轻食日记的店",
-      "count": 92,
-      "severe": 47,
-      "high_repeat": 31,
-      "top_domains": [
-        [
-          "问题账号",
-          92
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          45
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          44
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          3
-        ]
-      ],
-      "entities": {
-        "笔记": 92
-      },
-      "punish_types": {
-        "黑盒": 89,
-        "白盒": 3
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a254d060000000035024f7f",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1d32e200000000080007f7",
-          "action": "搜索沉底",
-          "repeat_count": 3,
-          "punish_time": "2026-06-01",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1d6e25000000003600037d",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 7,
-          "punish_time": "2026-06-01",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a28d59b000000003502e00d",
-          "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-10",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2bb8210000000006022e44",
-          "action": "搜索沉底",
-          "repeat_count": 3,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "65d4461b5fd0a00001077205",
-      "shop_name": "蓝昔鸟食品的店",
-      "count": 85,
-      "severe": 43,
-      "high_repeat": 24,
-      "top_domains": [
-        [
-          "问题账号",
-          85
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          38
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          36
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          8
-        ],
-        [
-          "同质化搬运号-经营账号",
+          "封标跟风",
           2
-        ],
-        [
-          "工业化流水号-经营账号-高频",
-          1
         ]
       ],
       "entities": {
-        "笔记": 82,
-        "用户": 3
+        "笔记": 9
       },
       "punish_types": {
-        "黑盒": 77,
-        "白盒": 8
+        "黑盒": 9
       },
       "samples": [
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a2ac23b0000000036002183",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 7,
-          "punish_time": "2026-06-11",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3397f9000000001101b5a9",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1ed61a0000000036000399",
-          "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a33ce160000000011010f2d",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a203b24000000002201b28c",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-03",
-          "punish_type": "白盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "68512377e94311001571fd78",
-      "shop_name": "鑫鑫小食铺的店",
-      "count": 29,
-      "severe": 11,
-      "high_repeat": 6,
-      "top_domains": [
-        [
-          "问题账号",
-          29
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          13
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          8
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          7
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 29
-      },
-      "punish_types": {
-        "黑盒": 21,
-        "白盒": 8
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2130070000000038022753",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-04",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a23b895000000001702f10d",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-06",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2ae306000000001503d624",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 4,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2ad7600000000016025f3c",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 4,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a33b341000000001702bf75",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "69b3889568857b0015f60b2f",
-      "shop_name": "小安低卡轻饮食🍊的店",
-      "count": 44,
-      "severe": 24,
-      "high_repeat": 4,
-      "top_domains": [
-        [
-          "问题账号",
-          44
-        ]
-      ],
-      "top_tags": [
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          22
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          15
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          7
-        ]
-      ],
-      "entities": {
-        "笔记": 44
-      },
-      "punish_types": {
-        "白盒": 7,
-        "黑盒": 37
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a226c8b000000003802017e",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-05",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1d40660000000006030b3b",
-          "action": "搜索沉底",
-          "repeat_count": 3,
-          "punish_time": "2026-06-01",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1be1160000000036031861",
-          "action": "笔记搜索过滤",
-          "repeat_count": 1,
-          "punish_time": "2026-05-31",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1ffb23000000000702ed7f",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 3,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a22d23f000000003501d7ed",
+          "entity_id": "69fc4d8e000000003501e030",
           "action": "搜索沉底",
           "repeat_count": 0,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "69a3cc3ce5811a00158c7b4c",
-      "shop_name": "飞飞的零食小铺的店",
-      "count": 23,
-      "severe": 12,
-      "high_repeat": 3,
-      "top_domains": [
-        [
-          "问题账号",
-          23
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          18
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          4
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 23
-      },
-      "punish_types": {
-        "黑盒": 22,
-        "白盒": 1
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a201ac9000000002100a06d",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-03",
+          "punish_time": "2026-06-24",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标悬念",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a2a3ef30000000007029e93",
-          "action": "搜索沉底",
-          "repeat_count": 5,
-          "punish_time": "2026-06-11",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a30b9ce0000000007013954",
-          "action": "搜索沉底",
-          "repeat_count": 1,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a311f17000000000f01df2e",
-          "action": "搜索沉底",
-          "repeat_count": 0,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2e60e50000000021019867",
+          "entity_id": "6a28ca2f00000000350223c1",
           "action": "搜索沉底",
           "repeat_count": 2,
-          "punish_time": "2026-06-14",
+          "punish_time": "2026-06-10",
           "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "68d10c38cdd2c90015764135",
-      "shop_name": "千张爱养生的店",
-      "count": 12,
-      "severe": 5,
-      "high_repeat": 2,
-      "top_domains": [
-        [
-          "问题账号",
-          12
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          10
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          1
-        ],
-        [
-          "同质化搬运号-经营账号",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 11,
-        "用户": 1
-      },
-      "punish_types": {
-        "白盒": 10,
-        "黑盒": 2
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "692d59bc000000001e0259ec",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 5,
-          "punish_time": "2026-06-16",
-          "punish_type": "白盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
+          "tag": "封标悬念",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "69abc138000000001a02b734",
-          "action": "笔记推荐限流100%",
+          "entity_id": "6a2cc6060000000035024840",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-16",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2638a8000000003503b4ef",
+          "action": "搜索沉底",
           "repeat_count": 3,
-          "punish_time": "2026-06-18",
-          "punish_type": "白盒"
+          "punish_time": "2026-06-08",
+          "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
+          "tag": "封标悬念",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "692eb12c000000001f00b641",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 5,
-          "punish_time": "2026-06-16",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "699d1f5f00000000280227eb",
-          "action": "笔记搜索过滤",
-          "repeat_count": 4,
-          "punish_time": "2026-06-17",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "69a01d7c000000000e00fb05",
-          "action": "笔记搜索过滤",
-          "repeat_count": 4,
-          "punish_time": "2026-06-17",
-          "punish_type": "白盒"
+          "entity_id": "6a28c685000000002202dc69",
+          "action": "搜索沉底",
+          "repeat_count": 2,
+          "punish_time": "2026-06-10",
+          "punish_type": "黑盒"
         }
       ],
       "new_today": 1,
       "new_severe_today": 1
     },
     {
-      "seller_id": "64c5c38558540000013204a5",
-      "shop_name": "稻廷斋粽子的店",
-      "count": 18,
-      "severe": 8,
-      "high_repeat": 2,
+      "seller_id": "68b5839a0347af001577189d",
+      "shop_name": "摸鱼小食仓的店",
+      "count": 9,
+      "severe": 9,
+      "high_repeat": 0,
       "top_domains": [
         [
-          "问题账号",
-          18
+          "内容画风",
+          9
         ]
       ],
       "top_tags": [
         [
-          "工业化流水号-经营账号-他相似笔记",
-          10
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          7
-        ],
-        [
-          "工业化流水号-经营账号-低频",
-          1
+          "封标跟风",
+          9
         ]
       ],
       "entities": {
-        "笔记": 17,
-        "用户": 1
+        "笔记": 9
       },
       "punish_types": {
-        "黑盒": 18
+        "黑盒": 9
       },
       "samples": [
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a2515f90000000035032e70",
+          "entity_id": "698039350000000021031e4b",
           "action": "搜索沉底",
           "repeat_count": 0,
-          "punish_time": "2026-06-07",
+          "punish_time": "2026-06-24",
           "punish_type": "黑盒"
         },
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a1fe9f60000000036001eaf",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 3,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2277480000000035028acb",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1e8fa1000000002201b146",
+          "entity_id": "69e5da18000000001a024f2f",
           "action": "搜索沉底",
-          "repeat_count": 4,
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "697c4ba200000000210315f6",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "696a0c970000000022021d83",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a1e3e35000000003601fb3b",
+          "action": "搜索沉底",
+          "repeat_count": 0,
           "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-低频",
-          "domain": "问题账号",
-          "entity_type": "用户",
-          "entity_id": "64ac8cf0000000002b008866",
-          "action": "用户推荐限流30%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-05",
           "punish_type": "黑盒"
         }
       ],
@@ -2752,87 +808,935 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "650844c2ae36980001a9401b",
-      "shop_name": "遂香记的店",
-      "count": 11,
-      "severe": 6,
-      "high_repeat": 1,
+      "seller_id": "6690cfaa31d8df0001720ded",
+      "shop_name": "吃不胖的莱咪休闲食品铺的店",
+      "count": 8,
+      "severe": 8,
+      "high_repeat": 0,
       "top_domains": [
         [
-          "问题账号",
-          11
+          "内容画风",
+          8
         ]
       ],
       "top_tags": [
         [
-          "同质化搬运号-经营账号-他相似笔记",
-          9
+          "封标跟风",
+          8
+        ]
+      ],
+      "entities": {
+        "笔记": 8
+      },
+      "punish_types": {
+        "黑盒": 8
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "68784fa60000000017032c7f",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6980acf5000000000e03c827",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-23",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "696afd57000000000903bd60",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-16",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "687601b3000000000b02db1a",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69f33908000000003700c6d2",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "64108f5d3a4a690001e17788",
+      "shop_name": "瑶姐妹特产的店",
+      "count": 7,
+      "severe": 7,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          7
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          7
+        ]
+      ],
+      "entities": {
+        "笔记": 7
+      },
+      "punish_types": {
+        "黑盒": 7
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "68ec7058000000000503277b",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "68d38974000000000e00da47",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "68c3d1e1000000001b032ffb",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6968619a000000001a028227",
+          "action": "搜索沉底",
+          "repeat_count": 3,
+          "punish_time": "2026-06-16",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a0937310000000036000b8d",
+          "action": "搜索沉底",
+          "repeat_count": 4,
+          "punish_time": "2026-06-15",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "69b90d01cc48350015031f37",
+      "shop_name": "仓鼠行动健康养生食品的店",
+      "count": 6,
+      "severe": 5,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          6
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          5
         ],
         [
-          "工业化流水号-经营账号-他相似笔记",
-          1
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
+          "LGBT分享",
           1
         ]
       ],
       "entities": {
-        "笔记": 11
+        "笔记": 6
       },
       "punish_types": {
-        "黑盒": 10,
-        "白盒": 1
+        "黑盒": 6
       },
       "samples": [
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a1ff1b9000000003701ea52",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a24bb9d0000000007010604",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 7,
-          "punish_time": "2026-06-09",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2fede80000000017008725",
+          "entity_id": "6a432ee50000000021018eff",
           "action": "搜索沉底",
           "repeat_count": 0,
+          "punish_time": "2026-06-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a3df0f50000000007024768",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-26",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a1fe7b500000000370346ee",
+          "action": "搜索沉底",
+          "repeat_count": 1,
           "punish_time": "2026-06-15",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "LGBT分享",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a2ea8f6000000002202bf88",
-          "action": "笔记推荐限流50%",
+          "entity_id": "6a3de9ab0000000008027ed3",
+          "action": "最新话题feed下不出",
+          "repeat_count": 0,
+          "punish_time": "2026-06-26",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a26243d00000000220098cc",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-12",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 1,
+      "new_severe_today": 1
+    },
+    {
+      "seller_id": "68d10c38cdd2c90015764135",
+      "shop_name": "千张爱养生的店",
+      "count": 5,
+      "severe": 5,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          5
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标悬念",
+          5
+        ]
+      ],
+      "entities": {
+        "笔记": 5
+      },
+      "punish_types": {
+        "黑盒": 5
+      },
+      "samples": [
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2fb2cb000000000803d309",
+          "action": "搜索沉底",
+          "repeat_count": 4,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a3ba68b0000000017028438",
+          "action": "搜索沉底",
           "repeat_count": 2,
+          "punish_time": "2026-06-25",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a33bb89000000001700b93c",
+          "action": "搜索沉底",
+          "repeat_count": 4,
+          "punish_time": "2026-06-20",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a408011000000001503f600",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-28",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2e56b60000000006021eae",
+          "action": "搜索沉底",
+          "repeat_count": 3,
+          "punish_time": "2026-06-23",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "639022cbfa525500016d2f0d",
+      "shop_name": "幸福口袋旗舰店",
+      "count": 5,
+      "severe": 5,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          5
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          5
+        ]
+      ],
+      "entities": {
+        "笔记": 5
+      },
+      "punish_types": {
+        "黑盒": 5
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69abd0b0000000002603d7d6",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-23",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "688f430d000000002203bc38",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6850ffa40000000022035c8d",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6982fdbc000000000b009f11",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-23",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "68c69442000000001c03684f",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "69e1a3568d4c55001596ba77",
+      "shop_name": "香美客饼干旗舰店",
+      "count": 5,
+      "severe": 2,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          5
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          2
+        ],
+        [
+          "利益交换",
+          2
+        ],
+        [
+          "LGBT分享",
+          1
+        ]
+      ],
+      "entities": {
+        "笔记": 5
+      },
+      "punish_types": {
+        "黑盒": 3,
+        "白盒": 2
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a291fbd000000002202bc1e",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-10",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69f053a7000000003802248d",
+          "action": "搜索沉底",
+          "repeat_count": 0,
           "punish_time": "2026-06-14",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "LGBT分享",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a335b22000000001101409d",
-          "action": "笔记推荐限流50%",
+          "entity_id": "6a238789000000003600004a",
+          "action": "最新话题feed下不出",
+          "repeat_count": 0,
+          "punish_time": "2026-06-06",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "利益交换",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a335983000000001702aee2",
+          "action": "仅粉丝可见",
           "repeat_count": 0,
           "punish_time": "2026-06-18",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "利益交换",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a238ca3000000001c027104",
+          "action": "仅粉丝可见",
+          "repeat_count": 1,
+          "punish_time": "2026-06-06",
+          "punish_type": "白盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "686e67313d638e0015fba668",
+      "shop_name": "碳水研究所的店",
+      "count": 4,
+      "severe": 4,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          4
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          4
+        ]
+      ],
+      "entities": {
+        "笔记": 4
+      },
+      "punish_types": {
+        "黑盒": 4
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "692963e7000000001e00256c",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "68a2aa22000000001d009cfe",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "68c6a32d000000001d001d48",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6950fb4e0000000021028c30",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-22",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "658026f41675ec000118a166",
+      "shop_name": "糙能农场旗舰店",
+      "count": 4,
+      "severe": 4,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          4
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标悬念",
+          2
+        ],
+        [
+          "封标跟风",
+          2
+        ]
+      ],
+      "entities": {
+        "笔记": 4
+      },
+      "punish_types": {
+        "黑盒": 4
+      },
+      "samples": [
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a268d4600000000220266d0",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-19",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69d8fd98000000001a0312e0",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "661a1bc7000000001b0099d4",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-23",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a27e4a40000000008032a66",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-10",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "5d0c7ec4fcdfee0001d162af",
+      "shop_name": "旺仔俱乐部旗舰店",
+      "count": 4,
+      "severe": 4,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          4
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          4
+        ]
+      ],
+      "entities": {
+        "笔记": 4
+      },
+      "punish_types": {
+        "黑盒": 4
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69ca39b000000000230040d3",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6985bd35000000000a03c948",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-16",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a3f366d000000001702eb36",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-27",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a1ff86b0000000038035d61",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-03",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "63528784814e2d00019e54c1",
+      "shop_name": "松鲜鲜安心店铺旗舰店",
+      "count": 4,
+      "severe": 4,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          4
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          3
+        ],
+        [
+          "封标悬念",
+          1
+        ]
+      ],
+      "entities": {
+        "笔记": 4
+      },
+      "punish_types": {
+        "黑盒": 4
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69d7b7cb000000001a031e22",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "68553ce40000000010024bd3",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69cd4b8500000000230158bc",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a1d4d81000000000803d89c",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-08",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    }
+  ],
+  "high_repeat": [
+    {
+      "seller_id": "6220932a00db3b00019e6e18",
+      "shop_name": "麻六记旗舰店",
+      "count": 22,
+      "severe": 22,
+      "high_repeat": 14,
+      "top_domains": [
+        [
+          "内容画风",
+          22
+        ]
+      ],
+      "top_tags": [
+        [
+          "直播举报—影响观播体验—观感不佳",
+          21
+        ],
+        [
+          "封标跟风",
+          1
+        ]
+      ],
+      "entities": {
+        "直播间": 21,
+        "笔记": 1
+      },
+      "punish_types": {
+        "黑盒": 22
+      },
+      "samples": [
+        {
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570330414460918668",
+          "action": "直播间流量干预-公域停推100%",
+          "repeat_count": 8,
+          "punish_time": "2026-06-22",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570323158431190833",
+          "action": "直播间流量干预-公域停推100%",
+          "repeat_count": 11,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570314406732066571",
+          "action": "直播间流量干预-公域停推100%",
+          "repeat_count": 10,
+          "punish_time": "2026-06-11",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570321712027551438",
+          "action": "直播间流量干预-公域停推100%",
+          "repeat_count": 11,
+          "punish_time": "2026-06-16",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570336207709690849",
+          "action": "直播间流量干预-公域停推100%",
+          "repeat_count": 4,
+          "punish_time": "2026-06-26",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 1,
+      "new_severe_today": 1
+    },
+    {
+      "seller_id": "6915b322db1b070015b59650",
+      "shop_name": "有鲤鲤的店的店",
+      "count": 28,
+      "severe": 28,
+      "high_repeat": 13,
+      "top_domains": [
+        [
+          "内容画风",
+          28
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          28
+        ]
+      ],
+      "entities": {
+        "笔记": 28
+      },
+      "punish_types": {
+        "黑盒": 28
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a28bd06000000002201a39d",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-10",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a1d249800000000350204f5",
+          "action": "搜索沉底",
+          "repeat_count": 6,
+          "punish_time": "2026-06-12",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a0186bb000000003503353e",
+          "action": "搜索沉底",
+          "repeat_count": 5,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a37c1d7000000000702f904",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-22",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a3a59470000000021019224",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-23",
           "punish_type": "黑盒"
         }
       ],
@@ -2843,267 +1747,78 @@
   "new_burst": [],
   "severe": [
     {
-      "seller_id": "66f2996fff158e0015b52a58",
-      "shop_name": "Happylogist快乐哲学旗舰店",
-      "count": 151,
-      "severe": 83,
-      "high_repeat": 49,
+      "seller_id": "6915b322db1b070015b59650",
+      "shop_name": "有鲤鲤的店的店",
+      "count": 28,
+      "severe": 28,
+      "high_repeat": 13,
       "top_domains": [
         [
-          "问题账号",
-          151
+          "内容画风",
+          28
         ]
       ],
       "top_tags": [
         [
-          "同质化搬运号-经营账号-他相似笔记",
-          89
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          60
-        ],
-        [
-          "工业化流水号-经营账号-中频",
-          1
-        ],
-        [
-          "同质化搬运号-经营账号",
-          1
+          "封标跟风",
+          28
         ]
       ],
       "entities": {
-        "笔记": 149,
-        "用户": 2
+        "笔记": 28
       },
       "punish_types": {
-        "黑盒": 151
+        "黑盒": 28
       },
       "samples": [
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a31248300000000110192b4",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 3,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a32722f0000000011004b42",
+          "entity_id": "6a28bd06000000002201a39d",
           "action": "搜索沉底",
-          "repeat_count": 2,
-          "punish_time": "2026-06-17",
+          "repeat_count": 1,
+          "punish_time": "2026-06-10",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a268bb200000000360001c6",
+          "entity_id": "6a1d249800000000350204f5",
           "action": "搜索沉底",
-          "repeat_count": 6,
-          "punish_time": "2026-06-08",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1d5f28000000003502a621",
-          "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-01",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a22b96c0000000021015f96",
-          "action": "搜索沉底",
-          "repeat_count": 0,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "64082baa9a611c0001397174",
-      "shop_name": "蓝鹊烘焙的店",
-      "count": 132,
-      "severe": 66,
-      "high_repeat": 57,
-      "top_domains": [
-        [
-          "问题账号",
-          132
-        ]
-      ],
-      "top_tags": [
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          70
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          62
-        ]
-      ],
-      "entities": {
-        "笔记": 132
-      },
-      "punish_types": {
-        "黑盒": 132
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1e4bce0000000038035a11",
-          "action": "搜索沉底",
-          "repeat_count": 3,
-          "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a20461f0000000038020a7b",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 4,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a204339000000003701c36b",
-          "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a21758f000000003700f005",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 3,
-          "punish_time": "2026-06-04",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2c1d00000000001603ddee",
-          "action": "笔记推荐限流50%",
           "repeat_count": 6,
           "punish_time": "2026-06-12",
           "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "69ac144203e2c70015a2eea9",
-      "shop_name": "綩朵的店",
-      "count": 127,
-      "severe": 63,
-      "high_repeat": 54,
-      "top_domains": [
-        [
-          "问题账号",
-          127
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          78
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          44
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          4
-        ],
-        [
-          "同质化搬运号-经营账号",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 126,
-        "用户": 1
-      },
-      "punish_types": {
-        "黑盒": 123,
-        "白盒": 4
-      },
-      "samples": [
+        },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a2d0a2c000000001603ee6a",
+          "entity_id": "6a0186bb000000003503353e",
           "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-13",
+          "repeat_count": 5,
+          "punish_time": "2026-06-14",
           "punish_type": "黑盒"
         },
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a253e24000000001603daca",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2ac07c0000000015025455",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 6,
-          "punish_time": "2026-06-11",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a23d2aa0000000015025df3",
+          "entity_id": "6a37c1d7000000000702f904",
           "action": "搜索沉底",
           "repeat_count": 1,
-          "punish_time": "2026-06-06",
+          "punish_time": "2026-06-22",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a27ca3a0000000022019de6",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 8,
-          "punish_time": "2026-06-09",
+          "entity_id": "6a3a59470000000021019224",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-23",
           "punish_type": "黑盒"
         }
       ],
@@ -3113,85 +1828,76 @@
     {
       "seller_id": "67e8f768ad176f0015b51c34",
       "shop_name": "嬛嬛的低卡轻食日记的店",
-      "count": 92,
-      "severe": 47,
-      "high_repeat": 31,
+      "count": 25,
+      "severe": 25,
+      "high_repeat": 0,
       "top_domains": [
         [
-          "问题账号",
-          92
+          "内容画风",
+          25
         ]
       ],
       "top_tags": [
         [
-          "同质化搬运号-经营账号-他相似笔记",
-          45
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          44
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          3
+          "封标跟风",
+          25
         ]
       ],
       "entities": {
-        "笔记": 92
+        "笔记": 25
       },
       "punish_types": {
-        "黑盒": 89,
-        "白盒": 3
+        "黑盒": 25
       },
       "samples": [
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a254d060000000035024f7f",
-          "action": "笔记推荐限流50%",
+          "entity_id": "6a292f470000000022017aba",
+          "action": "搜索沉底",
+          "repeat_count": 3,
+          "punish_time": "2026-06-11",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69a787670000000022022b74",
+          "action": "搜索沉底",
           "repeat_count": 1,
-          "punish_time": "2026-06-07",
+          "punish_time": "2026-06-15",
           "punish_type": "黑盒"
         },
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a1d32e200000000080007f7",
+          "entity_id": "691364a2000000000700b064",
           "action": "搜索沉底",
-          "repeat_count": 3,
-          "punish_time": "2026-06-01",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
           "punish_type": "黑盒"
         },
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a1d6e25000000003600037d",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 7,
-          "punish_time": "2026-06-01",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a28d59b000000003502e00d",
+          "entity_id": "69391d1f000000001e02eeb0",
           "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-10",
+          "repeat_count": 2,
+          "punish_time": "2026-06-22",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a2bb8210000000006022e44",
+          "entity_id": "6a2c0cdc000000002100b0e4",
           "action": "搜索沉底",
-          "repeat_count": 3,
-          "punish_time": "2026-06-12",
+          "repeat_count": 1,
+          "punish_time": "2026-06-13",
           "punish_type": "黑盒"
         }
       ],
@@ -3199,97 +1905,487 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "65d4461b5fd0a00001077205",
-      "shop_name": "蓝昔鸟食品的店",
-      "count": 85,
-      "severe": 43,
-      "high_repeat": 24,
+      "seller_id": "6220932a00db3b00019e6e18",
+      "shop_name": "麻六记旗舰店",
+      "count": 22,
+      "severe": 22,
+      "high_repeat": 14,
       "top_domains": [
         [
-          "问题账号",
-          85
+          "内容画风",
+          22
         ]
       ],
       "top_tags": [
         [
-          "同质化搬运号-经营账号-他相似笔记",
-          38
+          "直播举报—影响观播体验—观感不佳",
+          21
         ],
         [
-          "工业化流水号-经营账号-他相似笔记",
-          36
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          8
-        ],
-        [
-          "同质化搬运号-经营账号",
-          2
-        ],
-        [
-          "工业化流水号-经营账号-高频",
+          "封标跟风",
           1
         ]
       ],
       "entities": {
-        "笔记": 82,
-        "用户": 3
+        "直播间": 21,
+        "笔记": 1
       },
       "punish_types": {
-        "黑盒": 77,
-        "白盒": 8
+        "黑盒": 22
       },
       "samples": [
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2ac23b0000000036002183",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 7,
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570330414460918668",
+          "action": "直播间流量干预-公域停推100%",
+          "repeat_count": 8,
+          "punish_time": "2026-06-22",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570323158431190833",
+          "action": "直播间流量干预-公域停推100%",
+          "repeat_count": 11,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570314406732066571",
+          "action": "直播间流量干预-公域停推100%",
+          "repeat_count": 10,
           "punish_time": "2026-06-11",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3397f9000000001101b5a9",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-18",
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570321712027551438",
+          "action": "直播间流量干预-公域停推100%",
+          "repeat_count": 11,
+          "punish_time": "2026-06-16",
           "punish_type": "黑盒"
         },
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1ed61a0000000036000399",
-          "action": "搜索沉底",
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570336207709690849",
+          "action": "直播间流量干预-公域停推100%",
           "repeat_count": 4,
-          "punish_time": "2026-06-02",
+          "punish_time": "2026-06-26",
           "punish_type": "黑盒"
-        },
+        }
+      ],
+      "new_today": 1,
+      "new_severe_today": 1
+    },
+    {
+      "seller_id": "66f5161ea9bf3400163b030e",
+      "shop_name": "虹孩儿的店",
+      "count": 21,
+      "severe": 21,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          21
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          21
+        ]
+      ],
+      "entities": {
+        "笔记": 21
+      },
+      "punish_types": {
+        "黑盒": 21
+      },
+      "samples": [
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a33ce160000000011010f2d",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a203b24000000002201b28c",
-          "action": "笔记推荐限流100%",
+          "entity_id": "688885ca0000000023023281",
+          "action": "搜索沉底",
           "repeat_count": 1,
-          "punish_time": "2026-06-03",
-          "punish_type": "白盒"
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69301e0b000000001e02908f",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6854cbfa00000000230060b0",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a297a1b0000000022016c0b",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-11",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "682a9e5f000000002102e96b",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-25",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "64afb6e7c46602000150ed0c",
+      "shop_name": "一只liuliu的店",
+      "count": 15,
+      "severe": 15,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          15
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          15
+        ]
+      ],
+      "entities": {
+        "笔记": 15
+      },
+      "punish_types": {
+        "黑盒": 15
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2685360000000016024dbb",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-08",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6889b7b0000000000500af83",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6854df85000000001203d151",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a21072b0000000036032a01",
+          "action": "搜索沉底",
+          "repeat_count": 2,
+          "punish_time": "2026-06-04",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a196060000000003601c799",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "6497fc2d48b95a0001e0cbee",
+      "shop_name": "仙启坊i的店",
+      "count": 12,
+      "severe": 12,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          12
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          12
+        ]
+      ],
+      "entities": {
+        "笔记": 12
+      },
+      "punish_types": {
+        "黑盒": 12
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2121f800000000220154ca",
+          "action": "搜索沉底",
+          "repeat_count": 2,
+          "punish_time": "2026-06-12",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a354f6a0000000007027272",
+          "action": "搜索沉底",
+          "repeat_count": 2,
+          "punish_time": "2026-06-22",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "689fdcb4000000001b03e54a",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a23e79600000000210190b3",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-07",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "687d199a000000001203dc15",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "611f6edffc67c90001f2a5f0",
+      "shop_name": "德叔鲍鱼旗舰店",
+      "count": 11,
+      "severe": 11,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          11
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          9
+        ],
+        [
+          "封标悬念",
+          2
+        ]
+      ],
+      "entities": {
+        "笔记": 11
+      },
+      "punish_types": {
+        "黑盒": 11
+      },
+      "samples": [
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2b73b40000000022014d9a",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-16",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69648c9e00000000220220c4",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-15",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2b865c0000000036002b1c",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-15",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2f973a0000000008000313",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a1f93e9000000003703407e",
+          "action": "搜索沉底",
+          "repeat_count": 2,
+          "punish_time": "2026-06-06",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 1,
+      "new_severe_today": 1
+    },
+    {
+      "seller_id": "66f2996fff158e0015b52a58",
+      "shop_name": "Happylogist快乐哲学旗舰店",
+      "count": 10,
+      "severe": 10,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          10
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          7
+        ],
+        [
+          "封标悬念",
+          3
+        ]
+      ],
+      "entities": {
+        "笔记": 10
+      },
+      "punish_types": {
+        "黑盒": 10
+      },
+      "samples": [
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2a6ae8000000000602173d",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-12",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6881e71c0000000022031256",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2fce57000000001c02706f",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-29",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6874defb000000000b02e51a",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a38fbb300000000170081a9",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-23",
+          "punish_type": "黑盒"
         }
       ],
       "new_today": 0,
@@ -3298,261 +2394,159 @@
     {
       "seller_id": "6722dde433325a0015a49b5c",
       "shop_name": "paldo食品旗舰店",
-      "count": 82,
-      "severe": 41,
-      "high_repeat": 37,
-      "top_domains": [
-        [
-          "问题账号",
-          82
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          62
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          16
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          4
-        ]
-      ],
-      "entities": {
-        "笔记": 82
-      },
-      "punish_types": {
-        "白盒": 78,
-        "黑盒": 4
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a38895c000000001603dda5",
-          "action": "笔记搜索过滤",
-          "repeat_count": 5,
-          "punish_time": "2026-06-22",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a33c2340000000022018dc5",
-          "action": "笔记搜索过滤",
-          "repeat_count": 6,
-          "punish_time": "2026-06-18",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1a8cb9000000000702235e",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 8,
-          "punish_time": "2026-06-10",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a23eb5b0000000007011248",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-06",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1fa7e100000000210080d7",
-          "action": "笔记搜索过滤",
-          "repeat_count": 4,
-          "punish_time": "2026-06-03",
-          "punish_type": "白盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "69b3889568857b0015f60b2f",
-      "shop_name": "小安低卡轻饮食🍊的店",
-      "count": 44,
-      "severe": 24,
-      "high_repeat": 4,
-      "top_domains": [
-        [
-          "问题账号",
-          44
-        ]
-      ],
-      "top_tags": [
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          22
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          15
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          7
-        ]
-      ],
-      "entities": {
-        "笔记": 44
-      },
-      "punish_types": {
-        "白盒": 7,
-        "黑盒": 37
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a226c8b000000003802017e",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-05",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1d40660000000006030b3b",
-          "action": "搜索沉底",
-          "repeat_count": 3,
-          "punish_time": "2026-06-01",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1be1160000000036031861",
-          "action": "笔记搜索过滤",
-          "repeat_count": 1,
-          "punish_time": "2026-05-31",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1ffb23000000000702ed7f",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 3,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a22d23f000000003501d7ed",
-          "action": "搜索沉底",
-          "repeat_count": 0,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "6821be9575cd1900157b82cb",
-      "shop_name": "不正经糖铺的店",
-      "count": 31,
-      "severe": 20,
+      "count": 9,
+      "severe": 9,
       "high_repeat": 0,
       "top_domains": [
         [
-          "问题账号",
-          31
+          "内容画风",
+          9
         ]
       ],
       "top_tags": [
         [
-          "工业化流水号-经营账号-他相似笔记",
-          17
+          "封标悬念",
+          7
         ],
         [
-          "同质化搬运号-经营账号-他相似笔记",
-          8
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          6
+          "封标跟风",
+          2
         ]
       ],
       "entities": {
-        "笔记": 31
+        "笔记": 9
       },
       "punish_types": {
-        "黑盒": 25,
-        "白盒": 6
+        "黑盒": 9
       },
       "samples": [
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a22b44c0000000008030f79",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2a443d000000002202e1f6",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-11",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2c09850000000008027d2b",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2fbcd800000000060356bf",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-15",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a22c4470000000017028d17",
+          "entity_id": "69fc4d8e000000003501e030",
           "action": "搜索沉底",
           "repeat_count": 0,
-          "punish_time": "2026-06-05",
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a28ca2f00000000350223c1",
+          "action": "搜索沉底",
+          "repeat_count": 2,
+          "punish_time": "2026-06-10",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2cc6060000000035024840",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-16",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2638a8000000003503b4ef",
+          "action": "搜索沉底",
+          "repeat_count": 3,
+          "punish_time": "2026-06-08",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a28c685000000002202dc69",
+          "action": "搜索沉底",
+          "repeat_count": 2,
+          "punish_time": "2026-06-10",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 1,
+      "new_severe_today": 1
+    },
+    {
+      "seller_id": "68b5839a0347af001577189d",
+      "shop_name": "摸鱼小食仓的店",
+      "count": 9,
+      "severe": 9,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          9
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          9
+        ]
+      ],
+      "entities": {
+        "笔记": 9
+      },
+      "punish_types": {
+        "黑盒": 9
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "698039350000000021031e4b",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69e5da18000000001a024f2f",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "697c4ba200000000210315f6",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "696a0c970000000022021d83",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a1e3e35000000003601fb3b",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-02",
           "punish_type": "黑盒"
         }
       ],
@@ -3560,86 +2554,77 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "69a3cc3ce5811a00158c7b4c",
-      "shop_name": "飞飞的零食小铺的店",
-      "count": 23,
-      "severe": 12,
-      "high_repeat": 3,
+      "seller_id": "6690cfaa31d8df0001720ded",
+      "shop_name": "吃不胖的莱咪休闲食品铺的店",
+      "count": 8,
+      "severe": 8,
+      "high_repeat": 0,
       "top_domains": [
         [
-          "问题账号",
-          23
+          "内容画风",
+          8
         ]
       ],
       "top_tags": [
         [
-          "同质化搬运号-经营账号-他相似笔记",
-          18
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          4
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          1
+          "封标跟风",
+          8
         ]
       ],
       "entities": {
-        "笔记": 23
+        "笔记": 8
       },
       "punish_types": {
-        "黑盒": 22,
-        "白盒": 1
+        "黑盒": 8
       },
       "samples": [
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a201ac9000000002100a06d",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2a3ef30000000007029e93",
-          "action": "搜索沉底",
-          "repeat_count": 5,
-          "punish_time": "2026-06-11",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a30b9ce0000000007013954",
-          "action": "搜索沉底",
-          "repeat_count": 1,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a311f17000000000f01df2e",
+          "entity_id": "68784fa60000000017032c7f",
           "action": "搜索沉底",
           "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6980acf5000000000e03c827",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-23",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "696afd57000000000903bd60",
+          "action": "搜索沉底",
+          "repeat_count": 1,
           "punish_time": "2026-06-16",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a2e60e50000000021019867",
+          "entity_id": "687601b3000000000b02db1a",
           "action": "搜索沉底",
-          "repeat_count": 2,
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69f33908000000003700c6d2",
+          "action": "搜索沉底",
+          "repeat_count": 1,
           "punish_time": "2026-06-14",
           "punish_type": "黑盒"
         }
@@ -3648,531 +2633,320 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "6909eed3eb74ab001568f8f6",
-      "shop_name": "桂潮食品的店",
-      "count": 23,
-      "severe": 11,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "问题账号",
-          23
-        ]
-      ],
-      "top_tags": [
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          8
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          7
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          5
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          3
-        ]
-      ],
-      "entities": {
-        "笔记": 23
-      },
-      "punish_types": {
-        "白盒": 15,
-        "黑盒": 8
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3cfda50000000007022df8",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-25",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3cfd0b000000000f02a3c1",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-25",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a27cc1b0000000022023915",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 1,
-          "punish_time": "2026-06-09",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a23cbd6000000000803ce99",
-          "action": "搜索沉底",
-          "repeat_count": 1,
-          "punish_time": "2026-06-06",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1a8ec9000000003701ce7a",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "68512377e94311001571fd78",
-      "shop_name": "鑫鑫小食铺的店",
-      "count": 29,
-      "severe": 11,
-      "high_repeat": 6,
-      "top_domains": [
-        [
-          "问题账号",
-          29
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          13
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          8
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          7
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 29
-      },
-      "punish_types": {
-        "黑盒": 21,
-        "白盒": 8
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2130070000000038022753",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-04",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a23b895000000001702f10d",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-06",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2ae306000000001503d624",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 4,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2ad7600000000016025f3c",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 4,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a33b341000000001702bf75",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "6357bc3e814e2d00019e749b",
-      "shop_name": "拉面口袋的店",
-      "count": 22,
-      "severe": 10,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "问题账号",
-          22
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          15
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          6
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 22
-      },
-      "punish_types": {
-        "黑盒": 21,
-        "白盒": 1
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a295af80000000008033409",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-11",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2912ff000000001c024a9f",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-10",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a33d49e000000002200a7d9",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-18",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "69facf2f00000000380359ae",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-17",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2628b4000000002003be84",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-08",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "658171711675ec0001bf5409",
-      "shop_name": "运康锅巴旗舰店",
-      "count": 13,
-      "severe": 10,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "问题账号",
-          13
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          11
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          1
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 13
-      },
-      "punish_types": {
-        "白盒": 11,
-        "黑盒": 2
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a29044e0000000035021e53",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 3,
-          "punish_time": "2026-06-10",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3fb679000000000f005cf8",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-27",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2d3c2e000000003503180c",
-          "action": "笔记推荐限流100%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-13",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a291d93000000002202525f",
-          "action": "笔记搜索过滤",
-          "repeat_count": 3,
-          "punish_time": "2026-06-10",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2904b90000000035033466",
-          "action": "搜索沉底",
-          "repeat_count": 0,
-          "punish_time": "2026-06-10",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "64c5c38558540000013204a5",
-      "shop_name": "稻廷斋粽子的店",
-      "count": 18,
-      "severe": 8,
-      "high_repeat": 2,
-      "top_domains": [
-        [
-          "问题账号",
-          18
-        ]
-      ],
-      "top_tags": [
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          10
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          7
-        ],
-        [
-          "工业化流水号-经营账号-低频",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 17,
-        "用户": 1
-      },
-      "punish_types": {
-        "黑盒": 18
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2515f90000000035032e70",
-          "action": "搜索沉底",
-          "repeat_count": 0,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1fe9f60000000036001eaf",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 3,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2277480000000035028acb",
-          "action": "笔记推荐限流50%",
-          "repeat_count": 2,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1e8fa1000000002201b146",
-          "action": "搜索沉底",
-          "repeat_count": 4,
-          "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-低频",
-          "domain": "问题账号",
-          "entity_type": "用户",
-          "entity_id": "64ac8cf0000000002b008866",
-          "action": "用户推荐限流30%",
-          "repeat_count": 0,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "63c50988f2eae8000112dbe1",
-      "shop_name": "茶口乐旗舰店",
-      "count": 13,
+      "seller_id": "64108f5d3a4a690001e17788",
+      "shop_name": "瑶姐妹特产的店",
+      "count": 7,
       "severe": 7,
       "high_repeat": 0,
       "top_domains": [
         [
-          "问题账号",
-          13
+          "内容画风",
+          7
         ]
       ],
       "top_tags": [
         [
-          "同质化搬运号-经营账号-自相似笔记",
-          9
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          4
+          "封标跟风",
+          7
         ]
       ],
       "entities": {
-        "笔记": 13
+        "笔记": 7
       },
       "punish_types": {
-        "白盒": 13
+        "黑盒": 7
       },
       "samples": [
         {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a1eaa1f0000000035025770",
-          "action": "笔记搜索过滤",
-          "repeat_count": 1,
-          "punish_time": "2026-06-02",
-          "punish_type": "白盒"
+          "entity_id": "68ec7058000000000503277b",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a3e1ef2000000001702ac80",
-          "action": "笔记搜索过滤",
-          "repeat_count": 1,
-          "punish_time": "2026-06-26",
-          "punish_type": "白盒"
+          "entity_id": "68d38974000000000e00da47",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a292e63000000001c0277d3",
-          "action": "笔记搜索过滤",
+          "entity_id": "68c3d1e1000000001b032ffb",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6968619a000000001a028227",
+          "action": "搜索沉底",
           "repeat_count": 3,
-          "punish_time": "2026-06-10",
-          "punish_type": "白盒"
+          "punish_time": "2026-06-16",
+          "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a3e1e7200000000160272fd",
-          "action": "笔记搜索过滤",
+          "entity_id": "6a0937310000000036000b8d",
+          "action": "搜索沉底",
+          "repeat_count": 4,
+          "punish_time": "2026-06-15",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "68d10c38cdd2c90015764135",
+      "shop_name": "千张爱养生的店",
+      "count": 5,
+      "severe": 5,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          5
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标悬念",
+          5
+        ]
+      ],
+      "entities": {
+        "笔记": 5
+      },
+      "punish_types": {
+        "黑盒": 5
+      },
+      "samples": [
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2fb2cb000000000803d309",
+          "action": "搜索沉底",
+          "repeat_count": 4,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a3ba68b0000000017028438",
+          "action": "搜索沉底",
+          "repeat_count": 2,
+          "punish_time": "2026-06-25",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a33bb89000000001700b93c",
+          "action": "搜索沉底",
+          "repeat_count": 4,
+          "punish_time": "2026-06-20",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a408011000000001503f600",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-28",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a2e56b60000000006021eae",
+          "action": "搜索沉底",
+          "repeat_count": 3,
+          "punish_time": "2026-06-23",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "639022cbfa525500016d2f0d",
+      "shop_name": "幸福口袋旗舰店",
+      "count": 5,
+      "severe": 5,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          5
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          5
+        ]
+      ],
+      "entities": {
+        "笔记": 5
+      },
+      "punish_types": {
+        "黑盒": 5
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69abd0b0000000002603d7d6",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-23",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "688f430d000000002203bc38",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6850ffa40000000022035c8d",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6982fdbc000000000b009f11",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-23",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "68c69442000000001c03684f",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "69b90d01cc48350015031f37",
+      "shop_name": "仓鼠行动健康养生食品的店",
+      "count": 6,
+      "severe": 5,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          6
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          5
+        ],
+        [
+          "LGBT分享",
+          1
+        ]
+      ],
+      "entities": {
+        "笔记": 6
+      },
+      "punish_types": {
+        "黑盒": 6
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a432ee50000000021018eff",
+          "action": "搜索沉底",
+          "repeat_count": 0,
+          "punish_time": "2026-06-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a3df0f50000000007024768",
+          "action": "搜索沉底",
           "repeat_count": 1,
           "punish_time": "2026-06-26",
-          "punish_type": "白盒"
+          "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
+          "tag": "封标跟风",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a3676d800000000110168ce",
-          "action": "笔记搜索过滤",
-          "repeat_count": 2,
-          "punish_time": "2026-06-20",
-          "punish_type": "白盒"
+          "entity_id": "6a1fe7b500000000370346ee",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-15",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "LGBT分享",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a3de9ab0000000008027ed3",
+          "action": "最新话题feed下不出",
+          "repeat_count": 0,
+          "punish_time": "2026-06-26",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a26243d00000000220098cc",
+          "action": "搜索沉底",
+          "repeat_count": 1,
+          "punish_time": "2026-06-12",
+          "punish_type": "黑盒"
         }
       ],
       "new_today": 1,
