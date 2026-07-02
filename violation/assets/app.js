@@ -29,7 +29,12 @@ async function init() {
 
 function renderHeader() {
   document.getElementById('board-title').textContent = `🚨 ${DATA.summary.am_short}的违规预警`;
-  document.getElementById('board-subtitle').textContent = `${DATA.summary.am} · 数据日期 ${DATA.summary.yest_date}`;
+  const partDate = DATA.meta.partition_date || DATA.summary.yest_date;
+  const punishDate = DATA.summary.yest_date;
+  document.getElementById('board-subtitle').textContent =
+    partDate === punishDate
+      ? `${DATA.summary.am} · 数据日期 ${partDate}`
+      : `${DATA.summary.am} · 已刷新至 ${partDate} 分区 · 最新处罚日 ${punishDate}`;
   document.getElementById('meta').innerHTML = `🔄 ${DATA.meta.generated_at} · 📊 ${DATA.meta.data_source} · ⚠️ 仅显示你 AM 名下违规`;
 }
 
