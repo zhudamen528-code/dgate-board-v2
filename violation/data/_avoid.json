@@ -1,50 +1,8 @@
 [
   {
-    "risk_domain": "未成年",
-    "active_count": 3070,
-    "active_pct": 28.3,
-    "new_count": 174,
-    "top_sub_domains": [
-      [
-        "未成年社交风险行为",
-        3068
-      ]
-    ],
-    "top_tags": [
-      [
-        "直播不对未成年人展示",
-        3068
-      ],
-      [
-        "未成年低俗引诱行为",
-        1
-      ],
-      [
-        "未成年不当营销",
-        1
-      ]
-    ],
-    "top_sellers": [
-      [
-        "小乔爱吃的店",
-        70
-      ],
-      [
-        "五常秀波家庭农场（王大姐）的店",
-        64
-      ],
-      [
-        "Mamiya旗舰店",
-        62
-      ]
-    ],
-    "risk": "未成年 - 暂无标准模板，请人工梳理",
-    "tips": []
-  },
-  {
     "risk_domain": "AI 治理",
     "active_count": 1641,
-    "active_pct": 15.1,
+    "active_pct": 21.1,
     "new_count": 21,
     "top_sub_domains": [
       [
@@ -82,7 +40,7 @@
   {
     "risk_domain": "问题账号",
     "active_count": 1554,
-    "active_pct": 14.3,
+    "active_pct": 19.9,
     "new_count": 24,
     "top_sub_domains": [
       [
@@ -144,7 +102,7 @@
   {
     "risk_domain": "内容画风",
     "active_count": 613,
-    "active_pct": 5.6,
+    "active_pct": 7.9,
     "new_count": 15,
     "top_sub_domains": [
       [
@@ -207,7 +165,7 @@
   {
     "risk_domain": "违规营销笔记",
     "active_count": 406,
-    "active_pct": 3.7,
+    "active_pct": 5.2,
     "new_count": 8,
     "top_sub_domains": [
       [
@@ -270,7 +228,7 @@
   {
     "risk_domain": "商业生态",
     "active_count": 343,
-    "active_pct": 3.2,
+    "active_pct": 4.4,
     "new_count": 19,
     "top_sub_domains": [
       [
@@ -324,7 +282,7 @@
   {
     "risk_domain": "商品合规",
     "active_count": 279,
-    "active_pct": 2.6,
+    "active_pct": 3.6,
     "new_count": 0,
     "top_sub_domains": [
       [
@@ -363,7 +321,7 @@
   {
     "risk_domain": "虚假宣传笔记",
     "active_count": 248,
-    "active_pct": 2.3,
+    "active_pct": 3.2,
     "new_count": 9,
     "top_sub_domains": [
       [
@@ -421,7 +379,7 @@
   {
     "risk_domain": "新品牌治理",
     "active_count": 228,
-    "active_pct": 2.1,
+    "active_pct": 2.9,
     "new_count": 5,
     "top_sub_domains": [
       [
@@ -455,7 +413,7 @@
   {
     "risk_domain": "大盘/横向品质治理",
     "active_count": 212,
-    "active_pct": 2.0,
+    "active_pct": 2.7,
     "new_count": 7,
     "top_sub_domains": [
       [
@@ -513,7 +471,7 @@
   {
     "risk_domain": "笔记内容生态",
     "active_count": 187,
-    "active_pct": 1.7,
+    "active_pct": 2.4,
     "new_count": 15,
     "top_sub_domains": [
       [
@@ -576,7 +534,7 @@
   {
     "risk_domain": "色情低俗",
     "active_count": 178,
-    "active_pct": 1.6,
+    "active_pct": 2.3,
     "new_count": 12,
     "top_sub_domains": [
       [
@@ -633,6 +591,53 @@
       "严禁性暗示文案（如\"老公\"\"炮友\"等用词）",
       "严禁低俗 cosplay、衣着暴露、刻意展示特定部位",
       "直播间话术、动作必须符合平台调性"
+    ]
+  },
+  {
+    "risk_domain": "特殊垂类-医疗医美",
+    "active_count": 175,
+    "active_pct": 2.2,
+    "new_count": 1,
+    "top_sub_domains": [
+      [
+        "医疗内容风险互动",
+        173
+      ],
+      [
+        "【非风险域】医美笔记策略source专用",
+        2
+      ]
+    ],
+    "top_tags": [
+      [
+        "医疗高危风险回扫",
+        173
+      ],
+      [
+        "医美风推流量帽100",
+        2
+      ]
+    ],
+    "top_sellers": [
+      [
+        "用户(64462ee0)",
+        46
+      ],
+      [
+        "用户(5a1c407d)",
+        40
+      ],
+      [
+        "千张爱养生的店",
+        21
+      ]
+    ],
+    "risk": "医疗/医美/特殊垂类违规：宣称治疗效果、保健功效、医学背书等",
+    "tips": [
+      "食品类严禁使用\"治疗\"\"抗病\"\"杀菌\"\"防癌\"等医疗用语",
+      "\"特殊功效\"必须有 SC 资质或权威机构背书才能宣称",
+      "严禁伪装医生/营养师/专家身份背书",
+      "保健食品宣称必须严格按蓝帽子批件文字"
     ]
   }
 ]

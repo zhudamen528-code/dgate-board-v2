@@ -302,111 +302,6 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "66e63edf000000001d03366f",
-      "shop_name": "用户(66e63edf)",
-      "count": 135,
-      "severe": 0,
-      "high_repeat": 82,
-      "top_domains": [
-        [
-          "问题账号",
-          86
-        ],
-        [
-          "未成年",
-          33
-        ],
-        [
-          "内容画风",
-          9
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          73
-        ],
-        [
-          "直播不对未成年人展示",
-          33
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          12
-        ],
-        [
-          "封标悬念",
-          7
-        ],
-        [
-          "超高展中风险控热",
-          3
-        ]
-      ],
-      "entities": {
-        "笔记": 102,
-        "直播间": 33
-      },
-      "punish_types": {
-        "黑盒": 50,
-        "白盒": 85
-      },
-      "samples": [
-        {
-          "tag": "封标悬念",
-          "domain": "内容画风",
-          "entity_type": "笔记",
-          "entity_id": "6a4219b100000000110067c0",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a422110000000000f014165",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-29",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a33bc290000000011007f9c",
-          "action": "",
-          "repeat_count": 9,
-          "punish_time": "2026-06-18",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570320740072383552",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-15",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a41db13000000001101755c",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-29",
-          "punish_type": "白盒"
-        }
-      ],
-      "new_today": 7,
-      "new_severe_today": 0
-    },
-    {
       "seller_id": "68d10c38cdd2c90015764135",
       "shop_name": "千张爱养生的店",
       "count": 127,
@@ -512,108 +407,107 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "69e480010000000002002400",
-      "shop_name": "用户(69e48001)",
-      "count": 109,
+      "seller_id": "66e63edf000000001d03366f",
+      "shop_name": "用户(66e63edf)",
+      "count": 102,
       "severe": 0,
-      "high_repeat": 67,
+      "high_repeat": 55,
       "top_domains": [
         [
-          "计次处置",
-          38
+          "问题账号",
+          86
         ],
         [
-          "直播特殊风险",
-          32
+          "内容画风",
+          9
         ],
         [
-          "未成年",
-          24
+          "综合处置",
+          3
         ]
       ],
       "top_tags": [
         [
-          "直播-禁止生成回顾action",
-          38
+          "同质化搬运号-经营账号-自相似笔记",
+          73
         ],
         [
-          "直播间-直播特殊风险-无法识别语言",
-          32
+          "工业化流水号-经营账号-自相似笔记",
+          12
         ],
         [
-          "直播不对未成年人展示",
-          24
+          "封标悬念",
+          7
         ],
         [
-          "直播举报—直播特殊风险—无法识别语言",
-          5
+          "超高展中风险控热",
+          3
         ],
         [
-          "直播间生态-互动感差-无互动弹幕",
-          5
+          "身体暴露凸显或涉性讨论",
+          2
         ]
       ],
       "entities": {
-        "直播间": 107,
-        "笔记": 2
+        "笔记": 102
       },
       "punish_types": {
-        "白盒": 45,
-        "黑盒": 64
+        "黑盒": 17,
+        "白盒": 85
       },
       "samples": [
         {
-          "tag": "直播间-直播特殊风险-无法识别语言",
-          "domain": "直播特殊风险",
-          "entity_type": "直播间",
-          "entity_id": "570331001106686961",
-          "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-22",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "店铺分-商品品质策略限时整改计次2",
-          "domain": "大盘/横向品质治理",
+          "tag": "封标悬念",
+          "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a2d4aa8000000002200b39d",
-          "action": "TAG_SPREAD",
-          "repeat_count": 1,
-          "punish_time": "2026-06-27",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "店铺分-商品品质策略限时整改计次2",
-          "domain": "大盘/横向品质治理",
-          "entity_type": "笔记",
-          "entity_id": "6a17db6b000000000702594e",
-          "action": "TAG_SPREAD",
-          "repeat_count": 4,
-          "punish_time": "2026-06-20",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播间-直播特殊风险-无法识别语言",
-          "domain": "直播特殊风险",
-          "entity_type": "直播间",
-          "entity_id": "570333932490831557",
-          "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "直播举报—直播特殊风险—无法识别语言",
-          "domain": "直播安全举报",
-          "entity_type": "直播间",
-          "entity_id": "570326658274194699",
+          "entity_id": "6a4219b100000000110067c0",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-06-19",
+          "punish_time": "2026-06-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a422110000000000f014165",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-29",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a33bc290000000011007f9c",
+          "action": "",
+          "repeat_count": 9,
+          "punish_time": "2026-06-18",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a41db13000000001101755c",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-29",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a39ff64000000000f01519b",
+          "action": "",
+          "repeat_count": 7,
+          "punish_time": "2026-06-23",
           "punish_type": "白盒"
         }
       ],
-      "new_today": 1,
+      "new_today": 4,
       "new_severe_today": 0
     },
     {
@@ -714,6 +608,111 @@
           "repeat_count": 4,
           "punish_time": "2026-06-07",
           "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "69e480010000000002002400",
+      "shop_name": "用户(69e48001)",
+      "count": 85,
+      "severe": 0,
+      "high_repeat": 48,
+      "top_domains": [
+        [
+          "计次处置",
+          38
+        ],
+        [
+          "直播特殊风险",
+          32
+        ],
+        [
+          "直播安全举报",
+          5
+        ]
+      ],
+      "top_tags": [
+        [
+          "直播-禁止生成回顾action",
+          38
+        ],
+        [
+          "直播间-直播特殊风险-无法识别语言",
+          32
+        ],
+        [
+          "直播举报—直播特殊风险—无法识别语言",
+          5
+        ],
+        [
+          "直播间生态-互动感差-无互动弹幕",
+          5
+        ],
+        [
+          "店铺分-商品品质策略限时整改计次2",
+          2
+        ]
+      ],
+      "entities": {
+        "直播间": 83,
+        "笔记": 2
+      },
+      "punish_types": {
+        "白盒": 45,
+        "黑盒": 40
+      },
+      "samples": [
+        {
+          "tag": "直播间-直播特殊风险-无法识别语言",
+          "domain": "直播特殊风险",
+          "entity_type": "直播间",
+          "entity_id": "570331001106686961",
+          "action": "",
+          "repeat_count": 5,
+          "punish_time": "2026-06-22",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "店铺分-商品品质策略限时整改计次2",
+          "domain": "大盘/横向品质治理",
+          "entity_type": "笔记",
+          "entity_id": "6a2d4aa8000000002200b39d",
+          "action": "TAG_SPREAD",
+          "repeat_count": 1,
+          "punish_time": "2026-06-27",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "店铺分-商品品质策略限时整改计次2",
+          "domain": "大盘/横向品质治理",
+          "entity_type": "笔记",
+          "entity_id": "6a17db6b000000000702594e",
+          "action": "TAG_SPREAD",
+          "repeat_count": 4,
+          "punish_time": "2026-06-20",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播间-直播特殊风险-无法识别语言",
+          "domain": "直播特殊风险",
+          "entity_type": "直播间",
+          "entity_id": "570333932490831557",
+          "action": "",
+          "repeat_count": 4,
+          "punish_time": "2026-06-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "直播举报—直播特殊风险—无法识别语言",
+          "domain": "直播安全举报",
+          "entity_type": "直播间",
+          "entity_id": "570326658274194699",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-19",
+          "punish_type": "白盒"
         }
       ],
       "new_today": 0,
@@ -822,607 +821,6 @@
         }
       ],
       "new_today": 2,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "5c4d6367000000001103f8cf",
-      "shop_name": "用户(5c4d6367)",
-      "count": 80,
-      "severe": 0,
-      "high_repeat": 33,
-      "top_domains": [
-        [
-          "未成年",
-          40
-        ],
-        [
-          "问题账号",
-          18
-        ],
-        [
-          "内容画风",
-          8
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          40
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          16
-        ],
-        [
-          "直播间-直播特殊风险-平台保护",
-          4
-        ],
-        [
-          "直播-禁止生成回顾action",
-          4
-        ],
-        [
-          "内容无美感-视频",
-          3
-        ]
-      ],
-      "entities": {
-        "笔记": 31,
-        "直播间": 49
-      },
-      "punish_types": {
-        "白盒": 22,
-        "黑盒": 58
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a4314b8000000001503f631",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570341878945501527",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570312120911798415",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-09",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a291dec000000002202b56c",
-          "action": "",
-          "repeat_count": 3,
-          "punish_time": "2026-06-10",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "超高展中风险控热",
-          "domain": "综合处置",
-          "entity_type": "笔记",
-          "entity_id": "6a05b1ab000000003501dcd2",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-15",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 5,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "676bafb5000000001801c8f3",
-      "shop_name": "用户(676bafb5)",
-      "count": 74,
-      "severe": 0,
-      "high_repeat": 30,
-      "top_domains": [
-        [
-          "未成年",
-          42
-        ],
-        [
-          "特殊垂类-医疗医美",
-          16
-        ],
-        [
-          "色情低俗",
-          6
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          42
-        ],
-        [
-          "医疗高危风险回扫",
-          16
-        ],
-        [
-          "身体暴露凸显或涉性讨论",
-          6
-        ],
-        [
-          "封标跟风",
-          4
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          3
-        ]
-      ],
-      "entities": {
-        "笔记": 30,
-        "直播间": 44
-      },
-      "punish_types": {
-        "白盒": 6,
-        "黑盒": 68
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a278cac00000000170296a9",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-09",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342122253592642",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570323519275138761",
-          "action": "",
-          "repeat_count": 11,
-          "punish_time": "2026-06-17",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570336568511945293",
-          "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-26",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "医疗高危风险回扫",
-          "domain": "特殊垂类-医疗医美",
-          "entity_type": "笔记",
-          "entity_id": "6a27902b000000001700aafe",
-          "action": "",
-          "repeat_count": 3,
-          "punish_time": "2026-06-09",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 6,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "6220932a00db3b00019e6e18",
-      "shop_name": "麻六记旗舰店",
-      "count": 71,
-      "severe": 0,
-      "high_repeat": 37,
-      "top_domains": [
-        [
-          "内容画风",
-          21
-        ],
-        [
-          "计次处置",
-          21
-        ],
-        [
-          "未成年",
-          18
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播举报—影响观播体验—观感不佳",
-          21
-        ],
-        [
-          "直播-禁止生成回顾action",
-          21
-        ],
-        [
-          "直播不对未成年人展示",
-          18
-        ],
-        [
-          "直播间生态-影响观播体验-观感不佳",
-          5
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          2
-        ]
-      ],
-      "entities": {
-        "直播间": 65,
-        "笔记": 4,
-        "商品": 2
-      },
-      "punish_types": {
-        "黑盒": 69,
-        "白盒": 2
-      },
-      "samples": [
-        {
-          "tag": "直播间生态-影响观播体验-观感不佳",
-          "domain": "影响观播体验",
-          "entity_type": "直播间",
-          "entity_id": "570317362590964453",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-13",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播举报—影响观播体验—观感不佳",
-          "domain": "内容画风",
-          "entity_type": "直播间",
-          "entity_id": "570340526909861168",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-29",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播-禁止生成回顾action",
-          "domain": "计次处置",
-          "entity_type": "直播间",
-          "entity_id": "570342607817131537",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570308659678598483",
-          "action": "",
-          "repeat_count": 7,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a224b79000000000702b458",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 5,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "68c5637c63594e0015bdfaa6",
-      "shop_name": "小乔爱吃的店",
-      "count": 70,
-      "severe": 0,
-      "high_repeat": 59,
-      "top_domains": [
-        [
-          "未成年",
-          70
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          70
-        ]
-      ],
-      "entities": {
-        "直播间": 70
-      },
-      "punish_types": {
-        "黑盒": 70
-      },
-      "samples": [
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570335536386431874",
-          "action": "",
-          "repeat_count": 6,
-          "punish_time": "2026-06-25",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570322208181868991",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570336984803279458",
-          "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-26",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570309118782727944",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342776583090426",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 3,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "6407ef3d9cd18100012e2bbb",
-      "shop_name": "Mamiya旗舰店",
-      "count": 70,
-      "severe": 0,
-      "high_repeat": 48,
-      "top_domains": [
-        [
-          "未成年",
-          62
-        ],
-        [
-          "大盘/横向品质治理",
-          2
-        ],
-        [
-          "涉政",
-          2
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          62
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          2
-        ],
-        [
-          "店铺分-商品品质策略限时整改计次1",
-          1
-        ],
-        [
-          "直播-禁止生成回顾action",
-          1
-        ],
-        [
-          "直播间-涉政-重要人物-正面",
-          1
-        ]
-      ],
-      "entities": {
-        "直播间": 65,
-        "商品": 2,
-        "笔记": 3
-      },
-      "punish_types": {
-        "黑盒": 68,
-        "白盒": 2
-      },
-      "samples": [
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570303032180783921",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570333467443111309",
-          "action": "",
-          "repeat_count": 7,
-          "punish_time": "2026-06-24",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570316089819060368",
-          "action": "",
-          "repeat_count": 11,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "店铺分-商品品质策略限时整改计次1",
-          "domain": "大盘/横向品质治理",
-          "entity_type": "商品",
-          "entity_id": "675faac0bee2b60001be3b27",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播-禁止生成回顾action",
-          "domain": "计次处置",
-          "entity_type": "直播间",
-          "entity_id": "570335157527699008",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-25",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 6,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "639bc9a5d6c9400001b419ab",
-      "shop_name": "五常秀波家庭农场（王大姐）的店",
-      "count": 68,
-      "severe": 0,
-      "high_repeat": 54,
-      "top_domains": [
-        [
-          "未成年",
-          64
-        ],
-        [
-          "计次处置",
-          2
-        ],
-        [
-          "直播-影响商业秩序",
-          1
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          64
-        ],
-        [
-          "直播-禁止生成回顾action",
-          2
-        ],
-        [
-          "引导站外私域成交",
-          1
-        ],
-        [
-          "直播间生态-不真诚直播-低成本直播",
-          1
-        ]
-      ],
-      "entities": {
-        "直播间": 68
-      },
-      "punish_types": {
-        "黑盒": 66,
-        "白盒": 2
-      },
-      "samples": [
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570313687357097043",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-06-10",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570316572367324299",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570302083563124434",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570304972433681529",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-06-04",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570307401332450861",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-06-06",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 3,
       "new_severe_today": 0
     },
     {
@@ -1626,324 +1024,6 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "645cc2bc54cf120001995dfb",
-      "shop_name": "燕如妃的店",
-      "count": 65,
-      "severe": 0,
-      "high_repeat": 44,
-      "top_domains": [
-        [
-          "未成年",
-          56
-        ],
-        [
-          "大盘/横向品质治理",
-          3
-        ],
-        [
-          "问题账号",
-          2
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          56
-        ],
-        [
-          "直播间生态-互动感差-无互动弹幕",
-          1
-        ],
-        [
-          "安全-用户安全待审停展",
-          1
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          1
-        ],
-        [
-          "商品品质负反馈率较高「限时整改」",
-          1
-        ]
-      ],
-      "entities": {
-        "直播间": 57,
-        "用户": 1,
-        "笔记": 3,
-        "商品": 4
-      },
-      "punish_types": {
-        "黑盒": 61,
-        "白盒": 4
-      },
-      "samples": [
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570329558246439632",
-          "action": "",
-          "repeat_count": 10,
-          "punish_time": "2026-06-21",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570332458126100444",
-          "action": "",
-          "repeat_count": 8,
-          "punish_time": "2026-06-23",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570303406061156005",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342604112177899",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570341154706653161",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-29",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 5,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "65b368dd2cdd640001d6c207",
-      "shop_name": "小禾家零食分装的店",
-      "count": 64,
-      "severe": 0,
-      "high_repeat": 39,
-      "top_domains": [
-        [
-          "未成年",
-          53
-        ],
-        [
-          "违规营销笔记",
-          8
-        ],
-        [
-          "应急处置",
-          1
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          53
-        ],
-        [
-          "【违规营销】笔记关联商品价格信息异常",
-          8
-        ],
-        [
-          "应急处置-轻度",
-          1
-        ],
-        [
-          "质量问题（举报实时流）",
-          1
-        ],
-        [
-          "(旧）过期/临期商品",
-          1
-        ]
-      ],
-      "entities": {
-        "直播间": 54,
-        "笔记": 9,
-        "商品": 1
-      },
-      "punish_types": {
-        "黑盒": 63,
-        "白盒": 1
-      },
-      "samples": [
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342060800261710",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570329013286606296",
-          "action": "",
-          "repeat_count": 10,
-          "punish_time": "2026-06-21",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570324649437002084",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570336262673817764",
-          "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-26",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570340612606288757",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-29",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 6,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "62629af879fddb0001c7f575",
-      "shop_name": "温柔女人的店",
-      "count": 63,
-      "severe": 0,
-      "high_repeat": 44,
-      "top_domains": [
-        [
-          "未成年",
-          53
-        ],
-        [
-          "商品合规",
-          4
-        ],
-        [
-          "大盘/横向品质治理",
-          2
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          53
-        ],
-        [
-          "(旧）过期/临期商品",
-          4
-        ],
-        [
-          "商品品质负反馈率高「全域流量屏蔽」",
-          2
-        ],
-        [
-          "直播-禁止生成回顾action",
-          2
-        ],
-        [
-          "直播间-涉政-535",
-          1
-        ]
-      ],
-      "entities": {
-        "商品": 6,
-        "直播间": 57
-      },
-      "punish_types": {
-        "白盒": 6,
-        "黑盒": 57
-      },
-      "samples": [
-        {
-          "tag": "(旧）过期/临期商品",
-          "domain": "商品合规",
-          "entity_type": "商品",
-          "entity_id": "63e9d2706f8d850001b2d611",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-13",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570335103540567709",
-          "action": "",
-          "repeat_count": 6,
-          "punish_time": "2026-06-25",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570338108301791048",
-          "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-27",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570307665628471548",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-06",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570311912847893832",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-09",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 2,
-      "new_severe_today": 0
-    },
-    {
       "seller_id": "68ae7399000000001900e34f",
       "shop_name": "用户(68ae7399)",
       "count": 63,
@@ -2045,213 +1125,297 @@
       ],
       "new_today": 0,
       "new_severe_today": 0
-    }
-  ],
-  "high_repeat": [
+    },
     {
-      "seller_id": "66e63edf000000001d03366f",
-      "shop_name": "用户(66e63edf)",
-      "count": 135,
+      "seller_id": "686a4c89000000001b01b6a2",
+      "shop_name": "用户(686a4c89)",
+      "count": 61,
       "severe": 0,
-      "high_repeat": 82,
+      "high_repeat": 22,
       "top_domains": [
         [
           "问题账号",
-          86
+          47
         ],
         [
-          "未成年",
-          33
+          "画风-低差封面",
+          3
         ],
         [
           "内容画风",
-          9
+          3
         ]
       ],
       "top_tags": [
         [
-          "同质化搬运号-经营账号-自相似笔记",
-          73
+          "同质化搬运号-经营账号-他相似笔记",
+          24
         ],
         [
-          "直播不对未成年人展示",
-          33
+          "工业化流水号-经营账号-他相似笔记",
+          23
         ],
         [
-          "工业化流水号-经营账号-自相似笔记",
-          12
-        ],
-        [
-          "封标悬念",
-          7
-        ],
-        [
-          "超高展中风险控热",
+          "低差封面标题-黑种",
           3
+        ],
+        [
+          "封标跟风",
+          3
+        ],
+        [
+          "新闻",
+          2
         ]
       ],
       "entities": {
-        "笔记": 102,
-        "直播间": 33
+        "笔记": 61
       },
       "punish_types": {
-        "黑盒": 50,
-        "白盒": 85
+        "黑盒": 59,
+        "白盒": 2
       },
       "samples": [
         {
-          "tag": "封标悬念",
-          "domain": "内容画风",
+          "tag": "工业化流水号-经营账号-他相似笔记",
+          "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a4219b100000000110067c0",
+          "entity_id": "6a239af8000000003502b6cd",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
+          "repeat_count": 2,
+          "punish_time": "2026-06-06",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "tag": "工业化流水号-经营账号-他相似笔记",
           "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a422110000000000f014165",
+          "entity_id": "6a1f7131000000002202406c",
           "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-29",
-          "punish_type": "白盒"
+          "repeat_count": 5,
+          "punish_time": "2026-06-03",
+          "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "tag": "同质化搬运号-经营账号-他相似笔记",
           "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a33bc290000000011007f9c",
+          "entity_id": "6a2fc363000000000f0334a9",
           "action": "",
-          "repeat_count": 9,
-          "punish_time": "2026-06-18",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570320740072383552",
-          "action": "",
-          "repeat_count": 13,
+          "repeat_count": 3,
           "punish_time": "2026-06-15",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "tag": "工业化流水号-经营账号-他相似笔记",
           "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a41db13000000001101755c",
+          "entity_id": "6a242844000000002202d598",
           "action": "",
           "repeat_count": 2,
-          "punish_time": "2026-06-29",
-          "punish_type": "白盒"
+          "punish_time": "2026-06-06",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "工业化流水号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a211dea000000003502f77e",
+          "action": "",
+          "repeat_count": 4,
+          "punish_time": "2026-06-04",
+          "punish_type": "黑盒"
         }
       ],
-      "new_today": 7,
+      "new_today": 0,
       "new_severe_today": 0
     },
     {
-      "seller_id": "69e480010000000002002400",
-      "shop_name": "用户(69e48001)",
-      "count": 109,
+      "seller_id": "64c0d198000000002b00ac5f",
+      "shop_name": "用户(64c0d198)",
+      "count": 61,
       "severe": 0,
-      "high_repeat": 67,
+      "high_repeat": 0,
       "top_domains": [
         [
-          "计次处置",
-          38
+          "商品合规",
+          59
         ],
         [
-          "直播特殊风险",
-          32
-        ],
-        [
-          "未成年",
-          24
+          "笔记内容生态",
+          2
         ]
       ],
       "top_tags": [
         [
-          "直播-禁止生成回顾action",
-          38
+          "(旧）过期/临期商品",
+          59
         ],
         [
-          "直播间-直播特殊风险-无法识别语言",
-          32
-        ],
-        [
-          "直播不对未成年人展示",
-          24
-        ],
-        [
-          "直播举报—直播特殊风险—无法识别语言",
-          5
-        ],
-        [
-          "直播间生态-互动感差-无互动弹幕",
-          5
+          "生态画风-引人不适",
+          2
         ]
       ],
       "entities": {
-        "直播间": 107,
+        "商品": 59,
         "笔记": 2
       },
       "punish_types": {
-        "白盒": 45,
-        "黑盒": 64
+        "白盒": 61
       },
       "samples": [
         {
-          "tag": "直播间-直播特殊风险-无法识别语言",
-          "domain": "直播特殊风险",
-          "entity_type": "直播间",
-          "entity_id": "570331001106686961",
-          "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-22",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "店铺分-商品品质策略限时整改计次2",
-          "domain": "大盘/横向品质治理",
-          "entity_type": "笔记",
-          "entity_id": "6a2d4aa8000000002200b39d",
-          "action": "TAG_SPREAD",
-          "repeat_count": 1,
-          "punish_time": "2026-06-27",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "店铺分-商品品质策略限时整改计次2",
-          "domain": "大盘/横向品质治理",
-          "entity_type": "笔记",
-          "entity_id": "6a17db6b000000000702594e",
-          "action": "TAG_SPREAD",
-          "repeat_count": 4,
-          "punish_time": "2026-06-20",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播间-直播特殊风险-无法识别语言",
-          "domain": "直播特殊风险",
-          "entity_type": "直播间",
-          "entity_id": "570333932490831557",
-          "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "直播举报—直播特殊风险—无法识别语言",
-          "domain": "直播安全举报",
-          "entity_type": "直播间",
-          "entity_id": "570326658274194699",
+          "tag": "(旧）过期/临期商品",
+          "domain": "商品合规",
+          "entity_type": "商品",
+          "entity_id": "6583b1b2dab4860001b7085b",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-06-19",
+          "punish_time": "2026-06-15",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "(旧）过期/临期商品",
+          "domain": "商品合规",
+          "entity_type": "商品",
+          "entity_id": "65b205e65b65050001e4b0cc",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-11",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "(旧）过期/临期商品",
+          "domain": "商品合规",
+          "entity_type": "商品",
+          "entity_id": "67359f734a98650001752e17",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-15",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "(旧）过期/临期商品",
+          "domain": "商品合规",
+          "entity_type": "商品",
+          "entity_id": "660d145da9f6ca000103d6b9",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-11",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "(旧）过期/临期商品",
+          "domain": "商品合规",
+          "entity_type": "商品",
+          "entity_id": "65b205d75b65050001e4b0b9",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-15",
+          "punish_type": "白盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "5a1c407d11be100b73051841",
+      "shop_name": "用户(5a1c407d)",
+      "count": 60,
+      "severe": 0,
+      "high_repeat": 19,
+      "top_domains": [
+        [
+          "特殊垂类-医疗医美",
+          40
+        ],
+        [
+          "问题账号",
+          13
+        ],
+        [
+          "违规营销笔记",
+          4
+        ]
+      ],
+      "top_tags": [
+        [
+          "医疗高危风险回扫",
+          40
+        ],
+        [
+          "同质化搬运号-经营账号-自相似笔记",
+          10
+        ],
+        [
+          "工业化流水号-经营账号-自相似笔记",
+          3
+        ],
+        [
+          "违规营销-剧情演绎",
+          2
+        ],
+        [
+          "身体暴露凸显或涉性表述",
+          2
+        ]
+      ],
+      "entities": {
+        "笔记": 60
+      },
+      "punish_types": {
+        "白盒": 15,
+        "黑盒": 45
+      },
+      "samples": [
+        {
+          "tag": "违规营销-剧情演绎",
+          "domain": "违规营销笔记",
+          "entity_type": "笔记",
+          "entity_id": "6a2babb60000000035022bc5",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-12",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a33e868000000001603cb09",
+          "action": "",
+          "repeat_count": 4,
+          "punish_time": "2026-06-18",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "身体暴露凸显或涉性表述",
+          "domain": "色情低俗",
+          "entity_type": "笔记",
+          "entity_id": "6a2671570000000021015da6",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-08",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a40eb49000000002100bcc3",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-28",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a4364b300000000150244dd",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-30",
           "punish_type": "白盒"
         }
       ],
@@ -2259,84 +1423,619 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "68c5637c63594e0015bdfaa6",
-      "shop_name": "小乔爱吃的店",
-      "count": 70,
+      "seller_id": "64c799c76bd5b60001dd59de",
+      "shop_name": "Ms.SU苏味的店",
+      "count": 58,
       "severe": 0,
-      "high_repeat": 59,
+      "high_repeat": 0,
       "top_domains": [
         [
-          "未成年",
-          70
+          "商品合规",
+          52
+        ],
+        [
+          "大盘/横向品质治理",
+          4
+        ],
+        [
+          "M项目-世界杯版权",
+          1
         ]
       ],
       "top_tags": [
         [
-          "直播不对未成年人展示",
-          70
+          "(旧）过期/临期商品",
+          52
+        ],
+        [
+          "商品品质负反馈率较高「限时整改」",
+          2
+        ],
+        [
+          "店铺分-商品品质策略限时整改计次1",
+          2
+        ],
+        [
+          "UGC世界杯赛事笔记",
+          1
+        ],
+        [
+          "M-世界杯三方平台导流",
+          1
         ]
       ],
       "entities": {
-        "直播间": 70
+        "商品": 56,
+        "笔记": 2
       },
       "punish_types": {
-        "黑盒": 70
+        "白盒": 52,
+        "黑盒": 6
       },
       "samples": [
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570335536386431874",
+          "tag": "(旧）过期/临期商品",
+          "domain": "商品合规",
+          "entity_type": "商品",
+          "entity_id": "64d704eb28b4a80001937eef",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-11",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "(旧）过期/临期商品",
+          "domain": "商品合规",
+          "entity_type": "商品",
+          "entity_id": "677e2a8577d41e00017cf17d",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-13",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "(旧）过期/临期商品",
+          "domain": "商品合规",
+          "entity_type": "商品",
+          "entity_id": "67b96d477198db00010fdccd",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-11",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "(旧）过期/临期商品",
+          "domain": "商品合规",
+          "entity_type": "商品",
+          "entity_id": "677df54077d41e00017abb17",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-13",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "(旧）过期/临期商品",
+          "domain": "商品合规",
+          "entity_type": "商品",
+          "entity_id": "6904443f5c4f1900015f78e5",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-18",
+          "punish_type": "白盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "5b7ab5a66563ec00010a1432",
+      "shop_name": "用户(5b7ab5a6)",
+      "count": 57,
+      "severe": 0,
+      "high_repeat": 19,
+      "top_domains": [
+        [
+          "问题账号",
+          53
+        ],
+        [
+          "内容画风",
+          3
+        ],
+        [
+          "对立冲突",
+          1
+        ]
+      ],
+      "top_tags": [
+        [
+          "同质化搬运号-经营账号-他相似笔记",
+          40
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
+          13
+        ],
+        [
+          "封标跟风",
+          3
+        ],
+        [
+          "性别风险议题",
+          1
+        ]
+      ],
+      "entities": {
+        "笔记": 57
+      },
+      "punish_types": {
+        "黑盒": 57
+      },
+      "samples": [
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a2a81c1000000001c024d32",
           "action": "",
           "repeat_count": 6,
-          "punish_time": "2026-06-25",
+          "punish_time": "2026-06-11",
           "punish_type": "黑盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570322208181868991",
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a327fb20000000017008ed6",
           "action": "",
-          "repeat_count": 13,
+          "repeat_count": 2,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a334053000000001702f0e0",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-18",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a3343180000000015024134",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-18",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a326953000000001702f492",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "64462ee000000000290118d7",
+      "shop_name": "用户(64462ee0)",
+      "count": 55,
+      "severe": 0,
+      "high_repeat": 39,
+      "top_domains": [
+        [
+          "特殊垂类-医疗医美",
+          46
+        ],
+        [
+          "AI 治理",
+          5
+        ],
+        [
+          "应急处置",
+          1
+        ]
+      ],
+      "top_tags": [
+        [
+          "医疗高危风险回扫",
+          46
+        ],
+        [
+          "AI同质化",
+          5
+        ],
+        [
+          "应急处置-中度",
+          1
+        ],
+        [
+          "封标跟风",
+          1
+        ],
+        [
+          "强竞品AIGC品牌露出",
+          1
+        ]
+      ],
+      "entities": {
+        "笔记": 55
+      },
+      "punish_types": {
+        "黑盒": 55
+      },
+      "samples": [
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a2d3551000000002101553e",
+          "action": "",
+          "repeat_count": 8,
+          "punish_time": "2026-06-15",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a3a9042000000000f01c551",
+          "action": "",
+          "repeat_count": 6,
+          "punish_time": "2026-06-23",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a2e4d4e0000000036002c4e",
+          "action": "",
+          "repeat_count": 8,
           "punish_time": "2026-06-16",
           "punish_type": "黑盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570336984803279458",
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a31f851000000000f015e4e",
           "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-26",
+          "repeat_count": 6,
+          "punish_time": "2026-06-23",
           "punish_type": "黑盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570309118782727944",
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a2e6db8000000001603ec6d",
           "action": "",
-          "repeat_count": 13,
+          "repeat_count": 8,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 1,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "5f36b43100000000010076e9",
+      "shop_name": "用户(5f36b431)",
+      "count": 53,
+      "severe": 0,
+      "high_repeat": 17,
+      "top_domains": [
+        [
+          "问题账号",
+          47
+        ],
+        [
+          "AI 治理",
+          4
+        ],
+        [
+          "商业生态",
+          1
+        ]
+      ],
+      "top_tags": [
+        [
+          "同质化搬运号-经营账号-他相似笔记",
+          24
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
+          23
+        ],
+        [
+          "AI同质化",
+          4
+        ],
+        [
+          "竞对平台导流",
+          1
+        ],
+        [
+          "应急处置-中度",
+          1
+        ]
+      ],
+      "entities": {
+        "笔记": 53
+      },
+      "punish_types": {
+        "黑盒": 53
+      },
+      "samples": [
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a2818530000000017009d83",
+          "action": "",
+          "repeat_count": 8,
+          "punish_time": "2026-06-09",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a2ebb29000000001503e1b5",
+          "action": "",
+          "repeat_count": 4,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "竞对平台导流",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "6a37fe170000000015026c15",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-21",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "工业化流水号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a258ea0000000001700a02e",
+          "action": "",
+          "repeat_count": 0,
           "punish_time": "2026-06-07",
           "punish_type": "黑盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
+          "tag": "工业化流水号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a1edcd200000000360311e1",
+          "action": "",
+          "repeat_count": 5,
+          "punish_time": "2026-06-02",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "6220932a00db3b00019e6e18",
+      "shop_name": "麻六记旗舰店",
+      "count": 53,
+      "severe": 0,
+      "high_repeat": 28,
+      "top_domains": [
+        [
+          "内容画风",
+          21
+        ],
+        [
+          "计次处置",
+          21
+        ],
+        [
+          "影响观播体验",
+          5
+        ]
+      ],
+      "top_tags": [
+        [
+          "直播举报—影响观播体验—观感不佳",
+          21
+        ],
+        [
+          "直播-禁止生成回顾action",
+          21
+        ],
+        [
+          "直播间生态-影响观播体验-观感不佳",
+          5
+        ],
+        [
+          "工业化流水号-经营账号-自相似笔记",
+          2
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
+          1
+        ]
+      ],
+      "entities": {
+        "直播间": 47,
+        "笔记": 4,
+        "商品": 2
+      },
+      "punish_types": {
+        "黑盒": 51,
+        "白盒": 2
+      },
+      "samples": [
+        {
+          "tag": "直播间生态-影响观播体验-观感不佳",
+          "domain": "影响观播体验",
           "entity_type": "直播间",
-          "entity_id": "570342776583090426",
+          "entity_id": "570317362590964453",
           "action": "",
           "repeat_count": 1,
+          "punish_time": "2026-06-13",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570340526909861168",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-29",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播-禁止生成回顾action",
+          "domain": "计次处置",
+          "entity_type": "直播间",
+          "entity_id": "570342607817131537",
+          "action": "",
+          "repeat_count": 0,
           "punish_time": "2026-06-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "工业化流水号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a224b79000000000702b458",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-05",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570315898008457669",
+          "action": "",
+          "repeat_count": 10,
+          "punish_time": "2026-06-12",
           "punish_type": "黑盒"
         }
       ],
       "new_today": 3,
       "new_severe_today": 0
     },
+    {
+      "seller_id": "64e0da5200000000010122a1",
+      "shop_name": "用户(64e0da52)",
+      "count": 51,
+      "severe": 0,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "内容画风",
+          47
+        ],
+        [
+          "笔记内容生态",
+          3
+        ],
+        [
+          "问题账号",
+          1
+        ]
+      ],
+      "top_tags": [
+        [
+          "封标跟风",
+          47
+        ],
+        [
+          "AI虚假不实",
+          3
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
+          1
+        ]
+      ],
+      "entities": {
+        "笔记": 51
+      },
+      "punish_types": {
+        "黑盒": 48,
+        "白盒": 3
+      },
+      "samples": [
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a3bfb66000000002003a211",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-25",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "684a529b0000000021019e73",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "68f4f9770000000005032c8e",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6870fd890000000020018b22",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "684bf98000000000210029fb",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    }
+  ],
+  "high_repeat": [
     {
       "seller_id": "69ac144203e2c70015a2eea9",
       "shop_name": "綩朵的店",
@@ -2445,103 +2144,107 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "639bc9a5d6c9400001b419ab",
-      "shop_name": "五常秀波家庭农场（王大姐）的店",
-      "count": 68,
+      "seller_id": "66e63edf000000001d03366f",
+      "shop_name": "用户(66e63edf)",
+      "count": 102,
       "severe": 0,
-      "high_repeat": 54,
+      "high_repeat": 55,
       "top_domains": [
         [
-          "未成年",
-          64
+          "问题账号",
+          86
         ],
         [
-          "计次处置",
-          2
+          "内容画风",
+          9
         ],
         [
-          "直播-影响商业秩序",
-          1
+          "综合处置",
+          3
         ]
       ],
       "top_tags": [
         [
-          "直播不对未成年人展示",
-          64
+          "同质化搬运号-经营账号-自相似笔记",
+          73
         ],
         [
-          "直播-禁止生成回顾action",
+          "工业化流水号-经营账号-自相似笔记",
+          12
+        ],
+        [
+          "封标悬念",
+          7
+        ],
+        [
+          "超高展中风险控热",
+          3
+        ],
+        [
+          "身体暴露凸显或涉性讨论",
           2
-        ],
-        [
-          "引导站外私域成交",
-          1
-        ],
-        [
-          "直播间生态-不真诚直播-低成本直播",
-          1
         ]
       ],
       "entities": {
-        "直播间": 68
+        "笔记": 102
       },
       "punish_types": {
-        "黑盒": 66,
-        "白盒": 2
+        "黑盒": 17,
+        "白盒": 85
       },
       "samples": [
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570313687357097043",
+          "tag": "封标悬念",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6a4219b100000000110067c0",
           "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-06-10",
+          "repeat_count": 0,
+          "punish_time": "2026-06-30",
           "punish_type": "黑盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570316572367324299",
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a422110000000000f014165",
           "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
+          "repeat_count": 2,
+          "punish_time": "2026-06-29",
+          "punish_type": "白盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570302083563124434",
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a33bc290000000011007f9c",
           "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
+          "repeat_count": 9,
+          "punish_time": "2026-06-18",
+          "punish_type": "白盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570304972433681529",
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a41db13000000001101755c",
           "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-06-04",
-          "punish_type": "黑盒"
+          "repeat_count": 2,
+          "punish_time": "2026-06-29",
+          "punish_type": "白盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570307401332450861",
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a39ff64000000000f01519b",
           "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-06-06",
-          "punish_type": "黑盒"
+          "repeat_count": 7,
+          "punish_time": "2026-06-23",
+          "punish_type": "白盒"
         }
       ],
-      "new_today": 3,
+      "new_today": 4,
       "new_severe_today": 0
     },
     {
@@ -2646,109 +2349,108 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "6407ef3d9cd18100012e2bbb",
-      "shop_name": "Mamiya旗舰店",
-      "count": 70,
+      "seller_id": "69e480010000000002002400",
+      "shop_name": "用户(69e48001)",
+      "count": 85,
       "severe": 0,
       "high_repeat": 48,
       "top_domains": [
         [
-          "未成年",
-          62
+          "计次处置",
+          38
         ],
         [
-          "大盘/横向品质治理",
-          2
+          "直播特殊风险",
+          32
         ],
         [
-          "涉政",
-          2
+          "直播安全举报",
+          5
         ]
       ],
       "top_tags": [
         [
-          "直播不对未成年人展示",
-          62
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          2
-        ],
-        [
-          "店铺分-商品品质策略限时整改计次1",
-          1
-        ],
-        [
           "直播-禁止生成回顾action",
-          1
+          38
         ],
         [
-          "直播间-涉政-重要人物-正面",
-          1
+          "直播间-直播特殊风险-无法识别语言",
+          32
+        ],
+        [
+          "直播举报—直播特殊风险—无法识别语言",
+          5
+        ],
+        [
+          "直播间生态-互动感差-无互动弹幕",
+          5
+        ],
+        [
+          "店铺分-商品品质策略限时整改计次2",
+          2
         ]
       ],
       "entities": {
-        "直播间": 65,
-        "商品": 2,
-        "笔记": 3
+        "直播间": 83,
+        "笔记": 2
       },
       "punish_types": {
-        "黑盒": 68,
-        "白盒": 2
+        "白盒": 45,
+        "黑盒": 40
       },
       "samples": [
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
+          "tag": "直播间-直播特殊风险-无法识别语言",
+          "domain": "直播特殊风险",
           "entity_type": "直播间",
-          "entity_id": "570303032180783921",
+          "entity_id": "570331001106686961",
           "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
+          "repeat_count": 5,
+          "punish_time": "2026-06-22",
+          "punish_type": "白盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570333467443111309",
-          "action": "",
-          "repeat_count": 7,
-          "punish_time": "2026-06-24",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570316089819060368",
-          "action": "",
-          "repeat_count": 11,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "店铺分-商品品质策略限时整改计次1",
+          "tag": "店铺分-商品品质策略限时整改计次2",
           "domain": "大盘/横向品质治理",
-          "entity_type": "商品",
-          "entity_id": "675faac0bee2b60001be3b27",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
+          "entity_type": "笔记",
+          "entity_id": "6a2d4aa8000000002200b39d",
+          "action": "TAG_SPREAD",
+          "repeat_count": 1,
+          "punish_time": "2026-06-27",
           "punish_type": "黑盒"
         },
         {
-          "tag": "直播-禁止生成回顾action",
-          "domain": "计次处置",
+          "tag": "店铺分-商品品质策略限时整改计次2",
+          "domain": "大盘/横向品质治理",
+          "entity_type": "笔记",
+          "entity_id": "6a17db6b000000000702594e",
+          "action": "TAG_SPREAD",
+          "repeat_count": 4,
+          "punish_time": "2026-06-20",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播间-直播特殊风险-无法识别语言",
+          "domain": "直播特殊风险",
           "entity_type": "直播间",
-          "entity_id": "570335157527699008",
+          "entity_id": "570333932490831557",
+          "action": "",
+          "repeat_count": 4,
+          "punish_time": "2026-06-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "直播举报—直播特殊风险—无法识别语言",
+          "domain": "直播安全举报",
+          "entity_type": "直播间",
+          "entity_id": "570326658274194699",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-06-25",
-          "punish_type": "黑盒"
+          "punish_time": "2026-06-19",
+          "punish_type": "白盒"
         }
       ],
-      "new_today": 6,
+      "new_today": 0,
       "new_severe_today": 0
     },
     {
@@ -2960,501 +2662,102 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "62629af879fddb0001c7f575",
-      "shop_name": "温柔女人的店",
-      "count": 63,
+      "seller_id": "64462ee000000000290118d7",
+      "shop_name": "用户(64462ee0)",
+      "count": 55,
       "severe": 0,
-      "high_repeat": 44,
+      "high_repeat": 39,
       "top_domains": [
         [
-          "未成年",
-          53
+          "特殊垂类-医疗医美",
+          46
         ],
         [
-          "商品合规",
-          4
+          "AI 治理",
+          5
         ],
         [
-          "大盘/横向品质治理",
-          2
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          53
-        ],
-        [
-          "(旧）过期/临期商品",
-          4
-        ],
-        [
-          "商品品质负反馈率高「全域流量屏蔽」",
-          2
-        ],
-        [
-          "直播-禁止生成回顾action",
-          2
-        ],
-        [
-          "直播间-涉政-535",
-          1
-        ]
-      ],
-      "entities": {
-        "商品": 6,
-        "直播间": 57
-      },
-      "punish_types": {
-        "白盒": 6,
-        "黑盒": 57
-      },
-      "samples": [
-        {
-          "tag": "(旧）过期/临期商品",
-          "domain": "商品合规",
-          "entity_type": "商品",
-          "entity_id": "63e9d2706f8d850001b2d611",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-13",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570335103540567709",
-          "action": "",
-          "repeat_count": 6,
-          "punish_time": "2026-06-25",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570338108301791048",
-          "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-27",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570307665628471548",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-06",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570311912847893832",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-09",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 2,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "645cc2bc54cf120001995dfb",
-      "shop_name": "燕如妃的店",
-      "count": 65,
-      "severe": 0,
-      "high_repeat": 44,
-      "top_domains": [
-        [
-          "未成年",
-          56
-        ],
-        [
-          "大盘/横向品质治理",
-          3
-        ],
-        [
-          "问题账号",
-          2
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          56
-        ],
-        [
-          "直播间生态-互动感差-无互动弹幕",
-          1
-        ],
-        [
-          "安全-用户安全待审停展",
-          1
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          1
-        ],
-        [
-          "商品品质负反馈率较高「限时整改」",
-          1
-        ]
-      ],
-      "entities": {
-        "直播间": 57,
-        "用户": 1,
-        "笔记": 3,
-        "商品": 4
-      },
-      "punish_types": {
-        "黑盒": 61,
-        "白盒": 4
-      },
-      "samples": [
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570329558246439632",
-          "action": "",
-          "repeat_count": 10,
-          "punish_time": "2026-06-21",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570332458126100444",
-          "action": "",
-          "repeat_count": 8,
-          "punish_time": "2026-06-23",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570303406061156005",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342604112177899",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570341154706653161",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-29",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 5,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "6274946d00000000210226ad",
-      "shop_name": "用户(6274946d)",
-      "count": 57,
-      "severe": 0,
-      "high_repeat": 43,
-      "top_domains": [
-        [
-          "未成年",
-          56
-        ],
-        [
-          "内容画风",
+          "应急处置",
           1
         ]
       ],
       "top_tags": [
         [
-          "直播不对未成年人展示",
-          56
+          "医疗高危风险回扫",
+          46
+        ],
+        [
+          "AI同质化",
+          5
+        ],
+        [
+          "应急处置-中度",
+          1
         ],
         [
           "封标跟风",
           1
-        ]
-      ],
-      "entities": {
-        "直播间": 56,
-        "笔记": 1
-      },
-      "punish_types": {
-        "黑盒": 57
-      },
-      "samples": [
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570316764618661243",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570329469394302679",
-          "action": "",
-          "repeat_count": 7,
-          "punish_time": "2026-06-21",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570318203046871056",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-06-13",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570334148107289400",
-          "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-24",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570325472077704679",
-          "action": "",
-          "repeat_count": 9,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "66ecfeaad1b4c20015680908",
-      "shop_name": "能妈妈美食的店",
-      "count": 55,
-      "severe": 0,
-      "high_repeat": 43,
-      "top_domains": [
-        [
-          "未成年",
-          52
         ],
         [
-          "违规营销商品",
-          2
-        ],
-        [
-          "涉政",
-          1
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          52
-        ],
-        [
-          "【违规营销】商品价格信息异常",
-          2
-        ],
-        [
-          "直播间-涉政-涉政不合规",
+          "强竞品AIGC品牌露出",
           1
         ]
       ],
       "entities": {
-        "直播间": 53,
-        "商品": 2
+        "笔记": 55
       },
       "punish_types": {
-        "黑盒": 54,
-        "白盒": 1
+        "黑盒": 55
       },
       "samples": [
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570324916581205216",
-          "action": "",
-          "repeat_count": 9,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570306598926114012",
-          "action": "",
-          "repeat_count": 11,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570340838506629231",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-29",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570320940031940686",
-          "action": "",
-          "repeat_count": 9,
-          "punish_time": "2026-06-15",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570307722278657723",
-          "action": "",
-          "repeat_count": 10,
-          "punish_time": "2026-06-06",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 3,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "683d9b0bc3302a0015a9d5a8",
-      "shop_name": "崔小元真选的店",
-      "count": 51,
-      "severe": 0,
-      "high_repeat": 40,
-      "top_domains": [
-        [
-          "未成年",
-          45
-        ],
-        [
-          "大盘/横向品质治理",
-          5
-        ],
-        [
-          "公序良俗",
-          1
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          45
-        ],
-        [
-          "商品品质负反馈率较高「限时整改」",
-          3
-        ],
-        [
-          "直播间-公序良俗-美化负面人物",
-          1
-        ],
-        [
-          "店铺分-商品品质策略限时整改计次2",
-          1
-        ],
-        [
-          "店铺分-商品品质策略限时整改计次1",
-          1
-        ]
-      ],
-      "entities": {
-        "直播间": 46,
-        "商品": 5
-      },
-      "punish_types": {
-        "白盒": 1,
-        "黑盒": 50
-      },
-      "samples": [
-        {
-          "tag": "直播间-公序良俗-美化负面人物",
-          "domain": "公序良俗",
-          "entity_type": "直播间",
-          "entity_id": "570310193751451178",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-08",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570320686323038230",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-06-15",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570330842372333069",
-          "action": "",
-          "repeat_count": 9,
-          "punish_time": "2026-06-22",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570331935446325190",
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a2d3551000000002101553e",
           "action": "",
           "repeat_count": 8,
+          "punish_time": "2026-06-15",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a3a9042000000000f01c551",
+          "action": "",
+          "repeat_count": 6,
           "punish_time": "2026-06-23",
           "punish_type": "黑盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570302945256412630",
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a2e4d4e0000000036002c4e",
           "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-03",
+          "repeat_count": 8,
+          "punish_time": "2026-06-16",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a31f851000000000f015e4e",
+          "action": "",
+          "repeat_count": 6,
+          "punish_time": "2026-06-23",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a2e6db8000000001603ec6d",
+          "action": "",
+          "repeat_count": 8,
+          "punish_time": "2026-06-14",
           "punish_type": "黑盒"
         }
       ],
@@ -3462,1076 +2765,285 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "65b368dd2cdd640001d6c207",
-      "shop_name": "小禾家零食分装的店",
-      "count": 64,
+      "seller_id": "68d10c38cdd2c90015764135",
+      "shop_name": "千张爱养生的店",
+      "count": 127,
       "severe": 0,
-      "high_repeat": 39,
+      "high_repeat": 37,
       "top_domains": [
         [
-          "未成年",
-          53
+          "色情低俗",
+          51
         ],
         [
-          "违规营销笔记",
-          8
+          "AI 治理",
+          28
         ],
         [
-          "应急处置",
-          1
+          "特殊垂类-医疗医美",
+          21
         ]
       ],
       "top_tags": [
         [
-          "直播不对未成年人展示",
-          53
+          "AI同质化",
+          28
         ],
         [
-          "【违规营销】笔记关联商品价格信息异常",
-          8
+          "医疗高危风险回扫",
+          21
         ],
         [
-          "应急处置-轻度",
-          1
+          "身体暴露凸显或涉性讨论",
+          14
         ],
         [
-          "质量问题（举报实时流）",
-          1
+          "色情导流笔记限流",
+          13
         ],
         [
-          "(旧）过期/临期商品",
-          1
+          "色导北上不出",
+          13
         ]
       ],
       "entities": {
-        "直播间": 54,
-        "笔记": 9,
-        "商品": 1
+        "笔记": 126,
+        "用户": 1
       },
       "punish_types": {
-        "黑盒": 63,
-        "白盒": 1
+        "黑盒": 107,
+        "白盒": 20
       },
       "samples": [
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342060800261710",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570329013286606296",
-          "action": "",
-          "repeat_count": 10,
-          "punish_time": "2026-06-21",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570324649437002084",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570336262673817764",
-          "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-26",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570340612606288757",
+          "tag": "色情导流笔记限流",
+          "domain": "色情低俗",
+          "entity_type": "笔记",
+          "entity_id": "698433950000000028021dd4",
           "action": "",
           "repeat_count": 2,
-          "punish_time": "2026-06-29",
+          "punish_time": "2026-06-17",
           "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 6,
-      "new_severe_today": 0
-    }
-  ],
-  "new_burst": [
-    {
-      "seller_id": "66e63edf000000001d03366f",
-      "shop_name": "用户(66e63edf)",
-      "count": 7,
-      "severe": 0,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "未成年",
-          3
-        ],
-        [
-          "问题账号",
-          3
-        ],
-        [
-          "内容画风",
-          1
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          3
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          3
-        ],
-        [
-          "封标悬念",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 4,
-        "直播间": 3
-      },
-      "punish_types": {
-        "黑盒": 4,
-        "白盒": 3
-      },
-      "samples": [
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a27cc8d000000002201682a",
+          "action": "",
+          "repeat_count": 7,
+          "punish_time": "2026-06-13",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "69a1487200000000280200f6",
+          "action": "",
+          "repeat_count": 5,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "身体暴露凸显或涉性讨论",
+          "domain": "色情低俗",
+          "entity_type": "笔记",
+          "entity_id": "6a408011000000001503f600",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-28",
+          "punish_type": "黑盒"
+        },
         {
           "tag": "封标悬念",
           "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a4219b100000000110067c0",
+          "entity_id": "6a33bb89000000001700b93c",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570341631097512332",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a431d06000000001102c538",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342482929996793",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a432581000000000f0148fb",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "白盒"
-        }
-      ],
-      "active_count": 135,
-      "active_severe": 0,
-      "active_high_repeat": 82,
-      "active_top_domains": [
-        [
-          "问题账号",
-          86
-        ],
-        [
-          "未成年",
-          33
-        ],
-        [
-          "内容画风",
-          9
-        ]
-      ]
-    },
-    {
-      "seller_id": "65b368dd2cdd640001d6c207",
-      "shop_name": "小禾家零食分装的店",
-      "count": 6,
-      "severe": 0,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "未成年",
-          6
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          6
-        ]
-      ],
-      "entities": {
-        "直播间": 6
-      },
-      "punish_types": {
-        "黑盒": 6
-      },
-      "samples": [
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342060800261710",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342060800261710",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342060800261710",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342060800261710",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342060800261710",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
+          "repeat_count": 4,
+          "punish_time": "2026-06-20",
           "punish_type": "黑盒"
         }
       ],
-      "active_count": 64,
-      "active_severe": 0,
-      "active_high_repeat": 39,
-      "active_top_domains": [
-        [
-          "未成年",
-          53
-        ],
-        [
-          "违规营销笔记",
-          8
-        ],
-        [
-          "应急处置",
-          1
-        ]
-      ]
+      "new_today": 3,
+      "new_severe_today": 0
     },
     {
-      "seller_id": "6407ef3d9cd18100012e2bbb",
-      "shop_name": "Mamiya旗舰店",
-      "count": 6,
+      "seller_id": "68397a0c000000001b021687",
+      "shop_name": "用户(68397a0c)",
+      "count": 47,
       "severe": 0,
-      "high_repeat": 0,
+      "high_repeat": 31,
       "top_domains": [
         [
-          "未成年",
-          4
-        ],
-        [
-          "大盘/横向品质治理",
-          2
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          4
-        ],
-        [
-          "店铺分-商品品质策略限时整改计次1",
-          1
-        ],
-        [
-          "商品品质负反馈率较高「限时整改」",
-          1
-        ]
-      ],
-      "entities": {
-        "商品": 2,
-        "直播间": 4
-      },
-      "punish_types": {
-        "黑盒": 6
-      },
-      "samples": [
-        {
-          "tag": "店铺分-商品品质策略限时整改计次1",
-          "domain": "大盘/横向品质治理",
-          "entity_type": "商品",
-          "entity_id": "675faac0bee2b60001be3b27",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342161374979987",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342161374979987",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342161374979987",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "商品品质负反馈率较高「限时整改」",
-          "domain": "大盘/横向品质治理",
-          "entity_type": "商品",
-          "entity_id": "675faac0bee2b60001be3b27",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        }
-      ],
-      "active_count": 70,
-      "active_severe": 0,
-      "active_high_repeat": 48,
-      "active_top_domains": [
-        [
-          "未成年",
-          62
-        ],
-        [
-          "大盘/横向品质治理",
-          2
-        ],
-        [
-          "涉政",
-          2
-        ]
-      ]
-    },
-    {
-      "seller_id": "676bafb5000000001801c8f3",
-      "shop_name": "用户(676bafb5)",
-      "count": 6,
-      "severe": 0,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "未成年",
-          4
+          "AI 治理",
+          38
         ],
         [
           "色情低俗",
-          2
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          4
-        ],
-        [
-          "身体暴露凸显或涉性讨论",
-          2
-        ]
-      ],
-      "entities": {
-        "直播间": 4,
-        "笔记": 2
-      },
-      "punish_types": {
-        "黑盒": 6
-      },
-      "samples": [
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342122253592642",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342122253592642",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "身体暴露凸显或涉性讨论",
-          "domain": "色情低俗",
-          "entity_type": "笔记",
-          "entity_id": "6a432aab0000000017008b55",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342122253592642",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "身体暴露凸显或涉性讨论",
-          "domain": "色情低俗",
-          "entity_type": "笔记",
-          "entity_id": "6a43292a0000000016025152",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        }
-      ],
-      "active_count": 74,
-      "active_severe": 0,
-      "active_high_repeat": 30,
-      "active_top_domains": [
-        [
-          "未成年",
-          42
+          3
         ],
         [
           "特殊垂类-医疗医美",
-          16
-        ],
-        [
-          "色情低俗",
-          6
-        ]
-      ]
-    },
-    {
-      "seller_id": "674d0ba68b748400152467b1",
-      "shop_name": "Beryl's倍乐思旗舰店",
-      "count": 6,
-      "severe": 0,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "未成年",
-          6
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          6
-        ]
-      ],
-      "entities": {
-        "直播间": 6
-      },
-      "punish_types": {
-        "黑盒": 6
-      },
-      "samples": [
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342441978595644",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342441978595644",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342441978595644",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342100781777307",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342441978595644",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        }
-      ],
-      "active_count": 43,
-      "active_severe": 0,
-      "active_high_repeat": 26,
-      "active_top_domains": [
-        [
-          "未成年",
-          39
-        ],
-        [
-          "商品合规",
-          4
-        ]
-      ]
-    },
-    {
-      "seller_id": "61c9704e0000000021020c71",
-      "shop_name": "用户(61c9704e)",
-      "count": 6,
-      "severe": 0,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "未成年",
-          6
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          6
-        ]
-      ],
-      "entities": {
-        "直播间": 6
-      },
-      "punish_types": {
-        "黑盒": 6
-      },
-      "samples": [
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342143579157651",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342143579157651",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342143579157651",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342143579157651",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342143579157651",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        }
-      ],
-      "active_count": 56,
-      "active_severe": 0,
-      "active_high_repeat": 34,
-      "active_top_domains": [
-        [
-          "未成年",
-          44
-        ],
-        [
-          "内容画风",
-          3
-        ],
-        [
-          "笔记内容生态",
-          3
-        ]
-      ]
-    },
-    {
-      "seller_id": "5c4d6367000000001103f8cf",
-      "shop_name": "用户(5c4d6367)",
-      "count": 5,
-      "severe": 0,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "问题账号",
-          3
-        ],
-        [
-          "未成年",
-          1
-        ],
-        [
-          "影响互动体验",
-          1
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          3
-        ],
-        [
-          "直播不对未成年人展示",
-          1
-        ],
-        [
-          "直播间生态-互动感差-无互动弹幕",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 3,
-        "直播间": 2
-      },
-      "punish_types": {
-        "白盒": 4,
-        "黑盒": 1
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a4314b8000000001503f631",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570341878945501527",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a43151c0000000015026313",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "直播间生态-互动感差-无互动弹幕",
-          "domain": "影响互动体验",
-          "entity_type": "直播间",
-          "entity_id": "570340429527818776",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a4315a100000000150264cd",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "白盒"
-        }
-      ],
-      "active_count": 80,
-      "active_severe": 0,
-      "active_high_repeat": 33,
-      "active_top_domains": [
-        [
-          "未成年",
-          40
-        ],
-        [
-          "问题账号",
-          18
-        ],
-        [
-          "内容画风",
-          8
-        ]
-      ]
-    },
-    {
-      "seller_id": "664f1d49dd2218000187ddf6",
-      "shop_name": "像宝石一样的巧克力的店",
-      "count": 5,
-      "severe": 0,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "未成年",
-          5
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播不对未成年人展示",
-          5
-        ]
-      ],
-      "entities": {
-        "直播间": 5
-      },
-      "punish_types": {
-        "黑盒": 5
-      },
-      "samples": [
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342712555200582",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342712555200582",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342712555200582",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342409113781006",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342712555200582",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        }
-      ],
-      "active_count": 54,
-      "active_severe": 0,
-      "active_high_repeat": 35,
-      "active_top_domains": [
-        [
-          "未成年",
-          46
-        ],
-        [
-          "计次处置",
-          4
-        ],
-        [
-          "商品合规准入回查",
           2
         ]
-      ]
-    },
-    {
-      "seller_id": "69b798bb000000003402ecdd",
-      "shop_name": "用户(69b798bb)",
-      "count": 5,
-      "severe": 0,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "未成年",
-          3
-        ],
-        [
-          "营销内容",
-          1
-        ],
-        [
-          "画风-低差封面",
-          1
-        ]
       ],
       "top_tags": [
         [
-          "直播不对未成年人展示",
+          "AI同质化",
+          38
+        ],
+        [
+          "身体暴露凸显或两性话题",
           3
         ],
         [
-          "低差营销",
-          1
+          "医疗高危风险回扫",
+          2
         ],
         [
-          "低差封面标题-黑种",
+          "竞对平台导流",
+          2
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
           1
         ]
       ],
       "entities": {
-        "笔记": 2,
-        "直播间": 3
+        "笔记": 47
       },
       "punish_types": {
-        "白盒": 1,
-        "黑盒": 4
+        "黑盒": 47
       },
       "samples": [
         {
-          "tag": "低差营销",
-          "domain": "营销内容",
+          "tag": "AI同质化",
+          "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a210ce0000000003601e6a2",
+          "entity_id": "69ca2936000000001a03561b",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "白盒"
+          "repeat_count": 5,
+          "punish_time": "2026-06-20",
+          "punish_type": "黑盒"
         },
         {
-          "tag": "低差封面标题-黑种",
-          "domain": "画风-低差封面",
+          "tag": "AI同质化",
+          "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a39e86d00000000060317ac",
+          "entity_id": "6a17e1510000000008000e69",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
+          "repeat_count": 7,
+          "punish_time": "2026-06-02",
           "punish_type": "黑盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342127806873538",
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a1fcb4c000000002100a06a",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
+          "repeat_count": 6,
+          "punish_time": "2026-06-03",
           "punish_type": "黑盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342127806873538",
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a1fc0b10000000021017c85",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
+          "repeat_count": 6,
+          "punish_time": "2026-06-03",
           "punish_type": "黑盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342127806873538",
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a17e1510000000008000e69",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
+          "repeat_count": 7,
+          "punish_time": "2026-06-02",
           "punish_type": "黑盒"
         }
       ],
-      "active_count": 62,
-      "active_severe": 0,
-      "active_high_repeat": 34,
-      "active_top_domains": [
-        [
-          "未成年",
-          42
-        ],
-        [
-          "问题账号",
-          12
-        ],
-        [
-          "内容画风",
-          3
-        ]
-      ]
+      "new_today": 0,
+      "new_severe_today": 0
     },
     {
       "seller_id": "6220932a00db3b00019e6e18",
       "shop_name": "麻六记旗舰店",
-      "count": 5,
+      "count": 53,
       "severe": 0,
-      "high_repeat": 0,
+      "high_repeat": 28,
       "top_domains": [
         [
-          "未成年",
-          2
+          "内容画风",
+          21
         ],
         [
           "计次处置",
-          1
+          21
         ],
         [
-          "内容画风",
-          1
+          "影响观播体验",
+          5
         ]
       ],
       "top_tags": [
         [
-          "直播不对未成年人展示",
-          2
+          "直播举报—影响观播体验—观感不佳",
+          21
         ],
         [
           "直播-禁止生成回顾action",
-          1
-        ],
-        [
-          "直播举报—影响观播体验—观感不佳",
-          1
+          21
         ],
         [
           "直播间生态-影响观播体验-观感不佳",
+          5
+        ],
+        [
+          "工业化流水号-经营账号-自相似笔记",
+          2
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
           1
         ]
       ],
       "entities": {
-        "直播间": 5
+        "直播间": 47,
+        "笔记": 4,
+        "商品": 2
       },
       "punish_types": {
-        "黑盒": 5
+        "黑盒": 51,
+        "白盒": 2
       },
       "samples": [
+        {
+          "tag": "直播间生态-影响观播体验-观感不佳",
+          "domain": "影响观播体验",
+          "entity_type": "直播间",
+          "entity_id": "570317362590964453",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-13",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播举报—影响观播体验—观感不佳",
+          "domain": "内容画风",
+          "entity_type": "直播间",
+          "entity_id": "570340526909861168",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-29",
+          "punish_type": "黑盒"
+        },
         {
           "tag": "直播-禁止生成回顾action",
           "domain": "计次处置",
@@ -4543,159 +3055,500 @@
           "punish_type": "黑盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342007012627445",
+          "tag": "工业化流水号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a224b79000000000702b458",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342314316528413",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
+          "punish_time": "2026-06-05",
           "punish_type": "黑盒"
         },
         {
           "tag": "直播举报—影响观播体验—观感不佳",
           "domain": "内容画风",
           "entity_type": "直播间",
-          "entity_id": "570342607817131537",
+          "entity_id": "570315898008457669",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播间生态-影响观播体验-观感不佳",
-          "domain": "影响观播体验",
-          "entity_type": "直播间",
-          "entity_id": "570342007012627445",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
+          "repeat_count": 10,
+          "punish_time": "2026-06-12",
           "punish_type": "黑盒"
         }
       ],
-      "active_count": 71,
-      "active_severe": 0,
-      "active_high_repeat": 37,
-      "active_top_domains": [
-        [
-          "内容画风",
-          21
-        ],
-        [
-          "计次处置",
-          21
-        ],
-        [
-          "未成年",
-          18
-        ]
-      ]
+      "new_today": 3,
+      "new_severe_today": 0
     },
     {
-      "seller_id": "645cc2bc54cf120001995dfb",
-      "shop_name": "燕如妃的店",
-      "count": 5,
+      "seller_id": "69ca2523000000003202c04c",
+      "shop_name": "用户(69ca2523)",
+      "count": 41,
       "severe": 0,
-      "high_repeat": 0,
+      "high_repeat": 25,
       "top_domains": [
         [
-          "未成年",
-          5
+          "营销内容",
+          33
+        ],
+        [
+          "问题账号",
+          8
         ]
       ],
       "top_tags": [
         [
-          "直播不对未成年人展示",
+          "低差营销相似违规召回",
+          33
+        ],
+        [
+          "同质化搬运号-经营账号-他相似笔记",
           5
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
+          2
+        ],
+        [
+          "同质化搬运号-经营账号-自相似笔记",
+          1
         ]
       ],
       "entities": {
-        "直播间": 5
+        "笔记": 41
       },
       "punish_types": {
-        "黑盒": 5
+        "黑盒": 40,
+        "白盒": 1
       },
       "samples": [
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342604112177899",
+          "tag": "低差营销相似违规召回",
+          "domain": "营销内容",
+          "entity_type": "笔记",
+          "entity_id": "6a4226af000000002003b3e0",
           "action": "",
           "repeat_count": 1,
           "punish_time": "2026-06-30",
           "punish_type": "黑盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342604112177899",
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a35f615000000002003979f",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
+          "repeat_count": 0,
+          "punish_time": "2026-06-20",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "低差营销相似违规召回",
+          "domain": "营销内容",
+          "entity_type": "笔记",
+          "entity_id": "6a3e6acc000000000803d36a",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-27",
           "punish_type": "黑盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342604112177899",
+          "tag": "低差营销相似违规召回",
+          "domain": "营销内容",
+          "entity_type": "笔记",
+          "entity_id": "6a2fb0b90000000006021ec7",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
+          "repeat_count": 7,
+          "punish_time": "2026-06-16",
           "punish_type": "黑盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342604112177899",
+          "tag": "低差营销相似违规召回",
+          "domain": "营销内容",
+          "entity_type": "笔记",
+          "entity_id": "6a2234ed00000000080022d2",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570342604112177899",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
+          "repeat_count": 11,
+          "punish_time": "2026-06-06",
           "punish_type": "黑盒"
         }
       ],
-      "active_count": 65,
-      "active_severe": 0,
-      "active_high_repeat": 44,
-      "active_top_domains": [
+      "new_today": 4,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "658c1e55000000002200a4f8",
+      "shop_name": "用户(658c1e55)",
+      "count": 67,
+      "severe": 0,
+      "high_repeat": 25,
+      "top_domains": [
         [
-          "未成年",
-          56
+          "问题账号",
+          59
         ],
         [
-          "大盘/横向品质治理",
-          3
+          "AI 治理",
+          7
+        ],
+        [
+          "应急处置",
+          1
+        ]
+      ],
+      "top_tags": [
+        [
+          "同质化搬运号-经营账号-他相似笔记",
+          35
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
+          24
+        ],
+        [
+          "AI同质化",
+          7
+        ],
+        [
+          "应急处置-中度",
+          1
+        ]
+      ],
+      "entities": {
+        "笔记": 67
+      },
+      "punish_types": {
+        "黑盒": 67
+      },
+      "samples": [
+        {
+          "tag": "工业化流水号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a258bab000000001603e58f",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-07",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "工业化流水号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a258a4b000000001c027bd8",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-07",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "工业化流水号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a21778f000000003701d7b1",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-04",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a3009a1000000001702adc3",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-15",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "工业化流水号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a1edde20000000037036943",
+          "action": "",
+          "repeat_count": 5,
+          "punish_time": "2026-06-02",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "65d1daca000000000d024ed1",
+      "shop_name": "用户(65d1daca)",
+      "count": 33,
+      "severe": 0,
+      "high_repeat": 24,
+      "top_domains": [
+        [
+          "违规营销笔记",
+          31
+        ],
+        [
+          "不当导流",
+          2
+        ]
+      ],
+      "top_tags": [
+        [
+          "【违规营销】笔记关联商品价格信息异常",
+          31
+        ],
+        [
+          "M-世界杯三方平台导流",
+          2
+        ]
+      ],
+      "entities": {
+        "笔记": 33
+      },
+      "punish_types": {
+        "黑盒": 33
+      },
+      "samples": [
+        {
+          "tag": "【违规营销】笔记关联商品价格信息异常",
+          "domain": "违规营销笔记",
+          "entity_type": "笔记",
+          "entity_id": "69e9908400000000230078f5",
+          "action": "",
+          "repeat_count": 7,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "【违规营销】笔记关联商品价格信息异常",
+          "domain": "违规营销笔记",
+          "entity_type": "笔记",
+          "entity_id": "691aba7900000000040128c8",
+          "action": "",
+          "repeat_count": 11,
+          "punish_time": "2026-06-07",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "M-世界杯三方平台导流",
+          "domain": "不当导流",
+          "entity_type": "笔记",
+          "entity_id": "6a29301c00000000210168fd",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-10",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "【违规营销】笔记关联商品价格信息异常",
+          "domain": "违规营销笔记",
+          "entity_type": "笔记",
+          "entity_id": "69e35c82000000002202b806",
+          "action": "",
+          "repeat_count": 6,
+          "punish_time": "2026-06-18",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "【违规营销】笔记关联商品价格信息异常",
+          "domain": "违规营销笔记",
+          "entity_type": "笔记",
+          "entity_id": "68e6341100000000040203c1",
+          "action": "",
+          "repeat_count": 4,
+          "punish_time": "2026-06-21",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "67f5f78b000000000a03f350",
+      "shop_name": "用户(67f5f78b)",
+      "count": 36,
+      "severe": 0,
+      "high_repeat": 24,
+      "top_domains": [
+        [
+          "AI 治理",
+          35
+        ],
+        [
+          "自动处置",
+          1
+        ]
+      ],
+      "top_tags": [
+        [
+          "AI同质化",
+          35
+        ],
+        [
+          "安全笔记量级调控-静默自嗨-不发信",
+          1
+        ]
+      ],
+      "entities": {
+        "笔记": 36
+      },
+      "punish_types": {
+        "黑盒": 36
+      },
+      "samples": [
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a3218440000000022016d5b",
+          "action": "",
+          "repeat_count": 5,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a29250f00000000210087ba",
+          "action": "",
+          "repeat_count": 7,
+          "punish_time": "2026-06-10",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a38d94200000000060334b8",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-22",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a3ff15600000000070246d1",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-28",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "69e59c60000000001b021436",
+          "action": "",
+          "repeat_count": 5,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "695b90960000000037029341",
+      "shop_name": "用户(695b9096)",
+      "count": 36,
+      "severe": 0,
+      "high_repeat": 23,
+      "top_domains": [
+        [
+          "营销内容",
+          30
         ],
         [
           "问题账号",
-          2
+          5
+        ],
+        [
+          "笔记内容生态",
+          1
         ]
-      ]
+      ],
+      "top_tags": [
+        [
+          "低差营销相似违规召回",
+          30
+        ],
+        [
+          "同质化搬运号-经营账号-他相似笔记",
+          3
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
+          2
+        ],
+        [
+          "AI虚假不实",
+          1
+        ]
+      ],
+      "entities": {
+        "笔记": 36
+      },
+      "punish_types": {
+        "黑盒": 35,
+        "白盒": 1
+      },
+      "samples": [
+        {
+          "tag": "低差营销相似违规召回",
+          "domain": "营销内容",
+          "entity_type": "笔记",
+          "entity_id": "6a3ce3350000000016027a0d",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-26",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "低差营销相似违规召回",
+          "domain": "营销内容",
+          "entity_type": "笔记",
+          "entity_id": "6a3bcb0b000000001503f03c",
+          "action": "",
+          "repeat_count": 4,
+          "punish_time": "2026-06-25",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "低差营销相似违规召回",
+          "domain": "营销内容",
+          "entity_type": "笔记",
+          "entity_id": "6a2d0e5d000000001503df71",
+          "action": "",
+          "repeat_count": 8,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a29246b000000001702fbca",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-10",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "低差营销相似违规召回",
+          "domain": "营销内容",
+          "entity_type": "笔记",
+          "entity_id": "6a2fb0af0000000015027ddb",
+          "action": "",
+          "repeat_count": 6,
+          "punish_time": "2026-06-16",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 2,
+      "new_severe_today": 0
     }
   ],
+  "new_burst": [],
   "severe": [
     {
       "seller_id": "69ac144203e2c70015a2eea9",
@@ -4914,14 +3767,10 @@
     {
       "seller_id": "64082baa9a611c0001397174",
       "shop_name": "蓝鹊烘焙的店",
-      "count": 23,
+      "count": 10,
       "severe": 1,
-      "high_repeat": 5,
+      "high_repeat": 0,
       "top_domains": [
-        [
-          "未成年",
-          13
-        ],
         [
           "问题账号",
           3
@@ -4929,13 +3778,13 @@
         [
           "计次处置",
           2
+        ],
+        [
+          "无货源",
+          1
         ]
       ],
       "top_tags": [
-        [
-          "直播不对未成年人展示",
-          13
-        ],
         [
           "同质化搬运号-经营账号-他相似笔记",
           2
@@ -4951,16 +3800,20 @@
         [
           "直播间生态-不真诚直播-低成本直播",
           1
+        ],
+        [
+          "【违规营销】规格不一致",
+          1
         ]
       ],
       "entities": {
         "笔记": 5,
-        "直播间": 16,
+        "直播间": 3,
         "用户": 1,
         "商品": 1
       },
       "punish_types": {
-        "黑盒": 20,
+        "黑盒": 7,
         "白盒": 3
       },
       "samples": [
@@ -5005,13 +3858,13 @@
           "punish_type": "白盒"
         },
         {
-          "tag": "直播不对未成年人展示",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570307896275062909",
+          "tag": "应急处置-中度",
+          "domain": "应急处置",
+          "entity_type": "笔记",
+          "entity_id": "6a1aba2f0000000007022636",
           "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-06",
+          "repeat_count": 0,
+          "punish_time": "2026-06-02",
           "punish_type": "黑盒"
         }
       ],
