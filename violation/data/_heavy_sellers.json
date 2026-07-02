@@ -1,9 +1,9 @@
 {
   "top_active": [
     {
-      "seller_id": "69ac10320000000032025be3",
-      "shop_name": "用户(69ac1032)",
-      "count": 186,
+      "seller_id": "69ac144203e2c70015a2eea9",
+      "shop_name": "綩朵的店",
+      "count": 187,
       "severe": 2,
       "high_repeat": 56,
       "top_domains": [
@@ -45,11 +45,12 @@
       "entities": {
         "笔记": 175,
         "商品": 9,
-        "用户": 2
+        "用户": 2,
+        "店铺": 1
       },
       "punish_types": {
         "黑盒": 172,
-        "白盒": 14
+        "白盒": 15
       },
       "samples": [
         {
@@ -212,8 +213,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "5a129ad111be103923ffe1dc",
-      "shop_name": "用户(5a129ad1)",
+      "seller_id": "60f131ee217f7700010108de",
+      "shop_name": "吃货妞妞旗舰店",
       "count": 149,
       "severe": 0,
       "high_repeat": 0,
@@ -406,8 +407,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "68cb6dfe000000002102d06d",
-      "shop_name": "用户(68cb6dfe)",
+      "seller_id": "68d10c38cdd2c90015764135",
+      "shop_name": "千张爱养生的店",
       "count": 127,
       "severe": 0,
       "high_repeat": 37,
@@ -719,8 +720,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "6952419e000000003700442c",
-      "shop_name": "用户(6952419e)",
+      "seller_id": "6a200c37bcfe4d00151b4db4",
+      "shop_name": "岁岁宝藏铺的店",
       "count": 80,
       "severe": 0,
       "high_repeat": 46,
@@ -1034,8 +1035,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "60759ac700000000010005b6",
-      "shop_name": "用户(60759ac7)",
+      "seller_id": "6220932a00db3b00019e6e18",
+      "shop_name": "麻六记旗舰店",
       "count": 71,
       "severe": 0,
       "high_repeat": 37,
@@ -1140,8 +1141,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "5cc90f2d000000001000df13",
-      "shop_name": "用户(5cc90f2d)",
+      "seller_id": "68c5637c63594e0015bdfaa6",
+      "shop_name": "小乔爱吃的店",
       "count": 70,
       "severe": 0,
       "high_repeat": 59,
@@ -1219,8 +1220,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "62d8ddcd0000000002001946",
-      "shop_name": "用户(62d8ddcd)",
+      "seller_id": "6407ef3d9cd18100012e2bbb",
+      "shop_name": "Mamiya旗舰店",
       "count": 70,
       "severe": 0,
       "high_repeat": 48,
@@ -1325,8 +1326,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "5b1480dd4eacab0ea9170dab",
-      "shop_name": "用户(5b1480dd)",
+      "seller_id": "639bc9a5d6c9400001b419ab",
+      "shop_name": "五常秀波家庭农场（王大姐）的店",
       "count": 68,
       "severe": 0,
       "high_repeat": 54,
@@ -1524,8 +1525,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "637257a30000000024014525",
-      "shop_name": "用户(637257a3)",
+      "seller_id": "677ff3c4290ef900146ddf93",
+      "shop_name": "一群娃的妈妈是潘潘海外专营店",
       "count": 67,
       "severe": 0,
       "high_repeat": 50,
@@ -1625,8 +1626,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "5cb9e8ec0000000010002cdb",
-      "shop_name": "用户(5cb9e8ec)",
+      "seller_id": "645cc2bc54cf120001995dfb",
+      "shop_name": "燕如妃的店",
       "count": 65,
       "severe": 0,
       "high_repeat": 44,
@@ -1732,8 +1733,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "65b0cc46000000000d03c795",
-      "shop_name": "用户(65b0cc46)",
+      "seller_id": "65b368dd2cdd640001d6c207",
+      "shop_name": "小禾家零食分装的店",
       "count": 64,
       "severe": 0,
       "high_repeat": 39,
@@ -1838,8 +1839,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "5b5f239c4eacab715c3b60c4",
-      "shop_name": "用户(5b5f239c)",
+      "seller_id": "62629af879fddb0001c7f575",
+      "shop_name": "温柔女人的店",
       "count": 63,
       "severe": 0,
       "high_repeat": 44,
@@ -2258,8 +2259,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "5cc90f2d000000001000df13",
-      "shop_name": "用户(5cc90f2d)",
+      "seller_id": "68c5637c63594e0015bdfaa6",
+      "shop_name": "小乔爱吃的店",
       "count": 70,
       "severe": 0,
       "high_repeat": 59,
@@ -2337,9 +2338,9 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "69ac10320000000032025be3",
-      "shop_name": "用户(69ac1032)",
-      "count": 186,
+      "seller_id": "69ac144203e2c70015a2eea9",
+      "shop_name": "綩朵的店",
+      "count": 187,
       "severe": 2,
       "high_repeat": 56,
       "top_domains": [
@@ -2381,11 +2382,12 @@
       "entities": {
         "笔记": 175,
         "商品": 9,
-        "用户": 2
+        "用户": 2,
+        "店铺": 1
       },
       "punish_types": {
         "黑盒": 172,
-        "白盒": 14
+        "白盒": 15
       },
       "samples": [
         {
@@ -2443,8 +2445,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "5b1480dd4eacab0ea9170dab",
-      "shop_name": "用户(5b1480dd)",
+      "seller_id": "639bc9a5d6c9400001b419ab",
+      "shop_name": "五常秀波家庭农场（王大姐）的店",
       "count": 68,
       "severe": 0,
       "high_repeat": 54,
@@ -2543,8 +2545,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "637257a30000000024014525",
-      "shop_name": "用户(637257a3)",
+      "seller_id": "677ff3c4290ef900146ddf93",
+      "shop_name": "一群娃的妈妈是潘潘海外专营店",
       "count": 67,
       "severe": 0,
       "high_repeat": 50,
@@ -2644,8 +2646,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "62d8ddcd0000000002001946",
-      "shop_name": "用户(62d8ddcd)",
+      "seller_id": "6407ef3d9cd18100012e2bbb",
+      "shop_name": "Mamiya旗舰店",
       "count": 70,
       "severe": 0,
       "high_repeat": 48,
@@ -2750,8 +2752,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "6952419e000000003700442c",
-      "shop_name": "用户(6952419e)",
+      "seller_id": "6a200c37bcfe4d00151b4db4",
+      "shop_name": "岁岁宝藏铺的店",
       "count": 80,
       "severe": 0,
       "high_repeat": 46,
@@ -2958,8 +2960,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "5b5f239c4eacab715c3b60c4",
-      "shop_name": "用户(5b5f239c)",
+      "seller_id": "62629af879fddb0001c7f575",
+      "shop_name": "温柔女人的店",
       "count": 63,
       "severe": 0,
       "high_repeat": 44,
@@ -3063,8 +3065,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "5cb9e8ec0000000010002cdb",
-      "shop_name": "用户(5cb9e8ec)",
+      "seller_id": "645cc2bc54cf120001995dfb",
+      "shop_name": "燕如妃的店",
       "count": 65,
       "severe": 0,
       "high_repeat": 44,
@@ -3258,8 +3260,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "5c250ec2000000000703fc3a",
-      "shop_name": "用户(5c250ec2)",
+      "seller_id": "66ecfeaad1b4c20015680908",
+      "shop_name": "能妈妈美食的店",
       "count": 55,
       "severe": 0,
       "high_repeat": 43,
@@ -3355,8 +3357,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "649bf1db000000002b00bdb3",
-      "shop_name": "用户(649bf1db)",
+      "seller_id": "683d9b0bc3302a0015a9d5a8",
+      "shop_name": "崔小元真选的店",
       "count": 51,
       "severe": 0,
       "high_repeat": 40,
@@ -3460,8 +3462,8 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "65b0cc46000000000d03c795",
-      "shop_name": "用户(65b0cc46)",
+      "seller_id": "65b368dd2cdd640001d6c207",
+      "shop_name": "小禾家零食分装的店",
       "count": 64,
       "severe": 0,
       "high_repeat": 39,
@@ -3680,8 +3682,8 @@
       ]
     },
     {
-      "seller_id": "65b0cc46000000000d03c795",
-      "shop_name": "用户(65b0cc46)",
+      "seller_id": "65b368dd2cdd640001d6c207",
+      "shop_name": "小禾家零食分装的店",
       "count": 6,
       "severe": 0,
       "high_repeat": 0,
@@ -3774,8 +3776,8 @@
       ]
     },
     {
-      "seller_id": "62d8ddcd0000000002001946",
-      "shop_name": "用户(62d8ddcd)",
+      "seller_id": "6407ef3d9cd18100012e2bbb",
+      "shop_name": "Mamiya旗舰店",
       "count": 6,
       "severe": 0,
       "high_repeat": 0,
@@ -3984,8 +3986,8 @@
       ]
     },
     {
-      "seller_id": "6747c88c000000001d02db6e",
-      "shop_name": "用户(6747c88c)",
+      "seller_id": "674d0ba68b748400152467b1",
+      "shop_name": "Beryl's倍乐思旗舰店",
       "count": 6,
       "severe": 0,
       "high_repeat": 0,
@@ -4280,8 +4282,8 @@
       ]
     },
     {
-      "seller_id": "626ed19f0000000021023f6b",
-      "shop_name": "用户(626ed19f)",
+      "seller_id": "664f1d49dd2218000187ddf6",
+      "shop_name": "像宝石一样的巧克力的店",
       "count": 5,
       "severe": 0,
       "high_repeat": 0,
@@ -4486,8 +4488,8 @@
       ]
     },
     {
-      "seller_id": "60759ac700000000010005b6",
-      "shop_name": "用户(60759ac7)",
+      "seller_id": "6220932a00db3b00019e6e18",
+      "shop_name": "麻六记旗舰店",
       "count": 5,
       "severe": 0,
       "high_repeat": 0,
@@ -4600,8 +4602,8 @@
       ]
     },
     {
-      "seller_id": "5cb9e8ec0000000010002cdb",
-      "shop_name": "用户(5cb9e8ec)",
+      "seller_id": "645cc2bc54cf120001995dfb",
+      "shop_name": "燕如妃的店",
       "count": 5,
       "severe": 0,
       "high_repeat": 0,
@@ -4696,9 +4698,9 @@
   ],
   "severe": [
     {
-      "seller_id": "69ac10320000000032025be3",
-      "shop_name": "用户(69ac1032)",
-      "count": 186,
+      "seller_id": "69ac144203e2c70015a2eea9",
+      "shop_name": "綩朵的店",
+      "count": 187,
       "severe": 2,
       "high_repeat": 56,
       "top_domains": [
@@ -4740,11 +4742,12 @@
       "entities": {
         "笔记": 175,
         "商品": 9,
-        "用户": 2
+        "用户": 2,
+        "店铺": 1
       },
       "punish_types": {
         "黑盒": 172,
-        "白盒": 14
+        "白盒": 15
       },
       "samples": [
         {
@@ -4802,9 +4805,9 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "5bdefee27f5c6f0001b3d69e",
-      "shop_name": "用户(5bdefee2)",
-      "count": 47,
+      "seller_id": "65d4461b5fd0a00001077205",
+      "shop_name": "蓝昔鸟食品的店",
+      "count": 49,
       "severe": 1,
       "high_repeat": 14,
       "top_domains": [
@@ -4845,11 +4848,12 @@
       ],
       "entities": {
         "用户": 3,
+        "店铺": 2,
         "笔记": 41,
         "商品": 3
       },
       "punish_types": {
-        "黑盒": 46,
+        "黑盒": 48,
         "白盒": 1
       },
       "samples": [
@@ -4861,6 +4865,16 @@
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-06-27",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "店铺品质负反馈率较高「限时整改」",
+          "domain": "大盘/横向品质治理",
+          "entity_type": "店铺",
+          "entity_id": "65d4461b5fd0a00001077205",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-13",
           "punish_type": "黑盒"
         },
         {
@@ -4892,24 +4906,14 @@
           "repeat_count": 9,
           "punish_time": "2026-06-09",
           "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3105a2000000000f01f789",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
         }
       ],
       "new_today": 0,
       "new_severe_today": 0
     },
     {
-      "seller_id": "5da152cf00000000010043b5",
-      "shop_name": "用户(5da152cf)",
+      "seller_id": "64082baa9a611c0001397174",
+      "shop_name": "蓝鹊烘焙的店",
       "count": 23,
       "severe": 1,
       "high_repeat": 5,
