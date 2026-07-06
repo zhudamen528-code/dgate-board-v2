@@ -1,15 +1,15 @@
 {
   "top_active": [
     {
-      "seller_id": "69ac144203e2c70015a2eea9",
-      "shop_name": "綩朵的店",
-      "count": 187,
-      "severe": 2,
-      "high_repeat": 56,
+      "seller_id": "69ac10320000000032025be3",
+      "shop_name": "用户(69ac1032)",
+      "count": 171,
+      "severe": 0,
+      "high_repeat": 54,
       "top_domains": [
         [
           "问题账号",
-          113
+          108
         ],
         [
           "AI 治理",
@@ -17,7 +17,7 @@
         ],
         [
           "违规营销笔记",
-          5
+          6
         ]
       ],
       "top_tags": [
@@ -27,80 +27,77 @@
         ],
         [
           "AI同质化",
-          42
+          43
         ],
         [
           "工业化流水号-经营账号-他相似笔记",
-          31
+          27
         ],
         [
           "【违规营销】笔记关联商品价格信息异常",
-          5
+          6
         ],
         [
-          "应急处置-中度",
-          3
+          "商品规格异常",
+          4
         ]
       ],
       "entities": {
-        "笔记": 175,
-        "商品": 9,
-        "用户": 2,
-        "店铺": 1
+        "笔记": 171
       },
       "punish_types": {
-        "黑盒": 172,
-        "白盒": 15
+        "黑盒": 166,
+        "白盒": 5
       },
       "samples": [
         {
           "tag": "同质化搬运号-经营账号-他相似笔记",
           "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a2e6846000000001503e8aa",
+          "entity_id": "6a3257510000000006023bec",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a33c4b50000000007021ad1",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-18",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a2e68850000000017008e09",
           "action": "",
           "repeat_count": 3,
           "punish_time": "2026-06-14",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2ac164000000001603e30f",
-          "action": "",
-          "repeat_count": 6,
-          "punish_time": "2026-06-11",
-          "punish_type": "黑盒"
-        },
-        {
           "tag": "AI同质化",
           "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a2bc4620000000015025e37",
+          "entity_id": "6a3fa760000000002101b7a8",
           "action": "",
-          "repeat_count": 6,
-          "punish_time": "2026-06-12",
+          "repeat_count": 3,
+          "punish_time": "2026-06-28",
           "punish_type": "黑盒"
         },
         {
           "tag": "同质化搬运号-经营账号-他相似笔记",
           "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a2d0973000000001700a4f5",
+          "entity_id": "6a2e682e0000000017028bf6",
           "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-13",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a33c4110000000008003a21",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-18",
+          "repeat_count": 3,
+          "punish_time": "2026-06-14",
           "punish_type": "黑盒"
         }
       ],
@@ -110,39 +107,39 @@
     {
       "seller_id": "69b8f63a0000000032019f1f",
       "shop_name": "用户(69b8f63a)",
-      "count": 159,
+      "count": 152,
       "severe": 0,
-      "high_repeat": 2,
+      "high_repeat": 6,
       "top_domains": [
         [
           "AI 治理",
-          91
+          88
         ],
         [
           "问题账号",
-          23
+          21
         ],
         [
           "不当导流",
-          19
+          18
         ]
       ],
       "top_tags": [
         [
           "AI同质化",
-          91
+          88
         ],
         [
           "M-世界杯三方平台导流",
-          19
+          18
         ],
         [
           "工业化流水号-经营账号-自相似笔记",
-          12
+          11
         ],
         [
           "竞对平台导流",
-          10
+          9
         ],
         [
           "同质化搬运号-经营账号-自相似笔记",
@@ -150,62 +147,61 @@
         ]
       ],
       "entities": {
-        "笔记": 158,
-        "用户": 1
+        "笔记": 152
       },
       "punish_types": {
-        "黑盒": 137,
-        "白盒": 22
+        "黑盒": 131,
+        "白盒": 21
       },
       "samples": [
         {
           "tag": "商品品质负反馈率高「全域流量屏蔽」",
           "domain": "大盘/横向品质治理",
           "entity_type": "笔记",
-          "entity_id": "6a1401700000000008033efb",
+          "entity_id": "6a101d550000000035027ed2",
           "action": "TAG_SPREAD",
-          "repeat_count": 0,
-          "punish_time": "2026-06-23",
+          "repeat_count": 3,
+          "punish_time": "2026-06-10",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a0ab3990000000007023296",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-03",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "M-世界杯三方平台导流",
+          "domain": "不当导流",
+          "entity_type": "笔记",
+          "entity_id": "6a1febd00000000036019709",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-03",
           "punish_type": "黑盒"
         },
         {
           "tag": "商品品质负反馈率高「全域流量屏蔽」",
           "domain": "大盘/横向品质治理",
           "entity_type": "笔记",
-          "entity_id": "69cb9069000000002003972f",
+          "entity_id": "6a101af10000000035026f34",
           "action": "TAG_SPREAD",
           "repeat_count": 1,
           "punish_time": "2026-06-16",
           "punish_type": "黑盒"
         },
         {
-          "tag": "商品品质负反馈率高「全域流量屏蔽」",
-          "domain": "大盘/横向品质治理",
+          "tag": "AI同质化",
+          "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a0ab3990000000007023296",
-          "action": "TAG_SPREAD",
-          "repeat_count": 2,
-          "punish_time": "2026-06-11",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1ff226000000003700d43c",
+          "entity_id": "6a1fefc800000000380363a5",
           "action": "",
-          "repeat_count": 2,
+          "repeat_count": 3,
           "punish_time": "2026-06-03",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "竞对平台导流",
-          "domain": "商业生态",
-          "entity_type": "笔记",
-          "entity_id": "6a2377ae0000000021020c9f",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-06",
           "punish_type": "黑盒"
         }
       ],
@@ -251,7 +247,7 @@
           "tag": "沉寂店铺",
           "domain": "消费者安全",
           "entity_type": "商品",
-          "entity_id": "66054dd4c56bc700011ef63b",
+          "entity_id": "67048d3675e23c0001602e6c",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-06-20",
@@ -261,7 +257,7 @@
           "tag": "沉寂店铺",
           "domain": "消费者安全",
           "entity_type": "商品",
-          "entity_id": "66056b7f8bd29600017cc01c",
+          "entity_id": "65fd4d68b3a57a0001cb423f",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-06-20",
@@ -271,7 +267,7 @@
           "tag": "沉寂店铺",
           "domain": "消费者安全",
           "entity_type": "商品",
-          "entity_id": "660567d2caccc200019ad20a",
+          "entity_id": "6704b5ec5bcbab000151a4b7",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-06-20",
@@ -281,7 +277,7 @@
           "tag": "沉寂店铺",
           "domain": "消费者安全",
           "entity_type": "商品",
-          "entity_id": "6605500e952bcc00013bd0ab",
+          "entity_id": "6605639fd286c20001d74d22",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-06-20",
@@ -291,7 +287,7 @@
           "tag": "沉寂店铺",
           "domain": "消费者安全",
           "entity_type": "商品",
-          "entity_id": "66164877b557ec0001b1e7bd",
+          "entity_id": "661631ced7615600015e53d5",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-06-20",
@@ -302,58 +298,87 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "68d10c38cdd2c90015764135",
-      "shop_name": "千张爱养生的店",
-      "count": 127,
+      "seller_id": "68cb6dfe000000002102d06d",
+      "shop_name": "用户(68cb6dfe)",
+      "count": 119,
       "severe": 0,
-      "high_repeat": 37,
+      "high_repeat": 36,
       "top_domains": [
         [
           "色情低俗",
-          51
+          41
         ],
         [
           "AI 治理",
-          28
+          31
         ],
         [
           "特殊垂类-医疗医美",
-          21
+          22
         ]
       ],
       "top_tags": [
         [
           "AI同质化",
-          28
+          31
         ],
         [
           "医疗高危风险回扫",
-          21
+          22
         ],
         [
           "身体暴露凸显或涉性讨论",
-          14
-        ],
-        [
-          "色情导流笔记限流",
-          13
+          12
         ],
         [
           "色导北上不出",
-          13
+          10
+        ],
+        [
+          "色情导流笔记限流",
+          10
         ]
       ],
       "entities": {
-        "笔记": 126,
-        "用户": 1
+        "笔记": 119
       },
       "punish_types": {
-        "黑盒": 107,
-        "白盒": 20
+        "白盒": 17,
+        "黑盒": 102
       },
       "samples": [
         {
-          "tag": "色情导流笔记限流",
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a3f92530000000017009e1e",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-27",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a44c4de000000002200a77c",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-07-01",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a3f945d00000000160276f1",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-27",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "色导北上不出",
           "domain": "色情低俗",
           "entity_type": "笔记",
           "entity_id": "698433950000000028021dd4",
@@ -363,43 +388,13 @@
           "punish_type": "黑盒"
         },
         {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "6a27cc8d000000002201682a",
-          "action": "",
-          "repeat_count": 7,
-          "punish_time": "2026-06-13",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "医疗高危风险回扫",
-          "domain": "特殊垂类-医疗医美",
-          "entity_type": "笔记",
-          "entity_id": "69a1487200000000280200f6",
-          "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-17",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "身体暴露凸显或涉性讨论",
+          "tag": "身体暴露凸显或两性话题",
           "domain": "色情低俗",
           "entity_type": "笔记",
-          "entity_id": "6a408011000000001503f600",
+          "entity_id": "6a2ba8c50000000035025876",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-28",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "封标悬念",
-          "domain": "内容画风",
-          "entity_type": "笔记",
-          "entity_id": "6a33bb89000000001700b93c",
-          "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-20",
+          "repeat_count": 6,
+          "punish_time": "2026-06-13",
           "punish_type": "黑盒"
         }
       ],
@@ -409,70 +404,70 @@
     {
       "seller_id": "66e63edf000000001d03366f",
       "shop_name": "用户(66e63edf)",
-      "count": 102,
+      "count": 104,
       "severe": 0,
-      "high_repeat": 55,
+      "high_repeat": 57,
       "top_domains": [
         [
           "问题账号",
-          86
+          88
         ],
         [
           "内容画风",
           9
         ],
         [
-          "综合处置",
-          3
+          "色情低俗",
+          2
         ]
       ],
       "top_tags": [
         [
           "同质化搬运号-经营账号-自相似笔记",
-          73
+          76
         ],
         [
           "工业化流水号-经营账号-自相似笔记",
-          12
+          11
         ],
         [
           "封标悬念",
           7
         ],
         [
-          "超高展中风险控热",
-          3
+          "身体暴露凸显或涉性讨论",
+          2
         ],
         [
-          "身体暴露凸显或涉性讨论",
+          "超高展中风险控热",
           2
         ]
       ],
       "entities": {
-        "笔记": 102
+        "笔记": 104
       },
       "punish_types": {
-        "黑盒": 17,
-        "白盒": 85
+        "白盒": 87,
+        "黑盒": 17
       },
       "samples": [
         {
-          "tag": "封标悬念",
-          "domain": "内容画风",
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a4219b100000000110067c0",
+          "entity_id": "6a3c8bd6000000000f006dee",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
+          "repeat_count": 6,
+          "punish_time": "2026-06-25",
+          "punish_type": "白盒"
         },
         {
           "tag": "同质化搬运号-经营账号-自相似笔记",
           "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a422110000000000f014165",
+          "entity_id": "6a41e12d000000001101d42b",
           "action": "",
-          "repeat_count": 2,
+          "repeat_count": 3,
           "punish_time": "2026-06-29",
           "punish_type": "白盒"
         },
@@ -480,7 +475,17 @@
           "tag": "同质化搬运号-经营账号-自相似笔记",
           "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a33bc290000000011007f9c",
+          "entity_id": "6a323d910000000011018a66",
+          "action": "",
+          "repeat_count": 9,
+          "punish_time": "2026-06-17",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a33bec7000000000f02bee7",
           "action": "",
           "repeat_count": 9,
           "punish_time": "2026-06-18",
@@ -490,36 +495,26 @@
           "tag": "同质化搬运号-经营账号-自相似笔记",
           "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a41db13000000001101755c",
+          "entity_id": "6a3a31bc000000000f032d2e",
           "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-29",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a39ff64000000000f01519b",
-          "action": "",
-          "repeat_count": 7,
+          "repeat_count": 8,
           "punish_time": "2026-06-23",
           "punish_type": "白盒"
         }
       ],
-      "new_today": 4,
+      "new_today": 2,
       "new_severe_today": 0
     },
     {
       "seller_id": "691af3090000000037005988",
       "shop_name": "用户(691af309)",
-      "count": 99,
+      "count": 93,
       "severe": 0,
-      "high_repeat": 46,
+      "high_repeat": 38,
       "top_domains": [
         [
           "AI 治理",
-          88
+          82
         ],
         [
           "色情低俗",
@@ -533,7 +528,7 @@
       "top_tags": [
         [
           "AI同质化",
-          88
+          82
         ],
         [
           "竞对平台导流",
@@ -548,17 +543,57 @@
           2
         ],
         [
-          "色情导流笔记限流",
+          "医疗高危风险回扫",
           1
         ]
       ],
       "entities": {
-        "笔记": 99
+        "笔记": 93
       },
       "punish_types": {
-        "黑盒": 99
+        "黑盒": 93
       },
       "samples": [
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "69f19d57000000003501f736",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-09",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "竞对平台导流",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "6a3cdcaa00000000060373bd",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-25",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a0d2bca0000000036030927",
+          "action": "",
+          "repeat_count": 4,
+          "punish_time": "2026-06-07",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a1e91430000000021014fa2",
+          "action": "",
+          "repeat_count": 8,
+          "punish_time": "2026-06-03",
+          "punish_type": "黑盒"
+        },
         {
           "tag": "AI同质化",
           "domain": "AI 治理",
@@ -568,46 +603,6 @@
           "repeat_count": 4,
           "punish_time": "2026-06-15",
           "punish_type": "黑盒"
-        },
-        {
-          "tag": "色情导流笔记限流",
-          "domain": "色情低俗",
-          "entity_type": "笔记",
-          "entity_id": "6a01a1df000000003700d991",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-04",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "6a1f9f4600000000070223a8",
-          "action": "",
-          "repeat_count": 8,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "身体暴露凸显或两性话题",
-          "domain": "色情低俗",
-          "entity_type": "笔记",
-          "entity_id": "69f04c3e000000003701ffcb",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-24",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "69fd7895000000003603243e",
-          "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
         }
       ],
       "new_today": 0,
@@ -616,9 +611,9 @@
     {
       "seller_id": "69e480010000000002002400",
       "shop_name": "用户(69e48001)",
-      "count": 85,
+      "count": 82,
       "severe": 0,
-      "high_repeat": 48,
+      "high_repeat": 52,
       "top_domains": [
         [
           "计次处置",
@@ -651,58 +646,57 @@
           5
         ],
         [
-          "店铺分-商品品质策略限时整改计次2",
-          2
+          "直播举报—争议敏感内容—抽烟酗酒",
+          1
         ]
       ],
       "entities": {
-        "直播间": 83,
-        "笔记": 2
+        "直播间": 82
       },
       "punish_types": {
-        "白盒": 45,
-        "黑盒": 40
+        "黑盒": 38,
+        "白盒": 44
       },
       "samples": [
         {
-          "tag": "直播间-直播特殊风险-无法识别语言",
-          "domain": "直播特殊风险",
+          "tag": "直播-禁止生成回顾action",
+          "domain": "计次处置",
           "entity_type": "直播间",
-          "entity_id": "570331001106686961",
+          "entity_id": "570339714038254858",
           "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-22",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "店铺分-商品品质策略限时整改计次2",
-          "domain": "大盘/横向品质治理",
-          "entity_type": "笔记",
-          "entity_id": "6a2d4aa8000000002200b39d",
-          "action": "TAG_SPREAD",
-          "repeat_count": 1,
-          "punish_time": "2026-06-27",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "店铺分-商品品质策略限时整改计次2",
-          "domain": "大盘/横向品质治理",
-          "entity_type": "笔记",
-          "entity_id": "6a17db6b000000000702594e",
-          "action": "TAG_SPREAD",
-          "repeat_count": 4,
-          "punish_time": "2026-06-20",
+          "repeat_count": 2,
+          "punish_time": "2026-06-28",
           "punish_type": "黑盒"
         },
         {
           "tag": "直播间-直播特殊风险-无法识别语言",
           "domain": "直播特殊风险",
           "entity_type": "直播间",
-          "entity_id": "570333932490831557",
+          "entity_id": "570319411439390537",
           "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-24",
+          "repeat_count": 10,
+          "punish_time": "2026-06-14",
           "punish_type": "白盒"
+        },
+        {
+          "tag": "直播间-直播特殊风险-无法识别语言",
+          "domain": "直播特殊风险",
+          "entity_type": "直播间",
+          "entity_id": "570336832866960988",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-26",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "直播-禁止生成回顾action",
+          "domain": "计次处置",
+          "entity_type": "直播间",
+          "entity_id": "570319411439390537",
+          "action": "",
+          "repeat_count": 10,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
         },
         {
           "tag": "直播举报—直播特殊风险—无法识别语言",
@@ -715,33 +709,33 @@
           "punish_type": "白盒"
         }
       ],
-      "new_today": 0,
+      "new_today": 3,
       "new_severe_today": 0
     },
     {
-      "seller_id": "6a200c37bcfe4d00151b4db4",
-      "shop_name": "岁岁宝藏铺的店",
-      "count": 80,
+      "seller_id": "6952419e000000003700442c",
+      "shop_name": "用户(6952419e)",
+      "count": 78,
       "severe": 0,
-      "high_repeat": 46,
+      "high_repeat": 47,
       "top_domains": [
         [
           "AI 治理",
           63
         ],
         [
-          "问题账号",
+          "色情低俗",
           4
         ],
         [
-          "色情低俗",
+          "问题账号",
           4
         ]
       ],
       "top_tags": [
         [
           "AI同质化",
-          62
+          63
         ],
         [
           "同质化搬运号-经营账号-他相似笔记",
@@ -761,24 +755,13 @@
         ]
       ],
       "entities": {
-        "笔记": 77,
-        "用户": 3
+        "笔记": 78
       },
       "punish_types": {
-        "黑盒": 75,
-        "白盒": 5
+        "黑盒": 74,
+        "白盒": 4
       },
       "samples": [
-        {
-          "tag": "竞对平台导流",
-          "domain": "商业生态",
-          "entity_type": "笔记",
-          "entity_id": "6a26ac7e000000001702a80d",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-08",
-          "punish_type": "黑盒"
-        },
         {
           "tag": "AI同质化",
           "domain": "AI 治理",
@@ -793,453 +776,60 @@
           "tag": "AI同质化",
           "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a25422f000000001702dd6a",
+          "entity_id": "6a2773ff0000000016026774",
           "action": "",
           "repeat_count": 10,
-          "punish_time": "2026-06-07",
+          "punish_time": "2026-06-10",
           "punish_type": "黑盒"
         },
         {
           "tag": "AI同质化",
           "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a2c9f2d000000001502797a",
+          "entity_id": "6a3de3b70000000016026cae",
+          "action": "",
+          "repeat_count": 4,
+          "punish_time": "2026-06-26",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "色情导流笔记限流",
+          "domain": "色情低俗",
+          "entity_type": "笔记",
+          "entity_id": "6a215c75000000003601f10b",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-04",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a2a8f76000000001702ae45",
           "action": "",
           "repeat_count": 10,
-          "punish_time": "2026-06-13",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "安全-用户安全待审停展",
-          "domain": "用户安全",
-          "entity_type": "用户",
-          "entity_id": "6952419e000000003700442c",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-04",
+          "punish_time": "2026-06-11",
           "punish_type": "黑盒"
         }
       ],
-      "new_today": 2,
+      "new_today": 1,
       "new_severe_today": 0
     },
     {
-      "seller_id": "658c1e55000000002200a4f8",
-      "shop_name": "用户(658c1e55)",
-      "count": 67,
-      "severe": 0,
-      "high_repeat": 25,
-      "top_domains": [
-        [
-          "问题账号",
-          59
-        ],
-        [
-          "AI 治理",
-          7
-        ],
-        [
-          "应急处置",
-          1
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          35
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          24
-        ],
-        [
-          "AI同质化",
-          7
-        ],
-        [
-          "应急处置-中度",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 67
-      },
-      "punish_types": {
-        "黑盒": 67
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a258bab000000001603e58f",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a258a4b000000001c027bd8",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a21778f000000003701d7b1",
-          "action": "",
-          "repeat_count": 3,
-          "punish_time": "2026-06-04",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3009a1000000001702adc3",
-          "action": "",
-          "repeat_count": 3,
-          "punish_time": "2026-06-15",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1edde20000000037036943",
-          "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "677ff3c4290ef900146ddf93",
-      "shop_name": "一群娃的妈妈是潘潘海外专营店",
-      "count": 67,
-      "severe": 0,
-      "high_repeat": 50,
-      "top_domains": [
-        [
-          "山寨假货",
-          54
-        ],
-        [
-          "(未分类)",
-          12
-        ],
-        [
-          "特殊垂类",
-          1
-        ]
-      ],
-      "top_tags": [
-        [
-          "【商品】采销凭证品牌场域干预",
-          46
-        ],
-        [
-          "【识别策略】风险商品笔记货架场域调节",
-          12
-        ],
-        [
-          "【商品】采销凭证商品禁止分销",
-          8
-        ],
-        [
-          "无资质医疗营销",
-          1
-        ]
-      ],
-      "entities": {
-        "商品": 51,
-        "笔记": 16
-      },
-      "punish_types": {
-        "白盒": 9,
-        "黑盒": 58
-      },
-      "samples": [
-        {
-          "tag": "【商品】采销凭证商品禁止分销",
-          "domain": "山寨假货",
-          "entity_type": "商品",
-          "entity_id": "6a1c131f42db800001f27863",
-          "action": "",
-          "repeat_count": 3,
-          "punish_time": "2026-06-08",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "【商品】采销凭证品牌场域干预",
-          "domain": "山寨假货",
-          "entity_type": "笔记",
-          "entity_id": "69a1825b000000001a027355",
-          "action": "TAG_SPREAD",
-          "repeat_count": 13,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "【商品】采销凭证品牌场域干预",
-          "domain": "山寨假货",
-          "entity_type": "商品",
-          "entity_id": "6a1c131f42db800001f27863",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-13",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "【商品】采销凭证品牌场域干预",
-          "domain": "山寨假货",
-          "entity_type": "商品",
-          "entity_id": "697a003ea5576f0001db486f",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "【商品】采销凭证品牌场域干预",
-          "domain": "山寨假货",
-          "entity_type": "笔记",
-          "entity_id": "69a1825b000000001a027355",
-          "action": "TAG_SPREAD",
-          "repeat_count": 13,
-          "punish_time": "2026-06-08",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 2,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "68ae7399000000001900e34f",
-      "shop_name": "用户(68ae7399)",
-      "count": 63,
-      "severe": 0,
-      "high_repeat": 11,
-      "top_domains": [
-        [
-          "AI 治理",
-          54
-        ],
-        [
-          "色情低俗",
-          6
-        ],
-        [
-          "特殊垂类-医疗医美",
-          3
-        ]
-      ],
-      "top_tags": [
-        [
-          "AI同质化",
-          54
-        ],
-        [
-          "身体暴露凸显或两性话题",
-          4
-        ],
-        [
-          "医疗高危风险回扫",
-          3
-        ],
-        [
-          "身体暴露凸显或涉性讨论",
-          1
-        ],
-        [
-          "色情导流笔记限流",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 63
-      },
-      "punish_types": {
-        "黑盒": 63
-      },
-      "samples": [
-        {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "69e0a44200000000200384f6",
-          "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-14",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "69ef2fa2000000003501cc69",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-25",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "69cf68e700000000230054d0",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-25",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "医疗高危风险回扫",
-          "domain": "特殊垂类-医疗医美",
-          "entity_type": "笔记",
-          "entity_id": "6a1e99d10000000021020341",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "69df41f2000000001a034409",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-28",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "686a4c89000000001b01b6a2",
-      "shop_name": "用户(686a4c89)",
-      "count": 61,
-      "severe": 0,
-      "high_repeat": 22,
-      "top_domains": [
-        [
-          "问题账号",
-          47
-        ],
-        [
-          "画风-低差封面",
-          3
-        ],
-        [
-          "内容画风",
-          3
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          24
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          23
-        ],
-        [
-          "低差封面标题-黑种",
-          3
-        ],
-        [
-          "封标跟风",
-          3
-        ],
-        [
-          "新闻",
-          2
-        ]
-      ],
-      "entities": {
-        "笔记": 61
-      },
-      "punish_types": {
-        "黑盒": 59,
-        "白盒": 2
-      },
-      "samples": [
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a239af8000000003502b6cd",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-06",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1f7131000000002202406c",
-          "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2fc363000000000f0334a9",
-          "action": "",
-          "repeat_count": 3,
-          "punish_time": "2026-06-15",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a242844000000002202d598",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-06",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a211dea000000003502f77e",
-          "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-04",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "64c0d198000000002b00ac5f",
-      "shop_name": "用户(64c0d198)",
-      "count": 61,
+      "seller_id": "65816c9bc98601000168df48",
+      "shop_name": "金薄薄旗舰店",
+      "count": 64,
       "severe": 0,
       "high_repeat": 0,
       "top_domains": [
         [
           "商品合规",
           59
+        ],
+        [
+          "大盘/横向品质治理",
+          2
         ],
         [
           "笔记内容生态",
@@ -1254,21 +844,34 @@
         [
           "生态画风-引人不适",
           2
+        ],
+        [
+          "店铺分-商品品质策略限时整改计次1",
+          1
+        ],
+        [
+          "封标跟风",
+          1
+        ],
+        [
+          "商品品质负反馈率较高「限时整改」",
+          1
         ]
       ],
       "entities": {
-        "商品": 59,
-        "笔记": 2
+        "商品": 61,
+        "笔记": 3
       },
       "punish_types": {
-        "白盒": 61
+        "白盒": 61,
+        "黑盒": 3
       },
       "samples": [
         {
           "tag": "(旧）过期/临期商品",
           "domain": "商品合规",
           "entity_type": "商品",
-          "entity_id": "6583b1b2dab4860001b7085b",
+          "entity_id": "66ed24e3c1ece6000158d209",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-06-15",
@@ -1278,7 +881,7 @@
           "tag": "(旧）过期/临期商品",
           "domain": "商品合规",
           "entity_type": "商品",
-          "entity_id": "65b205e65b65050001e4b0cc",
+          "entity_id": "672b21d28a48d900013f8ffe",
           "action": "",
           "repeat_count": 2,
           "punish_time": "2026-06-11",
@@ -1288,7 +891,7 @@
           "tag": "(旧）过期/临期商品",
           "domain": "商品合规",
           "entity_type": "商品",
-          "entity_id": "67359f734a98650001752e17",
+          "entity_id": "66da6f3ff7a83e0001f21713",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-06-15",
@@ -1298,134 +901,236 @@
           "tag": "(旧）过期/临期商品",
           "domain": "商品合规",
           "entity_type": "商品",
-          "entity_id": "660d145da9f6ca000103d6b9",
+          "entity_id": "6583a705347eb40001c22959",
           "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-15",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "(旧）过期/临期商品",
+          "domain": "商品合规",
+          "entity_type": "商品",
+          "entity_id": "658397986eb5da0001c956a1",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-13",
+          "punish_type": "白盒"
+        }
+      ],
+      "new_today": 2,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "658c1e55000000002200a4f8",
+      "shop_name": "用户(658c1e55)",
+      "count": 63,
+      "severe": 0,
+      "high_repeat": 20,
+      "top_domains": [
+        [
+          "问题账号",
+          54
+        ],
+        [
+          "AI 治理",
+          7
+        ],
+        [
+          "无货源",
+          1
+        ]
+      ],
+      "top_tags": [
+        [
+          "同质化搬运号-经营账号-他相似笔记",
+          35
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
+          19
+        ],
+        [
+          "AI同质化",
+          7
+        ],
+        [
+          "【识别策略】无货源商品事实",
+          1
+        ],
+        [
+          "应急处置-中度",
+          1
+        ]
+      ],
+      "entities": {
+        "笔记": 63
+      },
+      "punish_types": {
+        "黑盒": 63
+      },
+      "samples": [
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a33998900000000170299df",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-18",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "工业化流水号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a258b4900000000160266c8",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-07",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a3806ad0000000015025431",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-21",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "【识别策略】无货源商品事实",
+          "domain": "无货源",
+          "entity_type": "笔记",
+          "entity_id": "6a380784000000001c024dac",
+          "action": "TAG_SPREAD",
           "repeat_count": 2,
-          "punish_time": "2026-06-11",
-          "punish_type": "白盒"
+          "punish_time": "2026-06-21",
+          "punish_type": "黑盒"
         },
         {
-          "tag": "(旧）过期/临期商品",
-          "domain": "商品合规",
-          "entity_type": "商品",
-          "entity_id": "65b205d75b65050001e4b0b9",
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a26bd0500000000160269bd",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-15",
-          "punish_type": "白盒"
+          "repeat_count": 10,
+          "punish_time": "2026-06-08",
+          "punish_type": "黑盒"
         }
       ],
       "new_today": 0,
       "new_severe_today": 0
     },
     {
-      "seller_id": "5a1c407d11be100b73051841",
-      "shop_name": "用户(5a1c407d)",
-      "count": 60,
+      "seller_id": "68ae7399000000001900e34f",
+      "shop_name": "用户(68ae7399)",
+      "count": 62,
       "severe": 0,
-      "high_repeat": 19,
+      "high_repeat": 11,
       "top_domains": [
         [
+          "AI 治理",
+          54
+        ],
+        [
+          "色情低俗",
+          6
+        ],
+        [
           "特殊垂类-医疗医美",
-          40
-        ],
-        [
-          "问题账号",
-          13
-        ],
-        [
-          "违规营销笔记",
-          4
+          2
         ]
       ],
       "top_tags": [
         [
+          "AI同质化",
+          54
+        ],
+        [
+          "身体暴露凸显或两性话题",
+          4
+        ],
+        [
           "医疗高危风险回扫",
-          40
-        ],
-        [
-          "同质化搬运号-经营账号-自相似笔记",
-          10
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          3
-        ],
-        [
-          "违规营销-剧情演绎",
           2
         ],
         [
-          "身体暴露凸显或涉性表述",
-          2
+          "色情导流笔记限流",
+          1
+        ],
+        [
+          "身体暴露凸显或涉性讨论",
+          1
         ]
       ],
       "entities": {
-        "笔记": 60
+        "笔记": 62
       },
       "punish_types": {
-        "白盒": 15,
-        "黑盒": 45
+        "黑盒": 62
       },
       "samples": [
         {
-          "tag": "违规营销-剧情演绎",
-          "domain": "违规营销笔记",
+          "tag": "AI同质化",
+          "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a2babb60000000035022bc5",
+          "entity_id": "69cf68e700000000230054d0",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-12",
-          "punish_type": "白盒"
+          "repeat_count": 2,
+          "punish_time": "2026-06-25",
+          "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a33e868000000001603cb09",
-          "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-18",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "身体暴露凸显或涉性表述",
+          "tag": "身体暴露凸显或两性话题",
           "domain": "色情低俗",
           "entity_type": "笔记",
-          "entity_id": "6a2671570000000021015da6",
+          "entity_id": "69df4176000000002301ddb5",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-08",
+          "repeat_count": 1,
+          "punish_time": "2026-06-15",
           "punish_type": "黑盒"
         },
         {
-          "tag": "医疗高危风险回扫",
-          "domain": "特殊垂类-医疗医美",
+          "tag": "AI同质化",
+          "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a40eb49000000002100bcc3",
+          "entity_id": "6a226e640000000007022563",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-28",
+          "repeat_count": 4,
+          "punish_time": "2026-06-05",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
+          "tag": "AI同质化",
+          "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a4364b300000000150244dd",
+          "entity_id": "6a1e721d00000000070123bc",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "白盒"
+          "repeat_count": 5,
+          "punish_time": "2026-06-03",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "69ce1b36000000001e00e2f6",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-26",
+          "punish_type": "黑盒"
         }
       ],
-      "new_today": 1,
+      "new_today": 0,
       "new_severe_today": 0
     },
     {
       "seller_id": "64c799c76bd5b60001dd59de",
       "shop_name": "Ms.SU苏味的店",
-      "count": 58,
+      "count": 57,
       "severe": 0,
       "high_repeat": 0,
       "top_domains": [
@@ -1458,26 +1163,42 @@
         [
           "UGC世界杯赛事笔记",
           1
-        ],
-        [
-          "M-世界杯三方平台导流",
-          1
         ]
       ],
       "entities": {
         "商品": 56,
-        "笔记": 2
+        "笔记": 1
       },
       "punish_types": {
         "白盒": 52,
-        "黑盒": 6
+        "黑盒": 5
       },
       "samples": [
         {
           "tag": "(旧）过期/临期商品",
           "domain": "商品合规",
           "entity_type": "商品",
-          "entity_id": "64d704eb28b4a80001937eef",
+          "entity_id": "6874c838071cdc0001b9dda1",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-13",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "(旧）过期/临期商品",
+          "domain": "商品合规",
+          "entity_type": "商品",
+          "entity_id": "6906d5c8427261000176ed9c",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-18",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "(旧）过期/临期商品",
+          "domain": "商品合规",
+          "entity_type": "商品",
+          "entity_id": "693f8d4236ea3d00013fc5fe",
           "action": "",
           "repeat_count": 3,
           "punish_time": "2026-06-11",
@@ -1487,10 +1208,10 @@
           "tag": "(旧）过期/临期商品",
           "domain": "商品合规",
           "entity_type": "商品",
-          "entity_id": "677e2a8577d41e00017cf17d",
+          "entity_id": "68391662f9ad0500011d45db",
           "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-13",
+          "repeat_count": 1,
+          "punish_time": "2026-06-15",
           "punish_type": "白盒"
         },
         {
@@ -1502,25 +1223,213 @@
           "repeat_count": 3,
           "punish_time": "2026-06-11",
           "punish_type": "白盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "686a4c89000000001b01b6a2",
+      "shop_name": "用户(686a4c89)",
+      "count": 56,
+      "severe": 0,
+      "high_repeat": 18,
+      "top_domains": [
+        [
+          "问题账号",
+          43
+        ],
+        [
+          "画风-低差封面",
+          3
+        ],
+        [
+          "内容画风",
+          3
+        ]
+      ],
+      "top_tags": [
+        [
+          "同质化搬运号-经营账号-他相似笔记",
+          23
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
+          20
+        ],
+        [
+          "低差封面标题-黑种",
+          3
+        ],
+        [
+          "封标跟风",
+          3
+        ],
+        [
+          "新闻",
+          2
+        ]
+      ],
+      "entities": {
+        "笔记": 56
+      },
+      "punish_types": {
+        "黑盒": 54,
+        "白盒": 2
+      },
+      "samples": [
+        {
+          "tag": "新闻",
+          "domain": "评论控制",
+          "entity_type": "笔记",
+          "entity_id": "6a3215c8000000001101f55d",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
         },
         {
-          "tag": "(旧）过期/临期商品",
-          "domain": "商品合规",
-          "entity_type": "商品",
-          "entity_id": "677df54077d41e00017abb17",
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a34ad19000000000f01e89e",
           "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-13",
+          "repeat_count": 0,
+          "punish_time": "2026-06-19",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "新闻",
+          "domain": "评论控制",
+          "entity_type": "笔记",
+          "entity_id": "6a3215c8000000001101f55d",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a2fc363000000000f0334a9",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-15",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a2b84c30000000035026386",
+          "action": "",
+          "repeat_count": 6,
+          "punish_time": "2026-06-12",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "5a1c407d11be100b73051841",
+      "shop_name": "用户(5a1c407d)",
+      "count": 55,
+      "severe": 0,
+      "high_repeat": 17,
+      "top_domains": [
+        [
+          "特殊垂类-医疗医美",
+          37
+        ],
+        [
+          "问题账号",
+          11
+        ],
+        [
+          "违规营销笔记",
+          4
+        ]
+      ],
+      "top_tags": [
+        [
+          "医疗高危风险回扫",
+          37
+        ],
+        [
+          "同质化搬运号-经营账号-自相似笔记",
+          10
+        ],
+        [
+          "身体暴露凸显或涉性表述",
+          2
+        ],
+        [
+          "【违规营销】剧情演绎_仅粉见",
+          2
+        ],
+        [
+          "违规营销-剧情演绎",
+          2
+        ]
+      ],
+      "entities": {
+        "笔记": 55
+      },
+      "punish_types": {
+        "黑盒": 42,
+        "白盒": 13
+      },
+      "samples": [
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a352802000000002101a55f",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-19",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a2930a6000000002103e759",
+          "action": "",
+          "repeat_count": 6,
+          "punish_time": "2026-06-10",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a292e63000000001c0277d3",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-10",
           "punish_type": "白盒"
         },
         {
-          "tag": "(旧）过期/临期商品",
-          "domain": "商品合规",
-          "entity_type": "商品",
-          "entity_id": "6904443f5c4f1900015f78e5",
+          "tag": "应急处置-中度",
+          "domain": "应急处置",
+          "entity_type": "笔记",
+          "entity_id": "6a40ecba000000000f004659",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-06-18",
+          "punish_time": "2026-06-28",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a40ef4a000000002003b36d",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-28",
           "punish_type": "白盒"
         }
       ],
@@ -1530,13 +1439,13 @@
     {
       "seller_id": "5b7ab5a66563ec00010a1432",
       "shop_name": "用户(5b7ab5a6)",
-      "count": 57,
+      "count": 55,
       "severe": 0,
       "high_repeat": 19,
       "top_domains": [
         [
           "问题账号",
-          53
+          51
         ],
         [
           "内容画风",
@@ -1554,7 +1463,7 @@
         ],
         [
           "工业化流水号-经营账号-他相似笔记",
-          13
+          11
         ],
         [
           "封标跟风",
@@ -1566,27 +1475,47 @@
         ]
       ],
       "entities": {
-        "笔记": 57
+        "笔记": 55
       },
       "punish_types": {
-        "黑盒": 57
+        "黑盒": 55
       },
       "samples": [
         {
           "tag": "同质化搬运号-经营账号-他相似笔记",
           "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a2a81c1000000001c024d32",
+          "entity_id": "6a26a09f000000001603fa2a",
           "action": "",
-          "repeat_count": 6,
-          "punish_time": "2026-06-11",
+          "repeat_count": 9,
+          "punish_time": "2026-06-08",
           "punish_type": "黑盒"
         },
         {
           "tag": "同质化搬运号-经营账号-他相似笔记",
           "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a327fb20000000017008ed6",
+          "entity_id": "6a26a23c000000001c026469",
+          "action": "",
+          "repeat_count": 9,
+          "punish_time": "2026-06-08",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "工业化流水号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a222c24000000003701fb24",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-05",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a3278a2000000001c024a88",
           "action": "",
           "repeat_count": 2,
           "punish_time": "2026-06-17",
@@ -1596,30 +1525,10 @@
           "tag": "同质化搬运号-经营账号-他相似笔记",
           "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a334053000000001702f0e0",
+          "entity_id": "6a2b6a5b000000001700976b",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3343180000000015024134",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a326953000000001702f492",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-17",
+          "repeat_count": 5,
+          "punish_time": "2026-06-12",
           "punish_type": "黑盒"
         }
       ],
@@ -1629,82 +1538,52 @@
     {
       "seller_id": "64462ee000000000290118d7",
       "shop_name": "用户(64462ee0)",
-      "count": 55,
+      "count": 52,
       "severe": 0,
-      "high_repeat": 39,
+      "high_repeat": 37,
       "top_domains": [
         [
           "特殊垂类-医疗医美",
-          46
+          45
         ],
         [
           "AI 治理",
-          5
+          4
         ],
         [
-          "应急处置",
+          "内容画风",
           1
         ]
       ],
       "top_tags": [
         [
           "医疗高危风险回扫",
-          46
+          45
         ],
         [
           "AI同质化",
-          5
-        ],
-        [
-          "应急处置-中度",
-          1
+          4
         ],
         [
           "封标跟风",
           1
         ],
         [
-          "强竞品AIGC品牌露出",
+          "应急处置-中度",
+          1
+        ],
+        [
+          "身体暴露凸显或两性话题",
           1
         ]
       ],
       "entities": {
-        "笔记": 55
+        "笔记": 52
       },
       "punish_types": {
-        "黑盒": 55
+        "黑盒": 52
       },
       "samples": [
-        {
-          "tag": "医疗高危风险回扫",
-          "domain": "特殊垂类-医疗医美",
-          "entity_type": "笔记",
-          "entity_id": "6a2d3551000000002101553e",
-          "action": "",
-          "repeat_count": 8,
-          "punish_time": "2026-06-15",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "医疗高危风险回扫",
-          "domain": "特殊垂类-医疗医美",
-          "entity_type": "笔记",
-          "entity_id": "6a3a9042000000000f01c551",
-          "action": "",
-          "repeat_count": 6,
-          "punish_time": "2026-06-23",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "医疗高危风险回扫",
-          "domain": "特殊垂类-医疗医美",
-          "entity_type": "笔记",
-          "entity_id": "6a2e4d4e0000000036002c4e",
-          "action": "",
-          "repeat_count": 8,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
-        },
         {
           "tag": "医疗高危风险回扫",
           "domain": "特殊垂类-医疗医美",
@@ -1716,226 +1595,47 @@
           "punish_type": "黑盒"
         },
         {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69eb2ebe0000000020013000",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a1e969b0000000036032ef3",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-03",
+          "punish_type": "黑盒"
+        },
+        {
           "tag": "医疗高危风险回扫",
           "domain": "特殊垂类-医疗医美",
           "entity_type": "笔记",
-          "entity_id": "6a2e6db8000000001603ec6d",
-          "action": "",
-          "repeat_count": 8,
-          "punish_time": "2026-06-14",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 1,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "5f36b43100000000010076e9",
-      "shop_name": "用户(5f36b431)",
-      "count": 53,
-      "severe": 0,
-      "high_repeat": 17,
-      "top_domains": [
-        [
-          "问题账号",
-          47
-        ],
-        [
-          "AI 治理",
-          4
-        ],
-        [
-          "商业生态",
-          1
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          24
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          23
-        ],
-        [
-          "AI同质化",
-          4
-        ],
-        [
-          "竞对平台导流",
-          1
-        ],
-        [
-          "应急处置-中度",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 53
-      },
-      "punish_types": {
-        "黑盒": 53
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2818530000000017009d83",
-          "action": "",
-          "repeat_count": 8,
-          "punish_time": "2026-06-09",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2ebb29000000001503e1b5",
-          "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-14",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "竞对平台导流",
-          "domain": "商业生态",
-          "entity_type": "笔记",
-          "entity_id": "6a37fe170000000015026c15",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-21",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a258ea0000000001700a02e",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1edcd200000000360311e1",
+          "entity_id": "6a3bd1ce000000002201a13b",
           "action": "",
           "repeat_count": 5,
-          "punish_time": "2026-06-02",
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a2d8c18000000003501cb1c",
+          "action": "",
+          "repeat_count": 8,
+          "punish_time": "2026-06-14",
           "punish_type": "黑盒"
         }
       ],
       "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "6220932a00db3b00019e6e18",
-      "shop_name": "麻六记旗舰店",
-      "count": 53,
-      "severe": 0,
-      "high_repeat": 28,
-      "top_domains": [
-        [
-          "内容画风",
-          21
-        ],
-        [
-          "计次处置",
-          21
-        ],
-        [
-          "影响观播体验",
-          5
-        ]
-      ],
-      "top_tags": [
-        [
-          "直播举报—影响观播体验—观感不佳",
-          21
-        ],
-        [
-          "直播-禁止生成回顾action",
-          21
-        ],
-        [
-          "直播间生态-影响观播体验-观感不佳",
-          5
-        ],
-        [
-          "工业化流水号-经营账号-自相似笔记",
-          2
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          1
-        ]
-      ],
-      "entities": {
-        "直播间": 47,
-        "笔记": 4,
-        "商品": 2
-      },
-      "punish_types": {
-        "黑盒": 51,
-        "白盒": 2
-      },
-      "samples": [
-        {
-          "tag": "直播间生态-影响观播体验-观感不佳",
-          "domain": "影响观播体验",
-          "entity_type": "直播间",
-          "entity_id": "570317362590964453",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-13",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播举报—影响观播体验—观感不佳",
-          "domain": "内容画风",
-          "entity_type": "直播间",
-          "entity_id": "570340526909861168",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-29",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播-禁止生成回顾action",
-          "domain": "计次处置",
-          "entity_type": "直播间",
-          "entity_id": "570342607817131537",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a224b79000000000702b458",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播举报—影响观播体验—观感不佳",
-          "domain": "内容画风",
-          "entity_type": "直播间",
-          "entity_id": "570315898008457669",
-          "action": "",
-          "repeat_count": 10,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 3,
       "new_severe_today": 0
     },
     {
@@ -1984,50 +1684,362 @@
           "tag": "封标跟风",
           "domain": "内容画风",
           "entity_type": "笔记",
-          "entity_id": "6a3bfb66000000002003a211",
+          "entity_id": "68835dae000000002203cf9f",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "68c234b0000000001c030d2e",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "68de51df0000000004014b5c",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "689f6149000000001c033a2e",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "68d55d0d000000000e026e0a",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "5f36b43100000000010076e9",
+      "shop_name": "用户(5f36b431)",
+      "count": 50,
+      "severe": 0,
+      "high_repeat": 14,
+      "top_domains": [
+        [
+          "问题账号",
+          44
+        ],
+        [
+          "AI 治理",
+          4
+        ],
+        [
+          "商业生态",
+          1
+        ]
+      ],
+      "top_tags": [
+        [
+          "同质化搬运号-经营账号-他相似笔记",
+          24
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
+          20
+        ],
+        [
+          "AI同质化",
+          4
+        ],
+        [
+          "竞对平台导流",
+          1
+        ],
+        [
+          "应急处置-中度",
+          1
+        ]
+      ],
+      "entities": {
+        "笔记": 50
+      },
+      "punish_types": {
+        "黑盒": 50
+      },
+      "samples": [
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a26c49e000000001503e297",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-08",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "工业化流水号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a2045aa0000000038020862",
+          "action": "",
+          "repeat_count": 4,
+          "punish_time": "2026-06-03",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a2818cf000000001700a051",
+          "action": "",
+          "repeat_count": 8,
+          "punish_time": "2026-06-09",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a26c419000000001702b86d",
+          "action": "",
+          "repeat_count": 9,
+          "punish_time": "2026-06-08",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a2fff38000000001702eec2",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-15",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "697aff700000000021004941",
+      "shop_name": "用户(697aff70)",
+      "count": 49,
+      "severe": 0,
+      "high_repeat": 3,
+      "top_domains": [
+        [
+          "问题账号",
+          15
+        ],
+        [
+          "画风-低差封面",
+          14
+        ],
+        [
+          "AI 治理",
+          11
+        ]
+      ],
+      "top_tags": [
+        [
+          "低差封面标题-黑种",
+          14
+        ],
+        [
+          "同质化搬运号-经营账号-他相似笔记",
+          13
+        ],
+        [
+          "AI同质化",
+          11
+        ],
+        [
+          "AI虚假不实",
+          5
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
+          2
+        ]
+      ],
+      "entities": {
+        "笔记": 47,
+        "直播间": 2
+      },
+      "punish_types": {
+        "黑盒": 43,
+        "白盒": 6
+      },
+      "samples": [
+        {
+          "tag": "低差封面标题-黑种",
+          "domain": "画风-低差封面",
+          "entity_type": "笔记",
+          "entity_id": "6a33772d0000000006035b58",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-20",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a30b9ce0000000007013954",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-16",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a12d2be0000000006033786",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a3a77460000000008025af0",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-23",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "低差封面标题-黑种",
+          "domain": "画风-低差封面",
+          "entity_type": "笔记",
+          "entity_id": "6a2bf6f700000000210232db",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-19",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "65831d0f000000001c02878d",
+      "shop_name": "用户(65831d0f)",
+      "count": 49,
+      "severe": 0,
+      "high_repeat": 14,
+      "top_domains": [
+        [
+          "问题账号",
+          32
+        ],
+        [
+          "AI 治理",
+          11
+        ],
+        [
+          "内容画风",
+          4
+        ]
+      ],
+      "top_tags": [
+        [
+          "同质化搬运号-经营账号-他相似笔记",
+          22
+        ],
+        [
+          "AI同质化",
+          11
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
+          10
+        ],
+        [
+          "封标跟风",
+          3
+        ],
+        [
+          "封标悬念",
+          1
+        ]
+      ],
+      "entities": {
+        "笔记": 49
+      },
+      "punish_types": {
+        "黑盒": 48,
+        "白盒": 1
+      },
+      "samples": [
+        {
+          "tag": "工业化流水号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "697b2235000000000903862a",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-03",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a34b183000000001102db63",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-06-25",
+          "punish_time": "2026-06-19",
           "punish_type": "黑盒"
         },
         {
-          "tag": "封标跟风",
-          "domain": "内容画风",
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "684a529b0000000021019e73",
+          "entity_id": "6a32722f0000000011004b42",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-24",
+          "repeat_count": 2,
+          "punish_time": "2026-06-17",
           "punish_type": "黑盒"
         },
         {
-          "tag": "封标跟风",
-          "domain": "内容画风",
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "68f4f9770000000005032c8e",
+          "entity_id": "6a29387f0000000035033847",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-24",
+          "repeat_count": 7,
+          "punish_time": "2026-06-10",
           "punish_type": "黑盒"
         },
         {
-          "tag": "封标跟风",
-          "domain": "内容画风",
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6870fd890000000020018b22",
+          "entity_id": "6a293cad0000000022024e1b",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-24",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "封标跟风",
-          "domain": "内容画风",
-          "entity_type": "笔记",
-          "entity_id": "684bf98000000000210029fb",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-24",
+          "repeat_count": 7,
+          "punish_time": "2026-06-10",
           "punish_type": "黑盒"
         }
       ],
@@ -2037,179 +2049,72 @@
   ],
   "high_repeat": [
     {
-      "seller_id": "69ac144203e2c70015a2eea9",
-      "shop_name": "綩朵的店",
-      "count": 187,
-      "severe": 2,
-      "high_repeat": 56,
-      "top_domains": [
-        [
-          "问题账号",
-          113
-        ],
-        [
-          "AI 治理",
-          43
-        ],
-        [
-          "违规营销笔记",
-          5
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          78
-        ],
-        [
-          "AI同质化",
-          42
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          31
-        ],
-        [
-          "【违规营销】笔记关联商品价格信息异常",
-          5
-        ],
-        [
-          "应急处置-中度",
-          3
-        ]
-      ],
-      "entities": {
-        "笔记": 175,
-        "商品": 9,
-        "用户": 2,
-        "店铺": 1
-      },
-      "punish_types": {
-        "黑盒": 172,
-        "白盒": 15
-      },
-      "samples": [
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2e6846000000001503e8aa",
-          "action": "",
-          "repeat_count": 3,
-          "punish_time": "2026-06-14",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2ac164000000001603e30f",
-          "action": "",
-          "repeat_count": 6,
-          "punish_time": "2026-06-11",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "6a2bc4620000000015025e37",
-          "action": "",
-          "repeat_count": 6,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2d0973000000001700a4f5",
-          "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-13",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a33c4110000000008003a21",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 3,
-      "new_severe_today": 0
-    },
-    {
       "seller_id": "66e63edf000000001d03366f",
       "shop_name": "用户(66e63edf)",
-      "count": 102,
+      "count": 104,
       "severe": 0,
-      "high_repeat": 55,
+      "high_repeat": 57,
       "top_domains": [
         [
           "问题账号",
-          86
+          88
         ],
         [
           "内容画风",
           9
         ],
         [
-          "综合处置",
-          3
+          "色情低俗",
+          2
         ]
       ],
       "top_tags": [
         [
           "同质化搬运号-经营账号-自相似笔记",
-          73
+          76
         ],
         [
           "工业化流水号-经营账号-自相似笔记",
-          12
+          11
         ],
         [
           "封标悬念",
           7
         ],
         [
-          "超高展中风险控热",
-          3
+          "身体暴露凸显或涉性讨论",
+          2
         ],
         [
-          "身体暴露凸显或涉性讨论",
+          "超高展中风险控热",
           2
         ]
       ],
       "entities": {
-        "笔记": 102
+        "笔记": 104
       },
       "punish_types": {
-        "黑盒": 17,
-        "白盒": 85
+        "白盒": 87,
+        "黑盒": 17
       },
       "samples": [
         {
-          "tag": "封标悬念",
-          "domain": "内容画风",
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a4219b100000000110067c0",
+          "entity_id": "6a3c8bd6000000000f006dee",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
+          "repeat_count": 6,
+          "punish_time": "2026-06-25",
+          "punish_type": "白盒"
         },
         {
           "tag": "同质化搬运号-经营账号-自相似笔记",
           "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a422110000000000f014165",
+          "entity_id": "6a41e12d000000001101d42b",
           "action": "",
-          "repeat_count": 2,
+          "repeat_count": 3,
           "punish_time": "2026-06-29",
           "punish_type": "白盒"
         },
@@ -2217,7 +2122,17 @@
           "tag": "同质化搬运号-经营账号-自相似笔记",
           "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a33bc290000000011007f9c",
+          "entity_id": "6a323d910000000011018a66",
+          "action": "",
+          "repeat_count": 9,
+          "punish_time": "2026-06-17",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a33bec7000000000f02bee7",
           "action": "",
           "repeat_count": 9,
           "punish_time": "2026-06-18",
@@ -2227,133 +2142,126 @@
           "tag": "同质化搬运号-经营账号-自相似笔记",
           "domain": "问题账号",
           "entity_type": "笔记",
-          "entity_id": "6a41db13000000001101755c",
+          "entity_id": "6a3a31bc000000000f032d2e",
           "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-29",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a39ff64000000000f01519b",
-          "action": "",
-          "repeat_count": 7,
+          "repeat_count": 8,
           "punish_time": "2026-06-23",
           "punish_type": "白盒"
-        }
-      ],
-      "new_today": 4,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "677ff3c4290ef900146ddf93",
-      "shop_name": "一群娃的妈妈是潘潘海外专营店",
-      "count": 67,
-      "severe": 0,
-      "high_repeat": 50,
-      "top_domains": [
-        [
-          "山寨假货",
-          54
-        ],
-        [
-          "(未分类)",
-          12
-        ],
-        [
-          "特殊垂类",
-          1
-        ]
-      ],
-      "top_tags": [
-        [
-          "【商品】采销凭证品牌场域干预",
-          46
-        ],
-        [
-          "【识别策略】风险商品笔记货架场域调节",
-          12
-        ],
-        [
-          "【商品】采销凭证商品禁止分销",
-          8
-        ],
-        [
-          "无资质医疗营销",
-          1
-        ]
-      ],
-      "entities": {
-        "商品": 51,
-        "笔记": 16
-      },
-      "punish_types": {
-        "白盒": 9,
-        "黑盒": 58
-      },
-      "samples": [
-        {
-          "tag": "【商品】采销凭证商品禁止分销",
-          "domain": "山寨假货",
-          "entity_type": "商品",
-          "entity_id": "6a1c131f42db800001f27863",
-          "action": "",
-          "repeat_count": 3,
-          "punish_time": "2026-06-08",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "【商品】采销凭证品牌场域干预",
-          "domain": "山寨假货",
-          "entity_type": "笔记",
-          "entity_id": "69a1825b000000001a027355",
-          "action": "TAG_SPREAD",
-          "repeat_count": 13,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "【商品】采销凭证品牌场域干预",
-          "domain": "山寨假货",
-          "entity_type": "商品",
-          "entity_id": "6a1c131f42db800001f27863",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-13",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "【商品】采销凭证品牌场域干预",
-          "domain": "山寨假货",
-          "entity_type": "商品",
-          "entity_id": "697a003ea5576f0001db486f",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-06-18",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "【商品】采销凭证品牌场域干预",
-          "domain": "山寨假货",
-          "entity_type": "笔记",
-          "entity_id": "69a1825b000000001a027355",
-          "action": "TAG_SPREAD",
-          "repeat_count": 13,
-          "punish_time": "2026-06-08",
-          "punish_type": "黑盒"
         }
       ],
       "new_today": 2,
       "new_severe_today": 0
     },
     {
+      "seller_id": "69ac10320000000032025be3",
+      "shop_name": "用户(69ac1032)",
+      "count": 171,
+      "severe": 0,
+      "high_repeat": 54,
+      "top_domains": [
+        [
+          "问题账号",
+          108
+        ],
+        [
+          "AI 治理",
+          43
+        ],
+        [
+          "违规营销笔记",
+          6
+        ]
+      ],
+      "top_tags": [
+        [
+          "同质化搬运号-经营账号-他相似笔记",
+          78
+        ],
+        [
+          "AI同质化",
+          43
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
+          27
+        ],
+        [
+          "【违规营销】笔记关联商品价格信息异常",
+          6
+        ],
+        [
+          "商品规格异常",
+          4
+        ]
+      ],
+      "entities": {
+        "笔记": 171
+      },
+      "punish_types": {
+        "黑盒": 166,
+        "白盒": 5
+      },
+      "samples": [
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a3257510000000006023bec",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a33c4b50000000007021ad1",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-18",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a2e68850000000017008e09",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a3fa760000000002101b7a8",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-28",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号-他相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a2e682e0000000017028bf6",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 3,
+      "new_severe_today": 0
+    },
+    {
       "seller_id": "69e480010000000002002400",
       "shop_name": "用户(69e48001)",
-      "count": 85,
+      "count": 82,
       "severe": 0,
-      "high_repeat": 48,
+      "high_repeat": 52,
       "top_domains": [
         [
           "计次处置",
@@ -2386,58 +2294,57 @@
           5
         ],
         [
-          "店铺分-商品品质策略限时整改计次2",
-          2
+          "直播举报—争议敏感内容—抽烟酗酒",
+          1
         ]
       ],
       "entities": {
-        "直播间": 83,
-        "笔记": 2
+        "直播间": 82
       },
       "punish_types": {
-        "白盒": 45,
-        "黑盒": 40
+        "黑盒": 38,
+        "白盒": 44
       },
       "samples": [
         {
-          "tag": "直播间-直播特殊风险-无法识别语言",
-          "domain": "直播特殊风险",
+          "tag": "直播-禁止生成回顾action",
+          "domain": "计次处置",
           "entity_type": "直播间",
-          "entity_id": "570331001106686961",
+          "entity_id": "570339714038254858",
           "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-22",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "店铺分-商品品质策略限时整改计次2",
-          "domain": "大盘/横向品质治理",
-          "entity_type": "笔记",
-          "entity_id": "6a2d4aa8000000002200b39d",
-          "action": "TAG_SPREAD",
-          "repeat_count": 1,
-          "punish_time": "2026-06-27",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "店铺分-商品品质策略限时整改计次2",
-          "domain": "大盘/横向品质治理",
-          "entity_type": "笔记",
-          "entity_id": "6a17db6b000000000702594e",
-          "action": "TAG_SPREAD",
-          "repeat_count": 4,
-          "punish_time": "2026-06-20",
+          "repeat_count": 2,
+          "punish_time": "2026-06-28",
           "punish_type": "黑盒"
         },
         {
           "tag": "直播间-直播特殊风险-无法识别语言",
           "domain": "直播特殊风险",
           "entity_type": "直播间",
-          "entity_id": "570333932490831557",
+          "entity_id": "570319411439390537",
           "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-24",
+          "repeat_count": 10,
+          "punish_time": "2026-06-14",
           "punish_type": "白盒"
+        },
+        {
+          "tag": "直播间-直播特殊风险-无法识别语言",
+          "domain": "直播特殊风险",
+          "entity_type": "直播间",
+          "entity_id": "570336832866960988",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-26",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "直播-禁止生成回顾action",
+          "domain": "计次处置",
+          "entity_type": "直播间",
+          "entity_id": "570319411439390537",
+          "action": "",
+          "repeat_count": 10,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
         },
         {
           "tag": "直播举报—直播特殊风险—无法识别语言",
@@ -2450,33 +2357,33 @@
           "punish_type": "白盒"
         }
       ],
-      "new_today": 0,
+      "new_today": 3,
       "new_severe_today": 0
     },
     {
-      "seller_id": "6a200c37bcfe4d00151b4db4",
-      "shop_name": "岁岁宝藏铺的店",
-      "count": 80,
+      "seller_id": "6952419e000000003700442c",
+      "shop_name": "用户(6952419e)",
+      "count": 78,
       "severe": 0,
-      "high_repeat": 46,
+      "high_repeat": 47,
       "top_domains": [
         [
           "AI 治理",
           63
         ],
         [
-          "问题账号",
+          "色情低俗",
           4
         ],
         [
-          "色情低俗",
+          "问题账号",
           4
         ]
       ],
       "top_tags": [
         [
           "AI同质化",
-          62
+          63
         ],
         [
           "同质化搬运号-经营账号-他相似笔记",
@@ -2496,24 +2403,13 @@
         ]
       ],
       "entities": {
-        "笔记": 77,
-        "用户": 3
+        "笔记": 78
       },
       "punish_types": {
-        "黑盒": 75,
-        "白盒": 5
+        "黑盒": 74,
+        "白盒": 4
       },
       "samples": [
-        {
-          "tag": "竞对平台导流",
-          "domain": "商业生态",
-          "entity_type": "笔记",
-          "entity_id": "6a26ac7e000000001702a80d",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-08",
-          "punish_type": "黑盒"
-        },
         {
           "tag": "AI同质化",
           "domain": "AI 治理",
@@ -2528,46 +2424,56 @@
           "tag": "AI同质化",
           "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a25422f000000001702dd6a",
+          "entity_id": "6a2773ff0000000016026774",
           "action": "",
           "repeat_count": 10,
-          "punish_time": "2026-06-07",
+          "punish_time": "2026-06-10",
           "punish_type": "黑盒"
         },
         {
           "tag": "AI同质化",
           "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a2c9f2d000000001502797a",
+          "entity_id": "6a3de3b70000000016026cae",
           "action": "",
-          "repeat_count": 10,
-          "punish_time": "2026-06-13",
+          "repeat_count": 4,
+          "punish_time": "2026-06-26",
           "punish_type": "黑盒"
         },
         {
-          "tag": "安全-用户安全待审停展",
-          "domain": "用户安全",
-          "entity_type": "用户",
-          "entity_id": "6952419e000000003700442c",
+          "tag": "色情导流笔记限流",
+          "domain": "色情低俗",
+          "entity_type": "笔记",
+          "entity_id": "6a215c75000000003601f10b",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-06-04",
           "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a2a8f76000000001702ae45",
+          "action": "",
+          "repeat_count": 10,
+          "punish_time": "2026-06-11",
+          "punish_type": "黑盒"
         }
       ],
-      "new_today": 2,
+      "new_today": 1,
       "new_severe_today": 0
     },
     {
       "seller_id": "691af3090000000037005988",
       "shop_name": "用户(691af309)",
-      "count": 99,
+      "count": 93,
       "severe": 0,
-      "high_repeat": 46,
+      "high_repeat": 38,
       "top_domains": [
         [
           "AI 治理",
-          88
+          82
         ],
         [
           "色情低俗",
@@ -2581,7 +2487,7 @@
       "top_tags": [
         [
           "AI同质化",
-          88
+          82
         ],
         [
           "竞对平台导流",
@@ -2596,17 +2502,57 @@
           2
         ],
         [
-          "色情导流笔记限流",
+          "医疗高危风险回扫",
           1
         ]
       ],
       "entities": {
-        "笔记": 99
+        "笔记": 93
       },
       "punish_types": {
-        "黑盒": 99
+        "黑盒": 93
       },
       "samples": [
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "69f19d57000000003501f736",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-09",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "竞对平台导流",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "6a3cdcaa00000000060373bd",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-25",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a0d2bca0000000036030927",
+          "action": "",
+          "repeat_count": 4,
+          "punish_time": "2026-06-07",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a1e91430000000021014fa2",
+          "action": "",
+          "repeat_count": 8,
+          "punish_time": "2026-06-03",
+          "punish_type": "黑盒"
+        },
         {
           "tag": "AI同质化",
           "domain": "AI 治理",
@@ -2616,46 +2562,6 @@
           "repeat_count": 4,
           "punish_time": "2026-06-15",
           "punish_type": "黑盒"
-        },
-        {
-          "tag": "色情导流笔记限流",
-          "domain": "色情低俗",
-          "entity_type": "笔记",
-          "entity_id": "6a01a1df000000003700d991",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-04",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "6a1f9f4600000000070223a8",
-          "action": "",
-          "repeat_count": 8,
-          "punish_time": "2026-06-03",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "身体暴露凸显或两性话题",
-          "domain": "色情低俗",
-          "entity_type": "笔记",
-          "entity_id": "69f04c3e000000003701ffcb",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-24",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "69fd7895000000003603243e",
-          "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
         }
       ],
       "new_today": 0,
@@ -2664,82 +2570,52 @@
     {
       "seller_id": "64462ee000000000290118d7",
       "shop_name": "用户(64462ee0)",
-      "count": 55,
+      "count": 52,
       "severe": 0,
-      "high_repeat": 39,
+      "high_repeat": 37,
       "top_domains": [
         [
           "特殊垂类-医疗医美",
-          46
+          45
         ],
         [
           "AI 治理",
-          5
+          4
         ],
         [
-          "应急处置",
+          "内容画风",
           1
         ]
       ],
       "top_tags": [
         [
           "医疗高危风险回扫",
-          46
+          45
         ],
         [
           "AI同质化",
-          5
-        ],
-        [
-          "应急处置-中度",
-          1
+          4
         ],
         [
           "封标跟风",
           1
         ],
         [
-          "强竞品AIGC品牌露出",
+          "应急处置-中度",
+          1
+        ],
+        [
+          "身体暴露凸显或两性话题",
           1
         ]
       ],
       "entities": {
-        "笔记": 55
+        "笔记": 52
       },
       "punish_types": {
-        "黑盒": 55
+        "黑盒": 52
       },
       "samples": [
-        {
-          "tag": "医疗高危风险回扫",
-          "domain": "特殊垂类-医疗医美",
-          "entity_type": "笔记",
-          "entity_id": "6a2d3551000000002101553e",
-          "action": "",
-          "repeat_count": 8,
-          "punish_time": "2026-06-15",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "医疗高危风险回扫",
-          "domain": "特殊垂类-医疗医美",
-          "entity_type": "笔记",
-          "entity_id": "6a3a9042000000000f01c551",
-          "action": "",
-          "repeat_count": 6,
-          "punish_time": "2026-06-23",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "医疗高危风险回扫",
-          "domain": "特殊垂类-医疗医美",
-          "entity_type": "笔记",
-          "entity_id": "6a2e4d4e0000000036002c4e",
-          "action": "",
-          "repeat_count": 8,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
-        },
         {
           "tag": "医疗高危风险回扫",
           "domain": "特殊垂类-医疗医美",
@@ -2751,72 +2627,131 @@
           "punish_type": "黑盒"
         },
         {
+          "tag": "封标跟风",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "69eb2ebe0000000020013000",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a1e969b0000000036032ef3",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-03",
+          "punish_type": "黑盒"
+        },
+        {
           "tag": "医疗高危风险回扫",
           "domain": "特殊垂类-医疗医美",
           "entity_type": "笔记",
-          "entity_id": "6a2e6db8000000001603ec6d",
+          "entity_id": "6a3bd1ce000000002201a13b",
+          "action": "",
+          "repeat_count": 5,
+          "punish_time": "2026-06-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a2d8c18000000003501cb1c",
           "action": "",
           "repeat_count": 8,
           "punish_time": "2026-06-14",
           "punish_type": "黑盒"
         }
       ],
-      "new_today": 1,
+      "new_today": 0,
       "new_severe_today": 0
     },
     {
-      "seller_id": "68d10c38cdd2c90015764135",
-      "shop_name": "千张爱养生的店",
-      "count": 127,
+      "seller_id": "68cb6dfe000000002102d06d",
+      "shop_name": "用户(68cb6dfe)",
+      "count": 119,
       "severe": 0,
-      "high_repeat": 37,
+      "high_repeat": 36,
       "top_domains": [
         [
           "色情低俗",
-          51
+          41
         ],
         [
           "AI 治理",
-          28
+          31
         ],
         [
           "特殊垂类-医疗医美",
-          21
+          22
         ]
       ],
       "top_tags": [
         [
           "AI同质化",
-          28
+          31
         ],
         [
           "医疗高危风险回扫",
-          21
+          22
         ],
         [
           "身体暴露凸显或涉性讨论",
-          14
-        ],
-        [
-          "色情导流笔记限流",
-          13
+          12
         ],
         [
           "色导北上不出",
-          13
+          10
+        ],
+        [
+          "色情导流笔记限流",
+          10
         ]
       ],
       "entities": {
-        "笔记": 126,
-        "用户": 1
+        "笔记": 119
       },
       "punish_types": {
-        "黑盒": 107,
-        "白盒": 20
+        "白盒": 17,
+        "黑盒": 102
       },
       "samples": [
         {
-          "tag": "色情导流笔记限流",
+          "tag": "同质化搬运号-经营账号-自相似笔记",
+          "domain": "问题账号",
+          "entity_type": "笔记",
+          "entity_id": "6a3f92530000000017009e1e",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-27",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a44c4de000000002200a77c",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-07-01",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
+          "entity_type": "笔记",
+          "entity_id": "6a3f945d00000000160276f1",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-27",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "色导北上不出",
           "domain": "色情低俗",
           "entity_type": "笔记",
           "entity_id": "698433950000000028021dd4",
@@ -2826,43 +2761,13 @@
           "punish_type": "黑盒"
         },
         {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "6a27cc8d000000002201682a",
-          "action": "",
-          "repeat_count": 7,
-          "punish_time": "2026-06-13",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "医疗高危风险回扫",
-          "domain": "特殊垂类-医疗医美",
-          "entity_type": "笔记",
-          "entity_id": "69a1487200000000280200f6",
-          "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-17",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "身体暴露凸显或涉性讨论",
+          "tag": "身体暴露凸显或两性话题",
           "domain": "色情低俗",
           "entity_type": "笔记",
-          "entity_id": "6a408011000000001503f600",
+          "entity_id": "6a2ba8c50000000035025876",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-28",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "封标悬念",
-          "domain": "内容画风",
-          "entity_type": "笔记",
-          "entity_id": "6a33bb89000000001700b93c",
-          "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-20",
+          "repeat_count": 6,
+          "punish_time": "2026-06-13",
           "punish_type": "黑盒"
         }
       ],
@@ -2870,121 +2775,102 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "68397a0c000000001b021687",
-      "shop_name": "用户(68397a0c)",
-      "count": 47,
+      "seller_id": "677ff3c4290ef900146ddf93",
+      "shop_name": "一群娃的妈妈是潘潘海外专营店",
+      "count": 46,
       "severe": 0,
-      "high_repeat": 31,
+      "high_repeat": 32,
       "top_domains": [
         [
-          "AI 治理",
-          38
-        ],
-        [
-          "色情低俗",
-          3
-        ],
-        [
-          "特殊垂类-医疗医美",
-          2
+          "山寨假货",
+          46
         ]
       ],
       "top_tags": [
         [
-          "AI同质化",
+          "【商品】采销凭证品牌场域干预",
           38
         ],
         [
-          "身体暴露凸显或两性话题",
-          3
-        ],
-        [
-          "医疗高危风险回扫",
-          2
-        ],
-        [
-          "竞对平台导流",
-          2
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          1
+          "【商品】采销凭证商品禁止分销",
+          8
         ]
       ],
       "entities": {
-        "笔记": 47
+        "商品": 46
       },
       "punish_types": {
-        "黑盒": 47
+        "黑盒": 38,
+        "白盒": 8
       },
       "samples": [
         {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "69ca2936000000001a03561b",
-          "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-20",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "6a17e1510000000008000e69",
+          "tag": "【商品】采销凭证品牌场域干预",
+          "domain": "山寨假货",
+          "entity_type": "商品",
+          "entity_id": "6a1c131f42db800001f27863",
           "action": "",
           "repeat_count": 7,
-          "punish_time": "2026-06-02",
+          "punish_time": "2026-06-25",
           "punish_type": "黑盒"
         },
         {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "6a1fcb4c000000002100a06a",
+          "tag": "【商品】采销凭证品牌场域干预",
+          "domain": "山寨假货",
+          "entity_type": "商品",
+          "entity_id": "6a1c131f42db800001f27863",
+          "action": "",
+          "repeat_count": 13,
+          "punish_time": "2026-06-08",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "【商品】采销凭证品牌场域干预",
+          "domain": "山寨假货",
+          "entity_type": "商品",
+          "entity_id": "6a1c131f42db800001f27863",
           "action": "",
           "repeat_count": 6,
-          "punish_time": "2026-06-03",
+          "punish_time": "2026-06-26",
           "punish_type": "黑盒"
         },
         {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "6a1fc0b10000000021017c85",
+          "tag": "【商品】采销凭证品牌场域干预",
+          "domain": "山寨假货",
+          "entity_type": "商品",
+          "entity_id": "697a003ea5576f0001db486f",
           "action": "",
-          "repeat_count": 6,
-          "punish_time": "2026-06-03",
+          "repeat_count": 13,
+          "punish_time": "2026-06-16",
           "punish_type": "黑盒"
         },
         {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "6a17e1510000000008000e69",
+          "tag": "【商品】采销凭证品牌场域干预",
+          "domain": "山寨假货",
+          "entity_type": "商品",
+          "entity_id": "697a003ea5576f0001db486f",
           "action": "",
-          "repeat_count": 7,
-          "punish_time": "2026-06-02",
+          "repeat_count": 11,
+          "punish_time": "2026-06-21",
           "punish_type": "黑盒"
         }
       ],
-      "new_today": 0,
+      "new_today": 1,
       "new_severe_today": 0
     },
     {
       "seller_id": "6220932a00db3b00019e6e18",
       "shop_name": "麻六记旗舰店",
-      "count": 53,
+      "count": 49,
       "severe": 0,
       "high_repeat": 28,
       "top_domains": [
         [
-          "内容画风",
+          "计次处置",
           21
         ],
         [
-          "计次处置",
+          "内容画风",
           21
         ],
         [
@@ -2994,11 +2880,11 @@
       ],
       "top_tags": [
         [
-          "直播举报—影响观播体验—观感不佳",
+          "直播-禁止生成回顾action",
           21
         ],
         [
-          "直播-禁止生成回顾action",
+          "直播举报—影响观播体验—观感不佳",
           21
         ],
         [
@@ -3006,37 +2892,55 @@
           5
         ],
         [
-          "工业化流水号-经营账号-自相似笔记",
-          2
+          "店铺分-商品品质策略限时整改计次1",
+          1
         ],
         [
-          "工业化流水号-经营账号-他相似笔记",
+          "商品品质负反馈率较高「限时整改」",
           1
         ]
       ],
       "entities": {
-        "直播间": 47,
-        "笔记": 4,
-        "商品": 2
+        "商品": 2,
+        "直播间": 47
       },
       "punish_types": {
-        "黑盒": 51,
-        "白盒": 2
+        "黑盒": 49
       },
       "samples": [
         {
-          "tag": "直播间生态-影响观播体验-观感不佳",
-          "domain": "影响观播体验",
-          "entity_type": "直播间",
-          "entity_id": "570317362590964453",
+          "tag": "店铺分-商品品质策略限时整改计次1",
+          "domain": "大盘/横向品质治理",
+          "entity_type": "商品",
+          "entity_id": "689b22078ff8a70001b31f5d",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-13",
+          "repeat_count": 0,
+          "punish_time": "2026-06-17",
           "punish_type": "黑盒"
         },
         {
-          "tag": "直播举报—影响观播体验—观感不佳",
-          "domain": "内容画风",
+          "tag": "直播-禁止生成回顾action",
+          "domain": "计次处置",
+          "entity_type": "直播间",
+          "entity_id": "570323723550331826",
+          "action": "",
+          "repeat_count": 11,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播-禁止生成回顾action",
+          "domain": "计次处置",
+          "entity_type": "直播间",
+          "entity_id": "570334736337638622",
+          "action": "",
+          "repeat_count": 5,
+          "punish_time": "2026-06-25",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播-禁止生成回顾action",
+          "domain": "计次处置",
           "entity_type": "直播间",
           "entity_id": "570340526909861168",
           "action": "",
@@ -3053,159 +2957,47 @@
           "repeat_count": 0,
           "punish_time": "2026-06-30",
           "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a224b79000000000702b458",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-05",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播举报—影响观播体验—观感不佳",
-          "domain": "内容画风",
-          "entity_type": "直播间",
-          "entity_id": "570315898008457669",
-          "action": "",
-          "repeat_count": 10,
-          "punish_time": "2026-06-12",
-          "punish_type": "黑盒"
         }
       ],
-      "new_today": 3,
+      "new_today": 0,
       "new_severe_today": 0
     },
     {
-      "seller_id": "69ca2523000000003202c04c",
-      "shop_name": "用户(69ca2523)",
-      "count": 41,
+      "seller_id": "68397a0c000000001b021687",
+      "shop_name": "用户(68397a0c)",
+      "count": 40,
       "severe": 0,
-      "high_repeat": 25,
+      "high_repeat": 26,
       "top_domains": [
         [
-          "营销内容",
+          "AI 治理",
           33
         ],
         [
-          "问题账号",
-          8
-        ]
-      ],
-      "top_tags": [
-        [
-          "低差营销相似违规召回",
-          33
-        ],
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          5
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
+          "特殊垂类-医疗医美",
           2
         ],
         [
-          "同质化搬运号-经营账号-自相似笔记",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 41
-      },
-      "punish_types": {
-        "黑盒": 40,
-        "白盒": 1
-      },
-      "samples": [
-        {
-          "tag": "低差营销相似违规召回",
-          "domain": "营销内容",
-          "entity_type": "笔记",
-          "entity_id": "6a4226af000000002003b3e0",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-06-30",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-自相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a35f615000000002003979f",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-20",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "低差营销相似违规召回",
-          "domain": "营销内容",
-          "entity_type": "笔记",
-          "entity_id": "6a3e6acc000000000803d36a",
-          "action": "",
-          "repeat_count": 3,
-          "punish_time": "2026-06-27",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "低差营销相似违规召回",
-          "domain": "营销内容",
-          "entity_type": "笔记",
-          "entity_id": "6a2fb0b90000000006021ec7",
-          "action": "",
-          "repeat_count": 7,
-          "punish_time": "2026-06-16",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "低差营销相似违规召回",
-          "domain": "营销内容",
-          "entity_type": "笔记",
-          "entity_id": "6a2234ed00000000080022d2",
-          "action": "",
-          "repeat_count": 11,
-          "punish_time": "2026-06-06",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 4,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "658c1e55000000002200a4f8",
-      "shop_name": "用户(658c1e55)",
-      "count": 67,
-      "severe": 0,
-      "high_repeat": 25,
-      "top_domains": [
-        [
-          "问题账号",
-          59
-        ],
-        [
-          "AI 治理",
-          7
-        ],
-        [
-          "应急处置",
-          1
+          "商业生态",
+          2
         ]
       ],
       "top_tags": [
         [
-          "同质化搬运号-经营账号-他相似笔记",
-          35
+          "AI同质化",
+          33
+        ],
+        [
+          "医疗高危风险回扫",
+          2
+        ],
+        [
+          "竞对平台导流",
+          2
         ],
         [
           "工业化流水号-经营账号-他相似笔记",
-          24
-        ],
-        [
-          "AI同质化",
-          7
+          1
         ],
         [
           "应急处置-中度",
@@ -3213,60 +3005,60 @@
         ]
       ],
       "entities": {
-        "笔记": 67
+        "笔记": 40
       },
       "punish_types": {
-        "黑盒": 67
+        "黑盒": 40
       },
       "samples": [
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "医疗高危风险回扫",
+          "domain": "特殊垂类-医疗医美",
           "entity_type": "笔记",
-          "entity_id": "6a258bab000000001603e58f",
+          "entity_id": "6a3a2d2a00000000070136be",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-07",
+          "repeat_count": 1,
+          "punish_time": "2026-06-25",
           "punish_type": "黑盒"
         },
         {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "AI同质化",
+          "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a258a4b000000001c027bd8",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a21778f000000003701d7b1",
-          "action": "",
-          "repeat_count": 3,
-          "punish_time": "2026-06-04",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a3009a1000000001702adc3",
-          "action": "",
-          "repeat_count": 3,
-          "punish_time": "2026-06-15",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1edde20000000037036943",
+          "entity_id": "6a2a885900000000080312ca",
           "action": "",
           "repeat_count": 5,
-          "punish_time": "2026-06-02",
+          "punish_time": "2026-06-11",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a3f81880000000006021c5b",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-27",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a3b90f1000000000800384e",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-25",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "69ccd697000000001f007681",
+          "action": "",
+          "repeat_count": 5,
+          "punish_time": "2026-06-06",
           "punish_type": "黑盒"
         }
       ],
@@ -3278,7 +3070,7 @@
       "shop_name": "用户(65d1daca)",
       "count": 33,
       "severe": 0,
-      "high_repeat": 24,
+      "high_repeat": 25,
       "top_domains": [
         [
           "违规营销笔记",
@@ -3310,66 +3102,66 @@
           "tag": "【违规营销】笔记关联商品价格信息异常",
           "domain": "违规营销笔记",
           "entity_type": "笔记",
-          "entity_id": "69e9908400000000230078f5",
-          "action": "",
-          "repeat_count": 7,
-          "punish_time": "2026-06-17",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "【违规营销】笔记关联商品价格信息异常",
-          "domain": "违规营销笔记",
-          "entity_type": "笔记",
-          "entity_id": "691aba7900000000040128c8",
+          "entity_id": "6927b725000000001e039991",
           "action": "",
           "repeat_count": 11,
-          "punish_time": "2026-06-07",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "M-世界杯三方平台导流",
-          "domain": "不当导流",
-          "entity_type": "笔记",
-          "entity_id": "6a29301c00000000210168fd",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-10",
+          "punish_time": "2026-06-06",
           "punish_type": "黑盒"
         },
         {
           "tag": "【违规营销】笔记关联商品价格信息异常",
           "domain": "违规营销笔记",
           "entity_type": "笔记",
-          "entity_id": "69e35c82000000002202b806",
+          "entity_id": "69cdcde8000000002301748b",
           "action": "",
-          "repeat_count": 6,
-          "punish_time": "2026-06-18",
+          "repeat_count": 9,
+          "punish_time": "2026-06-14",
           "punish_type": "黑盒"
         },
         {
           "tag": "【违规营销】笔记关联商品价格信息异常",
           "domain": "违规营销笔记",
           "entity_type": "笔记",
-          "entity_id": "68e6341100000000040203c1",
+          "entity_id": "6909775c000000000400376c",
           "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-21",
+          "repeat_count": 9,
+          "punish_time": "2026-06-14",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "【违规营销】笔记关联商品价格信息异常",
+          "domain": "违规营销笔记",
+          "entity_type": "笔记",
+          "entity_id": "6917f78d0000000005030dc9",
+          "action": "",
+          "repeat_count": 11,
+          "punish_time": "2026-06-06",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "【违规营销】笔记关联商品价格信息异常",
+          "domain": "违规营销笔记",
+          "entity_type": "笔记",
+          "entity_id": "68f1f1050000000004010b6e",
+          "action": "",
+          "repeat_count": 9,
+          "punish_time": "2026-06-12",
           "punish_type": "黑盒"
         }
       ],
-      "new_today": 0,
+      "new_today": 1,
       "new_severe_today": 0
     },
     {
       "seller_id": "67f5f78b000000000a03f350",
       "shop_name": "用户(67f5f78b)",
-      "count": 36,
+      "count": 37,
       "severe": 0,
       "high_repeat": 24,
       "top_domains": [
         [
           "AI 治理",
-          35
+          36
         ],
         [
           "自动处置",
@@ -3379,7 +3171,7 @@
       "top_tags": [
         [
           "AI同质化",
-          35
+          36
         ],
         [
           "安全笔记量级调控-静默自嗨-不发信",
@@ -3387,52 +3179,12 @@
         ]
       ],
       "entities": {
-        "笔记": 36
+        "笔记": 37
       },
       "punish_types": {
-        "黑盒": 36
+        "黑盒": 37
       },
       "samples": [
-        {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "6a3218440000000022016d5b",
-          "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-06-17",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "6a29250f00000000210087ba",
-          "action": "",
-          "repeat_count": 7,
-          "punish_time": "2026-06-10",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "6a38d94200000000060334b8",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-22",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "AI同质化",
-          "domain": "AI 治理",
-          "entity_type": "笔记",
-          "entity_id": "6a3ff15600000000070246d1",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-28",
-          "punish_type": "黑盒"
-        },
         {
           "tag": "AI同质化",
           "domain": "AI 治理",
@@ -3442,6 +3194,142 @@
           "repeat_count": 5,
           "punish_time": "2026-06-17",
           "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a363588000000002100ab60",
+          "action": "",
+          "repeat_count": 4,
+          "punish_time": "2026-06-21",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a3ff15600000000070246d1",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-28",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a325e730000000021023abb",
+          "action": "",
+          "repeat_count": 5,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a3218440000000022016d5b",
+          "action": "",
+          "repeat_count": 5,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 1,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "69ca2523000000003202c04c",
+      "shop_name": "用户(69ca2523)",
+      "count": 39,
+      "severe": 0,
+      "high_repeat": 22,
+      "top_domains": [
+        [
+          "营销内容",
+          31
+        ],
+        [
+          "问题账号",
+          8
+        ]
+      ],
+      "top_tags": [
+        [
+          "低差营销相似违规召回",
+          31
+        ],
+        [
+          "同质化搬运号-经营账号-他相似笔记",
+          5
+        ],
+        [
+          "工业化流水号-经营账号-他相似笔记",
+          2
+        ],
+        [
+          "同质化搬运号-经营账号-自相似笔记",
+          1
+        ]
+      ],
+      "entities": {
+        "笔记": 39
+      },
+      "punish_types": {
+        "黑盒": 38,
+        "白盒": 1
+      },
+      "samples": [
+        {
+          "tag": "低差营销相似违规召回",
+          "domain": "营销内容",
+          "entity_type": "笔记",
+          "entity_id": "6a2288430000000007012e45",
+          "action": "",
+          "repeat_count": 11,
+          "punish_time": "2026-06-06",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "低差营销相似违规召回",
+          "domain": "营销内容",
+          "entity_type": "笔记",
+          "entity_id": "6a2aa26000000000060211a0",
+          "action": "",
+          "repeat_count": 8,
+          "punish_time": "2026-06-12",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "低差营销相似违规召回",
+          "domain": "营销内容",
+          "entity_type": "笔记",
+          "entity_id": "6a3f881b000000000701386c",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-06-28",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "低差营销相似违规召回",
+          "domain": "营销内容",
+          "entity_type": "笔记",
+          "entity_id": "6a2234ed00000000080022d2",
+          "action": "",
+          "repeat_count": 11,
+          "punish_time": "2026-06-06",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "低差营销相似违规召回",
+          "domain": "营销内容",
+          "entity_type": "笔记",
+          "entity_id": "6a267ae7000000000803005a",
+          "action": "",
+          "repeat_count": 10,
+          "punish_time": "2026-06-09",
+          "punish_type": "黑盒"
         }
       ],
       "new_today": 0,
@@ -3450,13 +3338,13 @@
     {
       "seller_id": "695b90960000000037029341",
       "shop_name": "用户(695b9096)",
-      "count": 36,
+      "count": 37,
       "severe": 0,
-      "high_repeat": 23,
+      "high_repeat": 22,
       "top_domains": [
         [
           "营销内容",
-          30
+          31
         ],
         [
           "问题账号",
@@ -3470,7 +3358,7 @@
       "top_tags": [
         [
           "低差营销相似违规召回",
-          30
+          31
         ],
         [
           "同质化搬运号-经营账号-他相似笔记",
@@ -3486,10 +3374,10 @@
         ]
       ],
       "entities": {
-        "笔记": 36
+        "笔记": 37
       },
       "punish_types": {
-        "黑盒": 35,
+        "黑盒": 36,
         "白盒": 1
       },
       "samples": [
@@ -3497,20 +3385,20 @@
           "tag": "低差营销相似违规召回",
           "domain": "营销内容",
           "entity_type": "笔记",
-          "entity_id": "6a3ce3350000000016027a0d",
+          "entity_id": "6a2a6c570000000017008592",
           "action": "",
-          "repeat_count": 3,
-          "punish_time": "2026-06-26",
+          "repeat_count": 8,
+          "punish_time": "2026-06-12",
           "punish_type": "黑盒"
         },
         {
           "tag": "低差营销相似违规召回",
           "domain": "营销内容",
           "entity_type": "笔记",
-          "entity_id": "6a3bcb0b000000001503f03c",
+          "entity_id": "6a1e3a5e000000003701f63f",
           "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-25",
+          "repeat_count": 13,
+          "punish_time": "2026-06-03",
           "punish_type": "黑盒"
         },
         {
@@ -3524,200 +3412,601 @@
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "AI虚假不实",
+          "domain": "笔记内容生态",
           "entity_type": "笔记",
-          "entity_id": "6a29246b000000001702fbca",
+          "entity_id": "6a36000d000000001700b6d0",
           "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-06-10",
-          "punish_type": "黑盒"
+          "repeat_count": 0,
+          "punish_time": "2026-06-20",
+          "punish_type": "白盒"
         },
         {
           "tag": "低差营销相似违规召回",
           "domain": "营销内容",
           "entity_type": "笔记",
-          "entity_id": "6a2fb0af0000000015027ddb",
+          "entity_id": "6a2aa2820000000017009dc0",
           "action": "",
-          "repeat_count": 6,
-          "punish_time": "2026-06-16",
+          "repeat_count": 8,
+          "punish_time": "2026-06-12",
           "punish_type": "黑盒"
         }
       ],
-      "new_today": 2,
+      "new_today": 0,
       "new_severe_today": 0
-    }
-  ],
-  "new_burst": [],
-  "severe": [
+    },
     {
-      "seller_id": "69ac144203e2c70015a2eea9",
-      "shop_name": "綩朵的店",
-      "count": 187,
-      "severe": 2,
-      "high_repeat": 56,
+      "seller_id": "69ad626f00000000330198d0",
+      "shop_name": "用户(69ad626f)",
+      "count": 39,
+      "severe": 0,
+      "high_repeat": 21,
       "top_domains": [
         [
-          "问题账号",
-          113
-        ],
-        [
           "AI 治理",
-          43
+          37
         ],
         [
-          "违规营销笔记",
-          5
+          "色情低俗",
+          2
         ]
       ],
       "top_tags": [
         [
-          "同质化搬运号-经营账号-他相似笔记",
-          78
-        ],
-        [
           "AI同质化",
-          42
+          37
         ],
         [
-          "工业化流水号-经营账号-他相似笔记",
-          31
-        ],
-        [
-          "【违规营销】笔记关联商品价格信息异常",
-          5
-        ],
-        [
-          "应急处置-中度",
-          3
+          "色情导流笔记限流",
+          2
         ]
       ],
       "entities": {
-        "笔记": 175,
-        "商品": 9,
-        "用户": 2,
-        "店铺": 1
+        "笔记": 39
       },
       "punish_types": {
-        "黑盒": 172,
-        "白盒": 15
+        "黑盒": 39
       },
       "samples": [
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "AI同质化",
+          "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a2e6846000000001503e8aa",
+          "entity_id": "69dcf2df0000000023023d3e",
           "action": "",
-          "repeat_count": 3,
-          "punish_time": "2026-06-14",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2ac164000000001603e30f",
-          "action": "",
-          "repeat_count": 6,
-          "punish_time": "2026-06-11",
+          "repeat_count": 7,
+          "punish_time": "2026-06-07",
           "punish_type": "黑盒"
         },
         {
           "tag": "AI同质化",
           "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a2bc4620000000015025e37",
+          "entity_id": "6a313e38000000001101b0b1",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-06-17",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "69e79fc60000000023012e96",
           "action": "",
           "repeat_count": 6,
-          "punish_time": "2026-06-12",
+          "punish_time": "2026-06-08",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "AI同质化",
+          "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a2d0973000000001700a4f5",
+          "entity_id": "6a268524000000003501d758",
           "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-13",
+          "repeat_count": 6,
+          "punish_time": "2026-06-08",
           "punish_type": "黑盒"
         },
         {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
+          "tag": "AI同质化",
+          "domain": "AI 治理",
           "entity_type": "笔记",
-          "entity_id": "6a33c4110000000008003a21",
+          "entity_id": "6a3b32d4000000000f0172c8",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-18",
+          "repeat_count": 2,
+          "punish_time": "2026-06-24",
           "punish_type": "黑盒"
         }
       ],
-      "new_today": 3,
+      "new_today": 0,
       "new_severe_today": 0
-    },
+    }
+  ],
+  "new_burst": [
     {
-      "seller_id": "65d4461b5fd0a00001077205",
-      "shop_name": "蓝昔鸟食品的店",
-      "count": 49,
-      "severe": 1,
-      "high_repeat": 14,
+      "seller_id": "68cf65b45da8170015ad2e9c",
+      "shop_name": "源物甄选的店",
+      "count": 9,
+      "severe": 0,
+      "high_repeat": 0,
       "top_domains": [
         [
-          "问题账号",
-          38
-        ],
+          "AI 治理",
+          9
+        ]
+      ],
+      "top_tags": [
+        [
+          "AI同质化",
+          9
+        ]
+      ],
+      "entities": {
+        "笔记": 9
+      },
+      "punish_types": {
+        "黑盒": 9
+      },
+      "samples": [
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a461b5b0000000021009af3",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-07-02",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a46093800000000210230f3",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-07-02",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a46093800000000210230f3",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-07-02",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a463657000000000f01496e",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-07-02",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a461b5b0000000021009af3",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-07-02",
+          "punish_type": "黑盒"
+        }
+      ],
+      "active_count": 10,
+      "active_severe": 0,
+      "active_high_repeat": 0,
+      "active_top_domains": [
         [
           "AI 治理",
-          5
+          9
         ],
         [
-          "商品合规准入回查",
+          "问题账号",
+          1
+        ]
+      ]
+    },
+    {
+      "seller_id": "66f5161ea9bf3400163b030e",
+      "shop_name": "虹孩儿的店",
+      "count": 7,
+      "severe": 0,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "AI 治理",
+          4
+        ],
+        [
+          "笔记内容生态",
           3
         ]
       ],
       "top_tags": [
         [
-          "同质化搬运号-经营账号-他相似笔记",
-          22
-        ],
-        [
-          "工业化流水号-经营账号-他相似笔记",
-          13
-        ],
-        [
           "AI同质化",
-          5
+          4
+        ],
+        [
+          "封标蹭热-笔记",
+          3
+        ]
+      ],
+      "entities": {
+        "笔记": 7
+      },
+      "punish_types": {
+        "白盒": 3,
+        "黑盒": 4
+      },
+      "samples": [
+        {
+          "tag": "封标蹭热-笔记",
+          "domain": "笔记内容生态",
+          "entity_type": "笔记",
+          "entity_id": "6a46237d000000001102cfb7",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-07-02",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "封标蹭热-笔记",
+          "domain": "笔记内容生态",
+          "entity_type": "笔记",
+          "entity_id": "6a452907000000000f01cb38",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-07-02",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a45d9ac000000002201a7ea",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-07-02",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a4612060000000016026363",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-07-02",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "AI同质化",
+          "domain": "AI 治理",
+          "entity_type": "笔记",
+          "entity_id": "6a4612060000000016026363",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-07-02",
+          "punish_type": "黑盒"
+        }
+      ],
+      "active_count": 14,
+      "active_severe": 0,
+      "active_high_repeat": 1,
+      "active_top_domains": [
+        [
+          "AI 治理",
+          10
+        ],
+        [
+          "笔记内容生态",
+          3
+        ],
+        [
+          "商品合规",
+          1
+        ]
+      ]
+    }
+  ],
+  "severe": [
+    {
+      "seller_id": "69ac144203e2c70015a2eea9",
+      "shop_name": "綩朵的店",
+      "count": 13,
+      "severe": 2,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "商品合规",
+          3
+        ],
+        [
+          "资质不符",
+          3
+        ],
+        [
+          "商品合规准入回查",
+          2
+        ]
+      ],
+      "top_tags": [
+        [
+          "(旧）过期/临期商品",
+          3
+        ],
+        [
+          "禁售商品-（应急回查）",
+          2
         ],
         [
           "同质化搬运号-经营账号",
           2
         ],
         [
-          "535-流量沉底（交易应急专用）",
+          "(旧）严重导流",
           2
+        ],
+        [
+          "AI同质化账号",
+          1
         ]
       ],
       "entities": {
         "用户": 3,
-        "店铺": 2,
-        "笔记": 41,
-        "商品": 3
+        "商品": 9,
+        "店铺": 1
       },
       "punish_types": {
-        "黑盒": 48,
-        "白盒": 1
+        "黑盒": 3,
+        "白盒": 10
+      },
+      "samples": [
+        {
+          "tag": "AI同质化账号",
+          "domain": "AI 治理",
+          "entity_type": "用户",
+          "entity_id": "69ac10320000000032025be3",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-09",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "(旧）过期/临期商品",
+          "domain": "商品合规",
+          "entity_type": "商品",
+          "entity_id": "69d1ac48ca15480001acfdb2",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-18",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "禁售商品-（应急回查）",
+          "domain": "商品合规准入回查",
+          "entity_type": "商品",
+          "entity_id": "69b0c8565a55b800010e3858",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-25",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "虚拟商品错放计次升级-警告",
+          "domain": "资质不符",
+          "entity_type": "店铺",
+          "entity_id": "69ac144203e2c70015a2eea9",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-16",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号",
+          "domain": "问题账号",
+          "entity_type": "用户",
+          "entity_id": "69ac10320000000032025be3",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-25",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 1,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "64082baa9a611c0001397174",
+      "shop_name": "蓝鹊烘焙的店",
+      "count": 5,
+      "severe": 1,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "计次处置",
+          2
+        ],
+        [
+          "问题账号",
+          1
+        ],
+        [
+          "商品合规准入回查",
+          1
+        ]
+      ],
+      "top_tags": [
+        [
+          "直播-禁止生成回顾action",
+          2
+        ],
+        [
+          "同质化搬运号-经营账号",
+          1
+        ],
+        [
+          "禁售商品-（应急回查）",
+          1
+        ],
+        [
+          "直播间生态-不真诚直播-低成本直播",
+          1
+        ]
+      ],
+      "entities": {
+        "用户": 1,
+        "直播间": 3,
+        "商品": 1
+      },
+      "punish_types": {
+        "黑盒": 3,
+        "白盒": 2
       },
       "samples": [
         {
           "tag": "同质化搬运号-经营账号",
           "domain": "问题账号",
           "entity_type": "用户",
+          "entity_id": "5da152cf00000000010043b5",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "直播-禁止生成回顾action",
+          "domain": "计次处置",
+          "entity_type": "直播间",
+          "entity_id": "570329308823936878",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-21",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "禁售商品-（应急回查）",
+          "domain": "商品合规准入回查",
+          "entity_type": "商品",
+          "entity_id": "69fef9b27b710e00019afdd2",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-12",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "直播间生态-不真诚直播-低成本直播",
+          "domain": "影响直播竞争公平性",
+          "entity_type": "直播间",
+          "entity_id": "570329308823936878",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-21",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "直播-禁止生成回顾action",
+          "domain": "计次处置",
+          "entity_type": "直播间",
+          "entity_id": "570329308823936878",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-21",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "65d4461b5fd0a00001077205",
+      "shop_name": "蓝昔鸟食品的店",
+      "count": 7,
+      "severe": 1,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "问题账号",
+          3
+        ],
+        [
+          "商品合规准入回查",
+          2
+        ],
+        [
+          "大盘/横向品质治理",
+          2
+        ]
+      ],
+      "top_tags": [
+        [
+          "同质化搬运号-经营账号",
+          2
+        ],
+        [
+          "工业化流水号-经营账号-高频",
+          1
+        ],
+        [
+          "禁售商品-（应急回查）",
+          1
+        ],
+        [
+          "店铺品质负反馈率较高「限时整改」",
+          1
+        ],
+        [
+          "535-流量沉底（交易应急专用）",
+          1
+        ]
+      ],
+      "entities": {
+        "用户": 3,
+        "商品": 2,
+        "店铺": 2
+      },
+      "punish_types": {
+        "黑盒": 6,
+        "白盒": 1
+      },
+      "samples": [
+        {
+          "tag": "工业化流水号-经营账号-高频",
+          "domain": "问题账号",
+          "entity_type": "用户",
           "entity_id": "5bdefee27f5c6f0001b3d69e",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-06-27",
+          "punish_time": "2026-06-08",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "禁售商品-（应急回查）",
+          "domain": "商品合规准入回查",
+          "entity_type": "商品",
+          "entity_id": "6a008444f3ef8300010fb6d2",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-06-14",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "同质化搬运号-经营账号",
+          "domain": "问题账号",
+          "entity_type": "用户",
+          "entity_id": "5bdefee27f5c6f0001b3d69e",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-06-20",
           "punish_type": "黑盒"
         },
         {
@@ -3731,144 +4020,17 @@
           "punish_type": "黑盒"
         },
         {
-          "tag": "商品规格异常",
-          "domain": "(未分类)",
-          "entity_type": "笔记",
-          "entity_id": "6a35376e000000000f01c216",
-          "action": "TAG_SPREAD",
-          "repeat_count": 8,
-          "punish_time": "2026-06-19",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "工业化流水号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a1e87af00000000220194b4",
+          "tag": "535-流量沉底（交易应急专用）",
+          "domain": "商品合规准入回查",
+          "entity_type": "商品",
+          "entity_id": "67aab8b0ce073e00017ec5b8",
           "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a27dc19000000003501ebe9",
-          "action": "",
-          "repeat_count": 9,
-          "punish_time": "2026-06-09",
+          "repeat_count": 0,
+          "punish_time": "2026-06-04",
           "punish_type": "黑盒"
         }
       ],
       "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "64082baa9a611c0001397174",
-      "shop_name": "蓝鹊烘焙的店",
-      "count": 10,
-      "severe": 1,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "问题账号",
-          3
-        ],
-        [
-          "计次处置",
-          2
-        ],
-        [
-          "无货源",
-          1
-        ]
-      ],
-      "top_tags": [
-        [
-          "同质化搬运号-经营账号-他相似笔记",
-          2
-        ],
-        [
-          "直播-禁止生成回顾action",
-          2
-        ],
-        [
-          "【识别策略】无货源商品事实",
-          1
-        ],
-        [
-          "直播间生态-不真诚直播-低成本直播",
-          1
-        ],
-        [
-          "【违规营销】规格不一致",
-          1
-        ]
-      ],
-      "entities": {
-        "笔记": 5,
-        "直播间": 3,
-        "用户": 1,
-        "商品": 1
-      },
-      "punish_types": {
-        "黑盒": 7,
-        "白盒": 3
-      },
-      "samples": [
-        {
-          "tag": "【识别策略】无货源商品事实",
-          "domain": "无货源",
-          "entity_type": "笔记",
-          "entity_id": "6a3fac9f00000000210188f3",
-          "action": "TAG_SPREAD",
-          "repeat_count": 2,
-          "punish_time": "2026-06-27",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "同质化搬运号-经营账号-他相似笔记",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6a2fd898000000000803d63e",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-15",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "直播间生态-不真诚直播-低成本直播",
-          "domain": "影响直播竞争公平性",
-          "entity_type": "直播间",
-          "entity_id": "570329308823936878",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-21",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "【违规营销】规格不一致",
-          "domain": "违规营销笔记",
-          "entity_type": "笔记",
-          "entity_id": "685d07fd000000002001abc5",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-26",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "应急处置-中度",
-          "domain": "应急处置",
-          "entity_type": "笔记",
-          "entity_id": "6a1aba2f0000000007022636",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-06-02",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 1,
       "new_severe_today": 0
     }
   ]
