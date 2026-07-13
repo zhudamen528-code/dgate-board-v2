@@ -1,19 +1,19 @@
 {
-  "yest_date": "2026-07-02",
+  "yest_date": "2026-07-11",
   "am": "大门(朱锦程)",
   "am_short": "大门",
   "am_email": "zhujincheng@xiaohongshu.com",
   "new_total": 153,
   "new_severe": 0,
-  "new_sellers": 102,
+  "new_sellers": 98,
   "new_buyers": 0,
-  "new_black": 116,
-  "new_white": 37,
-  "active_total": 7891,
+  "new_black": 110,
+  "new_white": 43,
+  "active_total": 6960,
   "active_severe": 4,
-  "active_high_repeat": 900,
-  "active_sellers": 1659,
+  "active_high_repeat": 661,
+  "active_sellers": 1595,
   "active_buyers_count": 0,
-  "active_black": 5953,
-  "active_white": 1938
+  "active_black": 4998,
+  "active_white": 1962
 }
