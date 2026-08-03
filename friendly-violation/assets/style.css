@@ -75,6 +75,22 @@ td .tag { white-space:nowrap; }
 
 .empty { padding:40px; text-align:center; color:#a0a4b8; font-size:13px; }
 
+/* 下钻 */
+.clickable { cursor:pointer; user-select:none; }
+tr.row-click { cursor:pointer; }
+tr.row-click:hover { background:#f0f7ff; }
+tr.sub-row > td, tr.sub-row2 > td { padding:0; background:#fafbfd; border-bottom:2px solid #eef0f5; }
+.panel { padding:14px 16px; background:#fafbfd; }
+.panel2 { padding:12px 14px; background:#fff; border-left:3px solid #1890ff; }
+.panel-title { font-size:13px; font-weight:600; color:#1f2330; margin-bottom:10px; }
+.mini-head { font-size:12px; font-weight:600; color:#6b7280; margin:12px 0 6px; display:flex; align-items:center; gap:6px; }
+.mini-head:first-of-type { margin-top:0; }
+table.inner { background:#fff; border-radius:6px; overflow:hidden; }
+table.inner th { background:#f4f6fb; font-size:11px; }
+table.inner td { font-size:12px; padding:7px 9px; }
+.panel .table-wrap, .panel2 .table-wrap { max-height:380px; }
+.panel2 .empty { padding:14px; font-size:12px; }
+
 @media (max-width:768px) {
   main { padding:14px; }
   .section { padding:14px; }

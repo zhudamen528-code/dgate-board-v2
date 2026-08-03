@@ -2,6 +2,7 @@
 const S = {};
 let TAB = 'overview';
 const F = { am: '', tier: '', kw: '' };
+const EXP = new Set();   // 展开的行 key: 'am:xxx' / 'shop:xxx'
 
 const TIER_LABEL = {
   disqualified: '🔴 已失格', critical: '🟠 临界', watch: '🟡 关注', safe: '⚪ 安全'
@@ -62,10 +63,23 @@ function rowFilter(list) {
 function render() {
   document.getElementById('filters').style.display = TAB === 'overview' ? 'none' : 'flex';
   const app = document.getElementById('app');
-  const fn = { overview: vOverview, redline: vRedline, new: vNew, active: vActive, am: vAM }[TAB];
+  const fn = { overview: vOverview, am: vAM, redline: vRedline, new: vNew, active: vActive }[TAB];
   app.innerHTML = fn ? fn() : '';
   const hint = document.getElementById('filter-hint');
   if (hint) hint.textContent = (F.am || F.tier || F.kw) ? '已筛选' : '未筛选 · 展示全组';
+  bindExpand();
+}
+
+function bindExpand() {
+  document.querySelectorAll('tr.row-click').forEach(tr => {
+    tr.onclick = ev => {
+      if (ev.target.closest('a')) return;
+      const k = tr.dataset.exp;
+      if (!k) return;
+      EXP.has(k) ? EXP.delete(k) : EXP.add(k);
+      render();
+    };
+  });
 }
 
 /* ── 总览 ── */
@@ -116,29 +130,49 @@ function vOverview() {
   ${newSevTip}
   <div class="section">
     <div class="section-title">🟡 关注区商家 <span class="badge">${wt.length} 家</span></div>
-    <div class="section-sub">身上有 1-${s.warn_line - 1} 条生效中严重违规，尚安全但已进入计数，建议纳入日常跟进。</div>
-    ${wt.length ? tbl(
-    ['商家', 'AM', '生效中严重违规', '距红线', '近30天DGMV'],
-    wt.map(x => [`<span class="shop">${esc(x.shop_name)}</span>`, esc(x.am),
-    `<span class="num">${x.sev_active}</span>`, `<span class="num">${x.gap} 条</span>`,
-    `<span class="num">${wan(x.dgmv_30d)}</span>`])) : '<div class="empty">无</div>'}
+    <div class="section-sub">身上有 1-${s.warn_line - 1} 条生效中严重违规，尚安全但已进入计数，建议纳入日常跟进。<b>点击商家展开明细</b>。</div>
+    ${wt.length ? shopMiniTable(wt) : '<div class="empty">无</div>'}
   </div>
   <div class="section">
     <div class="section-title">AM 红线概况</div>
-    <div class="section-sub">各 AM 名下友好商家的达标分布，按风险排序。</div>
-    ${amTable(S.am || [])}
+    <div class="section-sub">各 AM 名下友好商家的达标分布，按风险排序。<b>点击 AM 展开名下商家</b>。</div>
+    ${amTable(S.am || [], true)}
   </div>`;
+}
+
+/* 简版商家表（可下钻），用于总览/失格/临界等小列表 */
+function shopMiniTable(list) {
+  const head = ['商家', 'AM', '生效中严重违规', '距红线', '昨日新增', '近30天DGMV'];
+  const body = list.map(x => {
+    const key = 'shop:' + x.seller_id;
+    const open = EXP.has(key);
+    const cells = [
+      `<span class="clickable">${open ? '▾' : '▸'} <span class="shop">${esc(x.shop_name)}</span></span>`,
+      esc(x.am),
+      `<span class="num">${x.sev_active}</span>`,
+      `<span class="num">${x.tier === 'disqualified' ? '已超 ' + (x.sev_active - S.summary.red_line + 1) : x.gap + ' 条'}</span>`,
+      `<span class="num">${x.new_total || '—'}</span>`,
+      `<span class="num">${wan(x.dgmv_30d)}</span>`,
+    ];
+    let html = `<tr class="row-click" data-exp="${esc(key)}">${cells.map(c => `<td>${c}</td>`).join('')}</tr>`;
+    if (open) html += `<tr class="sub-row"><td colspan="${head.length}">${shopViolationPanel(x.seller_id, x.shop_name)}</td></tr>`;
+    return html;
+  }).join('');
+  return `<div class="table-wrap"><table><thead><tr>${head.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${body}</tbody></table></div>`;
 }
 
 /* ── 红线台账 ── */
 function vRedline() {
   const s = S.summary || {};
   const list = shopFilter(S.shops || []);
-  const rows = list.map(x => {
+  const head = ['商家', 'AM', '档位', '生效中严重违规', '红线进度', '距红线', '昨日新增', '生效中限流', 'B等级', '近30天DGMV', '建联'];
+  const body = list.map(x => {
     const pct = Math.min(100, Math.round(x.sev_active / s.red_line * 100));
     const cls = x.tier === 'disqualified' ? '' : (x.tier === 'critical' ? 'warn' : 'ok');
-    return [
-      `<span class="shop">${esc(x.shop_name)}</span>`,
+    const key = 'shop:' + x.seller_id;
+    const open = EXP.has(key);
+    const cells = [
+      `<span class="clickable">${open ? '▾' : '▸'} <span class="shop">${esc(x.shop_name)}</span></span>`,
       esc(x.am),
       `<span class="tag t-${x.tier}">${TIER_LABEL[x.tier]}</span>`,
       `<span class="num">${x.sev_active}</span>`,
@@ -150,11 +184,14 @@ function vRedline() {
       `<span class="num">${wan(x.dgmv_30d)}</span>`,
       x.linked ? '已建联' : '<span class="muted">未建联</span>',
     ];
-  });
+    let html = `<tr class="row-click" data-exp="${esc(key)}">${cells.map(c => `<td>${c}</td>`).join('')}</tr>`;
+    if (open) html += `<tr class="sub-row"><td colspan="${head.length}">${shopViolationPanel(x.seller_id, x.shop_name)}</td></tr>`;
+    return html;
+  }).join('');
   return `<div class="section">
     <div class="section-title">红线台账 <span class="badge">${list.length} / ${fmt(s.roster_total)} 家</span></div>
-    <div class="section-sub">全量友好商家的红线达标明细。「距红线」= 还能再承受多少条严重违规；已失格的显示超出条数。</div>
-    ${rows.length ? tbl(['商家', 'AM', '档位', '生效中严重违规', '红线进度', '距红线', '昨日新增', '生效中限流', 'B等级', '近30天DGMV', '建联'], rows) : '<div class="empty">无匹配商家</div>'}
+    <div class="section-sub">全量友好商家的红线达标明细。「距红线」= 还能再承受多少条严重违规；已失格的显示超出条数。<b>点击商家展开违规明细</b>。</div>
+    ${list.length ? `<div class="table-wrap"><table><thead><tr>${head.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${body}</tbody></table></div>` : '<div class="empty">无匹配商家</div>'}
   </div>`;
 }
 
@@ -179,7 +216,7 @@ function vNew() {
   <div class="section">
     <div class="section-title">新增明细 <span class="badge">${list.length} 条</span></div>
     <div class="section-sub">已按严重违规优先排序。白盒=商家后台可见，黑盒=商家看不到，AM 主动告知价值最高。</div>
-    ${detailTable(list)}
+    ${detailTable(list, true)}
   </div>`;
 }
 
@@ -203,30 +240,35 @@ function vActive() {
   <div class="section">
     <div class="section-title">🔴 生效中严重违规明细 <span class="badge danger">${sev.length} 条 · 红线依据</span></div>
     <div class="section-sub">这些是判定友好商家资格的全部依据，每一条都需要推动整改或申诉才能消除。</div>
-    ${sev.length ? detailTable(sev) : '<div class="empty">无</div>'}
+    ${sev.length ? detailTable(sev, true) : '<div class="empty">无</div>'}
   </div>
   <div class="section">
     <div class="section-title">🟠 生效中影响流量（一般违规·近90天） <span class="badge">${aff.length} 条</span></div>
     <div class="section-sub">不计入红线，但正在实际压制流量。商家常反馈「最近流量没了」，根因多在这里。</div>
-    ${aff.length ? detailTable(aff.slice(0, 800)) : '<div class="empty">无</div>'}
+    ${aff.length ? detailTable(aff.slice(0, 800), true) : '<div class="empty">无</div>'}
     ${aff.length > 800 ? `<div class="muted" style="margin-top:8px">仅展示前 800 条，使用上方筛选器缩小范围。</div>` : ''}
   </div>`;
 }
 
 /* ── AM 视角 ── */
 function vAM() {
+  const s = S.summary || {};
   const list = (S.am || []).filter(a => !F.am || a.am === F.am);
   return `<div class="section">
     <div class="section-title">AM 视角 <span class="badge">${list.length} 位</span></div>
-    <div class="section-sub">按名下商家的红线风险排序。失格与临界数是核心关注项。</div>
-    ${amTable(list)}
+    <div class="section-sub">按名下商家的红线风险排序。<b>点击任意 AM 展开名下商家明细</b>，再点商家可看具体违规条目。</div>
+    ${amTable(list, true)}
   </div>`;
 }
 
-function amTable(list) {
-  return tbl(['AM', '友好商家数', '🔴 已失格', '🟠 临界', '🟡 关注', '⚪ 安全', '生效中严重违规', '昨日新增'],
-    list.map(a => [
-      `<span class="shop">${esc(a.am)}</span>`,
+/* AM 表格：expandable=true 时可点击下钻 */
+function amTable(list, expandable) {
+  const head = ['AM', '友好商家数', '🔴 已失格', '🟠 临界', '🟡 关注', '⚪ 安全', '生效中严重违规', '昨日新增'];
+  const body = list.map(a => {
+    const key = 'am:' + a.am;
+    const open = EXP.has(key);
+    const cells = [
+      `<span class="clickable">${open ? '▾' : '▸'} <span class="shop">${esc(a.am)}</span></span>`,
       `<span class="num">${a.shops}</span>`,
       `<span class="num" style="${a.disqualified ? 'color:#cf1322;font-weight:600' : ''}">${a.disqualified || '—'}</span>`,
       `<span class="num" style="${a.critical ? 'color:#d46b08;font-weight:600' : ''}">${a.critical || '—'}</span>`,
@@ -234,14 +276,77 @@ function amTable(list) {
       `<span class="num">${a.safe}</span>`,
       `<span class="num">${a.sev_active || '—'}</span>`,
       `<span class="num">${a.new_total || '—'}</span>`,
-    ]));
+    ];
+    let html = `<tr class="row-click" data-exp="${esc(key)}">${cells.map(c => `<td>${c}</td>`).join('')}</tr>`;
+    if (open) html += `<tr class="sub-row"><td colspan="${head.length}">${amShopPanel(a.am)}</td></tr>`;
+    return html;
+  }).join('');
+  return `<div class="table-wrap"><table><thead><tr>${head.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${body}</tbody></table></div>`;
 }
 
-function detailTable(rows) {
-  if (!rows.length) return '<div class="empty">无数据</div>';
-  return tbl(['商家', 'AM', '程度', '风险域', '子风险域', '对象', '可见性', '影响场域', '重复', '处罚日期'],
+/* AM 下钻：名下商家明细 */
+function amShopPanel(am) {
+  const list = (S.shops || []).filter(x => x.am === am);
+  if (!list.length) return '<div class="empty">该 AM 名下无友好商家</div>';
+  const risky = list.filter(x => x.tier !== 'safe');
+  const safe = list.filter(x => x.tier === 'safe');
+  const rows = risky.concat(safe).map(x => {
+    const key = 'shop:' + x.seller_id;
+    const open = EXP.has(key);
+    const cells = [
+      `<span class="clickable">${open ? '▾' : '▸'} <span class="shop">${esc(x.shop_name)}</span></span>`,
+      `<span class="tag t-${x.tier}">${TIER_LABEL[x.tier]}</span>`,
+      `<span class="num">${x.sev_active || '—'}</span>`,
+      `<span class="num">${x.tier === 'disqualified' ? '已超' + (x.sev_active - (S.summary.red_line) + 1) : x.gap}</span>`,
+      `<span class="num">${x.new_total || '—'}</span>`,
+      `<span class="num">${x.aff_active || '—'}</span>`,
+      esc(x.b_level || '—'),
+      `<span class="num">${wan(x.dgmv_30d)}</span>`,
+      x.linked ? '已建联' : '<span class="muted">未建联</span>',
+    ];
+    let html = `<tr class="row-click" data-exp="${esc(key)}">${cells.map(c => `<td>${c}</td>`).join('')}</tr>`;
+    if (open) html += `<tr class="sub-row2"><td colspan="9">${shopViolationPanel(x.seller_id, x.shop_name)}</td></tr>`;
+    return html;
+  }).join('');
+  return `<div class="panel">
+    <div class="panel-title">${esc(am)} 名下 ${list.length} 家友好商家 · ${risky.length} 家有生效中严重违规</div>
+    <table class="inner"><thead><tr>
+      <th>商家</th><th>档位</th><th>生效中严重</th><th>距红线</th><th>昨日新增</th><th>生效中限流</th><th>B等级</th><th>近30天DGMV</th><th>建联</th>
+    </tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+/* 商家下钻：具体违规条目 */
+function shopViolationPanel(sid, name) {
+  const sev = (S.detail_active || []).filter(r => r.seller_id === sid && r.severe);
+  const aff = (S.detail_active || []).filter(r => r.seller_id === sid && !r.severe);
+  const nw = (S.detail_new || []).filter(r => r.seller_id === sid);
+  const mini = rows => rows.length ? tbl(
+    ['程度', '风险域', '子风险域', '对象', '可见性', '影响场域', '重复', '处罚日期'],
     rows.map(r => [
-      `<span class="shop">${esc(r.shop_name)}</span>`,
+      r.severe ? '<span class="tag sev">严重</span>' : `<span class="tag gen">${esc((r.level || '').replace('社区处置-暂无违规程度', '社区'))}</span>`,
+      esc(r.domain), `<span class="muted">${esc(r.sub_domain)}</span>`, esc(r.entity),
+      `<span class="tag ${r.box === '白盒' ? 'white' : 'black'}">${r.box}</span>`,
+      r.affect.length ? r.affect.map(a => `<span class="tag aff">${a}</span>`).join('') : '<span class="muted">—</span>',
+      `<span class="num">${r.repeat || '—'}</span>`,
+      `<span class="muted">${esc(r.date)}</span>`,
+    ])) : '<div class="empty">无</div>';
+  return `<div class="panel2">
+    <div class="panel-title">${esc(name)} · 违规明细</div>
+    <div class="mini-head">🔴 生效中严重违规（计入红线）<span class="badge danger">${sev.length}</span></div>
+    ${mini(sev.slice(0, 200))}
+    <div class="mini-head">📌 昨日新增<span class="badge">${nw.length}</span></div>
+    ${mini(nw.slice(0, 200))}
+    <div class="mini-head">🟠 生效中影响流量（近90天·一般违规）<span class="badge">${aff.length}</span></div>
+    ${mini(aff.slice(0, 200))}
+  </div>`;
+}
+
+function detailTable(rows, drill) {
+  if (!rows.length) return '<div class="empty">无数据</div>';
+  const head = ['商家', 'AM', '程度', '风险域', '子风险域', '对象', '可见性', '影响场域', '重复', '处罚日期'];
+  const body = rows.map((r, idx) => {
+    const cells = [
+      drill ? `<span class="clickable">▸ <span class="shop">${esc(r.shop_name)}</span></span>` : `<span class="shop">${esc(r.shop_name)}</span>`,
       `<span class="muted">${esc(r.am)}</span>`,
       r.severe ? '<span class="tag sev">严重</span>' : `<span class="tag gen">${esc((r.level || '').replace('社区处置-暂无违规程度', '社区'))}</span>`,
       esc(r.domain), `<span class="muted">${esc(r.sub_domain)}</span>`, esc(r.entity),
@@ -249,7 +354,16 @@ function detailTable(rows) {
       r.affect.length ? r.affect.map(a => `<span class="tag aff">${a}</span>`).join('') : '<span class="muted">—</span>',
       `<span class="num">${r.repeat || '—'}</span>`,
       `<span class="muted">${esc(r.date)}</span>`,
-    ]));
+    ];
+    if (!drill) return `<tr>${cells.map(c => `<td>${c}</td>`).join('')}</tr>`;
+    const key = 'drow:' + r.seller_id + ':' + idx;
+    const open = EXP.has(key);
+    cells[0] = cells[0].replace('▸', open ? '▾' : '▸');
+    let html = `<tr class="row-click" data-exp="${esc(key)}">${cells.map(c => `<td>${c}</td>`).join('')}</tr>`;
+    if (open) html += `<tr class="sub-row"><td colspan="${head.length}">${shopViolationPanel(r.seller_id, r.shop_name)}</td></tr>`;
+    return html;
+  }).join('');
+  return `<div class="table-wrap"><table><thead><tr>${head.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${body}</tbody></table></div>`;
 }
 
 function tbl(head, rows) {
