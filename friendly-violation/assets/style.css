@@ -50,8 +50,10 @@ table { width:100%; border-collapse:collapse; font-size:13px; }
 th { text-align:left; padding:9px 10px; background:#fafbfd; color:#6b7280; font-weight:500; font-size:12px; border-bottom:1px solid #eef0f5; position:sticky; top:0; white-space:nowrap; }
 td { padding:9px 10px; border-bottom:1px solid #f4f5f9; vertical-align:middle; }
 tbody tr:hover { background:#fafbfd; }
-.num { text-align:right; font-variant-numeric:tabular-nums; }
+.num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
 .shop { font-weight:500; }
+td:nth-child(2) { white-space:nowrap; }
+td .tag { white-space:nowrap; }
 .muted { color:#8b8fa3; font-size:12px; }
 .table-wrap { overflow-x:auto; max-height:640px; overflow-y:auto; }
 
