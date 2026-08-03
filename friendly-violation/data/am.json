@@ -1,0 +1,79 @@
+[
+ {
+  "am": "蕾塞(张嘉悦)",
+  "shops": 59,
+  "disqualified": 2,
+  "critical": 0,
+  "watch": 3,
+  "safe": 54,
+  "sev_active": 53,
+  "new_total": 17,
+  "new_severe": 0
+ },
+ {
+  "am": "莱拉(付艺迪)",
+  "shops": 53,
+  "disqualified": 0,
+  "critical": 1,
+  "watch": 4,
+  "safe": 48,
+  "sev_active": 9,
+  "new_total": 25,
+  "new_severe": 0
+ },
+ {
+  "am": "秋罗(胡春秋)",
+  "shops": 62,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 5,
+  "safe": 57,
+  "sev_active": 7,
+  "new_total": 47,
+  "new_severe": 0
+ },
+ {
+  "am": "诺亚(单恩浩)",
+  "shops": 21,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 1,
+  "safe": 20,
+  "sev_active": 1,
+  "new_total": 7,
+  "new_severe": 0
+ },
+ {
+  "am": "大门(朱锦程)",
+  "shops": 39,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 1,
+  "safe": 38,
+  "sev_active": 1,
+  "new_total": 14,
+  "new_severe": 0
+ },
+ {
+  "am": "莱莉(孙雨萱)",
+  "shops": 49,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 0,
+  "safe": 49,
+  "sev_active": 0,
+  "new_total": 53,
+  "new_severe": 0
+ },
+ {
+  "am": "路歌(李红红)",
+  "shops": 13,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 0,
+  "safe": 13,
+  "sev_active": 0,
+  "new_total": 4,
+  "new_severe": 0
+ }
+]

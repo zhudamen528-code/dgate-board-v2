@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>休食组友好商家违规监控</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">
+    <span class="emoji">🛡️</span>
+    <div>
+      <h1>休食组友好商家违规监控</h1>
+      <div class="subtitle" id="subtitle">加载中…</div>
+    </div>
+  </div>
+  <div class="tabs">
+    <div class="tab active" data-tab="overview">总览</div>
+    <div class="tab" data-tab="redline">红线台账</div>
+    <div class="tab" data-tab="new">昨日新增</div>
+    <div class="tab" data-tab="active">生效中违规</div>
+    <div class="tab" data-tab="am">AM 视角</div>
+  </div>
+  <div class="meta" id="meta"></div>
+</div>
+<main>
+  <div class="filters" id="filters" style="display:none">
+    <label>AM
+      <select id="f-am"><option value="">全部</option></select>
+    </label>
+    <label>档位
+      <select id="f-tier">
+        <option value="">全部</option>
+        <option value="disqualified">🔴 已失格</option>
+        <option value="critical">🟠 临界</option>
+        <option value="watch">🟡 关注</option>
+        <option value="safe">⚪ 安全</option>
+      </select>
+    </label>
+    <label>搜索商家
+      <input id="f-kw" type="text" placeholder="店铺名关键词">
+    </label>
+    <span class="filter-hint" id="filter-hint"></span>
+  </div>
+  <div id="app"><div class="loading">加载中…</div></div>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

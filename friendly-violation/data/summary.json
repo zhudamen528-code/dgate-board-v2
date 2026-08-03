@@ -1,0 +1,22 @@
+{
+ "day": "2026-08-02",
+ "generated_at": "2026-08-03 13:10",
+ "red_line": 5,
+ "warn_line": 3,
+ "roster_total": 296,
+ "new_orders": 167,
+ "new_shops": 81,
+ "new_severe": 0,
+ "new_severe_shops": 0,
+ "sev_active_orders": 71,
+ "sev_active_shops": 17,
+ "aff_active_orders": 2641,
+ "aff_active_shops": 239,
+ "tier": {
+  "disqualified": 2,
+  "critical": 1,
+  "watch": 14,
+  "safe": 279
+ },
+ "am_count": 7
+}
