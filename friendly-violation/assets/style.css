@@ -109,3 +109,9 @@ table.inner td { font-size:12px; padding:7px 9px; }
   table { font-size:12px; }
   th,td { padding:7px 6px; }
 }
+
+/* C 端原文副链接 */
+a.alt-link { font-size:11px; margin-left:6px; padding:1px 5px; border-radius:3px; background:#f2f4f8; color:#6b7280; }
+a.alt-link:hover { background:#1890ff; color:#fff; text-decoration:none; }
+a.alt-link.blocked { background:#fff7e6; color:#b06d0f; }
+a.alt-link.blocked:hover { background:#fa8c16; color:#fff; }
