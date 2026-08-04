@@ -1,0 +1,49 @@
+/* 友好商家看板补充样式 */
+.tab.active { color:#0958d9; border-bottom-color:#0958d9; }
+
+.kpi.blue { background:#f0f7ff; border-color:#bae0ff; }
+.kpi-val.blue { color:#0958d9; }
+
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+@media (max-width:900px){ .grid2 { grid-template-columns:1fr; } }
+
+.tag.t-danger { background:#fff1f0; color:#cf1322; }
+.tag.t-warn   { background:#fff7e6; color:#d46b08; }
+.tag.t-watch  { background:#feffe6; color:#ad8b00; }
+.tag.t-safe   { background:#f6ffed; color:#389e0d; }
+.tag.miss     { background:#fff1f0; color:#cf1322; margin-right:3px; }
+.tag.wl       { background:#f9f0ff; color:#531dab; }
+.tag.gap-1    { background:#f6ffed; color:#389e0d; }
+.tag.gap-2    { background:#feffe6; color:#ad8b00; }
+.tag.gap-3    { background:#fff7e6; color:#d46b08; }
+.tag.gap-4    { background:#fff1f0; color:#cf1322; }
+.tag.diag-a   { background:#e6f7ff; color:#0958d9; }
+.tag.diag-b   { background:#fff7e6; color:#d46b08; }
+.tag.diag-c   { background:#f0f0f0; color:#595959; }
+
+.dist-row { display:flex; align-items:center; gap:10px; padding:7px 0; border-bottom:1px solid #f4f5f9; font-size:13px; }
+.dist-row:last-child { border-bottom:none; }
+.dist-label { width:118px; color:#6b7280; font-size:12px; flex-shrink:0; }
+.dist-bar-wrap { flex:1; background:#f0f2f8; border-radius:3px; height:16px; overflow:hidden; position:relative; }
+.dist-bar { height:100%; background:#0958d9; opacity:.75; }
+.dist-bar.g { background:#52c41a; }
+.dist-bar.o { background:#fa8c16; }
+.dist-bar.r { background:#ff4d4f; }
+.dist-val { width:150px; text-align:right; font-size:12px; color:#1f2330; font-variant-numeric:tabular-nums; flex-shrink:0; }
+
+.pill { display:inline-block; padding:3px 9px; border-radius:12px; font-size:12px; background:#f0f2f8; color:#6b7280; margin:0 5px 5px 0; }
+.pill b { color:#1f2330; font-weight:600; }
+
+.risk-line { font-size:12px; color:#6b7280; padding:2px 0; }
+.risk-line.high { color:#cf1322; }
+.risk-line.mid  { color:#d46b08; }
+
+.rule-block { font-size:13px; line-height:1.85; color:#3a3f52; }
+.rule-block h4 { font-size:13px; font-weight:600; color:#1f2330; margin:14px 0 6px; }
+.rule-block h4:first-child { margin-top:0; }
+.rule-block code { background:#f4f6fb; padding:1px 5px; border-radius:3px; font-size:12px; color:#0958d9; }
+.rule-block ul { margin:4px 0 4px 20px; }
+.rule-block li { margin:3px 0; }
+
+.src-card { background:#fafbfd; border:1px solid #eef0f5; border-radius:8px; padding:12px 14px; font-size:12px; color:#6b7280; line-height:1.8; }
+.src-card b { color:#1f2330; }

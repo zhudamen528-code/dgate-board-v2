@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>友好商家监控 · 大门</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/friendly.css">
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">
+    <span class="emoji">🤝</span>
+    <div>
+      <h1>友好商家监控 · 大门(朱锦程)</h1>
+      <div class="subtitle" id="subtitle">加载中…</div>
+    </div>
+  </div>
+  <div class="tabs">
+    <div class="tab active" data-tab="overview">总览</div>
+    <div class="tab" data-tab="quality">现有友好商家</div>
+    <div class="tab" data-tab="near">临门一脚</div>
+    <div class="tab" data-tab="bigmv">高GMV非友好</div>
+    <div class="tab" data-tab="rule">口径说明</div>
+  </div>
+  <div class="meta" id="meta"></div>
+</div>
+<main>
+  <div class="filters" id="filters" style="display:none">
+    <label>类目 <select id="f-cat"><option value="">全部</option></select></label>
+    <label>B等级 <select id="f-b"><option value="">全部</option></select></label>
+    <label id="w-tier" style="display:none">风险档 <select id="f-tier">
+      <option value="">全部</option>
+      <option value="warn">🟠 预警</option>
+      <option value="watch">🟡 关注</option>
+      <option value="safe">⚪ 稳健</option>
+    </select></label>
+    <label id="w-miss" style="display:none">缺失项 <select id="f-miss"><option value="">全部</option></select></label>
+    <label id="w-gap" style="display:none">缺口档 <select id="f-gap"><option value="">全部</option></select></label>
+    <label>搜索 <input id="f-kw" type="text" placeholder="店铺名关键词"></label>
+    <span class="filter-hint" id="filter-hint"></span>
+  </div>
+  <div id="app"><div class="loading">加载中…</div></div>
+</main>
+<script src="assets/friendly.js"></script>
+</body>
+</html>
