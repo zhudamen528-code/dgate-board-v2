@@ -435,8 +435,7 @@ function amShopPanel(am) {
 /* 商家下钻：具体违规条目 */
 function shopViolationPanel(sid, name) {
   const sev = (S.detail_active || []).filter(r => r.seller_id === sid && r.severe);
-  const sevValid = sev.filter(r => r.item_state !== 'deleted');
-  const sevStale = sev.filter(r => r.item_state === 'deleted');
+  const sevValid = sev;
   const aff = (S.detail_active || []).filter(r => r.seller_id === sid && !r.severe);
   const nw = (S.detail_new || []).filter(r => r.seller_id === sid);
   const mini = rows => rows.length ? tbl(
