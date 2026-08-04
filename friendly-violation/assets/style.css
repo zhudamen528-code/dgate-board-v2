@@ -150,3 +150,10 @@ a.jump:hover { color:#1890ff; }
 .crm-btn.copy-all { cursor:pointer; background:#f6f8fc; color:#4a5568; border-color:#e2e8f2; }
 .crm-btn.copy-all:hover { background:#52c41a; color:#fff; border-color:#52c41a; }
 .am-wrap { max-height:none; overflow:visible; }
+
+/* 违规实体现状 */
+.tag.st-del  { background:#f4f5f9; color:#8b8fa3; }
+.tag.st-off  { background:#fff7e6; color:#d46b08; }
+.tag.st-live { background:#fff1f0; color:#cf1322; font-weight:600; }
+.tag.st-unk  { background:#f6f8fc; color:#a0aec8; }
+.mini-head.muted-head { color:#a0aec8; }

@@ -2,23 +2,12 @@
  {
   "am": "蕾塞(张嘉悦)",
   "shops": 59,
-  "disqualified": 2,
+  "disqualified": 1,
   "critical": 0,
-  "watch": 3,
-  "safe": 54,
-  "sev_active": 53,
-  "new_total": 27,
-  "new_severe": 0
- },
- {
-  "am": "莱拉(付艺迪)",
-  "shops": 53,
-  "disqualified": 0,
-  "critical": 1,
-  "watch": 4,
-  "safe": 48,
+  "watch": 2,
+  "safe": 56,
   "sev_active": 9,
-  "new_total": 39,
+  "new_total": 27,
   "new_severe": 0
  },
  {
@@ -26,10 +15,21 @@
   "shops": 62,
   "disqualified": 0,
   "critical": 0,
-  "watch": 5,
-  "safe": 57,
-  "sev_active": 7,
+  "watch": 4,
+  "safe": 58,
+  "sev_active": 6,
   "new_total": 60,
+  "new_severe": 0
+ },
+ {
+  "am": "莱拉(付艺迪)",
+  "shops": 53,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 4,
+  "safe": 49,
+  "sev_active": 5,
+  "new_total": 39,
   "new_severe": 0
  },
  {

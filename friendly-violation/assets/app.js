@@ -17,6 +17,19 @@ const crmItem = iid => `https://crm.xiaohongshu.com/crm/hawk/item/item/detail?it
 const crmNote = nid => `https://crm.xiaohongshu.com/crm/hawk/hawk/note/detail?discoveryId=${nid}&sellerNote=SellerDailyNote`;
 const cNote = nid => `https://www.xiaohongshu.com/explore/${encodeURIComponent(nid)}`;
 
+/* 违规实体的现状：已删除的不计红线 */
+const STATE_LABEL = {
+  deleted:  ['已删除', 'st-del',  '商品已被删除，处罚已无实际约束对象，<b>不计入红线</b>'],
+  offshelf: ['已下架', 'st-off',  '商品仍存在但已下架，处罚仍生效，计入红线'],
+  live:     ['在架',   'st-live', '商品仍在售，处罚正在实际影响生意'],
+  other:    ['', '', ''],
+  unknown:  ['查无', 'st-unk', '商品维表中无此记录，可能已彻底清除或非本店商品'],
+};
+function stateTag(r) {
+  const [txt, cls, tip] = STATE_LABEL[r.item_state] || STATE_LABEL.unknown;
+  return txt ? `<span class="tag ${cls}" title="${tip}">${txt}</span>` : '<span class="muted">—</span>';
+}
+
 /* 违规对象 → 展示类型 + 可复制的对象 ID；↗ 统一跳该商家的苍穹店铺页（AM 在店铺页内搜此 ID 查原因） */
 function entityLink(r) {
   const t = r.entity || '—', id = r.entity_id || '';
@@ -88,7 +101,8 @@ function initHeader() {
     `${s.roster_total || 0} 家友好商家 · ${s.am_count || 0} 位 AM · 数据日期 ${s.day || '—'}`;
   document.getElementById('meta').innerHTML =
     `红线口径：<b>生效中严重违规 ≥ ${s.red_line} 条即失格</b>（按违规单 parent_uid 去重）｜临界预警线 ${s.warn_line} 条｜生成于 ${esc(s.generated_at || '')}`
-    + `<br>用法：<b>点店铺名</b>跳苍穹商家详情；<b>点违规对象 ID 可复制</b>，到苍穹或违规后台搜该 ID 查看具体违规原因与证据；<b>ID 后的 ↗ 打开该商家苍穹店铺页</b>，在页内搜这个 ID 即可看到违规原因与证据。`;
+    + `<br>用法：<b>点店铺名</b>跳苍穹商家详情；<b>点违规对象 ID 可复制</b>，到苍穹或违规后台搜该 ID 查看具体违规原因与证据；<b>ID 后的 ↗ 打开该商家苍穹店铺页</b>，在页内搜这个 ID 即可看到违规原因与证据。`
+    + `<br><b>红线口径</b>：商品已被删除的严重违规<b>不计入红线</b>（处罚已无约束对象），明细中标为「已删除」并单列。`;
 }
 
 function initFilters() {
@@ -310,7 +324,10 @@ function vRedline() {
   }).join('');
   const sids = new Set(list.map(x => x.seller_id));
   const act = (S.detail_active || []).filter(r => sids.has(r.seller_id));
-  const sev = act.filter(r => r.severe), aff = act.filter(r => !r.severe);
+  const sevAll = act.filter(r => r.severe);
+  const sev = sevAll.filter(r => r.item_state !== 'deleted');
+  const stale = sevAll.filter(r => r.item_state === 'deleted');
+  const aff = act.filter(r => !r.severe);
   const blackbox = act.filter(r => r.box === '黑盒').length;
   const rep3 = act.filter(r => r.repeat >= 3).length;
   return `<div class="section">
@@ -319,7 +336,7 @@ function vRedline() {
     <div class="kpi-row">
       <div class="kpi danger"><div class="kpi-label">生效中严重违规</div><div class="kpi-val danger">${fmt(sev.length)}</div><div class="kpi-sub">${new Set(sev.map(r => r.seller_id)).size} 家 · 红线判定依据</div></div>
       <div class="kpi warn"><div class="kpi-label">生效中影响流量</div><div class="kpi-val warn">${fmt(aff.length)}</div><div class="kpi-sub">${new Set(aff.map(r => r.seller_id)).size} 家 · 不计红线但在限流</div></div>
-      <div class="kpi"><div class="kpi-label">其中黑盒</div><div class="kpi-val">${fmt(blackbox)}</div><div class="kpi-sub">商家后台看不到，需 AM 主动告知</div></div>
+      <div class="kpi"><div class="kpi-label">已失效·不计红线</div><div class="kpi-val">${fmt(stale.length)}</div><div class="kpi-sub">商品已删除，处罚无约束对象</div></div>
       <div class="kpi"><div class="kpi-label">重复违规 ≥3 次</div><div class="kpi-val">${fmt(rep3)}</div><div class="kpi-sub">屡教不改，整改优先级最高</div></div>
     </div>
     ${list.length ? `<div class="table-wrap"><table><thead><tr>${head.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${body}</tbody></table></div>` : '<div class="empty">无匹配商家</div>'}
@@ -419,14 +436,16 @@ function amShopPanel(am) {
 /* 商家下钻：具体违规条目 */
 function shopViolationPanel(sid, name) {
   const sev = (S.detail_active || []).filter(r => r.seller_id === sid && r.severe);
+  const sevValid = sev.filter(r => r.item_state !== 'deleted');
+  const sevStale = sev.filter(r => r.item_state === 'deleted');
   const aff = (S.detail_active || []).filter(r => r.seller_id === sid && !r.severe);
   const nw = (S.detail_new || []).filter(r => r.seller_id === sid);
   const mini = rows => rows.length ? tbl(
-    ['商家', '程度', '风险域', '子风险域', '对象', '可见性', '影响场域', '重复', '处罚日期'],
+    ['商家', '程度', '风险域', '子风险域', '对象', '实体现状', '可见性', '影响场域', '重复', '处罚日期'],
     rows.map(r => [
       shopLink(r.seller_id, r.shop_name),
       r.severe ? '<span class="tag sev">严重</span>' : `<span class="tag gen">${esc((r.level || '').replace('社区处置-暂无违规程度', '社区'))}</span>`,
-      esc(r.domain), `<span class="muted">${esc(r.sub_domain)}</span>`, entityLink(r),
+      esc(r.domain), `<span class="muted">${esc(r.sub_domain)}</span>`, entityLink(r), stateTag(r),
       `<span class="tag ${r.box === '白盒' ? 'white' : 'black'}">${r.box}</span>`,
       r.affect.length ? r.affect.map(a => `<span class="tag aff">${a}</span>`).join('') : '<span class="muted">—</span>',
       `<span class="num">${r.repeat || '—'}</span>`,
@@ -439,9 +458,11 @@ function shopViolationPanel(sid, name) {
       <a class="crm-btn" href="${crmShop(sid)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">苍穹店铺详情 ↗</a>
       ${uniqIds.length ? `<span class="crm-btn copy-all" data-ids="${esc(uniqIds.join('\n'))}" title="复制该商家全部违规对象 ID，逐个到苍穹搜索查看原因">复制全部对象ID（${uniqIds.length}）⧉</span>` : ''}
     </div>
-    <div class="panel-tip">💡 违规的具体原因与证据需到苍穹/违规后台按<b>对象 ID</b> 搜索查看；本表提供 ID 与风险域定位。</div>
-    <div class="mini-head">🔴 生效中严重违规（计入红线）<span class="badge danger">${sev.length}</span></div>
-    ${mini(sev.slice(0, 200))}
+    <div class="panel-tip">💡 违规的具体原因与证据需到苍穹/违规后台按<b>对象 ID</b> 搜索查看；本表提供 ID 与风险域定位。
+      口径：<b>商品已删除的严重违规不计入红线</b>（处罚已无实际约束对象），单列在下方灰色区。</div>
+    <div class="mini-head">🔴 生效中严重违规（计入红线）<span class="badge danger">${sevValid.length}</span></div>
+    ${mini(sevValid.slice(0, 200))}
+    ${sevStale.length ? `<div class="mini-head muted-head">⚪ 已失效·不计红线（商品已删除）<span class="badge">${sevStale.length}</span></div>${mini(sevStale.slice(0, 200))}` : ''}
     <div class="mini-head">📌 昨日新增<span class="badge">${nw.length}</span></div>
     ${mini(nw.slice(0, 200))}
     <div class="mini-head">🟠 生效中影响流量（近90天·一般违规）<span class="badge">${aff.length}</span></div>
@@ -451,13 +472,13 @@ function shopViolationPanel(sid, name) {
 
 function detailTable(rows, drill) {
   if (!rows.length) return '<div class="empty">无数据</div>';
-  const head = ['商家', 'AM', '程度', '风险域', '子风险域', '对象', '可见性', '影响场域', '重复', '处罚日期'];
+  const head = ['商家', 'AM', '程度', '风险域', '子风险域', '对象', '实体现状', '可见性', '影响场域', '重复', '处罚日期'];
   const body = rows.map((r, idx) => {
     const cells = [
       drill ? `<span class="clickable">▸</span> ${shopLink(r.seller_id, r.shop_name)}` : shopLink(r.seller_id, r.shop_name),
       `<span class="muted">${esc(r.am)}</span>`,
       r.severe ? '<span class="tag sev">严重</span>' : `<span class="tag gen">${esc((r.level || '').replace('社区处置-暂无违规程度', '社区'))}</span>`,
-      esc(r.domain), `<span class="muted">${esc(r.sub_domain)}</span>`, entityLink(r),
+      esc(r.domain), `<span class="muted">${esc(r.sub_domain)}</span>`, entityLink(r), stateTag(r),
       `<span class="tag ${r.box === '白盒' ? 'white' : 'black'}">${r.box}</span>`,
       r.affect.length ? r.affect.map(a => `<span class="tag aff">${a}</span>`).join('') : '<span class="muted">—</span>',
       `<span class="num">${r.repeat || '—'}</span>`,
