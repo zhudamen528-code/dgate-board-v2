@@ -2,49 +2,49 @@
  "new": [
   {
    "domain": "未成年",
-   "cnt": 82
+   "cnt": 94
   },
   {
    "domain": "违规营销商品",
-   "cnt": 32
+   "cnt": 25
   },
   {
-   "domain": "虚假宣传笔记",
-   "cnt": 5
+   "domain": "虚假宣传直播",
+   "cnt": 9
+  },
+  {
+   "domain": "流量作弊",
+   "cnt": 8
+  },
+  {
+   "domain": "问题账号",
+   "cnt": 8
   },
   {
    "domain": "违规营销笔记",
-   "cnt": 4
+   "cnt": 7
   },
   {
-   "domain": "大盘/横向品质治理",
-   "cnt": 4
+   "domain": "计次处置",
+   "cnt": 7
   },
   {
-   "domain": "新品牌治理",
-   "cnt": 4
-  },
-  {
-   "domain": "商业内容治理",
-   "cnt": 4
-  },
-  {
-   "domain": "business",
-   "cnt": 4
+   "domain": "虚假宣传笔记",
+   "cnt": 6
   }
  ],
  "active": [
   {
    "domain": "违规营销笔记",
-   "cnt": 958
+   "cnt": 932
   },
   {
    "domain": "虚假宣传笔记",
-   "cnt": 324
+   "cnt": 321
   },
   {
    "domain": "违规营销商品",
-   "cnt": 297
+   "cnt": 270
   },
   {
    "domain": "相关性",
@@ -52,11 +52,11 @@
   },
   {
    "domain": "笔记内容生态",
-   "cnt": 136
+   "cnt": 137
   },
   {
    "domain": "商业内容治理",
-   "cnt": 119
+   "cnt": 122
   },
   {
    "domain": "禁售",
