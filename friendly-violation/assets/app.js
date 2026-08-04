@@ -102,7 +102,7 @@ function initHeader() {
   document.getElementById('meta').innerHTML =
     `红线口径：<b>生效中严重违规 ≥ ${s.red_line} 条即失格</b>（按违规单 parent_uid 去重）｜临界预警线 ${s.warn_line} 条｜生成于 ${esc(s.generated_at || '')}`
     + `<br>用法：<b>点店铺名</b>跳苍穹商家详情；<b>点违规对象 ID 可复制</b>，到苍穹或违规后台搜该 ID 查看具体违规原因与证据；<b>ID 后的 ↗ 打开该商家苍穹店铺页</b>，在页内搜这个 ID 即可看到违规原因与证据。`
-    + `<br><b>红线口径</b>：商品已被删除的严重违规<b>不计入红线</b>（处罚已无约束对象），明细中标为「已删除」并单列。`;
+    + `<br><b>红线口径</b>（与平台友好商家评估同源）：近 30 天内、白盒、正在处罚中、风险等级 S0-S2 且属于合规准入/交易履约/交易侵权/品牌治理/品质治理/生态画风/实物抽检/交易治理举报/应急回查 的违规单去重计数，<b>超过 5 条</b>才判定服务质量不达标。数值直接取自平台友好商家标签表，与商家后台一致。`;
 }
 
 function initFilters() {
@@ -172,11 +172,11 @@ function vOverview() {
 
   let alert = '';
   if (dq.length) {
-    alert += `<div class="callout danger"><b>🔴 ${dq.length} 家已越过友好商家红线</b>（生效中严重违规 ≥ ${s.red_line} 条），资格已不达标，需 AM 立即介入整改或走退出流程：<br>` +
+    alert += `<div class="callout danger"><b>🔴 ${dq.length} 家已越过友好商家红线</b>（近30天计红线严重违规 > ${s.red_line} 条），资格已不达标，需 AM 立即介入整改或走退出流程：<br>` +
       dq.map(x => `· <b>${esc(x.shop_name)}</b> ${x.sev_active} 条 — ${esc(x.am)}`).join('<br>') + '</div>';
   }
   if (cr.length) {
-    alert += `<div class="callout warn"><b>🟠 ${cr.length} 家逼近红线</b>（${s.warn_line}-${s.red_line - 1} 条），再新增 ${cr.map(x => x.gap).join('/')} 条即失格，这批是本周最该沟通的：<br>` +
+    alert += `<div class="callout warn"><b>🟠 ${cr.length} 家逼近红线</b>（${s.warn_line}-${s.red_line} 条），再新增 ${cr.map(x => x.gap).join('/')} 条即失格，这批是本周最该沟通的：<br>` +
       cr.map(x => `· <b>${esc(x.shop_name)}</b> ${x.sev_active} 条，距红线还差 ${x.gap} 条 — ${esc(x.am)}`).join('<br>') + '</div>';
   }
   if (!dq.length && !cr.length) alert = `<div class="callout info">✅ 当前无商家越线或逼近红线，全组友好商家资格健康。</div>`;
@@ -188,10 +188,10 @@ function vOverview() {
   return `
   <div class="section">
     <div class="section-title">红线达标情况 <span class="badge">按生效中严重违规分档</span></div>
-    <div class="section-sub">友好商家资格要求：处罚中的严重违规少于 ${s.red_line} 条。下方为 ${fmt(s.roster_total)} 家的分档结果。</div>
+    <div class="section-sub">友好商家资格要求：近 30 天计红线严重违规 <b>不超过 ${s.red_line} 条</b>（与平台后台同源）。下方为 ${fmt(s.roster_total)} 家的分档结果。</div>
     <div class="kpi-row">
-      <div class="kpi danger"><div class="kpi-label">🔴 已失格 ≥${s.red_line}条</div><div class="kpi-val danger">${t.disqualified || 0}</div><div class="kpi-sub">资格不达标</div></div>
-      <div class="kpi warn"><div class="kpi-label">🟠 临界 ${s.warn_line}-${s.red_line - 1}条</div><div class="kpi-val warn">${t.critical || 0}</div><div class="kpi-sub">再犯即出局</div></div>
+      <div class="kpi danger"><div class="kpi-label">🔴 已失格 >${s.red_line}条</div><div class="kpi-val danger">${t.disqualified || 0}</div><div class="kpi-sub">资格不达标</div></div>
+      <div class="kpi warn"><div class="kpi-label">🟠 临界 ${s.warn_line}-${s.red_line}条</div><div class="kpi-val warn">${t.critical || 0}</div><div class="kpi-sub">再犯即出局</div></div>
       <div class="kpi"><div class="kpi-label">🟡 关注 1-${s.warn_line - 1}条</div><div class="kpi-val">${t.watch || 0}</div><div class="kpi-sub">有严重违规在身</div></div>
       <div class="kpi ok"><div class="kpi-label">⚪ 安全 0条</div><div class="kpi-val ok">${t.safe || 0}</div><div class="kpi-sub">无生效中严重违规</div></div>
     </div>
@@ -203,7 +203,7 @@ function vOverview() {
     <div class="kpi-row">
       <div class="kpi"><div class="kpi-label">昨日新增违规单</div><div class="kpi-val">${fmt(s.new_orders)}</div><div class="kpi-sub">涉及 ${s.new_shops} 家商家</div></div>
       <div class="kpi ${s.new_severe ? 'danger' : ''}"><div class="kpi-label">其中严重违规</div><div class="kpi-val ${s.new_severe ? 'danger' : 'ok'}">${fmt(s.new_severe)}</div><div class="kpi-sub">${s.new_severe ? s.new_severe_shops + ' 家消耗红线额度' : '未消耗红线额度'}</div></div>
-      <div class="kpi danger"><div class="kpi-label">生效中严重违规</div><div class="kpi-val danger">${fmt(s.sev_active_orders)}</div><div class="kpi-sub">涉及 ${s.sev_active_shops} 家 · 红线判定依据</div></div>
+      <div class="kpi danger"><div class="kpi-label">计红线严重违规</div><div class="kpi-val danger">${fmt(s.sev_active_orders)}</div><div class="kpi-sub">涉及 ${s.sev_active_shops} 家 · 红线判定依据</div></div>
       <div class="kpi warn"><div class="kpi-label">生效中影响流量</div><div class="kpi-val warn">${fmt(s.aff_active_orders)}</div><div class="kpi-sub">${s.aff_active_shops} 家 · 一般违规但正在限流</div></div>
     </div>
   </div>
@@ -266,7 +266,7 @@ function amGroupedShops() {
       <div class="am-head"><span class="am-name">${esc(am)}</span>
         <span class="am-count">${list.length} 家友好商家</span>${chips}</div>
       ${risky.length ? `<div class="table-wrap am-wrap"><table class="inner"><thead><tr>
-        <th>商家</th><th>档位</th><th>生效中严重</th><th>距红线</th><th>昨日新增</th><th>生效中限流</th><th>B等级</th><th>近30天DGMV</th>
+        <th>商家</th><th>档位</th><th>计红线严重</th><th>距红线</th><th>昨日新增</th><th>生效中限流</th><th>B等级</th><th>近30天DGMV</th>
       </tr></thead><tbody>${rows}</tbody></table></div>`
         : '<div class="all-clear">✅ 名下无商家存在生效中严重违规</div>'}
       ${safeBlock}
@@ -299,7 +299,7 @@ function shopMiniTable(list) {
 function vRedline() {
   const s = S.summary || {};
   const list = shopFilter(S.shops || []);
-  const head = ['商家', 'AM', '档位', '生效中严重违规', '红线进度', '距红线', '昨日新增', '生效中限流', 'B等级', '近30天DGMV', '建联'];
+  const head = ['商家', 'AM', '档位', '计红线严重违规', '红线进度', '距红线', '昨日新增', '生效中限流', 'B等级', '近30天DGMV', '建联'];
   const body = list.map(x => {
     const pct = Math.min(100, Math.round(x.sev_active / s.red_line * 100));
     const cls = x.tier === 'disqualified' ? '' : (x.tier === 'critical' ? 'warn' : 'ok');
@@ -324,19 +324,18 @@ function vRedline() {
   }).join('');
   const sids = new Set(list.map(x => x.seller_id));
   const act = (S.detail_active || []).filter(r => sids.has(r.seller_id));
-  const sevAll = act.filter(r => r.severe);
-  const sev = sevAll.filter(r => r.item_state !== 'deleted');
-  const stale = sevAll.filter(r => r.item_state === 'deleted');
+  const sev = act.filter(r => r.severe);
   const aff = act.filter(r => !r.severe);
+  const notQualified = list.filter(x => x.is_quality === 0).length;
   const blackbox = act.filter(r => r.box === '黑盒').length;
   const rep3 = act.filter(r => r.repeat >= 3).length;
   return `<div class="section">
     <div class="section-title">红线台账 <span class="badge">${list.length} / ${fmt(s.roster_total)} 家</span></div>
     <div class="section-sub">全量友好商家的红线达标明细。「距红线」= 还能再承受多少条严重违规；已失格的显示超出条数。<b>点击商家展开违规明细</b>。</div>
     <div class="kpi-row">
-      <div class="kpi danger"><div class="kpi-label">生效中严重违规</div><div class="kpi-val danger">${fmt(sev.length)}</div><div class="kpi-sub">${new Set(sev.map(r => r.seller_id)).size} 家 · 红线判定依据</div></div>
+      <div class="kpi danger"><div class="kpi-label">计红线严重违规</div><div class="kpi-val danger">${fmt(sev.length)}</div><div class="kpi-sub">${new Set(sev.map(r => r.seller_id)).size} 家 · 近30天白盒S0-S2</div></div>
       <div class="kpi warn"><div class="kpi-label">生效中影响流量</div><div class="kpi-val warn">${fmt(aff.length)}</div><div class="kpi-sub">${new Set(aff.map(r => r.seller_id)).size} 家 · 不计红线但在限流</div></div>
-      <div class="kpi"><div class="kpi-label">已失效·不计红线</div><div class="kpi-val">${fmt(stale.length)}</div><div class="kpi-sub">商品已删除，处罚无约束对象</div></div>
+      <div class="kpi"><div class="kpi-label">平台已标记非友好</div><div class="kpi-val">${fmt(notQualified)}</div><div class="kpi-sub">官方 is_quality_seller=0</div></div>
       <div class="kpi"><div class="kpi-label">重复违规 ≥3 次</div><div class="kpi-val">${fmt(rep3)}</div><div class="kpi-sub">屡教不改，整改优先级最高</div></div>
     </div>
     ${list.length ? `<div class="table-wrap"><table><thead><tr>${head.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${body}</tbody></table></div>` : '<div class="empty">无匹配商家</div>'}
@@ -429,7 +428,7 @@ function amShopPanel(am) {
   return `<div class="panel">
     <div class="panel-title">${esc(am)} 名下 ${list.length} 家友好商家 · ${risky.length} 家有生效中严重违规</div>
     <div class="table-wrap"><table class="inner"><thead><tr>
-      <th>商家</th><th>档位</th><th>生效中严重</th><th>距红线</th><th>昨日新增</th><th>生效中限流</th><th>B等级</th><th>近30天DGMV</th><th>建联</th>
+      <th>商家</th><th>档位</th><th>计红线严重</th><th>距红线</th><th>昨日新增</th><th>生效中限流</th><th>B等级</th><th>近30天DGMV</th><th>建联</th>
     </tr></thead><tbody>${rows}</tbody></table></div></div>`;
 }
 
@@ -459,10 +458,10 @@ function shopViolationPanel(sid, name) {
       ${uniqIds.length ? `<span class="crm-btn copy-all" data-ids="${esc(uniqIds.join('\n'))}" title="复制该商家全部违规对象 ID，逐个到苍穹搜索查看原因">复制全部对象ID（${uniqIds.length}）⧉</span>` : ''}
     </div>
     <div class="panel-tip">💡 违规的具体原因与证据需到苍穹/违规后台按<b>对象 ID</b> 搜索查看；本表提供 ID 与风险域定位。
-      口径：<b>商品已删除的严重违规不计入红线</b>（处罚已无实际约束对象），单列在下方灰色区。</div>
-    <div class="mini-head">🔴 生效中严重违规（计入红线）<span class="badge danger">${sevValid.length}</span></div>
+      红线只统计<b>近 30 天内、白盒、S0-S2 且属于指定风险域</b>的违规单，与平台判定同源。</div>
+    <div class="mini-head">🔴 计入红线的严重违规（近30天·白盒·S0-S2）<span class="badge danger">${sevValid.length}</span></div>
     ${mini(sevValid.slice(0, 200))}
-    ${sevStale.length ? `<div class="mini-head muted-head">⚪ 已失效·不计红线（商品已删除）<span class="badge">${sevStale.length}</span></div>${mini(sevStale.slice(0, 200))}` : ''}
+
     <div class="mini-head">📌 昨日新增<span class="badge">${nw.length}</span></div>
     ${mini(nw.slice(0, 200))}
     <div class="mini-head">🟠 生效中影响流量（近90天·一般违规）<span class="badge">${aff.length}</span></div>
