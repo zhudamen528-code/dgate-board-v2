@@ -128,7 +128,7 @@ function rowFilter(list) {
 function render() {
   document.getElementById('filters').style.display = TAB === 'overview' ? 'none' : 'flex';
   const app = document.getElementById('app');
-  const fn = { overview: vOverview, am: vAM, redline: vRedline, new: vNew, active: vActive }[TAB];
+  const fn = { overview: vOverview, am: vAM, redline: vRedline, new: vNew }[TAB];
   app.innerHTML = fn ? fn() : '';
   const hint = document.getElementById('filter-hint');
   if (hint) hint.textContent = (F.am || F.tier || F.kw) ? '已筛选' : '未筛选 · 展示全组';
@@ -308,9 +308,20 @@ function vRedline() {
     if (open) html += `<tr class="sub-row"><td colspan="${head.length}">${shopViolationPanel(x.seller_id, x.shop_name)}</td></tr>`;
     return html;
   }).join('');
+  const sids = new Set(list.map(x => x.seller_id));
+  const act = (S.detail_active || []).filter(r => sids.has(r.seller_id));
+  const sev = act.filter(r => r.severe), aff = act.filter(r => !r.severe);
+  const blackbox = act.filter(r => r.box === '黑盒').length;
+  const rep3 = act.filter(r => r.repeat >= 3).length;
   return `<div class="section">
     <div class="section-title">红线台账 <span class="badge">${list.length} / ${fmt(s.roster_total)} 家</span></div>
     <div class="section-sub">全量友好商家的红线达标明细。「距红线」= 还能再承受多少条严重违规；已失格的显示超出条数。<b>点击商家展开违规明细</b>。</div>
+    <div class="kpi-row">
+      <div class="kpi danger"><div class="kpi-label">生效中严重违规</div><div class="kpi-val danger">${fmt(sev.length)}</div><div class="kpi-sub">${new Set(sev.map(r => r.seller_id)).size} 家 · 红线判定依据</div></div>
+      <div class="kpi warn"><div class="kpi-label">生效中影响流量</div><div class="kpi-val warn">${fmt(aff.length)}</div><div class="kpi-sub">${new Set(aff.map(r => r.seller_id)).size} 家 · 不计红线但在限流</div></div>
+      <div class="kpi"><div class="kpi-label">其中黑盒</div><div class="kpi-val">${fmt(blackbox)}</div><div class="kpi-sub">商家后台看不到，需 AM 主动告知</div></div>
+      <div class="kpi"><div class="kpi-label">重复违规 ≥3 次</div><div class="kpi-val">${fmt(rep3)}</div><div class="kpi-sub">屡教不改，整改优先级最高</div></div>
+    </div>
     ${list.length ? `<div class="table-wrap"><table><thead><tr>${head.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${body}</tbody></table></div>` : '<div class="empty">无匹配商家</div>'}
   </div>`;
 }
@@ -341,36 +352,6 @@ function vNew() {
 }
 
 /* ── 生效中 ── */
-function vActive() {
-  const s = S.summary || {};
-  const all = rowFilter(S.detail_active || []);
-  const sev = all.filter(r => r.severe);
-  const aff = all.filter(r => !r.severe);
-  return `
-  <div class="section">
-    <div class="section-title">生效中违规 <span class="badge">处罚中 status=正在处罚中</span></div>
-    <div class="section-sub">商家此刻身上还挂着的处罚。<b>严重违规</b>是红线判定依据（全量）；<b>影响流量</b>是近 90 天内仍在压商笔/直播/搜索/推荐的一般违规，不计红线但直接影响生意。</div>
-    <div class="kpi-row">
-      <div class="kpi danger"><div class="kpi-label">生效中严重违规</div><div class="kpi-val danger">${sev.length}</div><div class="kpi-sub">${new Set(sev.map(r => r.seller_id)).size} 家 · 计入红线</div></div>
-      <div class="kpi warn"><div class="kpi-label">生效中影响流量</div><div class="kpi-val warn">${aff.length}</div><div class="kpi-sub">${new Set(aff.map(r => r.seller_id)).size} 家 · 近90天</div></div>
-      <div class="kpi"><div class="kpi-label">其中黑盒</div><div class="kpi-val">${all.filter(r => r.box === '黑盒').length}</div><div class="kpi-sub">商家后台看不到</div></div>
-      <div class="kpi"><div class="kpi-label">重复违规≥3次</div><div class="kpi-val">${all.filter(r => r.repeat >= 3).length}</div><div class="kpi-sub">屡教不改标签</div></div>
-    </div>
-  </div>
-  <div class="section">
-    <div class="section-title">🔴 生效中严重违规明细 <span class="badge danger">${sev.length} 条 · 红线依据</span></div>
-    <div class="section-sub">这些是判定友好商家资格的全部依据，每一条都需要推动整改或申诉才能消除。</div>
-    ${sev.length ? detailTable(sev, true) : '<div class="empty">无</div>'}
-  </div>
-  <div class="section">
-    <div class="section-title">🟠 生效中影响流量（一般违规·近90天） <span class="badge">${aff.length} 条</span></div>
-    <div class="section-sub">不计入红线，但正在实际压制流量。商家常反馈「最近流量没了」，根因多在这里。</div>
-    ${aff.length ? detailTable(aff.slice(0, 800), true) : '<div class="empty">无</div>'}
-    ${aff.length > 800 ? `<div class="muted" style="margin-top:8px">仅展示前 800 条，使用上方筛选器缩小范围。</div>` : ''}
-  </div>`;
-}
-
-/* ── AM 视角 ── */
 function vAM() {
   const s = S.summary || {};
   const list = (S.am || []).filter(a => !F.am || a.am === F.am);
