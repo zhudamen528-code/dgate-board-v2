@@ -1,6 +1,6 @@
 {
  "day": "2026-08-03",
- "generated_at": "2026-08-04 12:35",
+ "generated_at": "2026-08-04 13:18",
  "red_line": 5,
  "warn_line": 3,
  "roster_total": 296,
@@ -12,8 +12,8 @@
  "sev_stale_orders": 0,
  "sev_raw_orders": 67,
  "sev_active_shops": 30,
- "aff_active_orders": 2587,
- "aff_active_shops": 237,
+ "aff_active_orders": 2527,
+ "aff_active_shops": 235,
  "tier": {
   "disqualified": 3,
   "critical": 1,
