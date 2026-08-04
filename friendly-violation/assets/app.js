@@ -17,15 +17,14 @@ const crmItem = iid => `https://crm.xiaohongshu.com/crm/hawk/item/item/detail?it
 const crmNote = nid => `https://crm.xiaohongshu.com/crm/hawk/hawk/note/detail?discoveryId=${nid}&sellerNote=SellerDailyNote`;
 const cNote = nid => `https://www.xiaohongshu.com/explore/${encodeURIComponent(nid)}`;
 
-/* 违规对象 → 展示类型 + 可复制的对象 ID（AM 拿 ID 去苍穹/后台搜具体原因） */
+/* 违规对象 → 展示类型 + 可复制的对象 ID；↗ 统一跳该商家的苍穹店铺页（AM 在店铺页内搜此 ID 查原因） */
 function entityLink(r) {
   const t = r.entity || '—', id = r.entity_id || '';
   if (!id) return esc(t);
   const short = id.length > 12 ? id.slice(0, 6) + '…' + id.slice(-4) : id;
-  let jump = '';
-  if (t === '商品') jump = `<a href="${crmItem(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="jump" title="苍穹商品详情">↗</a>`;
-  else if (t === '笔记') jump = `<a href="${crmNote(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="jump" title="苍穹·单篇笔记分析">↗</a>`;
-  else if (t === '店铺') jump = `<a href="${crmShop(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="jump" title="苍穹店铺详情">↗</a>`;
+  const jump = r.seller_id
+    ? `<a href="${crmShop(r.seller_id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="jump" title="打开该商家苍穹店铺页，在页内搜索此对象 ID 查看违规原因">↗</a>`
+    : '';
   return `<span class="ent"><span class="ent-t">${esc(t)}</span>`
     + `<code class="eid" data-id="${esc(id)}" title="点击复制完整 ID：${esc(id)}">${esc(short)}</code>`
     + `<span class="copy" data-id="${esc(id)}" title="复制对象 ID">⧉</span>${jump}</span>`;
@@ -89,7 +88,7 @@ function initHeader() {
     `${s.roster_total || 0} 家友好商家 · ${s.am_count || 0} 位 AM · 数据日期 ${s.day || '—'}`;
   document.getElementById('meta').innerHTML =
     `红线口径：<b>生效中严重违规 ≥ ${s.red_line} 条即失格</b>（按违规单 parent_uid 去重）｜临界预警线 ${s.warn_line} 条｜生成于 ${esc(s.generated_at || '')}`
-    + `<br>用法：<b>点店铺名</b>跳苍穹商家详情；<b>点违规对象 ID 可复制</b>，到苍穹或违规后台搜该 ID 查看具体违规原因与证据；ID 后的 ↗ 直接打开对应详情页。`;
+    + `<br>用法：<b>点店铺名</b>跳苍穹商家详情；<b>点违规对象 ID 可复制</b>，到苍穹或违规后台搜该 ID 查看具体违规原因与证据；<b>ID 后的 ↗ 打开该商家苍穹店铺页</b>，在页内搜这个 ID 即可看到违规原因与证据。`;
 }
 
 function initFilters() {
@@ -252,9 +251,9 @@ function amGroupedShops() {
     return `<div class="am-block">
       <div class="am-head"><span class="am-name">${esc(am)}</span>
         <span class="am-count">${list.length} 家友好商家</span>${chips}</div>
-      ${risky.length ? `<table class="inner"><thead><tr>
+      ${risky.length ? `<div class="table-wrap am-wrap"><table class="inner"><thead><tr>
         <th>商家</th><th>档位</th><th>生效中严重</th><th>距红线</th><th>昨日新增</th><th>生效中限流</th><th>B等级</th><th>近30天DGMV</th>
-      </tr></thead><tbody>${rows}</tbody></table>`
+      </tr></thead><tbody>${rows}</tbody></table></div>`
         : '<div class="all-clear">✅ 名下无商家存在生效中严重违规</div>'}
       ${safeBlock}
     </div>`;
@@ -431,9 +430,9 @@ function amShopPanel(am) {
   }).join('');
   return `<div class="panel">
     <div class="panel-title">${esc(am)} 名下 ${list.length} 家友好商家 · ${risky.length} 家有生效中严重违规</div>
-    <table class="inner"><thead><tr>
+    <div class="table-wrap"><table class="inner"><thead><tr>
       <th>商家</th><th>档位</th><th>生效中严重</th><th>距红线</th><th>昨日新增</th><th>生效中限流</th><th>B等级</th><th>近30天DGMV</th><th>建联</th>
-    </tr></thead><tbody>${rows}</tbody></table></div>`;
+    </tr></thead><tbody>${rows}</tbody></table></div></div>`;
 }
 
 /* 商家下钻：具体违规条目 */
@@ -442,8 +441,9 @@ function shopViolationPanel(sid, name) {
   const aff = (S.detail_active || []).filter(r => r.seller_id === sid && !r.severe);
   const nw = (S.detail_new || []).filter(r => r.seller_id === sid);
   const mini = rows => rows.length ? tbl(
-    ['程度', '风险域', '子风险域', '对象', '可见性', '影响场域', '重复', '处罚日期'],
+    ['商家', '程度', '风险域', '子风险域', '对象', '可见性', '影响场域', '重复', '处罚日期'],
     rows.map(r => [
+      shopLink(r.seller_id, r.shop_name),
       r.severe ? '<span class="tag sev">严重</span>' : `<span class="tag gen">${esc((r.level || '').replace('社区处置-暂无违规程度', '社区'))}</span>`,
       esc(r.domain), `<span class="muted">${esc(r.sub_domain)}</span>`, entityLink(r),
       `<span class="tag ${r.box === '白盒' ? 'white' : 'black'}">${r.box}</span>`,
