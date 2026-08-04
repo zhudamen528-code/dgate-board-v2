@@ -12,28 +12,63 @@ const fmt = n => (n == null || isNaN(n)) ? '—' : Number(n).toLocaleString('zh-
 const wan = n => (!n || isNaN(n)) ? '—' : (n >= 10000 ? (n / 10000).toFixed(1) + '万' : Math.round(n));
 
 /* 苍穹 CRM 直链 */
-const crmShop = sid => `https://crm.xiaohongshu.com/eccrm/merchant-detail/${sid}?isSellerId=true&type=basicInfo`;
+const crmShop = sid => `https://crm.xiaohongshu.com/eccrm/merchant-detail/${sid}?isSellerId=true&type=basicInfo&crm_assign_my_tag=1`;
 const crmItem = iid => `https://crm.xiaohongshu.com/crm/hawk/item/item/detail?itemId=${iid}`;
 const crmNote = nid => `https://crm.xiaohongshu.com/crm/hawk/hawk/note/detail?discoveryId=${nid}&sellerNote=SellerDailyNote`;
 const cNote = nid => `https://www.xiaohongshu.com/explore/${encodeURIComponent(nid)}`;
 
-/* 违规对象 → 可跳转链接：商品跳苍穹商品详情，笔记跳 C 端笔记 */
+/* 违规对象 → 展示类型 + 可复制的对象 ID（AM 拿 ID 去苍穹/后台搜具体原因） */
 function entityLink(r) {
   const t = r.entity || '—', id = r.entity_id || '';
   if (!id) return esc(t);
-  if (t === '商品') return `<a href="${crmItem(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="crm-link" title="苍穹商品详情">${esc(t)}<span class="ext">↗</span></a>`;
-  if (t === '笔记') {
-    // 主跳苍穹笔记分析（内部系统，处罚中的笔记也能打开）；副链接给 C 端原文（可能被限流）
-    const blocked = !!(r.affect || []).length;
-    return `<a href="${crmNote(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()"
-        class="crm-link" title="苍穹·单篇笔记分析（内部系统，处罚中也可查看数据表现）">${esc(t)}<span class="ext">↗</span></a>`
-      + `<a href="${cNote(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()"
-        class="alt-link${blocked ? ' blocked' : ''}" title="${blocked
-        ? '查看 C 端原文：该笔记正在被处罚限流，可能提示「内容暂时无法查看」' : '查看 C 端原文（需登录小红书）'}">原文${blocked ? '🔒' : ''}</a>`;
+  const short = id.length > 12 ? id.slice(0, 6) + '…' + id.slice(-4) : id;
+  let jump = '';
+  if (t === '商品') jump = `<a href="${crmItem(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="jump" title="苍穹商品详情">↗</a>`;
+  else if (t === '笔记') jump = `<a href="${crmNote(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="jump" title="苍穹·单篇笔记分析">↗</a>`;
+  else if (t === '店铺') jump = `<a href="${crmShop(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="jump" title="苍穹店铺详情">↗</a>`;
+  return `<span class="ent"><span class="ent-t">${esc(t)}</span>`
+    + `<code class="eid" data-id="${esc(id)}" title="点击复制完整 ID：${esc(id)}">${esc(short)}</code>`
+    + `<span class="copy" data-id="${esc(id)}" title="复制对象 ID">⧉</span>${jump}</span>`;
+}
+
+/* 点击复制对象 ID */
+function bindCopy() {
+  document.querySelectorAll('.copy-all').forEach(el => {
+    el.onclick = ev => {
+      ev.stopPropagation();
+      const txt = el.dataset.ids || '';
+      const done = () => {
+        const old = el.textContent;
+        el.textContent = '已复制 ✓';
+        setTimeout(() => { el.textContent = old; }, 1100);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(txt).then(done).catch(() => fallback(txt, done));
+      } else fallback(txt, done);
+    };
+  });
+  document.querySelectorAll('.eid,.copy').forEach(el => {
+    el.onclick = ev => {
+      ev.stopPropagation();
+      const id = el.dataset.id;
+      const done = () => {
+        const old = el.textContent;
+        el.textContent = '已复制';
+        el.classList.add('copied');
+        setTimeout(() => { el.textContent = old; el.classList.remove('copied'); }, 900);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(id).then(done).catch(() => fallback(id, done));
+      } else fallback(id, done);
+    };
+  });
+  function fallback(txt, cb) {
+    const ta = document.createElement('textarea');
+    ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); cb(); } catch (e) { }
+    document.body.removeChild(ta);
   }
-  if (t === '店铺') return `<a href="${crmShop(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="crm-link" title="苍穹店铺详情">${esc(t)}<span class="ext">↗</span></a>`;
-  if (t === '直播间') return `<span title="直播间无可跳转详情页">${esc(t)}</span>`;
-  return esc(t);
 }
 function shopLink(sid, name, cls) {
   if (!sid) return `<span class="${cls || 'shop'}">${esc(name)}</span>`;
@@ -54,8 +89,7 @@ function initHeader() {
     `${s.roster_total || 0} 家友好商家 · ${s.am_count || 0} 位 AM · 数据日期 ${s.day || '—'}`;
   document.getElementById('meta').innerHTML =
     `红线口径：<b>生效中严重违规 ≥ ${s.red_line} 条即失格</b>（按违规单 parent_uid 去重）｜临界预警线 ${s.warn_line} 条｜生成于 ${esc(s.generated_at || '')}`
-    + `<br>跳转说明：店铺 / 商品 / 笔记 均跳<b>苍穹后台</b>（内部系统，处罚中的内容也能打开）；`
-    + `笔记后面的「原文」跳 C 端，带 🔒 的表示正在被处罚限流，可能提示「内容暂时无法查看」，<b>属处罚生效的正常表现</b>。`;
+    + `<br>用法：<b>点店铺名</b>跳苍穹商家详情；<b>点违规对象 ID 可复制</b>，到苍穹或违规后台搜该 ID 查看具体违规原因与证据；ID 后的 ↗ 直接打开对应详情页。`;
 }
 
 function initFilters() {
@@ -100,6 +134,7 @@ function render() {
   const hint = document.getElementById('filter-hint');
   if (hint) hint.textContent = (F.am || F.tier || F.kw) ? '已筛选' : '未筛选 · 展示全组';
   bindExpand();
+  bindCopy();
 }
 
 function bindExpand() {
@@ -416,10 +451,14 @@ function shopViolationPanel(sid, name) {
       `<span class="num">${r.repeat || '—'}</span>`,
       `<span class="muted">${esc(r.date)}</span>`,
     ])) : '<div class="empty">无</div>';
+  const allIds = [...sev, ...nw, ...aff].map(r => r.entity_id).filter(Boolean);
+  const uniqIds = [...new Set(allIds)];
   return `<div class="panel2">
     <div class="panel-title">${shopLink(sid, name)} · 违规明细
       <a class="crm-btn" href="${crmShop(sid)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">苍穹店铺详情 ↗</a>
+      ${uniqIds.length ? `<span class="crm-btn copy-all" data-ids="${esc(uniqIds.join('\n'))}" title="复制该商家全部违规对象 ID，逐个到苍穹搜索查看原因">复制全部对象ID（${uniqIds.length}）⧉</span>` : ''}
     </div>
+    <div class="panel-tip">💡 违规的具体原因与证据需到苍穹/违规后台按<b>对象 ID</b> 搜索查看；本表提供 ID 与风险域定位。</div>
     <div class="mini-head">🔴 生效中严重违规（计入红线）<span class="badge danger">${sev.length}</span></div>
     ${mini(sev.slice(0, 200))}
     <div class="mini-head">📌 昨日新增<span class="badge">${nw.length}</span></div>
