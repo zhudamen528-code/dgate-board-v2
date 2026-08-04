@@ -11,6 +11,25 @@ const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&am
 const fmt = n => (n == null || isNaN(n)) ? '—' : Number(n).toLocaleString('zh-CN');
 const wan = n => (!n || isNaN(n)) ? '—' : (n >= 10000 ? (n / 10000).toFixed(1) + '万' : Math.round(n));
 
+/* 苍穹 CRM 直链 */
+const crmShop = sid => `https://crm.xiaohongshu.com/eccrm/merchant-detail/${sid}?isSellerId=true&type=basicInfo`;
+const crmItem = iid => `https://crm.xiaohongshu.com/crm/hawk/item/item/detail?itemId=${iid}`;
+
+/* 违规对象 → 可跳转链接：商品跳苍穹商品详情，笔记跳 C 端笔记 */
+function entityLink(r) {
+  const t = r.entity || '—', id = r.entity_id || '';
+  if (!id) return esc(t);
+  if (t === '商品') return `<a href="${crmItem(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="crm-link" title="苍穹商品详情">${esc(t)}<span class="ext">↗</span></a>`;
+  if (t === '笔记') return `<a href="https://www.xiaohongshu.com/explore/${encodeURIComponent(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="crm-link" title="打开笔记">${esc(t)}<span class="ext">↗</span></a>`;
+  if (t === '店铺') return `<a href="${crmShop(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="crm-link" title="苍穹店铺详情">${esc(t)}<span class="ext">↗</span></a>`;
+  return esc(t);
+}
+function shopLink(sid, name, cls) {
+  if (!sid) return `<span class="${cls || 'shop'}">${esc(name)}</span>`;
+  return `<a class="${cls || 'shop'} crm-link" href="${crmShop(sid)}" target="_blank" rel="noopener"
+    onclick="event.stopPropagation()" title="在苍穹打开店铺详情">${esc(name)}<span class="ext">↗</span></a>`;
+}
+
 async function load() {
   const names = ['summary', 'shops', 'am', 'detail_new', 'detail_active', 'domains'];
   const res = await Promise.all(names.map(n => fetch(`data/${n}.json?t=${Date.now()}`).then(r => r.json()).catch(() => null)));
@@ -147,7 +166,7 @@ function shopMiniTable(list) {
     const key = 'shop:' + x.seller_id;
     const open = EXP.has(key);
     const cells = [
-      `<span class="clickable">${open ? '▾' : '▸'} <span class="shop">${esc(x.shop_name)}</span></span>`,
+      `<span class="clickable">${open ? '▾' : '▸'}</span> ${shopLink(x.seller_id, x.shop_name)}`,
       esc(x.am),
       `<span class="num">${x.sev_active}</span>`,
       `<span class="num">${x.tier === 'disqualified' ? '已超 ' + (x.sev_active - S.summary.red_line + 1) : x.gap + ' 条'}</span>`,
@@ -172,7 +191,7 @@ function vRedline() {
     const key = 'shop:' + x.seller_id;
     const open = EXP.has(key);
     const cells = [
-      `<span class="clickable">${open ? '▾' : '▸'} <span class="shop">${esc(x.shop_name)}</span></span>`,
+      `<span class="clickable">${open ? '▾' : '▸'}</span> ${shopLink(x.seller_id, x.shop_name)}`,
       esc(x.am),
       `<span class="tag t-${x.tier}">${TIER_LABEL[x.tier]}</span>`,
       `<span class="num">${x.sev_active}</span>`,
@@ -294,7 +313,7 @@ function amShopPanel(am) {
     const key = 'shop:' + x.seller_id;
     const open = EXP.has(key);
     const cells = [
-      `<span class="clickable">${open ? '▾' : '▸'} <span class="shop">${esc(x.shop_name)}</span></span>`,
+      `<span class="clickable">${open ? '▾' : '▸'}</span> ${shopLink(x.seller_id, x.shop_name)}`,
       `<span class="tag t-${x.tier}">${TIER_LABEL[x.tier]}</span>`,
       `<span class="num">${x.sev_active || '—'}</span>`,
       `<span class="num">${x.tier === 'disqualified' ? '已超' + (x.sev_active - (S.summary.red_line) + 1) : x.gap}</span>`,
@@ -324,14 +343,16 @@ function shopViolationPanel(sid, name) {
     ['程度', '风险域', '子风险域', '对象', '可见性', '影响场域', '重复', '处罚日期'],
     rows.map(r => [
       r.severe ? '<span class="tag sev">严重</span>' : `<span class="tag gen">${esc((r.level || '').replace('社区处置-暂无违规程度', '社区'))}</span>`,
-      esc(r.domain), `<span class="muted">${esc(r.sub_domain)}</span>`, esc(r.entity),
+      esc(r.domain), `<span class="muted">${esc(r.sub_domain)}</span>`, entityLink(r),
       `<span class="tag ${r.box === '白盒' ? 'white' : 'black'}">${r.box}</span>`,
       r.affect.length ? r.affect.map(a => `<span class="tag aff">${a}</span>`).join('') : '<span class="muted">—</span>',
       `<span class="num">${r.repeat || '—'}</span>`,
       `<span class="muted">${esc(r.date)}</span>`,
     ])) : '<div class="empty">无</div>';
   return `<div class="panel2">
-    <div class="panel-title">${esc(name)} · 违规明细</div>
+    <div class="panel-title">${shopLink(sid, name)} · 违规明细
+      <a class="crm-btn" href="${crmShop(sid)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">苍穹店铺详情 ↗</a>
+    </div>
     <div class="mini-head">🔴 生效中严重违规（计入红线）<span class="badge danger">${sev.length}</span></div>
     ${mini(sev.slice(0, 200))}
     <div class="mini-head">📌 昨日新增<span class="badge">${nw.length}</span></div>
@@ -346,10 +367,10 @@ function detailTable(rows, drill) {
   const head = ['商家', 'AM', '程度', '风险域', '子风险域', '对象', '可见性', '影响场域', '重复', '处罚日期'];
   const body = rows.map((r, idx) => {
     const cells = [
-      drill ? `<span class="clickable">▸ <span class="shop">${esc(r.shop_name)}</span></span>` : `<span class="shop">${esc(r.shop_name)}</span>`,
+      drill ? `<span class="clickable">▸</span> ${shopLink(r.seller_id, r.shop_name)}` : shopLink(r.seller_id, r.shop_name),
       `<span class="muted">${esc(r.am)}</span>`,
       r.severe ? '<span class="tag sev">严重</span>' : `<span class="tag gen">${esc((r.level || '').replace('社区处置-暂无违规程度', '社区'))}</span>`,
-      esc(r.domain), `<span class="muted">${esc(r.sub_domain)}</span>`, esc(r.entity),
+      esc(r.domain), `<span class="muted">${esc(r.sub_domain)}</span>`, entityLink(r),
       `<span class="tag ${r.box === '白盒' ? 'white' : 'black'}">${r.box}</span>`,
       r.affect.length ? r.affect.map(a => `<span class="tag aff">${a}</span>`).join('') : '<span class="muted">—</span>',
       `<span class="num">${r.repeat || '—'}</span>`,
@@ -358,7 +379,7 @@ function detailTable(rows, drill) {
     if (!drill) return `<tr>${cells.map(c => `<td>${c}</td>`).join('')}</tr>`;
     const key = 'drow:' + r.seller_id + ':' + idx;
     const open = EXP.has(key);
-    cells[0] = cells[0].replace('▸', open ? '▾' : '▸');
+    cells[0] = cells[0].replace('>▸<', open ? '>▾<' : '>▸<');
     let html = `<tr class="row-click" data-exp="${esc(key)}">${cells.map(c => `<td>${c}</td>`).join('')}</tr>`;
     if (open) html += `<tr class="sub-row"><td colspan="${head.length}">${shopViolationPanel(r.seller_id, r.shop_name)}</td></tr>`;
     return html;

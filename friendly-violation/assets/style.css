@@ -73,6 +73,15 @@ td .tag { white-space:nowrap; }
 .bar.warn { background:#fa8c16; }
 .bar.ok { background:#52c41a; }
 
+/* 苍穹链接 */
+a.crm-link { color:#1f2330; text-decoration:none; border-bottom:1px dashed #b6c2d9; }
+a.crm-link:hover { color:#1890ff; border-bottom-color:#1890ff; text-decoration:none; }
+a.crm-link .ext { font-size:10px; color:#a0aec8; margin-left:2px; vertical-align:super; }
+a.crm-link:hover .ext { color:#1890ff; }
+a.shop.crm-link { font-weight:500; }
+.crm-btn { font-size:11px; font-weight:400; padding:2px 8px; margin-left:8px; background:#f0f7ff; color:#1890ff; border-radius:4px; border:1px solid #d6e8ff; }
+.crm-btn:hover { background:#1890ff; color:#fff; text-decoration:none; }
+
 .empty { padding:40px; text-align:center; color:#a0a4b8; font-size:13px; }
 
 /* 下钻 */
