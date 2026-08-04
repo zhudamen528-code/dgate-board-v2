@@ -20,8 +20,17 @@ function entityLink(r) {
   const t = r.entity || '—', id = r.entity_id || '';
   if (!id) return esc(t);
   if (t === '商品') return `<a href="${crmItem(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="crm-link" title="苍穹商品详情">${esc(t)}<span class="ext">↗</span></a>`;
-  if (t === '笔记') return `<a href="https://www.xiaohongshu.com/explore/${encodeURIComponent(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="crm-link" title="打开笔记">${esc(t)}<span class="ext">↗</span></a>`;
+  if (t === '笔记') {
+    // 处罚中的笔记 C 端多半已被限制访问，点开会跳首页 —— 提前告知，避免误判为链接失效
+    const blocked = !!(r.affect || []).length;
+    const tip = blocked
+      ? '该笔记正在被处罚限流，C 端可能提示「内容暂时无法查看」属正常现象；需登录小红书账号'
+      : '打开笔记（需登录小红书账号）';
+    return `<a href="https://www.xiaohongshu.com/explore/${encodeURIComponent(id)}" target="_blank" rel="noopener"
+      onclick="event.stopPropagation()" class="crm-link${blocked ? ' blocked' : ''}" title="${tip}">${esc(t)}<span class="ext">↗</span>${blocked ? '<span class="lock" title="' + tip + '">🔒</span>' : ''}</a>`;
+  }
   if (t === '店铺') return `<a href="${crmShop(id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="crm-link" title="苍穹店铺详情">${esc(t)}<span class="ext">↗</span></a>`;
+  if (t === '直播间') return `<span title="直播间无可跳转详情页">${esc(t)}</span>`;
   return esc(t);
 }
 function shopLink(sid, name, cls) {
@@ -42,7 +51,9 @@ function initHeader() {
   document.getElementById('subtitle').textContent =
     `${s.roster_total || 0} 家友好商家 · ${s.am_count || 0} 位 AM · 数据日期 ${s.day || '—'}`;
   document.getElementById('meta').innerHTML =
-    `红线口径：<b>生效中严重违规 ≥ ${s.red_line} 条即失格</b>（按违规单 parent_uid 去重）｜临界预警线 ${s.warn_line} 条｜生成于 ${esc(s.generated_at || '')}`;
+    `红线口径：<b>生效中严重违规 ≥ ${s.red_line} 条即失格</b>（按违规单 parent_uid 去重）｜临界预警线 ${s.warn_line} 条｜生成于 ${esc(s.generated_at || '')}`
+    + `<br>跳转说明：店铺名 / 商品 → 苍穹后台；笔记 → 小红书 C 端（需登录）。`
+    + `带 🔒 的笔记正在被处罚限流，点开会提示「内容暂时无法查看」或跳回首页，<b>属处罚生效的正常表现，不是链接失效</b>。`;
 }
 
 function initFilters() {
