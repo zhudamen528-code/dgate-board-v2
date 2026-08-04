@@ -161,15 +161,69 @@ function vOverview() {
   </div>
   ${newSevTip}
   <div class="section">
-    <div class="section-title">🟡 关注区商家 <span class="badge">${wt.length} 家</span></div>
-    <div class="section-sub">身上有 1-${s.warn_line - 1} 条生效中严重违规，尚安全但已进入计数，建议纳入日常跟进。<b>点击商家展开明细</b>。</div>
-    ${wt.length ? shopMiniTable(wt) : '<div class="empty">无</div>'}
-  </div>
-  <div class="section">
-    <div class="section-title">AM 红线概况</div>
-    <div class="section-sub">各 AM 名下友好商家的达标分布，按风险排序。<b>点击 AM 展开名下商家</b>。</div>
-    ${amTable(S.am || [], true)}
+    <div class="section-title">分 AM 商家清单 <span class="badge">按风险排序</span></div>
+    <div class="section-sub">每位 AM 名下<b>有生效中严重违规</b>的商家直接列出，无需点击。安全商家已折叠，可展开查看。</div>
+    ${amGroupedShops()}
   </div>`;
+}
+
+/* 总览：按 AM 分组，直接铺开名下有风险的商家 */
+function amGroupedShops() {
+  const s = S.summary || {};
+  const byAm = {};
+  (S.shops || []).forEach(x => (byAm[x.am] = byAm[x.am] || []).push(x));
+  const order = (S.am || []).map(a => a.am);
+  Object.keys(byAm).forEach(a => { if (!order.includes(a)) order.push(a); });
+
+  return order.map(am => {
+    const list = byAm[am] || [];
+    const risky = list.filter(x => x.tier !== 'safe')
+      .sort((a, b) => b.sev_active - a.sev_active || b.dgmv_30d - a.dgmv_30d);
+    const safe = list.filter(x => x.tier === 'safe');
+    const stat = (S.am || []).find(a => a.am === am) || {};
+    const chips = [
+      stat.disqualified ? `<span class="chip d">🔴 失格 ${stat.disqualified}</span>` : '',
+      stat.critical ? `<span class="chip c">🟠 临界 ${stat.critical}</span>` : '',
+      stat.watch ? `<span class="chip w">🟡 关注 ${stat.watch}</span>` : '',
+      `<span class="chip s">⚪ 安全 ${stat.safe || safe.length}</span>`,
+      stat.new_total ? `<span class="chip n">昨日新增 ${stat.new_total} 条</span>` : '',
+    ].filter(Boolean).join('');
+
+    const rows = risky.map(x => {
+      const key = 'shop:' + x.seller_id;
+      const open = EXP.has(key);
+      const cells = [
+        `<span class="clickable">${open ? '▾' : '▸'}</span> ${shopLink(x.seller_id, x.shop_name)}`,
+        `<span class="tag t-${x.tier}">${TIER_LABEL[x.tier]}</span>`,
+        `<span class="num">${x.sev_active}</span>`,
+        `<span class="num">${x.tier === 'disqualified' ? '已超 ' + (x.sev_active - s.red_line + 1) : x.gap + ' 条'}</span>`,
+        `<span class="num">${x.new_total || '—'}</span>`,
+        `<span class="num">${x.aff_active || '—'}</span>`,
+        esc(x.b_level || '—'),
+        `<span class="num">${wan(x.dgmv_30d)}</span>`,
+      ];
+      let h = `<tr class="row-click" data-exp="${esc(key)}">${cells.map(c => `<td>${c}</td>`).join('')}</tr>`;
+      if (open) h += `<tr class="sub-row"><td colspan="8">${shopViolationPanel(x.seller_id, x.shop_name)}</td></tr>`;
+      return h;
+    }).join('');
+
+    const safeKey = 'safe:' + am;
+    const safeOpen = EXP.has(safeKey);
+    const safeBlock = safe.length ? `
+      <div class="safe-toggle row-click" data-exp="${esc(safeKey)}">${safeOpen ? '▾' : '▸'} ⚪ 安全商家 ${safe.length} 家（无生效中严重违规）</div>
+      ${safeOpen ? `<div class="safe-list">${safe.sort((a, b) => b.dgmv_30d - a.dgmv_30d)
+        .map(x => `${shopLink(x.seller_id, x.shop_name, 'safe-chip')}`).join('')}</div>` : ''}` : '';
+
+    return `<div class="am-block">
+      <div class="am-head"><span class="am-name">${esc(am)}</span>
+        <span class="am-count">${list.length} 家友好商家</span>${chips}</div>
+      ${risky.length ? `<table class="inner"><thead><tr>
+        <th>商家</th><th>档位</th><th>生效中严重</th><th>距红线</th><th>昨日新增</th><th>生效中限流</th><th>B等级</th><th>近30天DGMV</th>
+      </tr></thead><tbody>${rows}</tbody></table>`
+        : '<div class="all-clear">✅ 名下无商家存在生效中严重违规</div>'}
+      ${safeBlock}
+    </div>`;
+  }).join('');
 }
 
 /* 简版商家表（可下钻），用于总览/失格/临界等小列表 */
