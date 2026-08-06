@@ -11,7 +11,7 @@
   "new_severe": 0
  },
  {
-  "am": "秋罗(胡春秋)",
+  "am": "令仪(沙依兰)",
   "shops": 62,
   "disqualified": 1,
   "critical": 0,
@@ -33,14 +33,25 @@
   "new_severe": 0
  },
  {
-  "am": "蕾塞(张嘉悦)",
-  "shops": 59,
+  "am": "路歌(李红红)",
+  "shops": 28,
   "disqualified": 0,
   "critical": 0,
-  "watch": 5,
-  "safe": 54,
-  "sev_active": 5,
-  "new_total": 43,
+  "watch": 3,
+  "safe": 25,
+  "sev_active": 3,
+  "new_total": 10,
+  "new_severe": 0
+ },
+ {
+  "am": "诗雨(诗雨)",
+  "shops": 31,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 2,
+  "safe": 29,
+  "sev_active": 2,
+  "new_total": 33,
   "new_severe": 0
  },
  {
@@ -66,7 +77,7 @@
   "new_severe": 0
  },
  {
-  "am": "路歌(李红红)",
+  "am": "勒达(张力丹)",
   "shops": 13,
   "disqualified": 0,
   "critical": 0,

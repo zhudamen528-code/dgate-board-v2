@@ -1,6 +1,6 @@
 {
  "day": "2026-08-05",
- "generated_at": "2026-08-06 01:47",
+ "generated_at": "2026-08-06 02:32",
  "red_line": 5,
  "warn_line": 3,
  "roster_total": 296,
@@ -20,5 +20,5 @@
   "watch": 25,
   "safe": 267
  },
- "am_count": 7
+ "am_count": 8
 }
