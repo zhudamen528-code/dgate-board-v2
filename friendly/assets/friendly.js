@@ -461,7 +461,7 @@ function vGrow() {
 
 /* ============ ② 非友好转友好 ============ */
 function vUplift() {
-  const U = D.uplift || [], o = D.overview, bch = o.bench || {};
+  const U = D.uplift || [], o = D.overview, fb = o.fbench || {};
   setupFilters(U, { prio: true, path: true });
   let list = applyFilter(U, {});
   const pr = $('f-prio').value, pa = $('f-path').value;
@@ -470,22 +470,27 @@ function vUplift() {
   $('filter-hint').textContent = `显示 ${list.length} / ${U.length} 家 · 合计 ${wan(list.reduce((s, r) => s + r.gmv, 0))}`;
 
   const tierCls = { P0: 't-danger', P1: 't-warn', P2: 't-watch', P3: 'gen' };
-  const pathCls = { '提客单': 'diag-b', '压低效曝光': 'diag-a', '补转化承接': 'diag-c', '先起量': 'gen', '已达 GPM': 't-safe' };
+  const pathCls = { '开免分母场': 'diag-a', '加码商卡店播': 'diag-a', '提客单': 'diag-b',
+                    '提笔记转化': 'diag-c', '先起量': 'gen', '已达 GPM': 't-safe' };
 
-  const rows = list.map(r => `<tr class="row-click" data-id="${r.id}" data-src="uplift">
-    <td><span class="tag ${tierCls[r.tier]}">${r.tier}</span></td>
-    <td class="shop">${esc(r.name)}</td>
-    <td>${r.b}</td>
-    <td class="num">${wan(r.gmv)}</td>
-    <td class="num">${num(Math.round(r.gpm))}</td>
-    <td class="num"><b style="color:${r.gpmRatio >= 70 ? '#389e0d' : r.gpmRatio >= 40 ? '#d46b08' : '#cf1322'}">${r.gpmRatio}%</b></td>
-    <td><span class="tag ${pathCls[r.path] || 'gen'}">${r.path}</span></td>
-    <td class="num">${r.needGmv ? wan(r.needGmv) : '-'}${r.gmvUpPct != null ? `<br><span class="muted">+${r.gmvUpPct}%</span>` : ''}</td>
-    <td class="num">${r.maxImp ? impFmt(r.maxImp) : '-'}${r.impCutPct ? `<br><span class="muted">压 ${r.impCutPct}%</span>` : ''}</td>
-    <td class="num">${r.note}</td>
-    <td class="num">¥${r.price}</td>
-    <td class="num">${impFmt(r.imp)}</td>
-  </tr>`).join('');
+  const rows = list.map(r => {
+    const p0 = (r.plans || [])[0];
+    const rec = p0 ? `<b>${p0.field}</b> ${p0.now > 0 ? wan(p0.now) + ' → ' + wan(p0.now + p0.need) : '从 0 做到 ' + wan(p0.need)}` : '—';
+    return `<tr class="row-click" data-id="${r.id}" data-src="uplift">
+      <td><span class="tag ${tierCls[r.tier]}">${r.tier}</span></td>
+      <td class="shop">${esc(r.name)}</td>
+      <td>${r.b}</td>
+      <td class="num">${wan(r.gmv)}</td>
+      <td class="num">${num(Math.round(r.gpm))}<br><span class="muted">${r.gpmRatio}%</span></td>
+      <td class="num"><b style="color:#cf1322">${wan(r.gap)}</b>${r.gapOrders ? `<br><span class="muted">≈${num(r.gapOrders)}单</span>` : ''}</td>
+      <td><span class="tag ${pathCls[r.path] || 'gen'}">${r.path}</span></td>
+      <td class="muted">${rec}</td>
+      <td class="num">${wan(r.dcard)}</td>
+      <td class="num">${r.dlive > 0 ? wan(r.dlive) : '<span style="color:#cf1322">未开</span>'}</td>
+      <td class="num">${r.freeShare}%</td>
+      <td class="num">¥${r.price}</td>
+    </tr>`;
+  }).join('');
 
   const tg = o.upliftTierGmv || {};
   const tierPills = ['P0', 'P1', 'P2', 'P3'].filter(t => o.upliftTier[t]).map(t =>
@@ -493,30 +498,55 @@ function vUplift() {
   const pathPills = Object.entries(o.upliftPath || {}).sort((a, b) => b[1] - a[1])
     .map(([k, v]) => `<span class="pill">${k}：<b>${v}</b> 家</span>`).join('');
 
+  const bk = (o.freeShareBuckets || []).map(b =>
+    `<div class="dist-row"><div class="dist-label">免分母占比 ${b.range}</div>
+     <div class="dist-bar-wrap"><div class="dist-bar ${b.gpm >= 100 ? 'g' : b.gpm >= 70 ? 'o' : 'r'}" style="width:${Math.min(b.gpm / 120 * 100, 100)}%"></div></div>
+     <div class="dist-val">GPM 中位 ${b.gpm} · ${b.n} 家</div></div>`).join('');
+
+  const impT = (o.impByType || []).map(x =>
+    `<div class="dist-row"><div class="dist-label">${x.k}</div>
+     <div class="dist-bar-wrap"><div class="dist-bar" style="width:${x.p}%"></div></div>
+     <div class="dist-val">${impFmt(x.v)} · ${x.p}%</div></div>`).join('');
+
   return `<div class="section">
     <div class="section-title">② 非友好商家怎么变友好 <span class="badge">${U.length} 家有 6 月经营数据</span></div>
-    <div class="section-sub">绝大多数卡在 GPM。这里把 GPM 拆成分子分母两条数学路径，并按「达标度 × 体量」给优先级。</div>
+    <div class="section-sub">缺口按<b>绝对金额</b>算，并指到<b>具体场域</b>：这笔钱从商卡补、还是从店播补、还是靠提客单。</div>
 
     <div class="callout danger">
-      <b>先看 P0 的 ${o.upliftTier.P0 || 0} 家（${wan(tg.P0 || 0)}）</b>——GPM 已过门槛 70%、月 GMV 又在 10 万以上，是本月最该攻的。
-      比如 Clean Circle 的海外店 GPM 169、只差 1 分，GMV 涨 1% 就过线；疆之隅 GPM 138，GMV 涨 23% 或曝光压掉 19% 都行。
+      <b>先看 P0 的 ${o.upliftTier.P0 || 0} 家（${wan(tg.P0 || 0)}）。</b>
+      举个例子：以味坊健康日记月 GMV 89 万、GPM 127，缺口 ${wan(304000)} —— 摊到动作上就是
+      <b>商卡从 21.8 万做到 52 万</b>，或者<b>起店播、按友好 B4+ 每小时 ¥${num(fb.liveGmvPerH)} 的效率播满 5.7 小时</b>，
+      再或者<b>客单价从 ¥63.8 提到 ¥85.6</b>（订单量都不用涨）。三条任选其一，不是"GMV 涨 34%"这种没法执行的说法。
     </div>
+
     <div class="callout info">
-      <b>GPM = 月 GMV ÷（公域四渠道曝光 + K播商品曝光）× 1000。</b>所以只有两条路：
-      <b>抬分子</b>（在现有曝光下多做成交，表里「需 GMV 到」列给了具体数字）或 <b>压分母</b>（砍掉不产出的低效曝光，「曝光需压到」列给上限）。
-      注意店播和商卡的曝光<b>根本不进分母</b>——在这两个场做成交是纯赚，这是最被低估的一条路。
+      <b>为什么优先推商卡和店播：</b>GPM 的分母只算公域四渠道曝光 + K播商品曝光。
+      <b>商卡和店播的曝光根本不在分母里</b>，在这两个场每做一笔成交，分子涨、分母不动，GPM 直接抬。
+      数据也验证了这点——按免分母场域占成交的比重分五档，GPM 中位数从 48 一路涨到 118：
+      <div style="margin-top:8px">${bk}</div>
+      <div class="muted" style="margin-top:6px">友好 B4+ 的免分母场域占比是 ${fb.freeShare}%。反观笔记：全盘 ${o.impByType && o.impByType[0] ? o.impByType[0].p : 0}% 的分母曝光来自商品笔记，转化跟不上就是在自己稀释自己。</div>
     </div>
 
     <div class="mini-head">优先级分布</div>
     <div>${tierPills}</div>
-    <div class="mini-head">主路径分布（按最短板判定）</div>
+    <div class="mini-head">主路径分布</div>
     <div>${pathPills}</div>
 
     <div class="table-wrap" style="margin-top:12px"><table>
-      <thead><tr><th>优先级</th><th>店铺</th><th>B等级</th><th class="num">月GMV</th><th class="num">GPM</th>
-      <th class="num">达标度</th><th>主路径</th><th class="num">需GMV到</th><th class="num">或曝光压到</th>
-      <th class="num">笔记</th><th class="num">客单</th><th class="num">月曝光</th></tr></thead>
+      <thead><tr><th>优先级</th><th>店铺</th><th>B等级</th><th class="num">月GMV</th><th class="num">GPM<br><span class="muted">达标度</span></th>
+      <th class="num">缺口金额</th><th>主路径</th><th>首选动作</th>
+      <th class="num">商卡GMV</th><th class="num">店播GMV</th><th class="num">免分母占比</th><th class="num">客单</th></tr></thead>
       <tbody>${rows || '<tr><td colspan="12" class="empty">无匹配数据</td></tr>'}</tbody></table></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">分母曝光来自哪里（全盘 ${U.length} 家）</div>
+    <div class="section-sub">知道分母的构成，才知道哪类内容在空转</div>
+    ${impT}
+    <div class="muted" style="margin-top:10px">
+      商品笔记贡献了六成以上的分母曝光，笔记呼吸灯占四分之一。这两类都是"发了就吃分母"的内容形态——
+      如果转化撑不起来，发得越多 GPM 越低。相比之下商卡和店播的曝光完全不计入。
+    </div>
   </div>`;
 }
 
@@ -551,23 +581,42 @@ function fieldPanel(r) {
   const acts = (r.acts || []).map(a =>
     `<div class="risk-line mid">• <b>${esc(a.k)}</b>：${esc(a.txt)}</div>`).join('');
 
+  // 场域行动方案（uplift 专用）
+  const planBox = (r.plans && r.plans.length) ? `
+    <div class="mini-head">补上这 ${wan(r.gap)} 缺口，三条路任选</div>
+    ${r.plans.map((p, i) => `<div class="panel2" style="margin-bottom:8px">
+      <div style="font-size:13px;font-weight:600;margin-bottom:4px">
+        方案${'ABC'[i]}　${p.field}
+        ${p.free ? '<span class="tag t-safe">曝光不进分母</span>' : '<span class="tag gen">不增曝光</span>'}
+      </div>
+      <div style="font-size:13px;margin-bottom:4px">
+        ${p.unit === '¥'
+          ? `客单价 <b>¥${p.now}</b> → <b>¥${p.need}</b>${p.upPct ? `（+${p.upPct}%）` : ''}`
+          : `${p.field} GMV <b>${wan(p.now)}</b> → <b>${wan(p.now + p.need)}</b>${p.upPct ? `（+${p.upPct}%）` : '（从 0 起）'}`}
+      </div>
+      <div class="muted" style="font-size:12px;line-height:1.7">${esc(p.how)}</div>
+    </div>`).join('')}` : '';
+
   const pathBox = r.path ? `<div class="callout ${r.gpmRatio >= 70 ? 'warn' : 'danger'}" style="margin:0 0 10px">
-      <b>${r.tier} · 主路径：${r.path}</b>　${esc(r.why || '')}<br>
-      当前 GPM ${Math.round(r.gpm)}（门槛 ${o.gpmStd} 的 ${r.gpmRatio}%）。
-      ${r.needGmv ? `保持曝光不变，月 GMV 要做到 <b>${wan(r.needGmv)}</b>（${r.gmvUpPct != null ? '+' + r.gmvUpPct + '%' : '—'}）；` : ''}
-      ${r.maxImp ? `或保持 GMV 不变，把曝光压到 <b>${impFmt(r.maxImp)}</b> 以内（砍掉 ${r.impCutPct}%）。` : ''}
-      <br><b>第三条路：</b>在<b>店播 / 商卡</b>做成交——这两个场的曝光不进 GPM 分母，成交却计入分子，是唯一不推高分母就能抬 GPM 的场域。
+      <b>${r.tier} · ${r.path}</b>　${esc(r.why || '')}<br>
+      当前 GPM ${Math.round(r.gpm)}（门槛 ${o.gpmStd} 的 ${r.gpmRatio}%），
+      要达标还差 <b>${wan(r.gap)}</b> 成交${r.gapOrders ? `，按现在客单 ¥${r.price} 算约 <b>${num(r.gapOrders)} 单</b>` : ''}。
     </div>` : '';
 
   return `<div class="panel">
     <div class="panel-title">${esc(r.name)} · ${esc(r.cat)} · ${r.b}
       <a href="${shopUrl(r.id)}" target="_blank" style="font-weight:400;font-size:12px;margin-left:8px">苍穹后台 ↗</a></div>
     ${pathBox}
+    ${planBox}
     <div class="grid2">
       <div>
         <div class="mini-head">GPM 分母构成（哪些曝光在拖累）</div>
         <table class="inner"><thead><tr><th>曝光来源</th><th class="num">曝光量</th><th class="num">占比</th></tr></thead>
         <tbody>${denRows}</tbody></table>
+        ${(r.impBy && r.impBy.length) ? `<div class="mini-head">分母曝光按内容形态</div>
+          <table class="inner"><thead><tr><th>形态</th><th class="num">曝光</th><th class="num">占比</th></tr></thead><tbody>
+          ${r.impBy.map(x => `<tr><td>${esc(x.k)}</td><td class="num">${impFmt(x.v)}</td><td class="num">${x.p}%</td></tr>`).join('')}
+          </tbody></table>` : ''}
 
         <div class="mini-head">场域成交结构（分子从哪来）</div>
         ${carr}
