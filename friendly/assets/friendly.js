@@ -26,7 +26,7 @@ function init() {
     document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
     t.classList.add('active'); TAB = t.dataset.tab; render();
   });
-  ['f-cat', 'f-b', 'f-tier', 'f-miss', 'f-gap'].forEach(i => $(i).onchange = render);
+  ['f-cat', 'f-b', 'f-tier', 'f-miss', 'f-gap', 'f-bucket'].forEach(i => $(i).onchange = render);
   $('f-kw').oninput = render;
   render();
 }
@@ -56,6 +56,7 @@ function setupFilters(list, opts) {
   $('w-tier').style.display = opts.tier ? 'flex' : 'none';
   $('w-miss').style.display = opts.miss ? 'flex' : 'none';
   $('w-gap').style.display = opts.gap ? 'flex' : 'none';
+  $('w-bucket').style.display = opts.bucket ? 'flex' : 'none';
   fillSel('f-cat', [...new Set(list.map(r => r.cat))].sort());
   fillSel('f-b', ['B6', 'B5', 'B4', 'B3', 'B2', 'B1', '无成交'].filter(b => list.some(r => r.b === b)));
   if (opts.miss) fillSel('f-miss', [...new Set(list.flatMap(r => r.miss || []))]);
@@ -109,6 +110,9 @@ function vOverview() {
 
   const nearBy = Object.entries(o.nearBy).sort((a, b) => b[1] - a[1])
     .map(([k, v]) => `<span class="pill">只缺 ${k}：<b>${v}</b> 家</span>`).join('');
+  const bkOrder = ['≥80%（一步之遥）', '60-80%', '40-60%', '20-40%', '<20%（差距大）'];
+  const nearBk = bkOrder.filter(k => o.nearBucket[k])
+    .map(k => `<span class="pill">${k}：<b>${o.nearBucket[k]}</b> 家</span>`).join('');
   const bigGap = Object.entries(o.bigGap).sort((a, b) => b[1] - a[1])
     .map(([k, v]) => `<span class="pill">${k}：<b>${v}</b> 家</span>`).join('');
 
@@ -158,8 +162,10 @@ function vOverview() {
   <div class="section">
     <div class="section-title">两个待办池</div>
     <div class="section-sub">临门一脚：仅差 1 项即可准入 · 高GMV非友好：规模已有、效率待补</div>
-    <div class="mini-head">临门一脚 ${o.nearCnt} 家 · ${wan(o.nearGmv)}</div>
+    <div class="mini-head">临门一脚 ${o.nearCnt} 家 · ${wan(o.nearGmv)}（按缺失项）</div>
     <div>${nearBy}</div>
+    <div class="mini-head">按距门槛的达标度分档 —— 越靠前越快能过线</div>
+    <div>${nearBk}</div>
     <div class="mini-head">高GMV非友好 ${o.bigCnt} 家 · ${wan(o.bigGmv)}（按 GPM 距门槛的距离分档）</div>
     <div>${bigGap}</div>
   </div>`;
@@ -199,38 +205,58 @@ function vQuality() {
 
 /* ============ 临门一脚 ============ */
 function vNear() {
-  setupFilters(D.near, { miss: true });
-  const list = applyFilter(D.near, { miss: true });
+  setupFilters(D.near, { miss: true, bucket: true });
+  let list = applyFilter(D.near, { miss: true });
+  const bk = $('f-bucket') ? $('f-bucket').value : '';
+  if (bk) list = list.filter(r => bucketOf(r) === bk);
   const o = D.overview;
   $('filter-hint').textContent = `显示 ${list.length} / ${D.near.length} 家 · 合计 ${wan(list.reduce((s, r) => s + r.gmv, 0))}`;
+
   const rows = list.map(r => {
-    const need = r.miss.includes('GPM')
-      ? `GPM ${Math.round(r.gpm)} → 需 ${o.gpmStd}（还差 ${Math.round(o.gpmStd - r.gpm)}）`
-      : r.miss.includes('月DGMV') ? `月 DGMV ${wan(r.gmv)} → 需 1 万` : r.miss.join('、');
+    const pct = Math.min(r.gappct, 100);
+    const cls = r.gappct >= 80 ? 'ok' : r.gappct >= 50 ? 'warn' : '';
+    const need = r.gapunit === 'GPM'
+      ? `GPM ${Math.round(r.gpm)} → ${o.gpmStd}，差 <b>${r.gapv}</b>`
+      : r.gapunit === '月DGMV' ? `月 DGMV ${wan(r.gmv)} → 1 万，差 <b>¥${num(r.gapv)}</b>`
+        : r.miss.join('、');
     return `<tr class="row-click" data-id="${r.id}" data-src="near">
       <td class="shop">${esc(r.name)}</td>
       <td>${r.b}</td>
       <td class="muted">${esc(r.cat)}</td>
+      <td>${r.miss.map(m => `<span class="tag miss">${m}</span>`).join('')}</td>
+      <td class="num"><b style="color:${r.gappct >= 80 ? '#389e0d' : r.gappct >= 50 ? '#d46b08' : '#cf1322'}">${r.gappct}%</b></td>
+      <td style="min-width:90px"><div class="bar-wrap"><div class="bar ${cls}" style="width:${pct}%"></div></div></td>
+      <td class="muted">${need}</td>
       <td class="num">${wan(r.gmv)}</td>
       <td class="num">${num(Math.round(r.gpm))}</td>
       <td class="num">${impFmt(r.imp)}</td>
-      <td>${r.miss.map(m => `<span class="tag miss">${m}</span>`).join('')}</td>
-      <td class="muted">${esc(need)}</td>
     </tr>`;
   }).join('');
 
+  const bkOrder = ['≥80%（一步之遥）', '60-80%', '40-60%', '20-40%', '<20%（差距大）'];
+  const bkPills = bkOrder.filter(k => o.nearBucket[k]).map(k =>
+    `<span class="pill">${k}：<b>${o.nearBucket[k]}</b> 家</span>`).join('');
+
   return `<div class="section">
     <div class="section-title">临门一脚池 <span class="badge">仅缺 1 项 · ${D.near.length} 家</span></div>
-    <div class="section-sub">八项判定里只差最后一项，是转化率最高的做功对象。点击行看曝光结构与经营动作明细。</div>
+    <div class="section-sub">已按<b>距门槛的差距从小到大</b>排序，越靠前越快能过线。「达标度」= 当前值 ÷ 门槛值。</div>
     <div class="callout info">
-      <b>怎么用：</b>只缺 <b>GPM</b> 的 ${o.nearBy['GPM'] || 0} 家（${wan(D.near.filter(r => r.miss.includes('GPM')).reduce((s, r) => s + r.gmv, 0))}），看曝光够不够——曝光已经不小的，问题在转化承接（客单、货盘、直播承接）；曝光很小的，得先解决内容和直播供给。
-      只缺 <b>月 DGMV</b> 的 ${o.nearBy['月DGMV'] || 0} 家 GPM 已达标，差的只是 1 万的绝对量，一场直播或一次活动就能过线，性价比最高。
+      <b>怎么用：</b>从上往下打。达标度 ≥80% 的 <b>${o.nearBucket['≥80%（一步之遥）'] || 0}</b> 家是一步之遥——
+      像 Clean Circle 的海外店 GPM 只差 1.2 就过线、隆兴大米差 11.4，本月稍微推一把就能进；
+      而排在后面达标度不足 20% 的 ${o.nearBucket['<20%（差距大）'] || 0} 家虽然也"只缺一项"，但那一项差得远，不值得优先投入。
+      只缺 <b>月 DGMV</b> 的 ${o.nearBy['月DGMV'] || 0} 家 GPM 已达标，差的只是 1 万的绝对量，一场直播或一次活动即可。
     </div>
+    <div style="margin-bottom:12px">${bkPills}</div>
     <div class="table-wrap"><table>
-      <thead><tr><th>店铺</th><th>B等级</th><th>主营类目</th><th class="num">月GMV</th><th class="num">GPM</th>
-      <th class="num">月曝光</th><th>缺失项</th><th>差距</th></tr></thead>
-      <tbody>${rows || '<tr><td colspan="8" class="empty">无匹配数据</td></tr>'}</tbody></table></div>
+      <thead><tr><th>店铺</th><th>B等级</th><th>主营类目</th><th>缺失项</th>
+      <th class="num">达标度</th><th>进度</th><th>还差多少</th><th class="num">月GMV</th><th class="num">GPM</th><th class="num">月曝光</th></tr></thead>
+      <tbody>${rows || '<tr><td colspan="10" class="empty">无匹配数据</td></tr>'}</tbody></table></div>
   </div>`;
+}
+
+function bucketOf(r) {
+  return r.gappct >= 80 ? '≥80%（一步之遥）' : r.gappct >= 60 ? '60-80%'
+    : r.gappct >= 40 ? '40-60%' : r.gappct >= 20 ? '20-40%' : '<20%（差距大）';
 }
 
 /* ============ 高GMV非友好 ============ */
