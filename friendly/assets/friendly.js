@@ -13,7 +13,18 @@ function impFmt(v) {
   return num(v);
 }
 
-fetch('data/index.json?v=' + Math.floor(Date.now() / 60000), { cache: 'no-store' })
+const V = 'v=' + Math.floor(Date.now() / 60000);
+const LOADED = {};
+function loadPart(name) {
+  if (LOADED[name]) return Promise.resolve(D[name]);
+  return fetch(`data/${name}.json?${V}`, { cache: 'no-store' })
+    .then(r => r.json())
+    .then(j => { D[name] = j; LOADED[name] = 1; return j; });
+}
+const TAB_PART = { near: 'near', bigmv: 'bigmv', comp: 'compliance', uplift: 'uplift' };
+const ACT_NAME = { k: '加 K 播', live: '起店播', price: '提客单', note: '提内容质量', rebuy: '促复购', keep: '保持' };
+
+fetch('data/index.json?' + V, { cache: 'no-store' })
   .then(r => r.json())
   .then(d => { D = d; init(); })
   .catch(e => { $('app').innerHTML = `<div class="empty">数据加载失败：${esc(e.message)}</div>`; });
@@ -68,6 +79,13 @@ function setupFilters(list, opts) {
 }
 
 function render() {
+  const part = TAB_PART[TAB];
+  if (part && !LOADED[part]) {
+    $('app').innerHTML = '<div class="loading">加载中…</div>';
+    loadPart(part).then(render).catch(e =>
+      $('app').innerHTML = `<div class="empty">加载失败：${esc(e.message)}</div>`);
+    return;
+  }
   const fn = { overview: vOverview, grow: vGrow, uplift: vUplift, quality: vQuality,
                near: vNear, bigmv: vBigmv, comp: vComp, rule: vRule }[TAB];
   $('app').innerHTML = fn();
@@ -429,7 +447,7 @@ function vGrow() {
     <td class="num">${r.gmvPerNote ? '¥' + num(r.gmvPerNote) : '-'}<br><span class="muted">${cmp(r.gmvPerNote, bch.gmvPerNote)}</span></td>
     <td class="num">¥${r.price}<br><span class="muted">${cmp(r.price, bch.price)}</span></td>
     <td class="num">${r.rebuy}%<br><span class="muted">${cmp(r.rebuy, bch.rebuy)}</span></td>
-    <td>${r.acts.slice(0, 2).map(a => `<span class="tag t-warn">${a.k}</span>`).join(' ')}</td>
+    <td>${r.acts.slice(0, 2).map(a => `<span class="tag t-warn">${ACT_NAME[a] || a}</span>`).join(' ')}</td>
   </tr>`).join('');
 
   const blankStat = {};
@@ -475,7 +493,7 @@ function vUplift() {
 
   const rows = list.map(r => {
     const p0 = (r.plans || [])[0];
-    const rec = p0 ? `<b>${p0.field}</b> ${p0.now > 0 ? wan(p0.now) + ' → ' + wan(p0.now + p0.need) : '从 0 做到 ' + wan(p0.need)}` : '—';
+    const rec = p0 ? `<b>${p0.f}</b> ${p0.now > 0 ? wan(p0.now) + ' → ' + wan(p0.now + p0.need) : '从 0 做到 ' + wan(p0.need)}` : '—';
     return `<tr class="row-click" data-id="${r.id}" data-src="uplift">
       <td><span class="tag ${tierCls[r.tier]}">${r.tier}</span></td>
       <td class="shop">${esc(r.name)}</td>
@@ -578,29 +596,57 @@ function fieldPanel(r) {
       <div class="dist-bar-wrap"><div class="dist-bar ${tip.startsWith('不') ? 'g' : ''}" style="width:${v / dtot * 100}%"></div></div>
       <div class="dist-val">${wan(v)} · ${(v / dtot * 100).toFixed(0)}% <span class="muted">${tip}</span></div></div>`).join('');
 
-  const acts = (r.acts || []).map(a =>
-    `<div class="risk-line mid">• <b>${esc(a.k)}</b>：${esc(a.txt)}</div>`).join('');
+  const acts = (r.acts || []).map(a => {
+    const bch2 = D.overview.bench || {};
+    const T = {
+      k: ['加 K 播', 'K播 DGMV 为 0，K播曝光在 GPM 分母里只占很小比重，做出成交等于净增分子'],
+      live: ['起店播', '本月未开播，店播曝光不进 GPM 分母，是唯一能自主控节奏的转化场'],
+      price: ['提客单', `客单 ¥${r.price} 低于友好 B4+ 中位 ¥${bch2.price}，货盘结构有升级空间`],
+      note: ['提内容质量', `每篇笔记带来 ${(r.impPerNote / 10000).toFixed(1)} 万曝光，低于基准 ${(bch2.impPerNote / 10000).toFixed(1)} 万，量大质弱`],
+      rebuy: ['促复购', `90 天复购 ${r.rebuy}% 低于基准 ${bch2.rebuy}%，老客沉淀不足`],
+      keep: ['保持', '各项效率均在基准之上，维持节奏即可'],
+    }[a] || [a, ''];
+    return `<div class="risk-line mid">• <b>${esc(T[0])}</b>：${esc(T[1])}</div>`;
+  }).join('');
 
   // 场域行动方案（uplift 专用）
+  const fb = o.fbench || {};
+  const planTxt = (p) => ({
+    card_on: '商卡不吃公域曝光，靠店铺自己承接：优化主图与标题关键词、把爆品加进店铺置顶、开推荐位与关联搭配购、笔记挂车直接引到商详',
+    card_off: `商卡本月 0 成交，友好 B4+ 中位能做到 ${wan(fb.card)}。先把在售商品的主图/标题/详情补齐，开启店铺推荐位与关联搭配`,
+    live_on: `店播已有基础，加密场次即可。按友好 B4+ 每小时 ¥${num(fb.liveGmvPerH)} 的效率，约需多播 ${p.h} 小时`,
+    live_off: `本月未开播。店播曝光不进分母、节奏完全自己可控，按友好 B4+ 每小时 ¥${num(fb.liveGmvPerH)} 测算约需 ${p.h} 小时`,
+    price: `订单量一单都不用涨，客单价从 ¥${p.now} 提到 ¥${p.need} 即可（友好 B4+ 中位 ¥${fb.price}）。做法是组合装、加购满减、把高价 SKU 顶到主推位`,
+  }[p.tpl] || '');
+
   const planBox = (r.plans && r.plans.length) ? `
-    <div class="mini-head">补上这 ${wan(r.gap)} 缺口，三条路任选</div>
+    <div class="mini-head">补上这 ${wan(r.gap)} 缺口，三条路任选一条</div>
     ${r.plans.map((p, i) => `<div class="panel2" style="margin-bottom:8px">
       <div style="font-size:13px;font-weight:600;margin-bottom:4px">
-        方案${'ABC'[i]}　${p.field}
+        方案${'ABC'[i]}　${p.f}
         ${p.free ? '<span class="tag t-safe">曝光不进分母</span>' : '<span class="tag gen">不增曝光</span>'}
       </div>
       <div style="font-size:13px;margin-bottom:4px">
         ${p.unit === '¥'
-          ? `客单价 <b>¥${p.now}</b> → <b>¥${p.need}</b>${p.upPct ? `（+${p.upPct}%）` : ''}`
-          : `${p.field} GMV <b>${wan(p.now)}</b> → <b>${wan(p.now + p.need)}</b>${p.upPct ? `（+${p.upPct}%）` : '（从 0 起）'}`}
+          ? `客单价 <b>¥${p.now}</b> → <b>¥${p.need}</b>${p.up ? `（+${p.up}%）` : ''}`
+          : `${p.f} GMV <b>${wan(p.now)}</b> → <b>${wan(p.now + p.need)}</b>${p.up ? `（+${p.up}%）` : '（从 0 起步）'}`}
       </div>
-      <div class="muted" style="font-size:12px;line-height:1.7">${esc(p.how)}</div>
+      <div class="muted" style="font-size:12px;line-height:1.7">${esc(planTxt(p))}</div>
     </div>`).join('')}` : '';
 
+  const whyTxt = {
+    ok: 'GPM 已过线，缺的是其他项',
+    blank: '商卡和店播都是 0——这两个场的曝光不进 GPM 分母、成交却算分子，是最划算的起点',
+    lowfree: `免分母场域只占成交 ${r.freeShare}%，友好 B4+ 是 ${fb.freeShare}%，把成交往商卡和店播挪能直接抬 GPM`,
+    lowprice: `客单 ¥${r.price} 仅为友好 B4+ 中位 ¥${fb.price} 的 ${Math.round(r.price / fb.price * 100)}%，低价品换不来 GPM`,
+    lownote: `发了 ${r.note} 篇笔记、每篇只带 ¥${num(r.gmvPerNote)} 成交，笔记曝光全额进分母，转化跟不上就是在自己稀释自己`,
+    noimp: '本月无公域曝光，先解决内容与直播供给',
+    mismatch: '曝光与成交不匹配，需提升承接效率',
+  }[r.w] || '';
+
   const pathBox = r.path ? `<div class="callout ${r.gpmRatio >= 70 ? 'warn' : 'danger'}" style="margin:0 0 10px">
-      <b>${r.tier} · ${r.path}</b>　${esc(r.why || '')}<br>
-      当前 GPM ${Math.round(r.gpm)}（门槛 ${o.gpmStd} 的 ${r.gpmRatio}%），
-      要达标还差 <b>${wan(r.gap)}</b> 成交${r.gapOrders ? `，按现在客单 ¥${r.price} 算约 <b>${num(r.gapOrders)} 单</b>` : ''}。
+      <b>${r.tier} · ${r.path}</b>　${esc(whyTxt)}<br>
+      当前 GPM ${Math.round(r.gpm)}（门槛 ${o.gpmStd} 的 ${r.gpmRatio}%），达标还差 <b>${wan(r.gap)}</b> 成交${r.gapOrders ? `，按现在客单 ¥${r.price} 算约 <b>${num(r.gapOrders)} 单</b>` : ''}。
     </div>` : '';
 
   return `<div class="panel">
