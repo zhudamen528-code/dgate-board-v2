@@ -18,11 +18,13 @@
   </div>
   <div class="tabs">
     <div class="tab active" data-tab="overview">总览</div>
-    <div class="tab" data-tab="quality">现有友好商家</div>
+    <div class="tab" data-tab="grow">① 友好商家做大</div>
+    <div class="tab" data-tab="uplift">② 非友好转友好</div>
+    <div class="tab" data-tab="quality">失格监控</div>
     <div class="tab" data-tab="near">临门一脚</div>
     <div class="tab" data-tab="bigmv">高GMV非友好</div>
     <div class="tab" data-tab="comp">合规专项</div>
-    <div class="tab" data-tab="rule">口径说明</div>
+    <div class="tab" data-tab="rule">GPM 口径</div>
   </div>
   <div class="meta" id="meta"></div>
 </div>
@@ -52,6 +54,14 @@
       <option value="active">🟠 有成交·需处理</option>
       <option value="idle">⚪ 无成交</option>
     </select></label>
+    <label id="w-prio" style="display:none">优先级 <select id="f-prio">
+      <option value="">全部</option>
+      <option value="P0">P0 优先攻坚</option>
+      <option value="P1">P1 重点跟进</option>
+      <option value="P2">P2 常规运营</option>
+      <option value="P3">P3 暂缓</option>
+    </select></label>
+    <label id="w-path" style="display:none">提升路径 <select id="f-path"><option value="">全部</option></select></label>
     <label>搜索 <input id="f-kw" type="text" placeholder="店铺名关键词"></label>
     <span class="filter-hint" id="filter-hint"></span>
   </div>
