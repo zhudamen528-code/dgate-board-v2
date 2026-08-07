@@ -26,7 +26,7 @@ function init() {
     document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
     t.classList.add('active'); TAB = t.dataset.tab; render();
   });
-  ['f-cat', 'f-b', 'f-tier', 'f-miss', 'f-gap', 'f-bucket'].forEach(i => $(i).onchange = render);
+  ['f-cat', 'f-b', 'f-tier', 'f-miss', 'f-gap', 'f-bucket', 'f-sev'].forEach(i => $(i).onchange = render);
   $('f-kw').oninput = render;
   render();
 }
@@ -57,6 +57,7 @@ function setupFilters(list, opts) {
   $('w-miss').style.display = opts.miss ? 'flex' : 'none';
   $('w-gap').style.display = opts.gap ? 'flex' : 'none';
   $('w-bucket').style.display = opts.bucket ? 'flex' : 'none';
+  $('w-sev').style.display = opts.sev ? 'flex' : 'none';
   fillSel('f-cat', [...new Set(list.map(r => r.cat))].sort());
   fillSel('f-b', ['B6', 'B5', 'B4', 'B3', 'B2', 'B1', '无成交'].filter(b => list.some(r => r.b === b)));
   if (opts.miss) fillSel('f-miss', [...new Set(list.flatMap(r => r.miss || []))]);
@@ -64,7 +65,7 @@ function setupFilters(list, opts) {
 }
 
 function render() {
-  const fn = { overview: vOverview, quality: vQuality, near: vNear, bigmv: vBigmv, rule: vRule }[TAB];
+  const fn = { overview: vOverview, quality: vQuality, near: vNear, bigmv: vBigmv, comp: vComp, rule: vRule }[TAB];
   $('app').innerHTML = fn();
   document.querySelectorAll('tr.row-click').forEach(tr => tr.onclick = () => {
     const nx = tr.nextElementSibling;
@@ -126,13 +127,19 @@ function vOverview() {
       <div class="kpi warn"><div class="kpi-label">失格预警</div><div class="kpi-val warn">${rt.danger + rt.warn}</div><div class="kpi-sub">${rt.danger} 家高危 · ${rt.warn} 家单项预警</div></div>
       <div class="kpi"><div class="kpi-label">临门一脚池</div><div class="kpi-val">${o.nearCnt}</div><div class="kpi-sub">仅缺 1 项 · ${wan(o.nearGmv)} GMV</div></div>
       <div class="kpi danger"><div class="kpi-label">高GMV非友好</div><div class="kpi-val danger">${o.bigCnt}</div><div class="kpi-sub">B4+ 未达标 · ${wan(o.bigGmv)} GMV</div></div>
+      <div class="kpi danger"><div class="kpi-label">合规异常</div><div class="kpi-val danger">${o.compActive}</div><div class="kpi-sub">有成交需处理 · 全盘 ${o.compCnt} 家贴线</div></div>
     </div>
   </div>
 
   <div class="section">
     <div class="callout info">
-      <b>核心判断：</b>你名下 <b>没有一家</b>商家卡在店铺分、商品分、违规、高价店、冻结这些资质项上——临门一脚池 ${o.nearCnt} 家里，${o.nearBy['GPM'] || 0} 家只缺 GPM、${o.nearBy['月DGMV'] || 0} 家只缺月 DGMV 1 万门槛。
-      这意味着你的做功方向高度收敛：<b>不是补资质，而是提流量效率</b>。B4+ 非友好 ${o.bigCnt} 家全部卡在 GPM 上，合计 ${wan(o.bigGmv)} GMV 已经在手，差的只是把曝光换成成交的能力。
+      <b>核心判断：</b>临门一脚池 ${o.nearCnt} 家里，${o.nearBy['GPM'] || 0} 家只缺 GPM、${o.nearBy['月DGMV'] || 0} 家只缺月 DGMV 1 万门槛——<b>没有一家是单纯卡在合规上的</b>，
+      所以「只缺 1 项」这个池子里看不到合规项。你的主战场是流量效率：B4+ 非友好 ${o.bigCnt} 家全部卡在 GPM 上，合计 ${wan(o.bigGmv)} GMV 已经在手，差的只是把曝光换成成交的能力。
+    </div>
+    <div class="callout danger">
+      <b>但合规问题另算：</b>全盘有 <b>${o.compCnt}</b> 家存在合规异常或贴线（商品分 ${o.compBy['商品分'] || 0} / 店铺分 ${o.compBy['店铺分'] || 0} / 严重违规 ${o.compBy['严重违规'] || 0} / 冻结 ${o.compBy['冻结'] || 0}），
+      它们大多同时还缺 GPM 和 GMV，缺项数 ≥2，所以不在临门一脚池里。其中 <b>${o.compActive} 家近 30 天有实际成交</b>（${wan(o.compActiveGmv)}）需要你介入——
+      合规是唯一「识别即剔除、T+1 生效」的项，不等月初。详见「合规专项」Tab。
     </div>
   </div>
 
@@ -358,6 +365,59 @@ function detailPanel(r) {
         ${carr}
       </div>
     </div>
+  </div>`;
+}
+
+/* ============ 合规专项 ============ */
+function vComp() {
+  const C = D.compliance || [];
+  setupFilters(C, { sev: true });
+  let list = applyFilter(C, {});
+  const sv = $('f-sev').value;
+  if (sv) list = list.filter(r => r.sev === sv);
+  const o = D.overview;
+  $('filter-hint').textContent = `显示 ${list.length} / ${C.length} 家`;
+
+  const sevTag = { critical: '<span class="tag t-danger">🔴 友好·有风险</span>',
+                   active: '<span class="tag t-warn">🟠 有成交</span>',
+                   idle: '<span class="tag gen">⚪ 无成交</span>' };
+  const rows = list.map(r => {
+    const issues = [];
+    r.comp.forEach(k => issues.push(`<span class="tag miss">${k}超限</span>`));
+    if (r.nearPun) issues.push(`<span class="tag t-watch">违规 ${r.pun}/${r.punStd} 逼近</span>`);
+    if (r.nearScore) issues.push(`<span class="tag t-watch">分数贴线</span>`);
+    return `<tr class="row-click" data-id="${r.id}" data-src="compliance">
+      <td class="shop">${esc(r.name)}${r.q ? ' <span class="tag t-safe">友好</span>' : ''}</td>
+      <td>${sevTag[r.sev]}</td>
+      <td>${r.b}</td>
+      <td class="num">${wan(r.dgmv30)}</td>
+      <td class="num" style="color:${r.pun > r.punStd ? '#cf1322' : r.pun >= 3 ? '#d46b08' : '#6b7280'}">${r.pun}<span class="muted">/${r.punStd}</span></td>
+      <td class="num" style="color:${r.shop < r.shopStd ? '#cf1322' : r.shop < r.shopStd + 0.2 ? '#d46b08' : '#6b7280'}">${r.shop || '-'}</td>
+      <td class="num" style="color:${r.goods < r.goodsStd ? '#cf1322' : r.goods < r.goodsStd + 0.2 ? '#d46b08' : '#6b7280'}">${r.goods || '-'}</td>
+      <td>${issues.join(' ')}</td>
+      <td class="num">${r.missn}</td>
+    </tr>`;
+  }).join('');
+
+  const by = Object.entries(o.compBy || {}).sort((a, b) => b[1] - a[1])
+    .map(([k, v]) => `<span class="pill">${k}超限：<b>${v}</b> 家</span>`).join('');
+
+  return `<div class="section">
+    <div class="section-title">合规专项 <span class="badge danger">${C.length} 家有合规问题或贴线</span></div>
+    <div class="section-sub">合规是唯一「识别即剔除、T+1 生效」的判定项，不等月初刷新。这里收全部合规异常，不管它同时还缺几项。</div>
+    <div class="callout warn">
+      <b>为什么临门一脚里看不到合规项：</b>那个池子按定义只收「只缺 1 项」的商家，而合规出问题的商家通常同时还缺 GPM、GMV，缺项数 ≥2，就被排到后面去了——不是你名下没有合规问题，是它们被那个筛选逻辑挡住了。这个 Tab 专门补上。
+    </div>
+    <div class="callout danger">
+      <b>眼下要盯的：</b>全盘 ${o.compCnt} 家存在合规异常或贴线，其中 <b>${o.compActive} 家近 30 天有实际成交</b>（合计 ${wan(o.compActiveGmv)}），是真正需要沟通的。剩下的基本是无成交的僵尸店。
+      最急的一家是 <b>小熊早安旗舰店</b>——已是友好商家，但近 30 天严重违规已达 5 条顶格，再加一条就 T+1 直接剔除。
+      另外阿珍的手作铺（6 条）、食验室（6 条）已经超限，茶颜悦色（3 条）在逼近。
+    </div>
+    <div style="margin-bottom:12px">${by}</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>店铺</th><th>状态</th><th>B等级</th><th class="num">近30天GMV</th>
+      <th class="num">违规/上限</th><th class="num">店铺分</th><th class="num">商品分</th><th>问题</th><th class="num">总缺项</th></tr></thead>
+      <tbody>${rows || '<tr><td colspan="9" class="empty">无匹配数据</td></tr>'}</tbody></table></div>
   </div>`;
 }
 

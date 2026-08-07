@@ -21,6 +21,7 @@
     <div class="tab" data-tab="quality">现有友好商家</div>
     <div class="tab" data-tab="near">临门一脚</div>
     <div class="tab" data-tab="bigmv">高GMV非友好</div>
+    <div class="tab" data-tab="comp">合规专项</div>
     <div class="tab" data-tab="rule">口径说明</div>
   </div>
   <div class="meta" id="meta"></div>
@@ -44,6 +45,12 @@
       <option value="40-60%">40-60%</option>
       <option value="20-40%">20-40%</option>
       <option value="&lt;20%（差距大）">&lt;20% 差距大</option>
+    </select></label>
+    <label id="w-sev" style="display:none">状态 <select id="f-sev">
+      <option value="">全部</option>
+      <option value="critical">🔴 友好商家有合规风险</option>
+      <option value="active">🟠 有成交·需处理</option>
+      <option value="idle">⚪ 无成交</option>
     </select></label>
     <label>搜索 <input id="f-kw" type="text" placeholder="店铺名关键词"></label>
     <span class="filter-hint" id="filter-hint"></span>
