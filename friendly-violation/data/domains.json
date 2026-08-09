@@ -2,65 +2,65 @@
  "new": [
   {
    "domain": "未成年",
-   "cnt": 107
+   "cnt": 117
   },
   {
-   "domain": "违规营销笔记",
-   "cnt": 34
+   "domain": "商品合规",
+   "cnt": 12
   },
   {
    "domain": "违规营销商品",
    "cnt": 12
   },
   {
-   "domain": "商品合规",
+   "domain": "虚假宣传笔记",
    "cnt": 11
   },
   {
-   "domain": "—",
+   "domain": "违规营销笔记",
    "cnt": 7
+  },
+  {
+   "domain": "大盘/横向品质治理",
+   "cnt": 4
+  },
+  {
+   "domain": "流量作弊",
+   "cnt": 4
   },
   {
    "domain": "商业生态",
-   "cnt": 7
-  },
-  {
-   "domain": "虚假宣传笔记",
-   "cnt": 6
-  },
-  {
-   "domain": "特殊垂类-医疗医美",
-   "cnt": 5
+   "cnt": 4
   }
  ],
  "active": [
   {
    "domain": "违规营销笔记",
-   "cnt": 892
+   "cnt": 850
   },
   {
    "domain": "虚假宣传笔记",
-   "cnt": 324
+   "cnt": 327
   },
   {
    "domain": "违规营销商品",
-   "cnt": 258
+   "cnt": 241
   },
   {
    "domain": "相关性",
-   "cnt": 163
-  },
-  {
-   "domain": "笔记内容生态",
-   "cnt": 135
+   "cnt": 166
   },
   {
    "domain": "商业内容治理",
    "cnt": 135
   },
   {
+   "domain": "笔记内容生态",
+   "cnt": 132
+  },
+  {
    "domain": "禁售",
-   "cnt": 81
+   "cnt": 82
   },
   {
    "domain": "应急处置",

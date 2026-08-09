@@ -7,7 +7,7 @@
   "watch": 5,
   "safe": 41,
   "sev_active": 36,
-  "new_total": 36,
+  "new_total": 44,
   "new_severe": 0
  },
  {
@@ -18,18 +18,7 @@
   "watch": 9,
   "safe": 44,
   "sev_active": 11,
-  "new_total": 29,
-  "new_severe": 0
- },
- {
-  "am": "令仪(沙依兰)",
-  "shops": 62,
-  "disqualified": 0,
-  "critical": 0,
-  "watch": 3,
-  "safe": 59,
-  "sev_active": 3,
-  "new_total": 64,
+  "new_total": 30,
   "new_severe": 0
  },
  {
@@ -40,7 +29,18 @@
   "watch": 3,
   "safe": 25,
   "sev_active": 3,
-  "new_total": 10,
+  "new_total": 5,
+  "new_severe": 0
+ },
+ {
+  "am": "令仪(沙依兰)",
+  "shops": 62,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 2,
+  "safe": 60,
+  "sev_active": 2,
+  "new_total": 52,
   "new_severe": 0
  },
  {
@@ -51,7 +51,18 @@
   "watch": 2,
   "safe": 37,
   "sev_active": 2,
-  "new_total": 14,
+  "new_total": 19,
+  "new_severe": 0
+ },
+ {
+  "am": "诗雨(诗雨)",
+  "shops": 31,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 1,
+  "safe": 30,
+  "sev_active": 1,
+  "new_total": 26,
   "new_severe": 0
  },
  {
@@ -62,7 +73,7 @@
   "watch": 1,
   "safe": 20,
   "sev_active": 1,
-  "new_total": 17,
+  "new_total": 14,
   "new_severe": 0
  },
  {
@@ -73,18 +84,7 @@
   "watch": 1,
   "safe": 12,
   "sev_active": 1,
-  "new_total": 11,
-  "new_severe": 0
- },
- {
-  "am": "诗雨(诗雨)",
-  "shops": 31,
-  "disqualified": 0,
-  "critical": 0,
-  "watch": 0,
-  "safe": 31,
-  "sev_active": 0,
-  "new_total": 54,
+  "new_total": 9,
   "new_severe": 0
  }
 ]
