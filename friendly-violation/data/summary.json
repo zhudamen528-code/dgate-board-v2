@@ -1,24 +1,24 @@
 {
- "day": "2026-08-08",
- "generated_at": "2026-08-09 01:42",
+ "day": "2026-08-09",
+ "generated_at": "2026-08-10 01:42",
  "red_line": 5,
  "warn_line": 3,
  "roster_total": 296,
- "new_orders": 199,
- "new_shops": 89,
+ "new_orders": 180,
+ "new_shops": 86,
  "new_severe": 0,
  "new_severe_shops": 0,
- "sev_active_orders": 57,
+ "sev_active_orders": 59,
  "sev_stale_orders": 0,
- "sev_raw_orders": 57,
- "sev_active_shops": 27,
- "aff_active_orders": 2462,
+ "sev_raw_orders": 59,
+ "sev_active_shops": 29,
+ "aff_active_orders": 2446,
  "aff_active_shops": 241,
  "tier": {
   "disqualified": 2,
   "critical": 1,
-  "watch": 24,
-  "safe": 269
+  "watch": 26,
+  "safe": 267
  },
  "am_count": 8
 }
