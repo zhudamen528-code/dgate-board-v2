@@ -7,18 +7,29 @@
   "watch": 5,
   "safe": 41,
   "sev_active": 36,
-  "new_total": 37,
+  "new_total": 46,
+  "new_severe": 0
+ },
+ {
+  "am": "令仪(沙依兰)",
+  "shops": 62,
+  "disqualified": 1,
+  "critical": 0,
+  "watch": 3,
+  "safe": 58,
+  "sev_active": 12,
+  "new_total": 67,
   "new_severe": 0
  },
  {
   "am": "莱拉(付艺迪)",
   "shops": 53,
   "disqualified": 0,
-  "critical": 0,
+  "critical": 1,
   "watch": 10,
-  "safe": 43,
-  "sev_active": 12,
-  "new_total": 37,
+  "safe": 42,
+  "sev_active": 16,
+  "new_total": 30,
   "new_severe": 0
  },
  {
@@ -29,18 +40,7 @@
   "watch": 3,
   "safe": 25,
   "sev_active": 3,
-  "new_total": 9,
-  "new_severe": 0
- },
- {
-  "am": "令仪(沙依兰)",
-  "shops": 62,
-  "disqualified": 0,
-  "critical": 0,
-  "watch": 2,
-  "safe": 60,
-  "sev_active": 2,
-  "new_total": 88,
+  "new_total": 11,
   "new_severe": 0
  },
  {
@@ -51,7 +51,7 @@
   "watch": 2,
   "safe": 29,
   "sev_active": 2,
-  "new_total": 9,
+  "new_total": 18,
   "new_severe": 0
  },
  {
@@ -62,7 +62,7 @@
   "watch": 2,
   "safe": 37,
   "sev_active": 2,
-  "new_total": 13,
+  "new_total": 11,
   "new_severe": 0
  },
  {
@@ -73,7 +73,7 @@
   "watch": 1,
   "safe": 20,
   "sev_active": 1,
-  "new_total": 34,
+  "new_total": 30,
   "new_severe": 0
  },
  {
@@ -84,7 +84,7 @@
   "watch": 1,
   "safe": 12,
   "sev_active": 1,
-  "new_total": 10,
+  "new_total": 13,
   "new_severe": 0
  }
 ]
