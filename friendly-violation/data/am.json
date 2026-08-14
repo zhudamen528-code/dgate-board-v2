@@ -7,7 +7,7 @@
   "watch": 5,
   "safe": 41,
   "sev_active": 36,
-  "new_total": 69,
+  "new_total": 36,
   "new_severe": 0
  },
  {
@@ -17,8 +17,8 @@
   "critical": 0,
   "watch": 3,
   "safe": 58,
-  "sev_active": 12,
-  "new_total": 66,
+  "sev_active": 11,
+  "new_total": 55,
   "new_severe": 0
  },
  {
@@ -29,7 +29,7 @@
   "watch": 11,
   "safe": 42,
   "sev_active": 13,
-  "new_total": 26,
+  "new_total": 34,
   "new_severe": 0
  },
  {
@@ -40,7 +40,7 @@
   "watch": 3,
   "safe": 25,
   "sev_active": 3,
-  "new_total": 11,
+  "new_total": 17,
   "new_severe": 0
  },
  {
@@ -51,7 +51,7 @@
   "watch": 2,
   "safe": 29,
   "sev_active": 2,
-  "new_total": 22,
+  "new_total": 28,
   "new_severe": 0
  },
  {
@@ -62,7 +62,7 @@
   "watch": 2,
   "safe": 37,
   "sev_active": 2,
-  "new_total": 18,
+  "new_total": 29,
   "new_severe": 0
  },
  {
@@ -73,7 +73,7 @@
   "watch": 1,
   "safe": 20,
   "sev_active": 1,
-  "new_total": 33,
+  "new_total": 31,
   "new_severe": 0
  },
  {
@@ -84,7 +84,7 @@
   "watch": 1,
   "safe": 12,
   "sev_active": 1,
-  "new_total": 9,
+  "new_total": 13,
   "new_severe": 0
  }
 ]
