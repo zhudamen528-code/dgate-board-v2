@@ -2,45 +2,34 @@
  {
   "am": "莱莉(孙雨萱)",
   "shops": 49,
-  "disqualified": 2,
+  "disqualified": 1,
   "critical": 1,
-  "watch": 5,
+  "watch": 6,
   "safe": 41,
-  "sev_active": 35,
-  "new_total": 40,
+  "sev_active": 22,
+  "new_total": 33,
   "new_severe": 0
  },
  {
   "am": "令仪(沙依兰)",
   "shops": 62,
   "disqualified": 1,
-  "critical": 2,
-  "watch": 4,
+  "critical": 1,
+  "watch": 5,
   "safe": 55,
-  "sev_active": 20,
-  "new_total": 63,
+  "sev_active": 17,
+  "new_total": 85,
   "new_severe": 0
  },
  {
   "am": "莱拉(付艺迪)",
   "shops": 53,
-  "disqualified": 1,
+  "disqualified": 0,
   "critical": 1,
-  "watch": 7,
+  "watch": 8,
   "safe": 44,
-  "sev_active": 22,
-  "new_total": 29,
-  "new_severe": 0
- },
- {
-  "am": "大门(朱锦程)",
-  "shops": 39,
-  "disqualified": 1,
-  "critical": 0,
-  "watch": 1,
-  "safe": 37,
-  "sev_active": 8,
-  "new_total": 22,
+  "sev_active": 16,
+  "new_total": 49,
   "new_severe": 0
  },
  {
@@ -51,7 +40,7 @@
   "watch": 2,
   "safe": 29,
   "sev_active": 2,
-  "new_total": 14,
+  "new_total": 15,
   "new_severe": 0
  },
  {
@@ -62,7 +51,18 @@
   "watch": 2,
   "safe": 26,
   "sev_active": 2,
-  "new_total": 13,
+  "new_total": 11,
+  "new_severe": 0
+ },
+ {
+  "am": "大门(朱锦程)",
+  "shops": 39,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 2,
+  "safe": 37,
+  "sev_active": 2,
+  "new_total": 11,
   "new_severe": 0
  },
  {
@@ -73,7 +73,7 @@
   "watch": 1,
   "safe": 20,
   "sev_active": 1,
-  "new_total": 56,
+  "new_total": 35,
   "new_severe": 0
  },
  {
@@ -84,7 +84,7 @@
   "watch": 1,
   "safe": 12,
   "sev_active": 1,
-  "new_total": 9,
+  "new_total": 7,
   "new_severe": 0
  }
 ]
