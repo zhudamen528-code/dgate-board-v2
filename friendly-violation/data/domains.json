@@ -2,69 +2,69 @@
  "new": [
   {
    "domain": "未成年",
-   "cnt": 90
+   "cnt": 106
   },
   {
-   "domain": "违规营销商品",
-   "cnt": 20
+   "domain": "品质治理",
+   "cnt": 54
+  },
+  {
+   "domain": "违规营销",
+   "cnt": 50
   },
   {
    "domain": "计次处置",
-   "cnt": 12
+   "cnt": 15
   },
   {
    "domain": "直播特殊风险",
-   "cnt": 12
+   "cnt": 13
   },
   {
-   "domain": "虚假宣传笔记",
-   "cnt": 7
+   "domain": "商业生态",
+   "cnt": 11
   },
   {
-   "domain": "色情低俗",
+   "domain": "虚假宣传",
+   "cnt": 9
+  },
+  {
+   "domain": "特殊垂类-医疗医美",
    "cnt": 6
-  },
-  {
-   "domain": "大盘/横向品质治理",
-   "cnt": 5
-  },
-  {
-   "domain": "山寨假货",
-   "cnt": 5
   }
  ],
  "active": [
   {
-   "domain": "违规营销笔记",
-   "cnt": 843
+   "domain": "违规营销",
+   "cnt": 1077
   },
   {
-   "domain": "虚假宣传笔记",
-   "cnt": 361
+   "domain": "虚假宣传",
+   "cnt": 387
   },
   {
-   "domain": "违规营销商品",
-   "cnt": 264
-  },
-  {
-   "domain": "商品合规",
-   "cnt": 228
+   "domain": "合规准入",
+   "cnt": 296
   },
   {
    "domain": "相关性",
-   "cnt": 169
+   "cnt": 172
   },
   {
    "domain": "商业内容治理",
-   "cnt": 160
+   "cnt": 161
   },
   {
-   "domain": "笔记内容生态",
-   "cnt": 135
+   "domain": "生态画风",
+   "cnt": 134
   },
   {
    "domain": "应急处置",
    "cnt": 63
+  },
+  {
+   "domain": "品质治理",
+   "cnt": 52
   }
  ]
 }

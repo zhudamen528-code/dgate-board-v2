@@ -2,12 +2,67 @@
  {
   "am": "令仪(沙依兰)",
   "shops": 62,
+  "disqualified": 2,
+  "critical": 0,
+  "watch": 7,
+  "safe": 53,
+  "sev_active": 28,
+  "new_total": 84,
+  "new_severe": 0
+ },
+ {
+  "am": "莱莉(孙雨萱)",
+  "shops": 49,
+  "disqualified": 1,
+  "critical": 0,
+  "watch": 4,
+  "safe": 44,
+  "sev_active": 16,
+  "new_total": 72,
+  "new_severe": 0
+ },
+ {
+  "am": "莱拉(付艺迪)",
+  "shops": 53,
+  "disqualified": 0,
+  "critical": 3,
+  "watch": 7,
+  "safe": 43,
+  "sev_active": 19,
+  "new_total": 49,
+  "new_severe": 0
+ },
+ {
+  "am": "诗雨(诗雨)",
+  "shops": 31,
   "disqualified": 0,
   "critical": 0,
-  "watch": 0,
-  "safe": 62,
-  "sev_active": 0,
-  "new_total": 39,
+  "watch": 2,
+  "safe": 29,
+  "sev_active": 2,
+  "new_total": 17,
+  "new_severe": 0
+ },
+ {
+  "am": "大门(朱锦程)",
+  "shops": 39,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 1,
+  "safe": 38,
+  "sev_active": 1,
+  "new_total": 29,
+  "new_severe": 0
+ },
+ {
+  "am": "勒达(张力丹)",
+  "shops": 13,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 1,
+  "safe": 12,
+  "sev_active": 1,
+  "new_total": 12,
   "new_severe": 0
  },
  {
@@ -18,7 +73,7 @@
   "watch": 0,
   "safe": 21,
   "sev_active": 0,
-  "new_total": 32,
+  "new_total": 43,
   "new_severe": 0
  },
  {
@@ -29,62 +84,7 @@
   "watch": 0,
   "safe": 28,
   "sev_active": 0,
-  "new_total": 8,
-  "new_severe": 0
- },
- {
-  "am": "大门(朱锦程)",
-  "shops": 39,
-  "disqualified": 0,
-  "critical": 0,
-  "watch": 0,
-  "safe": 39,
-  "sev_active": 0,
-  "new_total": 16,
-  "new_severe": 0
- },
- {
-  "am": "莱拉(付艺迪)",
-  "shops": 53,
-  "disqualified": 0,
-  "critical": 0,
-  "watch": 0,
-  "safe": 53,
-  "sev_active": 0,
-  "new_total": 30,
-  "new_severe": 0
- },
- {
-  "am": "莱莉(孙雨萱)",
-  "shops": 49,
-  "disqualified": 0,
-  "critical": 0,
-  "watch": 0,
-  "safe": 49,
-  "sev_active": 0,
-  "new_total": 42,
-  "new_severe": 0
- },
- {
-  "am": "勒达(张力丹)",
-  "shops": 13,
-  "disqualified": 0,
-  "critical": 0,
-  "watch": 0,
-  "safe": 13,
-  "sev_active": 0,
-  "new_total": 3,
-  "new_severe": 0
- },
- {
-  "am": "诗雨(诗雨)",
-  "shops": 31,
-  "disqualified": 0,
-  "critical": 0,
-  "watch": 0,
-  "safe": 31,
-  "sev_active": 0,
-  "new_total": 18,
+  "new_total": 12,
   "new_severe": 0
  }
 ]

@@ -1,24 +1,49 @@
 {
- "day": "2026-08-23",
- "generated_at": "2026-08-24 01:42",
+ "day": "2026-08-24",
+ "generated_at": "2026-08-25 01:42",
  "red_line": 5,
  "warn_line": 3,
+ "cnt_source": "self_detail",
+ "flag_conflicts": [
+  {
+   "seller_id": "6554a3536b64ee0001a68146",
+   "shop_name": "遇见玫好METROSIER的店",
+   "self_cnt": 13,
+   "official_flag": 0,
+   "note": "自算超红线但官方未标记"
+  },
+  {
+   "seller_id": "61ef6bef1ff2ce00010ad572",
+   "shop_name": "梅老白茶馆的店",
+   "self_cnt": 11,
+   "official_flag": 0,
+   "note": "自算超红线但官方未标记"
+  },
+  {
+   "seller_id": "6498455cbbb4180001cad90f",
+   "shop_name": "养生富贵儿 专注沙棘的店",
+   "self_cnt": 8,
+   "official_flag": 0,
+   "note": "自算超红线但官方未标记"
+  }
+ ],
+ "flag_conflict_total": 3,
  "roster_total": 296,
- "new_orders": 188,
- "new_shops": 86,
+ "new_orders": 318,
+ "new_shops": 111,
  "new_severe": 0,
  "new_severe_shops": 0,
- "sev_active_orders": 68,
+ "sev_active_orders": 67,
  "sev_stale_orders": 0,
- "sev_raw_orders": 68,
+ "sev_raw_orders": 67,
  "sev_active_shops": 28,
- "aff_active_orders": 2705,
- "aff_active_shops": 247,
+ "aff_active_orders": 2677,
+ "aff_active_shops": 246,
  "tier": {
-  "disqualified": 0,
-  "critical": 0,
-  "watch": 0,
-  "safe": 296
+  "disqualified": 3,
+  "critical": 3,
+  "watch": 22,
+  "safe": 268
  },
  "am_count": 8
 }
