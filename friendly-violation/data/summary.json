@@ -1,6 +1,6 @@
 {
- "day": "2026-08-25",
- "generated_at": "2026-08-26 01:41",
+ "day": "2026-08-26",
+ "generated_at": "2026-08-27 01:42",
  "red_line": 5,
  "warn_line": 3,
  "cnt_source": "self_detail",
@@ -13,9 +13,16 @@
    "note": "自算超红线但官方未标记"
   },
   {
+   "seller_id": "681c3d6e912a0c0015007af1",
+   "shop_name": "医线明医养生滋补旗舰店",
+   "self_cnt": 13,
+   "official_flag": 0,
+   "note": "自算超红线但官方未标记"
+  },
+  {
    "seller_id": "6267d4b0de1f690001e31c62",
    "shop_name": "广禾堂旗舰店",
-   "self_cnt": 15,
+   "self_cnt": 13,
    "official_flag": 0,
    "note": "自算超红线但官方未标记"
   },
@@ -34,30 +41,30 @@
    "note": "自算超红线但官方未标记"
   },
   {
-   "seller_id": "681c3d6e912a0c0015007af1",
-   "shop_name": "医线明医养生滋补旗舰店",
-   "self_cnt": 7,
+   "seller_id": "64996e81f608270001fb482c",
+   "shop_name": "目谷家 养生好食材的店",
+   "self_cnt": 6,
    "official_flag": 0,
    "note": "自算超红线但官方未标记"
   }
  ],
- "flag_conflict_total": 5,
+ "flag_conflict_total": 6,
  "roster_total": 296,
- "new_orders": 246,
- "new_shops": 105,
+ "new_orders": 301,
+ "new_shops": 114,
  "new_severe": 0,
  "new_severe_shops": 0,
- "sev_active_orders": 110,
+ "sev_active_orders": 119,
  "sev_stale_orders": 0,
- "sev_raw_orders": 110,
- "sev_active_shops": 30,
- "aff_active_orders": 2035,
- "aff_active_shops": 219,
+ "sev_raw_orders": 119,
+ "sev_active_shops": 29,
+ "aff_active_orders": 2013,
+ "aff_active_shops": 218,
  "tier": {
-  "disqualified": 5,
-  "critical": 3,
-  "watch": 22,
-  "safe": 266
+  "disqualified": 6,
+  "critical": 4,
+  "watch": 19,
+  "safe": 267
  },
  "am_count": 8
 }
