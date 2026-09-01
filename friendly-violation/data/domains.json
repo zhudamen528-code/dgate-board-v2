@@ -2,41 +2,41 @@
  "new": [
   {
    "domain": "未成年",
-   "cnt": 86
+   "cnt": 92
   },
   {
    "domain": "违规营销",
-   "cnt": 83
+   "cnt": 28
   },
   {
    "domain": "品质治理",
-   "cnt": 13
+   "cnt": 10
   },
   {
    "domain": "虚假宣传",
    "cnt": 7
   },
   {
-   "domain": "商业生态",
+   "domain": "交易履约",
    "cnt": 4
   },
   {
-   "domain": "流量作弊",
+   "domain": "计次处置",
+   "cnt": 4
+  },
+  {
+   "domain": "合规准入",
    "cnt": 2
   },
   {
-   "domain": "特殊垂类",
-   "cnt": 2
-  },
-  {
-   "domain": "特殊垂类-医疗医美",
+   "domain": "—",
    "cnt": 2
   }
  ],
  "active": [
   {
    "domain": "违规营销",
-   "cnt": 806
+   "cnt": 695
   },
   {
    "domain": "虚假宣传",
@@ -48,11 +48,11 @@
   },
   {
    "domain": "商业内容治理",
-   "cnt": 163
+   "cnt": 165
   },
   {
    "domain": "品质治理",
-   "cnt": 73
+   "cnt": 72
   },
   {
    "domain": "生态画风",
