@@ -1,70 +1,70 @@
 {
  "new": [
   {
-   "domain": "品质治理",
-   "cnt": 188
-  },
-  {
    "domain": "未成年",
-   "cnt": 115
+   "cnt": 106
   },
   {
    "domain": "违规营销",
-   "cnt": 60
-  },
-  {
-   "domain": "直播特殊风险",
-   "cnt": 11
+   "cnt": 64
   },
   {
    "domain": "计次处置",
-   "cnt": 11
+   "cnt": 10
   },
   {
-   "domain": "虚假宣传",
-   "cnt": 9
-  },
-  {
-   "domain": "—",
+   "domain": "品质治理",
    "cnt": 7
   },
   {
+   "domain": "虚假宣传",
+   "cnt": 7
+  },
+  {
+   "domain": "直播特殊风险",
+   "cnt": 7
+  },
+  {
+   "domain": "商业生态",
+   "cnt": 5
+  },
+  {
    "domain": "流量作弊",
-   "cnt": 6
+   "cnt": 4
   }
  ],
  "active": [
   {
    "domain": "违规营销",
-   "cnt": 747
+   "cnt": 756
   },
   {
    "domain": "虚假宣传",
-   "cnt": 351
+   "cnt": 354
   },
   {
    "domain": "合规准入",
-   "cnt": 267
+   "cnt": 261
   },
   {
    "domain": "商业内容治理",
-   "cnt": 166
+   "cnt": 167
   },
   {
    "domain": "生态画风",
-   "cnt": 65
+   "cnt": 66
   },
   {
    "domain": "品质治理",
-   "cnt": 50
-  },
-  {
-   "domain": "应急处置",
-   "cnt": 36
+   "cnt": 48
   },
   {
    "domain": "影响直播竞争公平性",
-   "cnt": 34
+   "cnt": 35
+  },
+  {
+   "domain": "应急处置",
+   "cnt": 32
   }
  ]
 }
