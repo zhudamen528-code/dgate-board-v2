@@ -7,7 +7,7 @@
   "watch": 5,
   "safe": 46,
   "sev_active": 15,
-  "new_total": 15,
+  "new_total": 40,
   "new_severe": 0
  },
  {
@@ -18,7 +18,7 @@
   "watch": 6,
   "safe": 55,
   "sev_active": 18,
-  "new_total": 35,
+  "new_total": 51,
   "new_severe": 0
  },
  {
@@ -29,7 +29,7 @@
   "watch": 0,
   "safe": 48,
   "sev_active": 4,
-  "new_total": 59,
+  "new_total": 42,
   "new_severe": 0
  },
  {
@@ -37,10 +37,10 @@
   "shops": 31,
   "disqualified": 0,
   "critical": 0,
-  "watch": 2,
-  "safe": 29,
-  "sev_active": 2,
-  "new_total": 17,
+  "watch": 1,
+  "safe": 30,
+  "sev_active": 1,
+  "new_total": 16,
   "new_severe": 0
  },
  {
@@ -51,7 +51,7 @@
   "watch": 1,
   "safe": 12,
   "sev_active": 1,
-  "new_total": 8,
+  "new_total": 14,
   "new_severe": 0
  },
  {
@@ -62,7 +62,7 @@
   "watch": 0,
   "safe": 21,
   "sev_active": 0,
-  "new_total": 21,
+  "new_total": 29,
   "new_severe": 0
  },
  {
@@ -73,7 +73,7 @@
   "watch": 0,
   "safe": 28,
   "sev_active": 0,
-  "new_total": 4,
+  "new_total": 5,
   "new_severe": 0
  },
  {
