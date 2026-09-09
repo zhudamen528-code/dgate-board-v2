@@ -1,13 +1,13 @@
 [
  {
   "am": "莱拉(付艺迪)",
-  "shops": 53,
+  "shops": 42,
   "disqualified": 1,
   "critical": 1,
-  "watch": 5,
-  "safe": 46,
-  "sev_active": 15,
-  "new_total": 40,
+  "watch": 4,
+  "safe": 36,
+  "sev_active": 13,
+  "new_total": 37,
   "new_severe": 0
  },
  {
@@ -18,7 +18,7 @@
   "watch": 6,
   "safe": 55,
   "sev_active": 18,
-  "new_total": 51,
+  "new_total": 64,
   "new_severe": 0
  },
  {
@@ -29,7 +29,18 @@
   "watch": 0,
   "safe": 48,
   "sev_active": 4,
-  "new_total": 42,
+  "new_total": 45,
+  "new_severe": 0
+ },
+ {
+  "am": "绿枝(张若尘)",
+  "shops": 6,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 1,
+  "safe": 5,
+  "sev_active": 1,
+  "new_total": 2,
   "new_severe": 0
  },
  {
@@ -40,7 +51,7 @@
   "watch": 1,
   "safe": 30,
   "sev_active": 1,
-  "new_total": 16,
+  "new_total": 15,
   "new_severe": 0
  },
  {
@@ -51,40 +62,62 @@
   "watch": 1,
   "safe": 12,
   "sev_active": 1,
-  "new_total": 14,
+  "new_total": 11,
   "new_severe": 0
  },
  {
   "am": "诺亚(单恩浩)",
-  "shops": 21,
+  "shops": 17,
   "disqualified": 0,
   "critical": 0,
   "watch": 0,
-  "safe": 21,
+  "safe": 17,
   "sev_active": 0,
-  "new_total": 29,
+  "new_total": 36,
   "new_severe": 0
  },
  {
   "am": "路歌(李红红)",
-  "shops": 28,
+  "shops": 27,
   "disqualified": 0,
   "critical": 0,
   "watch": 0,
-  "safe": 28,
+  "safe": 27,
   "sev_active": 0,
-  "new_total": 5,
+  "new_total": 4,
   "new_severe": 0
  },
  {
   "am": "大门(朱锦程)",
-  "shops": 39,
+  "shops": 27,
   "disqualified": 0,
   "critical": 0,
   "watch": 0,
-  "safe": 39,
+  "safe": 27,
   "sev_active": 0,
-  "new_total": 18,
+  "new_total": 7,
+  "new_severe": 0
+ },
+ {
+  "am": "文锦(郑雯萱)",
+  "shops": 11,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 0,
+  "safe": 11,
+  "sev_active": 0,
+  "new_total": 0,
+  "new_severe": 0
+ },
+ {
+  "am": "春千(贺子鸣)",
+  "shops": 11,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 0,
+  "safe": 11,
+  "sev_active": 0,
+  "new_total": 9,
   "new_severe": 0
  }
 ]
