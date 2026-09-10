@@ -18,7 +18,7 @@
   "watch": 6,
   "safe": 55,
   "sev_active": 18,
-  "new_total": 64,
+  "new_total": 109,
   "new_severe": 0
  },
  {
@@ -29,7 +29,7 @@
   "watch": 0,
   "safe": 48,
   "sev_active": 4,
-  "new_total": 45,
+  "new_total": 73,
   "new_severe": 0
  },
  {
@@ -40,18 +40,7 @@
   "watch": 1,
   "safe": 5,
   "sev_active": 1,
-  "new_total": 2,
-  "new_severe": 0
- },
- {
-  "am": "诗雨(诗雨)",
-  "shops": 31,
-  "disqualified": 0,
-  "critical": 0,
-  "watch": 1,
-  "safe": 30,
-  "sev_active": 1,
-  "new_total": 15,
+  "new_total": 1,
   "new_severe": 0
  },
  {
@@ -62,7 +51,7 @@
   "watch": 1,
   "safe": 12,
   "sev_active": 1,
-  "new_total": 11,
+  "new_total": 13,
   "new_severe": 0
  },
  {
@@ -73,7 +62,7 @@
   "watch": 0,
   "safe": 17,
   "sev_active": 0,
-  "new_total": 36,
+  "new_total": 30,
   "new_severe": 0
  },
  {
@@ -84,7 +73,7 @@
   "watch": 0,
   "safe": 27,
   "sev_active": 0,
-  "new_total": 4,
+  "new_total": 11,
   "new_severe": 0
  },
  {
@@ -99,6 +88,17 @@
   "new_severe": 0
  },
  {
+  "am": "诗雨(诗雨)",
+  "shops": 31,
+  "disqualified": 0,
+  "critical": 0,
+  "watch": 0,
+  "safe": 31,
+  "sev_active": 0,
+  "new_total": 16,
+  "new_severe": 0
+ },
+ {
   "am": "文锦(郑雯萱)",
   "shops": 11,
   "disqualified": 0,
@@ -106,7 +106,7 @@
   "watch": 0,
   "safe": 11,
   "sev_active": 0,
-  "new_total": 0,
+  "new_total": 1,
   "new_severe": 0
  },
  {
@@ -117,7 +117,7 @@
   "watch": 0,
   "safe": 11,
   "sev_active": 0,
-  "new_total": 9,
+  "new_total": 10,
   "new_severe": 0
  }
 ]
