@@ -18,7 +18,7 @@
   "watch": 5,
   "safe": 56,
   "sev_active": 17,
-  "new_total": 56,
+  "new_total": 84,
   "new_severe": 0
  },
  {
@@ -29,7 +29,7 @@
   "watch": 0,
   "safe": 48,
   "sev_active": 4,
-  "new_total": 85,
+  "new_total": 90,
   "new_severe": 0
  },
  {
@@ -51,7 +51,7 @@
   "watch": 1,
   "safe": 30,
   "sev_active": 1,
-  "new_total": 17,
+  "new_total": 19,
   "new_severe": 0
  },
  {
@@ -62,7 +62,7 @@
   "watch": 1,
   "safe": 12,
   "sev_active": 1,
-  "new_total": 16,
+  "new_total": 8,
   "new_severe": 0
  },
  {
@@ -73,7 +73,7 @@
   "watch": 1,
   "safe": 26,
   "sev_active": 1,
-  "new_total": 9,
+  "new_total": 1,
   "new_severe": 0
  },
  {
@@ -84,7 +84,7 @@
   "watch": 0,
   "safe": 17,
   "sev_active": 0,
-  "new_total": 16,
+  "new_total": 9,
   "new_severe": 0
  },
  {
@@ -95,7 +95,7 @@
   "watch": 0,
   "safe": 27,
   "sev_active": 0,
-  "new_total": 9,
+  "new_total": 11,
   "new_severe": 0
  },
  {
@@ -106,7 +106,7 @@
   "watch": 0,
   "safe": 11,
   "sev_active": 0,
-  "new_total": 0,
+  "new_total": 1,
   "new_severe": 0
  },
  {
