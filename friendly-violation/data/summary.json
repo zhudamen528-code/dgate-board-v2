@@ -1,6 +1,6 @@
 {
  "day": "2026-09-20",
- "generated_at": "2026-09-21 09:49",
+ "generated_at": "2026-09-21 09:54",
  "red_line": 5,
  "warn_line": 3,
  "cnt_source": "self_detail",
@@ -15,8 +15,8 @@
  "sev_stale_orders": 0,
  "sev_raw_orders": 20,
  "sev_active_shops": 12,
- "aff_active_orders": 1910,
- "aff_active_shops": 208,
+ "aff_active_orders": 0,
+ "aff_active_shops": 0,
  "tier": {
   "disqualified": 0,
   "critical": 2,
