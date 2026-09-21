@@ -1,42 +1,27 @@
 {
- "day": "2026-09-19",
- "generated_at": "2026-09-20 09:57",
+ "day": "2026-09-20",
+ "generated_at": "2026-09-21 09:49",
  "red_line": 5,
  "warn_line": 3,
  "cnt_source": "self_detail",
- "flag_conflicts": [
-  {
-   "seller_id": "6554a3536b64ee0001a68146",
-   "shop_name": "遇见玫好METROSIER的店",
-   "self_cnt": 8,
-   "official_flag": 0,
-   "note": "自算超红线但官方未标记"
-  },
-  {
-   "seller_id": "6267d4b0de1f690001e31c62",
-   "shop_name": "广禾堂旗舰店",
-   "self_cnt": 6,
-   "official_flag": 0,
-   "note": "自算超红线但官方未标记"
-  }
- ],
- "flag_conflict_total": 2,
+ "flag_conflicts": [],
+ "flag_conflict_total": 0,
  "roster_total": 296,
- "new_orders": 290,
- "new_shops": 86,
+ "new_orders": 237,
+ "new_shops": 89,
  "new_severe": 0,
  "new_severe_shops": 0,
- "sev_active_orders": 33,
+ "sev_active_orders": 20,
  "sev_stale_orders": 0,
- "sev_raw_orders": 33,
- "sev_active_shops": 15,
- "aff_active_orders": 2006,
- "aff_active_shops": 209,
+ "sev_raw_orders": 20,
+ "sev_active_shops": 12,
+ "aff_active_orders": 1910,
+ "aff_active_shops": 208,
  "tier": {
-  "disqualified": 2,
+  "disqualified": 0,
   "critical": 2,
-  "watch": 11,
-  "safe": 281
+  "watch": 10,
+  "safe": 284
  },
  "am_count": 11
 }
