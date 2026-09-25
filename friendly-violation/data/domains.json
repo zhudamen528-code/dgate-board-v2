@@ -1,62 +1,50 @@
 {
  "new": [
   {
-   "domain": "未成年",
-   "cnt": 123
+   "domain": "品质治理",
+   "cnt": 7979
   },
   {
    "domain": "违规营销",
-   "cnt": 64
+   "cnt": 12
   },
   {
-   "domain": "商业生态",
-   "cnt": 13
+   "domain": "合规准入",
+   "cnt": 6
+  },
+  {
+   "domain": "交易导流",
+   "cnt": 2
   },
   {
    "domain": "虚假宣传",
-   "cnt": 9
-  },
-  {
-   "domain": "直播特殊风险",
-   "cnt": 9
-  },
-  {
-   "domain": "计次处置",
-   "cnt": 9
-  },
-  {
-   "domain": "品质治理",
-   "cnt": 6
-  },
-  {
-   "domain": "—",
-   "cnt": 6
+   "cnt": 1
   }
  ],
  "active": [
   {
    "domain": "违规营销",
-   "cnt": 647
+   "cnt": 659
   },
   {
    "domain": "虚假宣传",
-   "cnt": 371
+   "cnt": 369
   },
   {
    "domain": "合规准入",
-   "cnt": 231
+   "cnt": 233
   },
   {
    "domain": "商业内容治理",
-   "cnt": 173
+   "cnt": 174
   },
   {
    "domain": "生态画风",
-   "cnt": 62
+   "cnt": 60
   },
   {
    "domain": "应急处置",
-   "cnt": 53
+   "cnt": 56
   },
   {
    "domain": "影响直播竞争公平性",
@@ -64,7 +52,7 @@
   },
   {
    "domain": "特殊垂类",
-   "cnt": 27
+   "cnt": 28
   }
  ]
 }
