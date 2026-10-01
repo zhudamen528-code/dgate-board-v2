@@ -3,7 +3,7 @@
     {
       "seller_id": "69ac144203e2c70015a2eea9",
       "shop_name": "綩朵的店",
-      "count": 797,
+      "count": 798,
       "severe": 1,
       "high_repeat": 19,
       "top_domains": [
@@ -23,15 +23,15 @@
       "top_tags": [
         [
           "",
-          797
+          798
         ]
       ],
       "entities": {
-        "商品": 794,
+        "商品": 795,
         "店铺": 3
       },
       "punish_types": {
-        "白盒": 789,
+        "白盒": 790,
         "黑盒": 8
       },
       "samples": [
@@ -39,7 +39,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "69af8b32fbdff600018a1e2c",
+          "entity_id": "69cda95a691abd0001ce5fc9",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-02",
@@ -47,19 +47,9 @@
         },
         {
           "tag": "",
-          "domain": "商品导流",
-          "entity_type": "商品",
-          "entity_id": "6aa199205152e500013d0e55",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-09-10",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "69cdc2f9069e7b00015cb17d",
+          "entity_id": "69cb3e4f2fb6290001c03dae",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-02",
@@ -67,34 +57,44 @@
         },
         {
           "tag": "",
-          "domain": "商品导流",
+          "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "69af8ee31166fe0001fc662a",
+          "entity_id": "69b38679916f6b0001c65f36",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-09-10",
+          "repeat_count": 0,
+          "punish_time": "2026-09-02",
           "punish_type": "白盒"
         },
         {
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "69adf3c41166fe0001cbf032",
+          "entity_id": "69d0bcf29fe19c0001110b5e",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-02",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "69c4cf2aca64b3000146a5f1",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-02",
           "punish_type": "白盒"
         }
       ],
-      "new_today": 0,
+      "new_today": 1,
       "new_severe_today": 0
     },
     {
       "seller_id": "6407ef3d9cd18100012e2bbb",
       "shop_name": "Mamiya旗舰店",
-      "count": 567,
+      "count": 566,
       "severe": 1,
-      "high_repeat": 48,
+      "high_repeat": 47,
       "top_domains": [
         [
           "食品行业治理",
@@ -102,7 +102,7 @@
         ],
         [
           "未成年",
-          53
+          52
         ],
         [
           "商品导流",
@@ -112,24 +112,34 @@
       "top_tags": [
         [
           "",
-          567
+          566
         ]
       ],
       "entities": {
+        "直播间": 52,
         "商品": 513,
-        "直播间": 53,
         "用户": 1
       },
       "punish_types": {
-        "白盒": 514,
-        "黑盒": 53
+        "黑盒": 52,
+        "白盒": 514
       },
       "samples": [
         {
           "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570452346018225551",
+          "action": "",
+          "repeat_count": 12,
+          "punish_time": "2026-09-14",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "686f70841cfd980001ab0222",
+          "entity_id": "6642fd149f9a970001e39736",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -139,7 +149,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6877820564e96a00011d1d50",
+          "entity_id": "68a2c5a81745f6000107fc0f",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -149,7 +159,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "68b144a9ae2af10001b9c482",
+          "entity_id": "6909a7c547309000018ce621",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -159,17 +169,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "66fe91a4b3c39900014ae2f5",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "6915a86a60f5970001422815",
+          "entity_id": "67823986fb6ac0000193926e",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -218,7 +218,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "682a850d82d86e00017d37b2",
+          "entity_id": "6a22e3ac3af18900018c426b",
           "action": "",
           "repeat_count": 1,
           "punish_time": "2026-09-01",
@@ -228,7 +228,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "69c7cd3b5681cd0001e7f949",
+          "entity_id": "69ef2214c4fc820001c7a123",
           "action": "",
           "repeat_count": 1,
           "punish_time": "2026-09-01",
@@ -238,7 +238,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "678b5fdf0cf30c0015cd21a1",
+          "entity_id": "68c4ea686d08080015e16bc4",
           "action": "",
           "repeat_count": 1,
           "punish_time": "2026-09-01",
@@ -248,7 +248,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "69a823695973b30001176a27",
+          "entity_id": "696780c201cb1a00015d9454",
           "action": "",
           "repeat_count": 1,
           "punish_time": "2026-09-01",
@@ -258,7 +258,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "683effb4db57370001abb518",
+          "entity_id": "699fa39300e743000196dc0f",
           "action": "",
           "repeat_count": 1,
           "punish_time": "2026-09-01",
@@ -271,7 +271,7 @@
     {
       "seller_id": "66010f67a57f580001f623c4",
       "shop_name": "斯贝利精选食品的店",
-      "count": 450,
+      "count": 451,
       "severe": 0,
       "high_repeat": 0,
       "top_domains": [
@@ -282,28 +282,33 @@
         [
           "business",
           2
+        ],
+        [
+          "商业生态",
+          1
         ]
       ],
       "top_tags": [
         [
           "",
-          450
+          451
         ]
       ],
       "entities": {
         "商品": 448,
-        "用户": 2
+        "用户": 2,
+        "笔记": 1
       },
       "punish_types": {
         "白盒": 448,
-        "黑盒": 2
+        "黑盒": 3
       },
       "samples": [
         {
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "661cf64cf222bd0001cbae52",
+          "entity_id": "68a2df7128911700154bf1a2",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -313,7 +318,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "68b97ed44290ae00158ac976",
+          "entity_id": "68f98c49e5da7400150da5bb",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -323,7 +328,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "67515a2a67f02b000152039c",
+          "entity_id": "68a3155240965500152659ba",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -333,7 +338,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "67eb866915a1180015f25567",
+          "entity_id": "661a30650ba7e10001f955f6",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -343,7 +348,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "684f79dd4fa08a0015447a8e",
+          "entity_id": "68843fb33b9d4700159fee1e",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -369,7 +374,7 @@
           8
         ],
         [
-          "问题账号",
+          "违规营销商品",
           1
         ]
       ],
@@ -393,7 +398,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "68d8bc857d3b3f0001b56448",
+          "entity_id": "6837e02bd9a0a40001410038",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -403,7 +408,27 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6a057acd304f4600019f573f",
+          "entity_id": "68b29ea88f531300019a6117",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570441301561837192",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-09-06",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "662919304448880001044f59",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -413,27 +438,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "68469625e17b8a00017a64b4",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "6976df158c608e0001294ecd",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "662b830e33dfd900018751d4",
+          "entity_id": "69bcb715916f6b00014908eb",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -472,7 +477,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "696d94b3d69f5300013b6be3",
+          "entity_id": "68083ece9c9bb50001c9699b",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -482,7 +487,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "67ba9947eef1820001ef3c46",
+          "entity_id": "68a92a593f78410001bc38f3",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -492,7 +497,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6818124008e3700001beb16b",
+          "entity_id": "68ad63aa9a16410001406a8e",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -502,7 +507,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "693129212aa9d00001b4f339",
+          "entity_id": "684be9170da50d0001d61ed1",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -512,7 +517,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "69af7b85c125ae000125c6fb",
+          "entity_id": "6857adf27e7bf000018fbe4e",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -551,7 +556,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "684bb8bde17b8a0001a0fa58",
+          "entity_id": "682448cb15cfd20001333d8d",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -561,7 +566,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6646d1ce460baa000156ecb5",
+          "entity_id": "68244a51a6875600012240b6",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -571,7 +576,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6a0ad976e80a7b000123665a",
+          "entity_id": "699d661f36a3d8000170a2a5",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -581,7 +586,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "686dd6879c0b4400016b8914",
+          "entity_id": "69847c855b50a30001be8497",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -591,7 +596,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "66d1681598027b00017292ea",
+          "entity_id": "6878c6e39e837400014fcf87",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -606,7 +611,7 @@
       "shop_name": "拉面口袋的店",
       "count": 279,
       "severe": 0,
-      "high_repeat": 0,
+      "high_repeat": 1,
       "top_domains": [
         [
           "食品行业治理",
@@ -618,7 +623,7 @@
         ],
         [
           "商业生态",
-          3
+          2
         ]
       ],
       "top_tags": [
@@ -628,19 +633,29 @@
         ]
       ],
       "entities": {
-        "商品": 271,
-        "笔记": 8
+        "笔记": 8,
+        "商品": 271
       },
       "punish_types": {
-        "白盒": 273,
-        "黑盒": 6
+        "黑盒": 6,
+        "白盒": 273
       },
       "samples": [
         {
           "tag": "",
+          "domain": "超高展",
+          "entity_type": "笔记",
+          "entity_id": "6a7e8728000000003300bdf4",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-08",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "668bb97068b8b300016bed47",
+          "entity_id": "66891f8ca67d140001aa36ea",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -650,7 +665,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6396a37a65bfb100014b43a5",
+          "entity_id": "637dc202bf8e170001930ffa",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -660,7 +675,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "69316e73137a3b00011f8f7c",
+          "entity_id": "668e0387edff5d00013ac7ad",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -670,17 +685,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6924363d89b748001509bbb0",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "666ac545f7984c000116dc2f",
+          "entity_id": "6688e6fae389a10001a020d2",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -693,7 +698,7 @@
     {
       "seller_id": "5fe05f34248ecc0001f823f8",
       "shop_name": "小黄象旗舰店",
-      "count": 274,
+      "count": 276,
       "severe": 0,
       "high_repeat": 25,
       "top_domains": [
@@ -704,28 +709,32 @@
         [
           "未成年",
           31
+        ],
+        [
+          "违规营销商品",
+          2
         ]
       ],
       "top_tags": [
         [
           "",
-          274
+          276
         ]
       ],
       "entities": {
-        "商品": 243,
+        "商品": 245,
         "直播间": 31
       },
       "punish_types": {
         "白盒": 243,
-        "黑盒": 31
+        "黑盒": 33
       },
       "samples": [
         {
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "68eb97879176f500014348ea",
+          "entity_id": "69bbb7b95e5f050001646c6e",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -735,7 +744,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "68ac2d39fba5440001b3b624",
+          "entity_id": "694e54a5bfa59100018a7686",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -745,7 +754,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "670b33781d349a00016359f0",
+          "entity_id": "68f890c0ce94ee00015f8ad5",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -753,26 +762,26 @@
         },
         {
           "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "66976a34f06f12000146cb37",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570460863480969768",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
+          "repeat_count": 10,
+          "punish_time": "2026-09-20",
+          "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "677e39bf627fd9000196c72c",
+          "entity_id": "699fdf8f094aed00015814e4",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
           "punish_type": "白盒"
         }
       ],
-      "new_today": 1,
+      "new_today": 3,
       "new_severe_today": 0
     },
     {
@@ -804,7 +813,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6964c131aae29400017a4af9",
+          "entity_id": "677b864046da39000160efaa",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -814,7 +823,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "68b6a3a862c1ee000186e361",
+          "entity_id": "69240bd773aaae0001cab422",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -824,7 +833,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "698015395b50a300013f1451",
+          "entity_id": "697734878a6b8a00019e0c59",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -834,7 +843,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6931493dd4336a0001650bbb",
+          "entity_id": "68527e32d4dabb0001fed151",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -844,7 +853,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "695c70740ba1a400016dda9c",
+          "entity_id": "677b99b677d41e00012dfd8a",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -894,27 +903,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "67492ca649ec9e00013ff271",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570446780430454115",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-09-10",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "6566c8093edc980001c33ca6",
+          "entity_id": "694cfa33b2492100017e1a47",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -924,7 +913,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "64acc88799699c0001eeac1d",
+          "entity_id": "66d3d4c1378c7400019ab3da",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -934,7 +923,27 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "675a75975677c90001c4c9bf",
+          "entity_id": "66289b839caea10001957cf5",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "664c2e26e26fdb00010d6aaa",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "6715c996c432ef000155612f",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -973,7 +982,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "675d38606e529e000150cc07",
+          "entity_id": "671749ebfe85310001286ecc",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -983,7 +992,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "69e8804a3a4daf000135c002",
+          "entity_id": "671b0457fe853100011829a3",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -993,7 +1002,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6a27e624d5d7c50001be543d",
+          "entity_id": "697d768ce047060001010713",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1003,7 +1012,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6a0aad66002a6200014d8685",
+          "entity_id": "66e109c3db8bc000014f9a7c",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1013,7 +1022,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "67e4cce860845d0001b415f5",
+          "entity_id": "67175b2dc90e7c000182c869",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1026,110 +1035,31 @@
     {
       "seller_id": "5c274148eb90b93684d73b21",
       "shop_name": "极盏旗舰店",
-      "count": 207,
+      "count": 208,
       "severe": 0,
       "high_repeat": 0,
       "top_domains": [
         [
           "食品行业治理",
           207
-        ]
-      ],
-      "top_tags": [
-        [
-          "",
-          207
-        ]
-      ],
-      "entities": {
-        "商品": 207
-      },
-      "punish_types": {
-        "白盒": 207
-      },
-      "samples": [
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "67d144dabb9b9d000155ef03",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "677759a0f8c1a800014dcd05",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "68be9b7a24d64a0001ca3fd7",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "67b3f779eef18200011903cc",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "66f52bcb5b73330001373414",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "5f804c51b793c500016a9adf",
-      "shop_name": "寻味潮汕的店",
-      "count": 202,
-      "severe": 0,
-      "high_repeat": 0,
-      "top_domains": [
-        [
-          "食品行业治理",
-          201
         ],
         [
-          "问题账号",
+          "特殊垂类-医疗医美",
           1
         ]
       ],
       "top_tags": [
         [
           "",
-          202
+          208
         ]
       ],
       "entities": {
-        "商品": 201,
-        "用户": 1
+        "商品": 207,
+        "笔记": 1
       },
       "punish_types": {
-        "白盒": 201,
+        "白盒": 207,
         "黑盒": 1
       },
       "samples": [
@@ -1137,7 +1067,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "64eeea8dfff30300010969d3",
+          "entity_id": "66e2525044745f0001015982",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1147,7 +1077,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6528f3d14aa7d60001fa57e2",
+          "entity_id": "676bb75d26657b00015551a1",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1157,7 +1087,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "64e01e66efead000015ec625",
+          "entity_id": "64e81176f921e900012dfc3f",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1167,7 +1097,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6528f8e81e45fb0001aaa657",
+          "entity_id": "65dc460c7ec2d8000102fa0c",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1177,7 +1107,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6843fd200ec1ca00012e8586",
+          "entity_id": "69e71ab539916f0001fb8443",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1222,7 +1152,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "667bc3d7ad064e00012cc5dd",
+          "entity_id": "697ad83543eb760001b244d3",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1232,7 +1162,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6a4f32e5b5de6c000172d276",
+          "entity_id": "67f88ce3ec1374000127e292",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1242,7 +1172,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "665420f39e3cee000186f6d9",
+          "entity_id": "66e5458d29dc070001749522",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1252,7 +1182,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6662bd105f1a0a000118c859",
+          "entity_id": "65f293981f3db0000145a900",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1262,7 +1192,92 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6698ad995fc15300015f1c8c",
+          "entity_id": "6671206aed6bc10001474f87",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "5f804c51b793c500016a9adf",
+      "shop_name": "寻味潮汕的店",
+      "count": 202,
+      "severe": 0,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "食品行业治理",
+          201
+        ],
+        [
+          "问题账号",
+          1
+        ]
+      ],
+      "top_tags": [
+        [
+          "",
+          202
+        ]
+      ],
+      "entities": {
+        "商品": 201,
+        "用户": 1
+      },
+      "punish_types": {
+        "白盒": 201,
+        "黑盒": 1
+      },
+      "samples": [
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "68a53eaf7313330001df62cb",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "64e01e66efead000015ec625",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "62e3409080bf4e0001553ec9",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "63ef5de0bc9ab200012c95bc",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "677648fb568edd0001b34e4a",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1275,9 +1290,9 @@
     {
       "seller_id": "655f24a82e77070001b1e351",
       "shop_name": "优形食品旗舰店",
-      "count": 191,
+      "count": 190,
       "severe": 0,
-      "high_repeat": 14,
+      "high_repeat": 13,
       "top_domains": [
         [
           "食品行业治理",
@@ -1285,33 +1300,33 @@
         ],
         [
           "未成年",
-          19
+          18
         ],
         [
-          "直播-影响商业秩序",
+          "计次处置",
           2
         ]
       ],
       "top_tags": [
         [
           "",
-          191
+          190
         ]
       ],
       "entities": {
         "商品": 166,
-        "直播间": 25
+        "直播间": 24
       },
       "punish_types": {
         "白盒": 170,
-        "黑盒": 21
+        "黑盒": 20
       },
       "samples": [
         {
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6687c88822910a0001bd6e0a",
+          "entity_id": "69e8792bf9b6f1000139c7df",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1321,7 +1336,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "66c2f95aad99590001121cbe",
+          "entity_id": "6870b496b6f0e800013f95c2",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1331,7 +1346,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "67b9a31ff2389c000183b996",
+          "entity_id": "67e679a2502017000181bbb8",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1341,7 +1356,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "670cedca4cd289000157335b",
+          "entity_id": "66adca7942e3e90001386cad",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1349,9 +1364,9 @@
         },
         {
           "tag": "",
-          "domain": "直播-影响商业秩序",
-          "entity_type": "直播间",
-          "entity_id": "570465334838065395",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "65f6bd443b4dcf00017333a2",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1396,7 +1411,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "65dc5f467ec2d8000103f73c",
+          "entity_id": "66ed4d634fc6d000016d7083",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1406,7 +1421,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "644a0f81db9efc0001b27899",
+          "entity_id": "668f789f3ebe170001d1fa24",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1416,7 +1431,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6805ab3596df40000140124d",
+          "entity_id": "66ce8e73b1e5760001dd9c1d",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1426,7 +1441,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "66a9979cb81ac200019bee12",
+          "entity_id": "652274637956190001db4b88",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1436,7 +1451,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "686b917e527b4d0001ec34b3",
+          "entity_id": "625e92b050b0450001514fa0",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1449,9 +1464,9 @@
     {
       "seller_id": "674d0ba68b748400152467b1",
       "shop_name": "Beryl's倍乐思旗舰店",
-      "count": 169,
+      "count": 164,
       "severe": 0,
-      "high_repeat": 55,
+      "high_repeat": 51,
       "top_domains": [
         [
           "食品行业治理",
@@ -1459,63 +1474,63 @@
         ],
         [
           "未成年",
-          68
+          64
         ],
         [
           "履约服务负反馈",
-          3
+          2
         ]
       ],
       "top_tags": [
         [
           "",
-          169
+          164
         ]
       ],
       "entities": {
-        "商品": 101,
-        "直播间": 68
+        "直播间": 64,
+        "商品": 100
       },
       "punish_types": {
-        "白盒": 101,
-        "黑盒": 68
+        "黑盒": 64,
+        "白盒": 100
       },
       "samples": [
         {
           "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "6a1d438606b18e0001bf7624",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570460959821297256",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "6946dad01f22d20001c4afdb",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
+          "repeat_count": 7,
+          "punish_time": "2026-09-20",
+          "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570459516714050925",
+          "entity_id": "570465330039781583",
           "action": "",
-          "repeat_count": 8,
-          "punish_time": "2026-09-19",
+          "repeat_count": 5,
+          "punish_time": "2026-09-23",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570455176957528078",
+          "action": "",
+          "repeat_count": 11,
+          "punish_time": "2026-09-16",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "68b7a2d50c1e9b0001d162a6",
+          "entity_id": "67eb9e37b2c30c000122786b",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1523,16 +1538,16 @@
         },
         {
           "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570472897989207247",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "68a4382660a5740001db5dd6",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-09-28",
-          "punish_type": "黑盒"
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
         }
       ],
-      "new_today": 2,
+      "new_today": 0,
       "new_severe_today": 0
     },
     {
@@ -1570,7 +1585,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "696f1f7ed69f5300017a76ef",
+          "entity_id": "696f1e065d1563000182d271",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1580,27 +1595,17 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "693fc89a3753f70001759b14",
+          "entity_id": "68998537433f3f00013345e3",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
           "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570471684795459949",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-27",
-          "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "67fe1f2eabbc830001a6944b",
+          "entity_id": "69609fab2c7c420001901d08",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1608,13 +1613,23 @@
         },
         {
           "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570461290782353983",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "6960a99c110a7f0001a06078",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-09-20",
-          "punish_type": "黑盒"
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "696f4f07c3b74e00013cfcd7",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
         }
       ],
       "new_today": 0,
@@ -1649,7 +1664,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6a268b6d79e4100015a46872",
+          "entity_id": "69eb3378d528ea0015f59c6b",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1659,7 +1674,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6a2bc79af7e50e001598c1b2",
+          "entity_id": "69eb0520d528ea0015129d45",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1669,7 +1684,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6a3cce10410f5200151cb36e",
+          "entity_id": "6a2fbf5ac13d0f001571c526",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1679,7 +1694,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "687f4af8186d10001549c4f2",
+          "entity_id": "6a17b1f79799e5001544c75f",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1689,7 +1704,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "687f3eb8f71ffd001582f7f7",
+          "entity_id": "69eb2332fb672a001567c8f6",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1704,7 +1719,7 @@
     {
       "seller_id": "66588c3400444d0001e072e5",
       "shop_name": "农村老于头的店",
-      "count": 125,
+      "count": 126,
       "severe": 0,
       "high_repeat": 98,
       "top_domains": [
@@ -1718,72 +1733,72 @@
         ],
         [
           "违规营销直播",
-          1
+          2
         ]
       ],
       "top_tags": [
         [
           "",
-          125
+          126
         ]
       ],
       "entities": {
-        "直播间": 117,
+        "直播间": 118,
         "商品": 8
       },
       "punish_types": {
-        "黑盒": 115,
-        "白盒": 10
+        "白盒": 11,
+        "黑盒": 115
       },
       "samples": [
         {
           "tag": "",
-          "domain": "未成年",
+          "domain": "违规营销直播",
           "entity_type": "直播间",
-          "entity_id": "570439759132887742",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-09-05",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570474026458117988",
+          "entity_id": "570476084264897516",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-09-29",
-          "punish_type": "黑盒"
+          "punish_time": "2026-09-30",
+          "punish_type": "白盒"
         },
         {
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570446697249256960",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-09-10",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570450689773357594",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-09-13",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570438381420873673",
+          "entity_id": "570436569663777187",
           "action": "",
           "repeat_count": 13,
-          "punish_time": "2026-09-04",
+          "punish_time": "2026-09-03",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570476084264897516",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "违规营销直播",
+          "entity_type": "直播间",
+          "entity_id": "570464010008227249",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-09-22",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570452783619975309",
+          "action": "",
+          "repeat_count": 12,
+          "punish_time": "2026-09-14",
           "punish_type": "黑盒"
         }
       ],
@@ -1795,15 +1810,15 @@
       "shop_name": "用户(69b8f63a)",
       "count": 102,
       "severe": 0,
-      "high_repeat": 61,
+      "high_repeat": 59,
       "top_domains": [
         [
           "商业生态",
-          89
+          90
         ],
         [
           "问题账号",
-          13
+          12
         ]
       ],
       "top_tags": [
@@ -1816,74 +1831,74 @@
         "笔记": 102
       },
       "punish_types": {
-        "黑盒": 89,
-        "白盒": 13
+        "黑盒": 90,
+        "白盒": 12
       },
       "samples": [
         {
           "tag": "",
           "domain": "商业生态",
           "entity_type": "笔记",
-          "entity_id": "6aa7aa2b000000002b01d32e",
+          "entity_id": "6aaa516c000000002a02da9c",
           "action": "",
           "repeat_count": 8,
-          "punish_time": "2026-09-14",
+          "punish_time": "2026-09-16",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "商业生态",
           "entity_type": "笔记",
-          "entity_id": "6ab487d9000000001402ff25",
+          "entity_id": "6a98ce1c00000000260181f2",
           "action": "",
-          "repeat_count": 3,
+          "repeat_count": 7,
+          "punish_time": "2026-09-03",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "6aaa55a0000000002b001c13",
+          "action": "",
+          "repeat_count": 8,
+          "punish_time": "2026-09-16",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "6aacd731000000002b012287",
+          "action": "",
+          "repeat_count": 8,
+          "punish_time": "2026-09-18",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "6ab48f920000000015001fa3",
+          "action": "",
+          "repeat_count": 4,
           "punish_time": "2026-09-24",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "商业生态",
-          "entity_type": "笔记",
-          "entity_id": "6aba0d8b000000000100a51a",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-29",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "商业生态",
-          "entity_type": "笔记",
-          "entity_id": "6a962ce6000000002601f484",
-          "action": "",
-          "repeat_count": 7,
-          "punish_time": "2026-09-01",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "商业生态",
-          "entity_type": "笔记",
-          "entity_id": "6a9635d90000000027017262",
-          "action": "",
-          "repeat_count": 7,
-          "punish_time": "2026-09-01",
           "punish_type": "黑盒"
         }
       ],
-      "new_today": 8,
+      "new_today": 11,
       "new_severe_today": 0
     },
     {
       "seller_id": "68c5637c63594e0015bdfaa6",
       "shop_name": "小乔爱吃的店",
-      "count": 84,
+      "count": 82,
       "severe": 0,
-      "high_repeat": 60,
+      "high_repeat": 59,
       "top_domains": [
         [
           "未成年",
-          72
+          70
         ],
         [
           "食品行业治理",
@@ -1897,7 +1912,7 @@
       "top_tags": [
         [
           "",
-          83
+          81
         ],
         [
           "涉政",
@@ -1905,11 +1920,11 @@
         ]
       ],
       "entities": {
-        "直播间": 73,
+        "直播间": 71,
         "商品": 11
       },
       "punish_types": {
-        "黑盒": 72,
+        "黑盒": 70,
         "白盒": 12
       },
       "samples": [
@@ -1917,37 +1932,37 @@
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570464230662374995",
+          "entity_id": "570471485431720172",
           "action": "",
-          "repeat_count": 7,
-          "punish_time": "2026-09-22",
+          "repeat_count": 3,
+          "punish_time": "2026-09-27",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570441418466004068",
+          "entity_id": "570463086705830335",
           "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-09-06",
+          "repeat_count": 9,
+          "punish_time": "2026-09-21",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570432316500997539",
+          "entity_id": "570470044033138564",
           "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-08-31",
+          "repeat_count": 4,
+          "punish_time": "2026-09-26",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "68cd772fc7284000010cebbf",
+          "entity_id": "68cd6ec6d1f7b8000166eebd",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -1957,26 +1972,26 @@
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570455872323000161",
+          "entity_id": "570464230662374995",
           "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-09-16",
+          "repeat_count": 8,
+          "punish_time": "2026-09-22",
           "punish_type": "黑盒"
         }
       ],
-      "new_today": 3,
+      "new_today": 2,
       "new_severe_today": 0
     },
     {
       "seller_id": "69118f8e33fc6a001541de03",
       "shop_name": "上英山书圣故里体验店的店",
-      "count": 68,
+      "count": 67,
       "severe": 0,
-      "high_repeat": 56,
+      "high_repeat": 55,
       "top_domains": [
         [
           "未成年",
-          67
+          66
         ],
         [
           "食品行业治理",
@@ -1986,15 +2001,15 @@
       "top_tags": [
         [
           "",
-          68
+          67
         ]
       ],
       "entities": {
-        "直播间": 67,
+        "直播间": 66,
         "商品": 1
       },
       "punish_types": {
-        "黑盒": 67,
+        "黑盒": 66,
         "白盒": 1
       },
       "samples": [
@@ -2002,139 +2017,50 @@
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570449837390655479",
+          "entity_id": "570456933834048571",
           "action": "",
           "repeat_count": 13,
-          "punish_time": "2026-09-12",
+          "punish_time": "2026-09-17",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570438034317646057",
+          "entity_id": "570443687450456146",
           "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-09-04",
+          "repeat_count": 13,
+          "punish_time": "2026-09-08",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570458575527244865",
+          "entity_id": "570459978758297586",
           "action": "",
           "repeat_count": 11,
-          "punish_time": "2026-09-18",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570442624326140467",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-09-07",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570471433791413958",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-09-27",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 1,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "674d0ba68b748400152467b1",
-      "shop_name": "Beryl's倍乐思旗舰店",
-      "count": 169,
-      "severe": 0,
-      "high_repeat": 55,
-      "top_domains": [
-        [
-          "食品行业治理",
-          97
-        ],
-        [
-          "未成年",
-          68
-        ],
-        [
-          "履约服务负反馈",
-          3
-        ]
-      ],
-      "top_tags": [
-        [
-          "",
-          169
-        ]
-      ],
-      "entities": {
-        "商品": 101,
-        "直播间": 68
-      },
-      "punish_types": {
-        "白盒": 101,
-        "黑盒": 68
-      },
-      "samples": [
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "6a1d438606b18e0001bf7624",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "6946dad01f22d20001c4afdb",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570459516714050925",
-          "action": "",
-          "repeat_count": 8,
           "punish_time": "2026-09-19",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "68b7a2d50c1e9b0001d162a6",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570454037230356357",
           "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
+          "repeat_count": 13,
+          "punish_time": "2026-09-15",
+          "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570472897989207247",
+          "entity_id": "570461043573169771",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-09-28",
+          "repeat_count": 10,
+          "punish_time": "2026-09-20",
           "punish_type": "黑盒"
         }
       ],
@@ -2142,11 +2068,100 @@
       "new_severe_today": 0
     },
     {
+      "seller_id": "674d0ba68b748400152467b1",
+      "shop_name": "Beryl's倍乐思旗舰店",
+      "count": 164,
+      "severe": 0,
+      "high_repeat": 51,
+      "top_domains": [
+        [
+          "食品行业治理",
+          97
+        ],
+        [
+          "未成年",
+          64
+        ],
+        [
+          "履约服务负反馈",
+          2
+        ]
+      ],
+      "top_tags": [
+        [
+          "",
+          164
+        ]
+      ],
+      "entities": {
+        "直播间": 64,
+        "商品": 100
+      },
+      "punish_types": {
+        "黑盒": 64,
+        "白盒": 100
+      },
+      "samples": [
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570460959821297256",
+          "action": "",
+          "repeat_count": 7,
+          "punish_time": "2026-09-20",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570465330039781583",
+          "action": "",
+          "repeat_count": 5,
+          "punish_time": "2026-09-23",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570455176957528078",
+          "action": "",
+          "repeat_count": 11,
+          "punish_time": "2026-09-16",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "67eb9e37b2c30c000122786b",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "68a4382660a5740001db5dd6",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
       "seller_id": "6407ef3d9cd18100012e2bbb",
       "shop_name": "Mamiya旗舰店",
-      "count": 567,
+      "count": 566,
       "severe": 1,
-      "high_repeat": 48,
+      "high_repeat": 47,
       "top_domains": [
         [
           "食品行业治理",
@@ -2154,7 +2169,7 @@
         ],
         [
           "未成年",
-          53
+          52
         ],
         [
           "商品导流",
@@ -2164,24 +2179,34 @@
       "top_tags": [
         [
           "",
-          567
+          566
         ]
       ],
       "entities": {
+        "直播间": 52,
         "商品": 513,
-        "直播间": 53,
         "用户": 1
       },
       "punish_types": {
-        "白盒": 514,
-        "黑盒": 53
+        "黑盒": 52,
+        "白盒": 514
       },
       "samples": [
         {
           "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570452346018225551",
+          "action": "",
+          "repeat_count": 12,
+          "punish_time": "2026-09-14",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "686f70841cfd980001ab0222",
+          "entity_id": "6642fd149f9a970001e39736",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -2191,7 +2216,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6877820564e96a00011d1d50",
+          "entity_id": "68a2c5a81745f6000107fc0f",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -2201,7 +2226,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "68b144a9ae2af10001b9c482",
+          "entity_id": "6909a7c547309000018ce621",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -2211,17 +2236,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "66fe91a4b3c39900014ae2f5",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "6915a86a60f5970001422815",
+          "entity_id": "67823986fb6ac0000193926e",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -2232,190 +2247,11 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "699297a4a3f3a60015a192c9",
-      "shop_name": "奇小鼠食品商店的店",
-      "count": 58,
-      "severe": 0,
-      "high_repeat": 44,
-      "top_domains": [
-        [
-          "未成年",
-          52
-        ],
-        [
-          "食品行业治理",
-          5
-        ],
-        [
-          "用户体验",
-          1
-        ]
-      ],
-      "top_tags": [
-        [
-          "",
-          58
-        ]
-      ],
-      "entities": {
-        "直播间": 52,
-        "商品": 5,
-        "用户": 1
-      },
-      "punish_types": {
-        "黑盒": 53,
-        "白盒": 5
-      },
-      "samples": [
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570448519841587152",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-09-11",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570455851114188300",
-          "action": "",
-          "repeat_count": 9,
-          "punish_time": "2026-09-16",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570461746566498139",
-          "action": "",
-          "repeat_count": 5,
-          "punish_time": "2026-09-20",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570452953074222574",
-          "action": "",
-          "repeat_count": 11,
-          "punish_time": "2026-09-14",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570448663858372960",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-09-11",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 0,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "66ecfeaad1b4c20015680908",
-      "shop_name": "能妈妈美食的店",
-      "count": 68,
-      "severe": 0,
-      "high_repeat": 42,
-      "top_domains": [
-        [
-          "未成年",
-          57
-        ],
-        [
-          "食品行业治理",
-          9
-        ],
-        [
-          "影响观播体验",
-          1
-        ]
-      ],
-      "top_tags": [
-        [
-          "",
-          68
-        ]
-      ],
-      "entities": {
-        "商品": 9,
-        "直播间": 59
-      },
-      "punish_types": {
-        "白盒": 10,
-        "黑盒": 58
-      },
-      "samples": [
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "6721d52c1f5d4f0001df0aec",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570448529136400166",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-09-11",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570465557956998502",
-          "action": "",
-          "repeat_count": 3,
-          "punish_time": "2026-09-23",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570443745800986342",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-09-08",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570442320794938321",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-09-07",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 2,
-      "new_severe_today": 0
-    },
-    {
       "seller_id": "645cc2bc54cf120001995dfb",
       "shop_name": "小利手工零食的店",
       "count": 86,
       "severe": 0,
-      "high_repeat": 42,
+      "high_repeat": 43,
       "top_domains": [
         [
           "未成年",
@@ -2433,49 +2269,29 @@
         ]
       ],
       "entities": {
-        "商品": 38,
-        "直播间": 48
+        "直播间": 48,
+        "商品": 38
       },
       "punish_types": {
-        "白盒": 38,
-        "黑盒": 48
+        "黑盒": 48,
+        "白盒": 38
       },
       "samples": [
         {
           "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "654c5f2b14612200017ba2ee",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570462960250833860",
-          "action": "",
-          "repeat_count": 8,
-          "punish_time": "2026-09-21",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570447030796744601",
+          "entity_id": "570433927351327149",
           "action": "",
           "repeat_count": 13,
-          "punish_time": "2026-09-10",
+          "punish_time": "2026-09-01",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6a4ca20d2f72a60015c9175d",
+          "entity_id": "64a237ee460b7500012ac580",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -2485,10 +2301,30 @@
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570468716788967215",
+          "entity_id": "570451321351625119",
           "action": "",
-          "repeat_count": 4,
-          "punish_time": "2026-09-25",
+          "repeat_count": 13,
+          "punish_time": "2026-09-13",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570439724486950848",
+          "action": "",
+          "repeat_count": 13,
+          "punish_time": "2026-09-05",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570445522340189032",
+          "action": "",
+          "repeat_count": 13,
+          "punish_time": "2026-09-09",
           "punish_type": "黑盒"
         }
       ],
@@ -2496,15 +2332,195 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "664f1d49dd2218000187ddf6",
-      "shop_name": "像宝石一样的巧克力的店",
-      "count": 88,
+      "seller_id": "66ecfeaad1b4c20015680908",
+      "shop_name": "能妈妈美食的店",
+      "count": 70,
+      "severe": 0,
+      "high_repeat": 42,
+      "top_domains": [
+        [
+          "未成年",
+          58
+        ],
+        [
+          "食品行业治理",
+          9
+        ],
+        [
+          "涉政",
+          1
+        ]
+      ],
+      "top_tags": [
+        [
+          "",
+          70
+        ]
+      ],
+      "entities": {
+        "直播间": 60,
+        "商品": 9,
+        "笔记": 1
+      },
+      "punish_types": {
+        "黑盒": 60,
+        "白盒": 10
+      },
+      "samples": [
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570462985893909748",
+          "action": "",
+          "repeat_count": 6,
+          "punish_time": "2026-09-21",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570446677283525626",
+          "action": "",
+          "repeat_count": 12,
+          "punish_time": "2026-09-10",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570439731282693118",
+          "action": "",
+          "repeat_count": 11,
+          "punish_time": "2026-09-05",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "69ca050251d7aa00018de859",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570474275465477044",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-09-29",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 4,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "691dc42a0000000037003712",
+      "shop_name": "用户(691dc42a)",
+      "count": 52,
       "severe": 0,
       "high_repeat": 38,
       "top_domains": [
         [
           "未成年",
-          48
+          46
+        ],
+        [
+          "食品行业治理",
+          5
+        ],
+        [
+          "用户体验",
+          1
+        ]
+      ],
+      "top_tags": [
+        [
+          "",
+          52
+        ]
+      ],
+      "entities": {
+        "直播间": 46,
+        "商品": 5,
+        "用户": 1
+      },
+      "punish_types": {
+        "黑盒": 47,
+        "白盒": 5
+      },
+      "samples": [
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570434030538843731",
+          "action": "",
+          "repeat_count": 13,
+          "punish_time": "2026-09-01",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570445785910774582",
+          "action": "",
+          "repeat_count": 13,
+          "punish_time": "2026-09-09",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "699854542ab5130001263dea",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-03",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570464612175074862",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-09-22",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "6998573990d16a00012cff6a",
+          "action": "",
+          "repeat_count": 1,
+          "punish_time": "2026-09-02",
+          "punish_type": "白盒"
+        }
+      ],
+      "new_today": 0,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "664f1d49dd2218000187ddf6",
+      "shop_name": "像宝石一样的巧克力的店",
+      "count": 87,
+      "severe": 0,
+      "high_repeat": 38,
+      "top_domains": [
+        [
+          "未成年",
+          47
         ],
         [
           "计次处置",
@@ -2518,70 +2534,70 @@
       "top_tags": [
         [
           "",
-          88
+          87
         ]
       ],
       "entities": {
-        "商品": 12,
-        "直播间": 76
+        "直播间": 75,
+        "商品": 12
       },
       "punish_types": {
-        "白盒": 22,
-        "黑盒": 66
+        "黑盒": 65,
+        "白盒": 22
       },
       "samples": [
         {
           "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "66558f29bd70160001c2fb36",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-03",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570448243720443042",
+          "entity_id": "570458206396695549",
           "action": "",
-          "repeat_count": 9,
-          "punish_time": "2026-09-11",
+          "repeat_count": 8,
+          "punish_time": "2026-09-18",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570437965815548688",
+          "entity_id": "570436601559462964",
           "action": "",
           "repeat_count": 9,
-          "punish_time": "2026-09-04",
+          "punish_time": "2026-09-03",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "计次处置",
           "entity_type": "直播间",
-          "entity_id": "570471370423711679",
+          "entity_id": "570448243720443042",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-09-27",
+          "repeat_count": 2,
+          "punish_time": "2026-09-11",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "673c7d34684ff20001666e6b",
+          "entity_id": "66dab710b271ae0001c12eaa",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-03",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "66e14e3edb8bc00001529f34",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-03",
           "punish_type": "白盒"
         }
       ],
-      "new_today": 2,
+      "new_today": 1,
       "new_severe_today": 0
     },
     {
@@ -2624,27 +2640,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "67492ca649ec9e00013ff271",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570446780430454115",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-09-10",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "6566c8093edc980001c33ca6",
+          "entity_id": "694cfa33b2492100017e1a47",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -2654,7 +2650,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "64acc88799699c0001eeac1d",
+          "entity_id": "66d3d4c1378c7400019ab3da",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -2664,7 +2660,27 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "675a75975677c90001c4c9bf",
+          "entity_id": "66289b839caea10001957cf5",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "664c2e26e26fdb00010d6aaa",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "6715c996c432ef000155612f",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -2677,7 +2693,7 @@
     {
       "seller_id": "66e63edf000000001d03366f",
       "shop_name": "用户(66e63edf)",
-      "count": 60,
+      "count": 59,
       "severe": 0,
       "high_repeat": 30,
       "top_domains": [
@@ -2697,46 +2713,36 @@
       "top_tags": [
         [
           "",
-          60
+          59
         ]
       ],
       "entities": {
-        "笔记": 29,
-        "直播间": 31
+        "直播间": 31,
+        "笔记": 28
       },
       "punish_types": {
-        "白盒": 18,
-        "黑盒": 42
+        "黑盒": 42,
+        "白盒": 17
       },
       "samples": [
         {
           "tag": "",
-          "domain": "侵害财产安全",
-          "entity_type": "笔记",
-          "entity_id": "6a9bd4e4000000000d025f3b",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-09",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570448300799429559",
+          "entity_id": "570455547817626322",
           "action": "",
           "repeat_count": 13,
-          "punish_time": "2026-09-11",
+          "punish_time": "2026-09-16",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570461347590008404",
+          "entity_id": "570452649822490003",
           "action": "",
-          "repeat_count": 9,
-          "punish_time": "2026-09-20",
+          "repeat_count": 13,
+          "punish_time": "2026-09-14",
           "punish_type": "黑盒"
         },
         {
@@ -2751,226 +2757,59 @@
         },
         {
           "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570451199851283931",
-          "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-09-13",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 1,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "62db5fc6000000001e01dcb2",
-      "shop_name": "用户(62db5fc6)",
-      "count": 42,
-      "severe": 0,
-      "high_repeat": 30,
-      "top_domains": [
-        [
-          "未成年",
-          35
-        ],
-        [
-          "商业生态",
-          4
-        ],
-        [
-          "特殊垂类-医疗医美",
-          3
-        ]
-      ],
-      "top_tags": [
-        [
-          "",
-          42
-        ]
-      ],
-      "entities": {
-        "笔记": 7,
-        "直播间": 35
-      },
-      "punish_types": {
-        "黑盒": 42
-      },
-      "samples": [
-        {
-          "tag": "",
-          "domain": "商业生态",
+          "domain": "新品牌治理",
           "entity_type": "笔记",
-          "entity_id": "6ab231ff000000003a022f36",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-22",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570435281106518085",
-          "action": "",
-          "repeat_count": 10,
-          "punish_time": "2026-09-02",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570446880304413223",
-          "action": "",
-          "repeat_count": 12,
-          "punish_time": "2026-09-10",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570432530729826951",
-          "action": "",
-          "repeat_count": 10,
-          "punish_time": "2026-08-31",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "特殊垂类-医疗医美",
-          "entity_type": "笔记",
-          "entity_id": "6aa21f380000000028033cca",
-          "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-09-10",
-          "punish_type": "黑盒"
-        }
-      ],
-      "new_today": 1,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "6426fc6b0000000011022a98",
-      "shop_name": "用户(6426fc6b)",
-      "count": 42,
-      "severe": 0,
-      "high_repeat": 30,
-      "top_domains": [
-        [
-          "未成年",
-          35
-        ],
-        [
-          "问题账号",
-          4
-        ],
-        [
-          "内容画风",
-          3
-        ]
-      ],
-      "top_tags": [
-        [
-          "",
-          42
-        ]
-      ],
-      "entities": {
-        "直播间": 35,
-        "笔记": 7
-      },
-      "punish_types": {
-        "黑盒": 38,
-        "白盒": 4
-      },
-      "samples": [
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570462312993327347",
-          "action": "",
-          "repeat_count": 7,
-          "punish_time": "2026-09-21",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570463762804314297",
-          "action": "",
-          "repeat_count": 6,
-          "punish_time": "2026-09-22",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6aab6f7d000000002900c92a",
+          "entity_id": "6a9e7cd8000000002503456c",
           "action": "",
           "repeat_count": 1,
-          "punish_time": "2026-09-17",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "问题账号",
-          "entity_type": "笔记",
-          "entity_id": "6abb61740000000015016e79",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-29",
-          "punish_type": "白盒"
+          "punish_time": "2026-09-07",
+          "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570431857475891913",
+          "entity_id": "570474392385595091",
           "action": "",
-          "repeat_count": 13,
-          "punish_time": "2026-08-31",
+          "repeat_count": 1,
+          "punish_time": "2026-09-29",
           "punish_type": "黑盒"
         }
       ],
-      "new_today": 2,
+      "new_today": 1,
       "new_severe_today": 0
     },
     {
       "seller_id": "64f04e19effd830001b57088",
       "shop_name": "Choco Magic巧可曼的店",
-      "count": 36,
+      "count": 37,
       "severe": 0,
-      "high_repeat": 29,
+      "high_repeat": 30,
       "top_domains": [
         [
           "未成年",
-          34
-        ],
-        [
-          "影响互动体验",
-          1
+          35
         ],
         [
           "商业生态",
+          1
+        ],
+        [
+          "影响互动体验",
           1
         ]
       ],
       "top_tags": [
         [
           "",
-          36
+          37
         ]
       ],
       "entities": {
-        "直播间": 36
+        "直播间": 37
       },
       "punish_types": {
-        "黑盒": 34,
+        "黑盒": 35,
         "白盒": 2
       },
       "samples": [
@@ -2978,19 +2817,188 @@
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570435084108460219",
+          "entity_id": "570475600932920729",
           "action": "",
-          "repeat_count": 11,
-          "punish_time": "2026-09-02",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "商业生态",
+          "entity_type": "直播间",
+          "entity_id": "570458206328969053",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-18",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570446803800728810",
+          "action": "",
+          "repeat_count": 12,
+          "punish_time": "2026-09-10",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570469812522120097",
+          "entity_id": "570449508707690002",
           "action": "",
-          "repeat_count": 2,
+          "repeat_count": 12,
+          "punish_time": "2026-09-12",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570464003474901310",
+          "action": "",
+          "repeat_count": 7,
+          "punish_time": "2026-09-22",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 1,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "6452041f0000000012035ea2",
+      "shop_name": "用户(6452041f)",
+      "count": 48,
+      "severe": 0,
+      "high_repeat": 30,
+      "top_domains": [
+        [
+          "未成年",
+          26
+        ],
+        [
+          "商业生态",
+          17
+        ],
+        [
+          "问题账号",
+          5
+        ]
+      ],
+      "top_tags": [
+        [
+          "",
+          48
+        ]
+      ],
+      "entities": {
+        "直播间": 26,
+        "笔记": 22
+      },
+      "punish_types": {
+        "黑盒": 43,
+        "白盒": 5
+      },
+      "samples": [
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570449824673373371",
+          "action": "",
+          "repeat_count": 12,
+          "punish_time": "2026-09-12",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "6ab08399000000002b01cd36",
+          "action": "",
+          "repeat_count": 4,
+          "punish_time": "2026-09-21",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570466714461878074",
+          "action": "",
+          "repeat_count": 4,
+          "punish_time": "2026-09-24",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570465247529224252",
+          "action": "",
+          "repeat_count": 5,
+          "punish_time": "2026-09-23",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "6aae4cfd000000002803bca1",
+          "action": "",
+          "repeat_count": 6,
+          "punish_time": "2026-09-19",
+          "punish_type": "黑盒"
+        }
+      ],
+      "new_today": 2,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "69d8d8ad3a119e0015eaf849",
+      "shop_name": "四喜鲜饺的店",
+      "count": 43,
+      "severe": 0,
+      "high_repeat": 30,
+      "top_domains": [
+        [
+          "未成年",
+          35
+        ],
+        [
+          "食品行业治理",
+          2
+        ],
+        [
+          "商业生态",
+          2
+        ]
+      ],
+      "top_tags": [
+        [
+          "",
+          43
+        ]
+      ],
+      "entities": {
+        "直播间": 40,
+        "商品": 2,
+        "笔记": 1
+      },
+      "punish_types": {
+        "黑盒": 38,
+        "白盒": 5
+      },
+      "samples": [
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570469561400737043",
+          "action": "",
+          "repeat_count": 4,
           "punish_time": "2026-09-26",
           "punish_type": "黑盒"
         },
@@ -2998,30 +3006,40 @@
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570468352704838610",
+          "entity_id": "570443469899745457",
           "action": "",
-          "repeat_count": 3,
-          "punish_time": "2026-09-25",
+          "repeat_count": 13,
+          "punish_time": "2026-09-08",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570455397527521635",
+          "entity_id": "570445549351785575",
+          "action": "",
+          "repeat_count": 13,
+          "punish_time": "2026-09-09",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570433321894237027",
           "action": "",
           "repeat_count": 12,
-          "punish_time": "2026-09-16",
+          "punish_time": "2026-09-01",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570459603025497193",
+          "entity_id": "570447834089655533",
           "action": "",
-          "repeat_count": 9,
-          "punish_time": "2026-09-19",
+          "repeat_count": 13,
+          "punish_time": "2026-09-11",
           "punish_type": "黑盒"
         }
       ],
@@ -3031,9 +3049,99 @@
   ],
   "new_burst": [
     {
+      "seller_id": "69b8f63a0000000032019f1f",
+      "shop_name": "用户(69b8f63a)",
+      "count": 11,
+      "severe": 0,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "商业生态",
+          11
+        ]
+      ],
+      "top_tags": [
+        [
+          "",
+          11
+        ]
+      ],
+      "entities": {
+        "笔记": 11
+      },
+      "punish_types": {
+        "黑盒": 11
+      },
+      "samples": [
+        {
+          "tag": "",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "6abca8dc000000001a030678",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "6abca955000000000100961d",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "6abcb77a0000000018017536",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "6a0436090000000007027245",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "6abca9f1000000001802ba70",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        }
+      ],
+      "active_count": 102,
+      "active_severe": 0,
+      "active_high_repeat": 59,
+      "active_top_domains": [
+        [
+          "商业生态",
+          90
+        ],
+        [
+          "问题账号",
+          12
+        ]
+      ]
+    },
+    {
       "seller_id": "691af3090000000037005988",
       "shop_name": "用户(691af309)",
-      "count": 9,
+      "count": 11,
       "severe": 0,
       "high_repeat": 0,
       "top_domains": [
@@ -3043,50 +3151,30 @@
         ],
         [
           "商业生态",
-          1
+          3
         ]
       ],
       "top_tags": [
         [
           "",
-          9
+          11
         ]
       ],
       "entities": {
-        "笔记": 9
+        "笔记": 11
       },
       "punish_types": {
-        "黑盒": 9
+        "黑盒": 11
       },
       "samples": [
         {
           "tag": "",
           "domain": "色情低俗",
           "entity_type": "笔记",
-          "entity_id": "6abb73c1000000000b0074d1",
+          "entity_id": "6abb72d7000000001801307d",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-09-29",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "色情低俗",
-          "entity_type": "笔记",
-          "entity_id": "6abb73c1000000000b0074d1",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-29",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "色情低俗",
-          "entity_type": "笔记",
-          "entity_id": "6abb7696000000000a027fa3",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-29",
+          "punish_time": "2026-09-30",
           "punish_type": "黑盒"
         },
         {
@@ -3096,31 +3184,51 @@
           "entity_id": "6abb73300000000014002332",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-09-29",
+          "punish_time": "2026-09-30",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "色情低俗",
           "entity_type": "笔记",
-          "entity_id": "6abb72d7000000001801307d",
+          "entity_id": "6abcc09c000000001801054d",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-09-29",
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "色情低俗",
+          "entity_type": "笔记",
+          "entity_id": "6aba26d10000000014038ff9",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "6abcbc6f000000001a024ca9",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
           "punish_type": "黑盒"
         }
       ],
-      "active_count": 19,
+      "active_count": 30,
       "active_severe": 0,
       "active_high_repeat": 0,
       "active_top_domains": [
         [
           "色情低俗",
-          10
+          18
         ],
         [
           "商业生态",
-          6
+          9
         ],
         [
           "特殊垂类-医疗医美",
@@ -3129,97 +3237,296 @@
       ]
     },
     {
-      "seller_id": "69b8f63a0000000032019f1f",
-      "shop_name": "用户(69b8f63a)",
-      "count": 8,
+      "seller_id": "624553af000000001000c902",
+      "shop_name": "用户(624553af)",
+      "count": 6,
       "severe": 0,
       "high_repeat": 0,
       "top_domains": [
         [
-          "商业生态",
-          7
+          "色情低俗",
+          4
         ],
         [
-          "问题账号",
+          "商业生态",
+          2
+        ]
+      ],
+      "top_tags": [
+        [
+          "",
+          6
+        ]
+      ],
+      "entities": {
+        "笔记": 6
+      },
+      "punish_types": {
+        "黑盒": 6
+      },
+      "samples": [
+        {
+          "tag": "",
+          "domain": "色情低俗",
+          "entity_type": "笔记",
+          "entity_id": "6abce7c3000000000a022028",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "色情低俗",
+          "entity_type": "笔记",
+          "entity_id": "6abcd868000000001303e642",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "69eb3bba000000001f031008",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "商业生态",
+          "entity_type": "笔记",
+          "entity_id": "69eb35d90000000020007002",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "色情低俗",
+          "entity_type": "笔记",
+          "entity_id": "6abcd8f5000000000a02387b",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        }
+      ],
+      "active_count": 36,
+      "active_severe": 0,
+      "active_high_repeat": 10,
+      "active_top_domains": [
+        [
+          "色情低俗",
+          31
+        ],
+        [
+          "商业生态",
+          3
+        ],
+        [
+          "侵权原因",
+          2
+        ]
+      ]
+    },
+    {
+      "seller_id": "68673b42000000001d0165b4",
+      "shop_name": "用户(68673b42)",
+      "count": 6,
+      "severe": 0,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "色情低俗",
+          5
+        ],
+        [
+          "氛围-群体对立",
           1
         ]
       ],
       "top_tags": [
         [
           "",
-          8
+          6
         ]
       ],
       "entities": {
-        "笔记": 8
+        "笔记": 6
       },
       "punish_types": {
-        "黑盒": 7,
-        "白盒": 1
+        "黑盒": 6
+      },
+      "samples": [
+        {
+          "tag": "",
+          "domain": "色情低俗",
+          "entity_type": "笔记",
+          "entity_id": "6abcaa5e000000001402d1bd",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "色情低俗",
+          "entity_type": "笔记",
+          "entity_id": "6abcaaf100000000140325bc",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "色情低俗",
+          "entity_type": "笔记",
+          "entity_id": "6aba0dde0000000018007435",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "色情低俗",
+          "entity_type": "笔记",
+          "entity_id": "6abca9c7000000000a01eb06",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "色情低俗",
+          "entity_type": "笔记",
+          "entity_id": "6abcaa5e000000001402d1bd",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        }
+      ],
+      "active_count": 39,
+      "active_severe": 0,
+      "active_high_repeat": 6,
+      "active_top_domains": [
+        [
+          "色情低俗",
+          19
+        ],
+        [
+          "商业生态",
+          14
+        ],
+        [
+          "氛围-群体对立",
+          3
+        ]
+      ]
+    },
+    {
+      "seller_id": "67d3ce7e000000000e01d24e",
+      "shop_name": "用户(67d3ce7e)",
+      "count": 6,
+      "severe": 0,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "商业生态",
+          5
+        ],
+        [
+          "内容画风",
+          1
+        ]
+      ],
+      "top_tags": [
+        [
+          "",
+          6
+        ]
+      ],
+      "entities": {
+        "笔记": 6
+      },
+      "punish_types": {
+        "黑盒": 6
       },
       "samples": [
         {
           "tag": "",
           "domain": "商业生态",
           "entity_type": "笔记",
-          "entity_id": "6aba0d8b000000000100a51a",
+          "entity_id": "6a1008b400000000060345fd",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-09-29",
+          "punish_time": "2026-09-30",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "内容画风",
+          "entity_type": "笔记",
+          "entity_id": "6abcbe0c00000000010099bd",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "商业生态",
           "entity_type": "笔记",
-          "entity_id": "6aba0ba0000000001b01d7da",
+          "entity_id": "6a0be00c0000000007011c1a",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-09-29",
+          "punish_time": "2026-09-30",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "商业生态",
           "entity_type": "笔记",
-          "entity_id": "6aba0c36000000000a01f5cd",
+          "entity_id": "6a0d4ddf0000000008032514",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-09-29",
+          "punish_time": "2026-09-30",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "商业生态",
           "entity_type": "笔记",
-          "entity_id": "6aba0d250000000018015145",
+          "entity_id": "6a0a88840000000008024b9c",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-09-29",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "商业生态",
-          "entity_type": "笔记",
-          "entity_id": "6aba0ad100000000180183a9",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-29",
+          "punish_time": "2026-09-30",
           "punish_type": "黑盒"
         }
       ],
-      "active_count": 102,
+      "active_count": 9,
       "active_severe": 0,
-      "active_high_repeat": 61,
+      "active_high_repeat": 0,
       "active_top_domains": [
         [
           "商业生态",
-          89
+          5
         ],
         [
-          "问题账号",
-          13
+          "内容画风",
+          3
+        ],
+        [
+          "笔记内容生态",
+          1
         ]
       ]
     }
@@ -3260,40 +3567,10 @@
         "店铺": 2
       },
       "punish_types": {
-        "黑盒": 25,
-        "白盒": 9
+        "白盒": 9,
+        "黑盒": 25
       },
       "samples": [
-        {
-          "tag": "",
-          "domain": "计次处置",
-          "entity_type": "直播间",
-          "entity_id": "570438332217031334",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-04",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "直播流量干预",
-          "entity_type": "直播间",
-          "entity_id": "570438332217031334",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-04",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "计次处置",
-          "entity_type": "直播间",
-          "entity_id": "570438332217031334",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-04",
-          "punish_type": "黑盒"
-        },
         {
           "tag": "",
           "domain": "影响观播体验",
@@ -3306,7 +3583,37 @@
         },
         {
           "tag": "",
-          "domain": "直播流量干预",
+          "domain": "计次处置",
+          "entity_type": "直播间",
+          "entity_id": "570438332217031334",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-04",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "平台保证金安全",
+          "entity_type": "店铺",
+          "entity_id": "67a8827fa45407001593e4af",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-17",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570471610388058448",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-27",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "计次处置",
           "entity_type": "直播间",
           "entity_id": "570438332217031334",
           "action": "",
@@ -3345,19 +3652,29 @@
         ]
       ],
       "entities": {
-        "商品": 74,
-        "直播间": 27
+        "直播间": 27,
+        "商品": 74
       },
       "punish_types": {
-        "白盒": 72,
-        "黑盒": 29
+        "黑盒": 29,
+        "白盒": 72
       },
       "samples": [
         {
           "tag": "",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570469561621899488",
+          "action": "",
+          "repeat_count": 3,
+          "punish_time": "2026-09-26",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "66f21d9675e23c0001c3adda",
+          "entity_id": "67355b1c714bf900017282c6",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -3367,87 +3684,17 @@
           "tag": "",
           "domain": "未成年",
           "entity_type": "直播间",
-          "entity_id": "570457964562583434",
+          "entity_id": "570459413970875645",
           "action": "",
           "repeat_count": 8,
-          "punish_time": "2026-09-18",
+          "punish_time": "2026-09-19",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "676ceb481514ef000117cda2",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "商品合规准入回查",
-          "entity_type": "商品",
-          "entity_id": "695612ea4e15d60001e0c9e0",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-17",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "6954d31d23d3ce00014296e7",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        }
-      ],
-      "new_today": 1,
-      "new_severe_today": 0
-    },
-    {
-      "seller_id": "6407ef3d9cd18100012e2bbb",
-      "shop_name": "Mamiya旗舰店",
-      "count": 567,
-      "severe": 1,
-      "high_repeat": 48,
-      "top_domains": [
-        [
-          "食品行业治理",
-          511
-        ],
-        [
-          "未成年",
-          53
-        ],
-        [
-          "商品导流",
-          2
-        ]
-      ],
-      "top_tags": [
-        [
-          "",
-          567
-        ]
-      ],
-      "entities": {
-        "商品": 513,
-        "直播间": 53,
-        "用户": 1
-      },
-      "punish_types": {
-        "白盒": 514,
-        "黑盒": 53
-      },
-      "samples": [
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "686f70841cfd980001ab0222",
+          "entity_id": "67affb2cdb1dc10001eb1a5e",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -3457,37 +3704,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6877820564e96a00011d1d50",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "68b144a9ae2af10001b9c482",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "66fe91a4b3c39900014ae2f5",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-24",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "6915a86a60f5970001422815",
+          "entity_id": "670f27e4c432ef0001ac960d",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-24",
@@ -3500,7 +3717,7 @@
     {
       "seller_id": "69ac144203e2c70015a2eea9",
       "shop_name": "綩朵的店",
-      "count": 797,
+      "count": 798,
       "severe": 1,
       "high_repeat": 19,
       "top_domains": [
@@ -3520,15 +3737,15 @@
       "top_tags": [
         [
           "",
-          797
+          798
         ]
       ],
       "entities": {
-        "商品": 794,
+        "商品": 795,
         "店铺": 3
       },
       "punish_types": {
-        "白盒": 789,
+        "白盒": 790,
         "黑盒": 8
       },
       "samples": [
@@ -3536,7 +3753,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "69af8b32fbdff600018a1e2c",
+          "entity_id": "69cda95a691abd0001ce5fc9",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-02",
@@ -3544,19 +3761,9 @@
         },
         {
           "tag": "",
-          "domain": "商品导流",
-          "entity_type": "商品",
-          "entity_id": "6aa199205152e500013d0e55",
-          "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-09-10",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "69cdc2f9069e7b00015cb17d",
+          "entity_id": "69cb3e4f2fb6290001c03dae",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-02",
@@ -3564,92 +3771,122 @@
         },
         {
           "tag": "",
-          "domain": "商品导流",
+          "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "69af8ee31166fe0001fc662a",
+          "entity_id": "69b38679916f6b0001c65f36",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-09-10",
+          "repeat_count": 0,
+          "punish_time": "2026-09-02",
           "punish_type": "白盒"
         },
         {
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "69adf3c41166fe0001cbf032",
+          "entity_id": "69d0bcf29fe19c0001110b5e",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-02",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "69c4cf2aca64b3000146a5f1",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-02",
           "punish_type": "白盒"
         }
       ],
-      "new_today": 0,
+      "new_today": 1,
       "new_severe_today": 0
     },
     {
-      "seller_id": "6a0bfd8412a66d00159d300e",
-      "shop_name": "肖姐吃四方的店",
-      "count": 3,
+      "seller_id": "6407ef3d9cd18100012e2bbb",
+      "shop_name": "Mamiya旗舰店",
+      "count": 566,
       "severe": 1,
-      "high_repeat": 0,
+      "high_repeat": 47,
       "top_domains": [
         [
-          "商业生态",
-          1
+          "食品行业治理",
+          511
         ],
         [
-          "笔记内容生态",
-          1
+          "未成年",
+          52
         ],
         [
-          "商品举报",
-          1
+          "商品导流",
+          2
         ]
       ],
       "top_tags": [
         [
           "",
-          3
+          566
         ]
       ],
       "entities": {
-        "笔记": 1,
-        "用户": 1,
-        "商品": 1
+        "直播间": 52,
+        "商品": 513,
+        "用户": 1
       },
       "punish_types": {
-        "黑盒": 1,
-        "白盒": 2
+        "黑盒": 52,
+        "白盒": 514
       },
       "samples": [
         {
           "tag": "",
-          "domain": "商业生态",
-          "entity_type": "笔记",
-          "entity_id": "6aba35b9000000001802e8df",
+          "domain": "未成年",
+          "entity_type": "直播间",
+          "entity_id": "570452346018225551",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-09-28",
+          "repeat_count": 12,
+          "punish_time": "2026-09-14",
           "punish_type": "黑盒"
         },
         {
           "tag": "",
-          "domain": "笔记内容生态",
-          "entity_type": "用户",
-          "entity_id": "6981c94e0000000021021a88",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "6642fd149f9a970001e39736",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-09-06",
+          "punish_time": "2026-09-24",
           "punish_type": "白盒"
         },
         {
           "tag": "",
-          "domain": "商品举报",
+          "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "6a169b1e16e02e00012921f4",
+          "entity_id": "68a2c5a81745f6000107fc0f",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-09-29",
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "6909a7c547309000018ce621",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "67823986fb6ac0000193926e",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-24",
           "punish_type": "白盒"
         }
       ],
@@ -3659,44 +3896,34 @@
     {
       "seller_id": "6a2107a18228a600152aa792",
       "shop_name": "好市客零食分装的店",
-      "count": 13,
+      "count": 11,
       "severe": 1,
       "high_repeat": 0,
       "top_domains": [
         [
           "权利人投诉",
           11
-        ],
-        [
-          "未成年",
-          1
-        ],
-        [
-          "商品导流",
-          1
         ]
       ],
       "top_tags": [
         [
           "",
-          13
+          11
         ]
       ],
       "entities": {
-        "商品": 10,
-        "直播间": 1,
+        "商品": 9,
         "店铺": 2
       },
       "punish_types": {
-        "白盒": 12,
-        "黑盒": 1
+        "白盒": 11
       },
       "samples": [
         {
           "tag": "",
           "domain": "权利人投诉",
           "entity_type": "商品",
-          "entity_id": "6a2235884ab6d300153fc95e",
+          "entity_id": "6a2235368a78380015b9d3c3",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-09",
@@ -3714,19 +3941,9 @@
         },
         {
           "tag": "",
-          "domain": "未成年",
-          "entity_type": "直播间",
-          "entity_id": "570432327790416753",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-08-31",
-          "punish_type": "黑盒"
-        },
-        {
-          "tag": "",
           "domain": "权利人投诉",
           "entity_type": "商品",
-          "entity_id": "6a2235fdab3c8500152b2918",
+          "entity_id": "6a22374382f5610015603d8d",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-09",
@@ -3736,7 +3953,17 @@
           "tag": "",
           "domain": "权利人投诉",
           "entity_type": "商品",
-          "entity_id": "6a2237c6ab3c8500152b3f36",
+          "entity_id": "6a223680c3604d0015e5d01b",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-09",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "权利人投诉",
+          "entity_type": "商品",
+          "entity_id": "6a223577eb8eff00153d387e",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-09",
@@ -3780,10 +4007,30 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "697ac75f3d52b200013b6db9",
+          "entity_id": "6965c049ce1e9f00019c5292",
           "action": "",
-          "repeat_count": 1,
-          "punish_time": "2026-09-02",
+          "repeat_count": 0,
+          "punish_time": "2026-09-03",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "696dd1c29727930001ad6bb7",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-03",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "食品行业治理",
+          "entity_type": "商品",
+          "entity_id": "69732edf8dc4b30001cc6b49",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-03",
           "punish_type": "白盒"
         },
         {
@@ -3800,27 +4047,7 @@
           "tag": "",
           "domain": "食品行业治理",
           "entity_type": "商品",
-          "entity_id": "69732edf8dc4b30001cc6b49",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-03",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "695e107eb1e66600017c3e04",
-          "action": "",
-          "repeat_count": 0,
-          "punish_time": "2026-09-03",
-          "punish_type": "白盒"
-        },
-        {
-          "tag": "",
-          "domain": "食品行业治理",
-          "entity_type": "商品",
-          "entity_id": "6965c049ce1e9f00019c5292",
+          "entity_id": "697ac5b02a96a00001b06d42",
           "action": "",
           "repeat_count": 0,
           "punish_time": "2026-09-03",
@@ -3870,22 +4097,22 @@
       "new_severe_today": 0
     },
     {
-      "seller_id": "6a609754e9667f00167956f2",
-      "shop_name": "鲜小满的店",
+      "seller_id": "6a0bfd8412a66d00159d300e",
+      "shop_name": "肖姐吃四方的店",
       "count": 3,
       "severe": 1,
       "high_repeat": 0,
       "top_domains": [
         [
-          "平台 吐槽",
-          1
-        ],
-        [
-          "发货违规管理",
+          "商业生态",
           1
         ],
         [
           "笔记内容生态",
+          1
+        ],
+        [
+          "商品举报",
           1
         ]
       ],
@@ -3897,8 +4124,8 @@
       ],
       "entities": {
         "笔记": 1,
-        "店铺": 1,
-        "用户": 1
+        "用户": 1,
+        "商品": 1
       },
       "punish_types": {
         "黑盒": 1,
@@ -3907,13 +4134,83 @@
       "samples": [
         {
           "tag": "",
-          "domain": "平台 吐槽",
+          "domain": "商业生态",
           "entity_type": "笔记",
-          "entity_id": "6aafc0b3000000000d024b29",
+          "entity_id": "6abcdf7c000000001a021543",
           "action": "",
-          "repeat_count": 2,
-          "punish_time": "2026-09-21",
+          "repeat_count": 0,
+          "punish_time": "2026-09-30",
           "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "笔记内容生态",
+          "entity_type": "用户",
+          "entity_id": "6981c94e0000000021021a88",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-06",
+          "punish_type": "白盒"
+        },
+        {
+          "tag": "",
+          "domain": "商品举报",
+          "entity_type": "商品",
+          "entity_id": "6a169b1e16e02e00012921f4",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-29",
+          "punish_type": "白盒"
+        }
+      ],
+      "new_today": 1,
+      "new_severe_today": 0
+    },
+    {
+      "seller_id": "6a609754e9667f00167956f2",
+      "shop_name": "鲜小满的店",
+      "count": 4,
+      "severe": 1,
+      "high_repeat": 0,
+      "top_domains": [
+        [
+          "笔记内容生态",
+          2
+        ],
+        [
+          "发货违规管理",
+          1
+        ],
+        [
+          "平台 吐槽",
+          1
+        ]
+      ],
+      "top_tags": [
+        [
+          "",
+          4
+        ]
+      ],
+      "entities": {
+        "用户": 1,
+        "店铺": 1,
+        "笔记": 2
+      },
+      "punish_types": {
+        "白盒": 3,
+        "黑盒": 1
+      },
+      "samples": [
+        {
+          "tag": "",
+          "domain": "笔记内容生态",
+          "entity_type": "用户",
+          "entity_id": "6067dbc500000000010001ca",
+          "action": "",
+          "repeat_count": 0,
+          "punish_time": "2026-09-20",
+          "punish_type": "白盒"
         },
         {
           "tag": "",
@@ -3927,12 +4224,22 @@
         },
         {
           "tag": "",
-          "domain": "笔记内容生态",
-          "entity_type": "用户",
-          "entity_id": "6067dbc500000000010001ca",
+          "domain": "平台 吐槽",
+          "entity_type": "笔记",
+          "entity_id": "6abb6575000000001c01e1fd",
           "action": "",
           "repeat_count": 0,
-          "punish_time": "2026-09-20",
+          "punish_time": "2026-09-29",
+          "punish_type": "黑盒"
+        },
+        {
+          "tag": "",
+          "domain": "笔记内容生态",
+          "entity_type": "笔记",
+          "entity_id": "6aaaa7df00000000260399de",
+          "action": "",
+          "repeat_count": 2,
+          "punish_time": "2026-09-17",
           "punish_type": "白盒"
         }
       ],
