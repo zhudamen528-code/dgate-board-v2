@@ -1,27 +1,27 @@
 {
- "day": "2026-09-30",
- "generated_at": "2026-10-01 09:42",
+ "day": "2026-10-01",
+ "generated_at": "2026-10-02 09:43",
  "red_line": 5,
  "warn_line": 3,
  "cnt_source": "self_detail",
  "flag_conflicts": [],
  "flag_conflict_total": 0,
  "roster_total": 296,
- "new_orders": 232,
- "new_shops": 94,
+ "new_orders": 149,
+ "new_shops": 65,
  "new_severe": 0,
  "new_severe_shops": 0,
- "sev_active_orders": 19,
+ "sev_active_orders": 18,
  "sev_stale_orders": 0,
- "sev_raw_orders": 19,
- "sev_active_shops": 16,
- "aff_active_orders": 1985,
- "aff_active_shops": 206,
+ "sev_raw_orders": 18,
+ "sev_active_shops": 15,
+ "aff_active_orders": 1983,
+ "aff_active_shops": 205,
  "tier": {
   "disqualified": 0,
   "critical": 0,
-  "watch": 16,
-  "safe": 280
+  "watch": 15,
+  "safe": 281
  },
  "am_count": 11
 }
