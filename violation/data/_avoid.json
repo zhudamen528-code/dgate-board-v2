@@ -1,19 +1,19 @@
 [
   {
     "risk_domain": "食品行业治理",
-    "active_count": 9028,
-    "active_pct": 67.3,
+    "active_count": 7606,
+    "active_pct": 63.9,
     "new_count": 0,
     "top_sub_domains": [
       [
         "商品维度策略",
-        9028
+        7606
       ]
     ],
     "top_tags": [
       [
         "",
-        9028
+        7606
       ]
     ],
     "top_sellers": [
@@ -26,8 +26,8 @@
         511
       ],
       [
-        "蓝昔鸟食品的店",
-        460
+        "斯贝利精选食品的店",
+        448
       ]
     ],
     "risk": "食品行业治理 - 暂无标准模板，请人工梳理",
@@ -35,33 +35,33 @@
   },
   {
     "risk_domain": "未成年",
-    "active_count": 1902,
-    "active_pct": 14.2,
-    "new_count": 47,
+    "active_count": 1857,
+    "active_pct": 15.6,
+    "new_count": 32,
     "top_sub_domains": [
       [
         "未成年社交风险行为",
-        1902
+        1857
       ]
     ],
     "top_tags": [
       [
         "",
-        1902
+        1857
       ]
     ],
     "top_sellers": [
       [
         "农村老于头的店",
-        115
+        113
       ],
       [
         "小乔爱吃的店",
-        70
+        69
       ],
       [
         "上英山书圣故里体验店的店",
-        66
+        67
       ]
     ],
     "risk": "未成年 - 暂无标准模板，请人工梳理",
@@ -69,36 +69,36 @@
   },
   {
     "risk_domain": "商业生态",
-    "active_count": 501,
-    "active_pct": 3.7,
-    "new_count": 58,
+    "active_count": 493,
+    "active_pct": 4.1,
+    "new_count": 12,
     "top_sub_domains": [
       [
         "导流",
-        481
+        471
       ],
       [
         "其他",
-        20
+        22
       ]
     ],
     "top_tags": [
       [
         "",
-        501
+        493
       ]
     ],
     "top_sellers": [
       [
         "用户(69b8f63a)",
-        90
+        79
       ],
       [
         "用户(6790ca6f)",
-        21
+        23
       ],
       [
-        "用户(6452041f)",
+        "用户(64f5ce77)",
         17
       ]
     ],
@@ -111,17 +111,17 @@
   },
   {
     "risk_domain": "色情低俗",
-    "active_count": 237,
-    "active_pct": 1.8,
-    "new_count": 19,
+    "active_count": 234,
+    "active_pct": 2.0,
+    "new_count": 5,
     "top_sub_domains": [
       [
         "综合",
-        84
+        78
       ],
       [
         "暴露",
-        65
+        67
       ],
       [
         "性感",
@@ -131,7 +131,7 @@
     "top_tags": [
       [
         "",
-        237
+        234
       ]
     ],
     "top_sellers": [
@@ -141,11 +141,11 @@
       ],
       [
         "用户(68cb6dfe)",
-        39
+        42
       ],
       [
         "用户(624553af)",
-        31
+        32
       ]
     ],
     "risk": "色情低俗 / 性暗示 / 影响平台调性",
@@ -157,37 +157,37 @@
   },
   {
     "risk_domain": "虚假宣传笔记",
-    "active_count": 207,
-    "active_pct": 1.5,
-    "new_count": 1,
+    "active_count": 200,
+    "active_pct": 1.7,
+    "new_count": 6,
     "top_sub_domains": [
       [
         "虚假宣传合规",
-        195
+        189
       ],
       [
         "虚假宣传体验",
-        12
+        11
       ]
     ],
     "top_tags": [
       [
         "",
-        207
+        200
       ]
     ],
     "top_sellers": [
-      [
-        "用户(5d39b91f)",
-        12
-      ],
       [
         "用户(6a267a17)",
         11
       ],
       [
+        "用户(5d39b91f)",
+        10
+      ],
+      [
         "用户(6a51e8bc)",
-        8
+        9
       ]
     ],
     "risk": "笔记虚假宣传：夸大产品效果、虚构使用场景、误导消费者",
@@ -199,17 +199,17 @@
   },
   {
     "risk_domain": "特殊垂类-医疗医美",
-    "active_count": 146,
-    "active_pct": 1.1,
-    "new_count": 3,
+    "active_count": 143,
+    "active_pct": 1.2,
+    "new_count": 6,
     "top_sub_domains": [
       [
         "医疗内容风险互动",
-        134
+        130
       ],
       [
         "医疗营销违规",
-        5
+        6
       ],
       [
         "医疗行业违规推广",
@@ -219,17 +219,17 @@
     "top_tags": [
       [
         "",
-        146
+        143
       ]
     ],
     "top_sellers": [
       [
         "用户(6a6b0107)",
-        25
+        24
       ],
       [
         "用户(6a6b2f2d)",
-        16
+        17
       ],
       [
         "用户(5c6526e5)",
@@ -246,13 +246,13 @@
   },
   {
     "risk_domain": "问题账号",
-    "active_count": 121,
-    "active_pct": 0.9,
-    "new_count": 3,
+    "active_count": 116,
+    "active_pct": 1.0,
+    "new_count": 0,
     "top_sub_domains": [
       [
         "工业化量产号",
-        119
+        114
       ],
       [
         "高频低质号",
@@ -262,21 +262,21 @@
     "top_tags": [
       [
         "",
-        121
+        116
       ]
     ],
     "top_sellers": [
-      [
-        "用户(69b8f63a)",
-        12
-      ],
       [
         "用户(66e63edf)",
         11
       ],
       [
+        "用户(69b8f63a)",
+        10
+      ],
+      [
         "用户(68c6bdd3)",
-        8
+        9
       ]
     ],
     "risk": "账号被识别为问题账号 → 整体沉底/降权（一旦命中影响所有内容）",
@@ -289,8 +289,8 @@
   {
     "risk_domain": "商品导流",
     "active_count": 116,
-    "active_pct": 0.9,
-    "new_count": 0,
+    "active_pct": 1.0,
+    "new_count": 1,
     "top_sub_domains": [
       [
         "商品审核",
@@ -322,41 +322,41 @@
   },
   {
     "risk_domain": "笔记内容生态",
-    "active_count": 105,
-    "active_pct": 0.8,
-    "new_count": 6,
+    "active_count": 102,
+    "active_pct": 0.9,
+    "new_count": 5,
     "top_sub_domains": [
       [
         "虚假失真不实",
-        63
+        58
       ],
       [
         "博眼球骗互动",
-        26
+        24
       ],
       [
         "行为场景低差",
-        9
+        10
       ]
     ],
     "top_tags": [
       [
         "",
-        105
+        102
       ]
     ],
     "top_sellers": [
-      [
-        "用户(6a535949)",
-        6
-      ],
       [
         "用户(6a3b70e0)",
         5
       ],
       [
+        "用户(6067dbc5)",
+        4
+      ],
+      [
         "用户(6981c94e)",
-        5
+        4
       ]
     ],
     "risk": "AI 虚假不实 / 封标蹭热 / 工业化流水 / 特殊身份营销",
@@ -369,17 +369,17 @@
   },
   {
     "risk_domain": "违规营销笔记",
-    "active_count": 88,
+    "active_count": 89,
     "active_pct": 0.7,
-    "new_count": 3,
+    "new_count": 5,
     "top_sub_domains": [
       [
         "价格信息违规",
-        56
+        55
       ],
       [
         "带货内容不符",
-        27
+        29
       ],
       [
         "营销玩法违规",
@@ -389,20 +389,20 @@
     "top_tags": [
       [
         "",
-        88
+        89
       ]
     ],
     "top_sellers": [
       [
         "用户(6710841b)",
-        11
+        14
       ],
       [
         "用户(5da152cf)",
         8
       ],
       [
-        "用户(6826f6b0)",
+        "用户(5bdefee2)",
         6
       ]
     ],
@@ -416,13 +416,13 @@
   },
   {
     "risk_domain": "内容画风",
-    "active_count": 87,
-    "active_pct": 0.6,
+    "active_count": 88,
+    "active_pct": 0.7,
     "new_count": 3,
     "top_sub_domains": [
       [
         "【不真诚】夸张博眼球",
-        73
+        74
       ],
       [
         "违背文明秩序",
@@ -436,7 +436,7 @@
     "top_tags": [
       [
         "",
-        87
+        88
       ]
     ],
     "top_sellers": [
@@ -449,7 +449,7 @@
         4
       ],
       [
-        "用户(6426fc6b)",
+        "用户(68c6bdd3)",
         3
       ]
     ],
@@ -463,14 +463,14 @@
   },
   {
     "risk_domain": "计次处置",
-    "active_count": 66,
-    "active_pct": 0.5,
-    "new_count": 0,
+    "active_count": 71,
+    "active_pct": 0.6,
+    "new_count": 7,
     "top_sub_domains": [],
     "top_tags": [
       [
         "",
-        66
+        71
       ]
     ],
     "top_sellers": [
